@@ -4,6 +4,9 @@ This is a preliminary version of the Calcasa Public API. This service is current
 
 ## Changelog
 
+### 2021-11-15
+- Add callback update and read endpoints and models.
+
 ### 2021-11-11
 - Renamed /fundering endpoint to /funderingen to be more in line with other endpoints
 - Renamed `HerstelType` to `FunderingHerstelType`.
@@ -140,6 +143,8 @@ Class | Method | HTTP request | Description
 *BestemmingsplannenApi* | [**getBestemmingById**](docs/Api/BestemmingsplannenApi.md#getbestemmingbyid) | **GET** /api/v0/bestemmingsplannen/{id} | Gegevens over de bestemmingsplannen op de locatie van een adres (BAG Nummeraanduiding ID).
 *BodemApi* | [**getBodemById**](docs/Api/BodemApi.md#getbodembyid) | **GET** /api/v0/bodem/{id} | Gegevens over de bodemkwaliteit op de locatie van een adres (BAG Nummeraanduiding ID).
 *BuurtApi* | [**getBuurt**](docs/Api/BuurtApi.md#getbuurt) | **GET** /api/v0/buurt/{id} | Gegevens over een buurt en de wijk, gemeente en land waarin deze buurt gesitueerd is.
+*ConfiguratieApi* | [**getCallbacks**](docs/Api/ConfiguratieApi.md#getcallbacks) | **GET** /api/v0/configuratie/callbacks | Haal de geconfigureerde callback URL&#39;s op voor de huidige client.
+*ConfiguratieApi* | [**updateCallbacks**](docs/Api/ConfiguratieApi.md#updatecallbacks) | **POST** /api/v0/configuratie/callbacks | Configureer callback URL voor een specifieke API versie voor de huidige client.
 *FacturenApi* | [**getFactuur**](docs/Api/FacturenApi.md#getfactuur) | **GET** /api/v0/facturen/{id} | Factuur op basis van een Id.
 *FotosApi* | [**getFoto**](docs/Api/FotosApi.md#getfoto) | **GET** /api/v0/fotos/{id} | Foto op basis van Id.
 *FunderingenApi* | [**getFunderingById**](docs/Api/FunderingenApi.md#getfunderingbyid) | **GET** /api/v0/funderingen/{id} | Gegevens over de fundering op de locatie van een adres (BAG Nummeraanduiding ID).
@@ -160,6 +165,7 @@ Class | Method | HTTP request | Description
 - [Bodemdata](docs/Model/Bodemdata.md)
 - [BusinessRulesCode](docs/Model/BusinessRulesCode.md)
 - [BusinessRulesProblemDetails](docs/Model/BusinessRulesProblemDetails.md)
+- [Callback](docs/Model/Callback.md)
 - [CbsIndeling](docs/Model/CbsIndeling.md)
 - [Energielabel](docs/Model/Energielabel.md)
 - [Factuur](docs/Model/Factuur.md)
