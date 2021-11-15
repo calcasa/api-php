@@ -37,6 +37,8 @@ This is a preliminary version of the Calcasa Public API. This service is current
 
 - Initial release of v0
 
+## Client packages
+![Nuget](https://img.shields.io/nuget/v/Calcasa.Api?label=Nuget) - ![Packagist Downloads](https://img.shields.io/packagist/v/calcasa/api?label=Packagist) - ![PyPI - Downloads](https://img.shields.io/pypi/v/calcasa-api?label=PyPi)
 ## Client implementation notes
 Clients should at all times be tolerant to the following:
 
