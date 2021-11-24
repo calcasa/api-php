@@ -242,7 +242,7 @@ class Bodemdata implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets status
      *
-     * @param BodemStatusType|null $status | Waarde | Omschrijving | | --- | --- | | `geenData` |  | | `onbekend` |  | | `nietVervuild` |  | | `nietErnstig` |  | | `potentieelErnstig` |  | | `ernstig` |  |
+     * @param BodemStatusType|null $status De staat van de bodem, geeft aan of en in welke mate er sprake is van vervuiling. | Waarde | Omschrijving | | --- | --- | | `geenData` | Er is geen data beschikbaar over deze bodem. | | `onbekend` | De status van deze bodem is niet bekend. | | `nietVervuild` | De bodem is niet vervuild. | | `nietErnstig` | De bodem is niet ernstig vervuild. | | `potentieelErnstig` | De bodem is potentieel ernstig veruild. | | `ernstig` | De bodem is ernstig veruild. |
      *
      * @return self
      */
@@ -266,7 +266,7 @@ class Bodemdata implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets datum_laatste_onderzoek
      *
-     * @param \DateTime|null $datum_laatste_onderzoek datum_laatste_onderzoek
+     * @param \DateTime|null $datum_laatste_onderzoek De datum van het laatste bodemonderzoek.
      *
      * @return self
      */
@@ -290,7 +290,7 @@ class Bodemdata implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets url
      *
-     * @param string|null $url url
+     * @param string|null $url De url met informatie over het bodemonderzoek.
      *
      * @return self
      */

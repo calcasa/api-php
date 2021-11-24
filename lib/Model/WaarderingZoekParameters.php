@@ -266,7 +266,7 @@ class WaarderingZoekParameters implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets aangemaakt
      *
-     * @param \DateTime|null $aangemaakt aangemaakt
+     * @param \DateTime|null $aangemaakt De datum waarop de waardering is aangemaakt, in UTC.
      *
      * @return self
      */
@@ -290,7 +290,7 @@ class WaarderingZoekParameters implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets geldverstrekker
      *
-     * @param string|null $geldverstrekker geldverstrekker
+     * @param string|null $geldverstrekker De naam van de geldverstrekker voor de waardering.
      *
      * @return self
      */
@@ -314,7 +314,7 @@ class WaarderingZoekParameters implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets product_type
      *
-     * @param ProductType $product_type Verplicht. | Waarde | Omschrijving | | --- | --- | | `onbekend` | Onbekend product type. Geen geldige invoer. | | `modelwaardeCalcasa` | Modelwaarde aanvraag met Calcasa Waardebepalingrapport. | | `modelwaardeRisico` | Modelwaarde aanvraag met risicorapport. | | `modelwaardeDesktopTaxatie` | Modelwaarde aanvraag met Desktop Taxatie Beknoptwaarderapport. | | `desktopTaxatie` | Desktop taxatie aanvraag Desktop Taxatie rapport. |
+     * @param ProductType $product_type Verplicht. | Waarde | Omschrijving | | --- | --- | | `onbekend` | Onbekend product type. Geen geldige invoer. | | `modelwaardeCalcasa` | Modelwaarde aanvraag met Calcasa Waardebepalingrapport. | | `modelwaardeRisico` | Modelwaarde aanvraag met risicorapport. | | `modelwaardeDesktopTaxatie` | Modelwaarde aanvraag met Desktop Taxatie Beknoptwaarderapport. | | `desktopTaxatie` | Desktop taxatie aanvraag met Desktop Taxatie rapport. |
      *
      * @return self
      */

@@ -266,7 +266,7 @@ class Taxatiedata implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets status
      *
-     * @param Taxatiestatus|null $status De status van een taxatie (alleen van toepassing voor desktop taxaties). | Waarde | Omschrijving | | --- | --- | | `nietGecontroleerd` | Status is onbekend of niet van toepassing. | | `goedgekeurd` | De waardering is geaccepteerd. | | `afgekeurd` | De waardering is afgewezen. |
+     * @param Taxatiestatus|null $status De status van een taxatie (alleen van toepassing voor desktop taxaties). | Waarde | Omschrijving | | --- | --- | | `nietGecontroleerd` | Status is onbekend of niet van toepassing. | | `goedgekeurd` | De waardering is geaccepteerd door een taxateur. | | `afgekeurd` | De waardering is afgewezen door een taxateur. |
      *
      * @return self
      */
@@ -290,7 +290,7 @@ class Taxatiedata implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets taxatiedatum
      *
-     * @param \DateTime|null $taxatiedatum De datum/tijd waarop de waardering getaxeerd is.
+     * @param \DateTime|null $taxatiedatum De datum/tijd waarop de waardering getaxeerd is, in UTC.
      *
      * @return self
      */

@@ -291,7 +291,7 @@ class WaarderingWebhookPayload implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets event_id
      *
-     * @param string|null $event_id Event Id
+     * @param string|null $event_id Uniek Id voor deze callback.
      *
      * @return self
      */
@@ -315,7 +315,7 @@ class WaarderingWebhookPayload implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets waardering_id
      *
-     * @param string|null $waardering_id Waardering Id
+     * @param string|null $waardering_id Het Id van de waardering waarop deze callback betrekking heeft.
      *
      * @return self
      */
@@ -339,7 +339,7 @@ class WaarderingWebhookPayload implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets old_status
      *
-     * @param WaarderingStatus|null $old_status The old status. | Waarde | Omschrijving | | --- | --- | | `onbekend` | Status onbekend. | | `initialiseren` | Deze waardering is geinitialiseerd maar moet nog bevestigd worden. | | `open` | Deze waardering is bevestigd maar moet nog uitgevoerd worden. | | `voltooid` | Deze waardering is voltooid. | | `opgewaardeerd` | Deze waardering is geupgrade naar een ander waardering type. | | `ongeldig` | Deze waardering is niet geldig, bijvoorbeeld omdat hij niet door de business rules is gekomen. | | `verlopen` | Deze waardering is verlopen omdat hij niet op tijd bevestigd is. | | `error` | Er is iets mis gegaan voor deze waardering. |
+     * @param WaarderingStatus|null $old_status De oude status van de waardering. | Waarde | Omschrijving | | --- | --- | | `onbekend` | Status onbekend. | | `initialiseren` | Deze waardering is geinitialiseerd maar moet nog bevestigd worden. | | `open` | Deze waardering is bevestigd maar moet nog uitgevoerd worden. | | `voltooid` | Deze waardering is voltooid. | | `opgewaardeerd` | Deze waardering is geupgrade naar een ander waardering type. | | `ongeldig` | Deze waardering is niet geldig, bijvoorbeeld omdat hij niet door de business rules is gekomen. | | `verlopen` | Deze waardering is verlopen omdat hij niet op tijd bevestigd is. | | `error` | Er is iets mis gegaan voor deze waardering. |
      *
      * @return self
      */
@@ -363,7 +363,7 @@ class WaarderingWebhookPayload implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets new_status
      *
-     * @param WaarderingStatus|null $new_status The new status. | Waarde | Omschrijving | | --- | --- | | `onbekend` | Status onbekend. | | `initialiseren` | Deze waardering is geinitialiseerd maar moet nog bevestigd worden. | | `open` | Deze waardering is bevestigd maar moet nog uitgevoerd worden. | | `voltooid` | Deze waardering is voltooid. | | `opgewaardeerd` | Deze waardering is geupgrade naar een ander waardering type. | | `ongeldig` | Deze waardering is niet geldig, bijvoorbeeld omdat hij niet door de business rules is gekomen. | | `verlopen` | Deze waardering is verlopen omdat hij niet op tijd bevestigd is. | | `error` | Er is iets mis gegaan voor deze waardering. |
+     * @param WaarderingStatus|null $new_status De nieuwe status van de waardering. | Waarde | Omschrijving | | --- | --- | | `onbekend` | Status onbekend. | | `initialiseren` | Deze waardering is geinitialiseerd maar moet nog bevestigd worden. | | `open` | Deze waardering is bevestigd maar moet nog uitgevoerd worden. | | `voltooid` | Deze waardering is voltooid. | | `opgewaardeerd` | Deze waardering is geupgrade naar een ander waardering type. | | `ongeldig` | Deze waardering is niet geldig, bijvoorbeeld omdat hij niet door de business rules is gekomen. | | `verlopen` | Deze waardering is verlopen omdat hij niet op tijd bevestigd is. | | `error` | Er is iets mis gegaan voor deze waardering. |
      *
      * @return self
      */
@@ -387,7 +387,7 @@ class WaarderingWebhookPayload implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets timestamp
      *
-     * @param \DateTime|null $timestamp The event timestamp.
+     * @param \DateTime|null $timestamp Het tijdstip van het event, in UTC.
      *
      * @return self
      */
@@ -411,7 +411,7 @@ class WaarderingWebhookPayload implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets is_test
      *
-     * @param bool|null $is_test Indicates whether this is a test valuation.
+     * @param bool|null $is_test Geeft aan of de betreffende waardering aangevraagd is met een test token.
      *
      * @return self
      */

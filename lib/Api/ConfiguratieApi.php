@@ -428,7 +428,7 @@ class ConfiguratieApi
      *
      * Configureer callback URL voor een specifieke API versie voor de huidige client.
      *
-     * @param  \Calcasa\Api\Model\Callback $callback callback (optional)
+     * @param  \Calcasa\Api\Model\Callback $callback De te configureren callback. (optional)
      *
      * @throws \Calcasa\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -445,7 +445,7 @@ class ConfiguratieApi
      *
      * Configureer callback URL voor een specifieke API versie voor de huidige client.
      *
-     * @param  \Calcasa\Api\Model\Callback $callback (optional)
+     * @param  \Calcasa\Api\Model\Callback $callback De te configureren callback. (optional)
      *
      * @throws \Calcasa\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -598,7 +598,7 @@ class ConfiguratieApi
      *
      * Configureer callback URL voor een specifieke API versie voor de huidige client.
      *
-     * @param  \Calcasa\Api\Model\Callback $callback (optional)
+     * @param  \Calcasa\Api\Model\Callback $callback De te configureren callback. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -618,7 +618,7 @@ class ConfiguratieApi
      *
      * Configureer callback URL voor een specifieke API versie voor de huidige client.
      *
-     * @param  \Calcasa\Api\Model\Callback $callback (optional)
+     * @param  \Calcasa\Api\Model\Callback $callback De te configureren callback. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -664,7 +664,7 @@ class ConfiguratieApi
     /**
      * Create request for operation 'updateCallbacks'
      *
-     * @param  \Calcasa\Api\Model\Callback $callback (optional)
+     * @param  \Calcasa\Api\Model\Callback $callback De te configureren callback. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

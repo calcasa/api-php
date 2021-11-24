@@ -132,15 +132,16 @@ class BodemApi
      *
      * Gegevens over de bodemkwaliteit op de locatie van een adres (BAG Nummeraanduiding ID).
      *
-     * @param  int $id Een BAG Nummeraanduiding ID om een adres te specificeren. (required)
+     * @param  string $id id (required)
+     * @param  int $bag_nummeraanduiding_id Een BAG Nummeraanduiding ID om een adres te specificeren. (optional)
      *
      * @throws \Calcasa\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Calcasa\Api\Model\NotFoundProblemDetails|\Calcasa\Api\Model\PermissionsDeniedProblemDetails|\Calcasa\Api\Model\ProblemDetails|\Calcasa\Api\Model\Bodemdata
      */
-    public function getBodemById($id)
+    public function getBodemById($id, $bag_nummeraanduiding_id = null)
     {
-        list($response) = $this->getBodemByIdWithHttpInfo($id);
+        list($response) = $this->getBodemByIdWithHttpInfo($id, $bag_nummeraanduiding_id);
         return $response;
     }
 
@@ -149,15 +150,16 @@ class BodemApi
      *
      * Gegevens over de bodemkwaliteit op de locatie van een adres (BAG Nummeraanduiding ID).
      *
-     * @param  int $id Een BAG Nummeraanduiding ID om een adres te specificeren. (required)
+     * @param  string $id (required)
+     * @param  int $bag_nummeraanduiding_id Een BAG Nummeraanduiding ID om een adres te specificeren. (optional)
      *
      * @throws \Calcasa\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Calcasa\Api\Model\NotFoundProblemDetails|\Calcasa\Api\Model\PermissionsDeniedProblemDetails|\Calcasa\Api\Model\ProblemDetails|\Calcasa\Api\Model\Bodemdata, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getBodemByIdWithHttpInfo($id)
+    public function getBodemByIdWithHttpInfo($id, $bag_nummeraanduiding_id = null)
     {
-        $request = $this->getBodemByIdRequest($id);
+        $request = $this->getBodemByIdRequest($id, $bag_nummeraanduiding_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -302,14 +304,15 @@ class BodemApi
      *
      * Gegevens over de bodemkwaliteit op de locatie van een adres (BAG Nummeraanduiding ID).
      *
-     * @param  int $id Een BAG Nummeraanduiding ID om een adres te specificeren. (required)
+     * @param  string $id (required)
+     * @param  int $bag_nummeraanduiding_id Een BAG Nummeraanduiding ID om een adres te specificeren. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBodemByIdAsync($id)
+    public function getBodemByIdAsync($id, $bag_nummeraanduiding_id = null)
     {
-        return $this->getBodemByIdAsyncWithHttpInfo($id)
+        return $this->getBodemByIdAsyncWithHttpInfo($id, $bag_nummeraanduiding_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -322,15 +325,16 @@ class BodemApi
      *
      * Gegevens over de bodemkwaliteit op de locatie van een adres (BAG Nummeraanduiding ID).
      *
-     * @param  int $id Een BAG Nummeraanduiding ID om een adres te specificeren. (required)
+     * @param  string $id (required)
+     * @param  int $bag_nummeraanduiding_id Een BAG Nummeraanduiding ID om een adres te specificeren. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBodemByIdAsyncWithHttpInfo($id)
+    public function getBodemByIdAsyncWithHttpInfo($id, $bag_nummeraanduiding_id = null)
     {
         $returnType = '\Calcasa\Api\Model\Bodemdata';
-        $request = $this->getBodemByIdRequest($id);
+        $request = $this->getBodemByIdRequest($id, $bag_nummeraanduiding_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -368,12 +372,13 @@ class BodemApi
     /**
      * Create request for operation 'getBodemById'
      *
-     * @param  int $id Een BAG Nummeraanduiding ID om een adres te specificeren. (required)
+     * @param  string $id (required)
+     * @param  int $bag_nummeraanduiding_id Een BAG Nummeraanduiding ID om een adres te specificeren. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getBodemByIdRequest($id)
+    public function getBodemByIdRequest($id, $bag_nummeraanduiding_id = null)
     {
         // verify the required parameter 'id' is set
         if ($id === null || (is_array($id) && count($id) === 0)) {
@@ -389,6 +394,17 @@ class BodemApi
         $httpBody = '';
         $multipart = false;
 
+        // query params
+        if ($bag_nummeraanduiding_id !== null) {
+            if('form' === 'form' && is_array($bag_nummeraanduiding_id)) {
+                foreach($bag_nummeraanduiding_id as $key => $value) {
+                    $queryParams[$key] = $value;
+                }
+            }
+            else {
+                $queryParams['bagNummeraanduidingId'] = $bag_nummeraanduiding_id;
+            }
+        }
 
 
         // path params

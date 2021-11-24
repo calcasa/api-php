@@ -130,9 +130,9 @@ class RapportenApi
     /**
      * Operation getRapport
      *
-     * Rapport op basis van Id.
+     * Rapport op basis van waardering Id.
      *
-     * @param  string $id id (required)
+     * @param  string $id De Id van een waardering. (required)
      *
      * @throws \Calcasa\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -147,9 +147,9 @@ class RapportenApi
     /**
      * Operation getRapportWithHttpInfo
      *
-     * Rapport op basis van Id.
+     * Rapport op basis van waardering Id.
      *
-     * @param  string $id (required)
+     * @param  string $id De Id van een waardering. (required)
      *
      * @throws \Calcasa\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -300,9 +300,9 @@ class RapportenApi
     /**
      * Operation getRapportAsync
      *
-     * Rapport op basis van Id.
+     * Rapport op basis van waardering Id.
      *
-     * @param  string $id (required)
+     * @param  string $id De Id van een waardering. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -320,9 +320,9 @@ class RapportenApi
     /**
      * Operation getRapportAsyncWithHttpInfo
      *
-     * Rapport op basis van Id.
+     * Rapport op basis van waardering Id.
      *
-     * @param  string $id (required)
+     * @param  string $id De Id van een waardering. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -368,7 +368,7 @@ class RapportenApi
     /**
      * Create request for operation 'getRapport'
      *
-     * @param  string $id (required)
+     * @param  string $id De Id van een waardering. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

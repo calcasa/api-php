@@ -254,7 +254,7 @@ class Adres implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets straat
      *
-     * @param string|null $straat De straatnaam zoals geschreven in de BAG.
+     * @param string|null $straat De straatnaam zoals geschreven in de BAG (Basisregistratie Adressen en Gebouwen).
      *
      * @return self
      */
@@ -350,7 +350,7 @@ class Adres implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets woonplaats
      *
-     * @param string|null $woonplaats De woonplaats zoals geschreven in de BAG.
+     * @param string|null $woonplaats De woonplaats zoals geschreven in de BAG (Basisregistratie Adressen en Gebouwen).
      *
      * @return self
      */

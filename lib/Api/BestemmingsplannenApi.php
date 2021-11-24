@@ -132,15 +132,15 @@ class BestemmingsplannenApi
      *
      * Gegevens over de bestemmingsplannen op de locatie van een adres (BAG Nummeraanduiding ID).
      *
-     * @param  int $id Een BAG Nummeraanduiding ID om een adres te specificeren. (required)
+     * @param  int $bag_nummeraanduiding_id Een BAG Nummeraanduiding ID om een adres te specificeren. (required)
      *
      * @throws \Calcasa\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Calcasa\Api\Model\NotFoundProblemDetails|\Calcasa\Api\Model\PermissionsDeniedProblemDetails|\Calcasa\Api\Model\ProblemDetails|\Calcasa\Api\Model\Bestemmingsdata
      */
-    public function getBestemmingById($id)
+    public function getBestemmingById($bag_nummeraanduiding_id)
     {
-        list($response) = $this->getBestemmingByIdWithHttpInfo($id);
+        list($response) = $this->getBestemmingByIdWithHttpInfo($bag_nummeraanduiding_id);
         return $response;
     }
 
@@ -149,15 +149,15 @@ class BestemmingsplannenApi
      *
      * Gegevens over de bestemmingsplannen op de locatie van een adres (BAG Nummeraanduiding ID).
      *
-     * @param  int $id Een BAG Nummeraanduiding ID om een adres te specificeren. (required)
+     * @param  int $bag_nummeraanduiding_id Een BAG Nummeraanduiding ID om een adres te specificeren. (required)
      *
      * @throws \Calcasa\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Calcasa\Api\Model\NotFoundProblemDetails|\Calcasa\Api\Model\PermissionsDeniedProblemDetails|\Calcasa\Api\Model\ProblemDetails|\Calcasa\Api\Model\Bestemmingsdata, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getBestemmingByIdWithHttpInfo($id)
+    public function getBestemmingByIdWithHttpInfo($bag_nummeraanduiding_id)
     {
-        $request = $this->getBestemmingByIdRequest($id);
+        $request = $this->getBestemmingByIdRequest($bag_nummeraanduiding_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -302,14 +302,14 @@ class BestemmingsplannenApi
      *
      * Gegevens over de bestemmingsplannen op de locatie van een adres (BAG Nummeraanduiding ID).
      *
-     * @param  int $id Een BAG Nummeraanduiding ID om een adres te specificeren. (required)
+     * @param  int $bag_nummeraanduiding_id Een BAG Nummeraanduiding ID om een adres te specificeren. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBestemmingByIdAsync($id)
+    public function getBestemmingByIdAsync($bag_nummeraanduiding_id)
     {
-        return $this->getBestemmingByIdAsyncWithHttpInfo($id)
+        return $this->getBestemmingByIdAsyncWithHttpInfo($bag_nummeraanduiding_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -322,15 +322,15 @@ class BestemmingsplannenApi
      *
      * Gegevens over de bestemmingsplannen op de locatie van een adres (BAG Nummeraanduiding ID).
      *
-     * @param  int $id Een BAG Nummeraanduiding ID om een adres te specificeren. (required)
+     * @param  int $bag_nummeraanduiding_id Een BAG Nummeraanduiding ID om een adres te specificeren. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBestemmingByIdAsyncWithHttpInfo($id)
+    public function getBestemmingByIdAsyncWithHttpInfo($bag_nummeraanduiding_id)
     {
         $returnType = '\Calcasa\Api\Model\Bestemmingsdata';
-        $request = $this->getBestemmingByIdRequest($id);
+        $request = $this->getBestemmingByIdRequest($bag_nummeraanduiding_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -368,21 +368,21 @@ class BestemmingsplannenApi
     /**
      * Create request for operation 'getBestemmingById'
      *
-     * @param  int $id Een BAG Nummeraanduiding ID om een adres te specificeren. (required)
+     * @param  int $bag_nummeraanduiding_id Een BAG Nummeraanduiding ID om een adres te specificeren. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getBestemmingByIdRequest($id)
+    public function getBestemmingByIdRequest($bag_nummeraanduiding_id)
     {
-        // verify the required parameter 'id' is set
-        if ($id === null || (is_array($id) && count($id) === 0)) {
+        // verify the required parameter 'bag_nummeraanduiding_id' is set
+        if ($bag_nummeraanduiding_id === null || (is_array($bag_nummeraanduiding_id) && count($bag_nummeraanduiding_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling getBestemmingById'
+                'Missing the required parameter $bag_nummeraanduiding_id when calling getBestemmingById'
             );
         }
 
-        $resourcePath = '/api/v0/bestemmingsplannen/{id}';
+        $resourcePath = '/api/v0/bestemmingsplannen/{bagNummeraanduidingId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -392,10 +392,10 @@ class BestemmingsplannenApi
 
 
         // path params
-        if ($id !== null) {
+        if ($bag_nummeraanduiding_id !== null) {
             $resourcePath = str_replace(
-                '{' . 'id' . '}',
-                ObjectSerializer::toPathValue($id),
+                '{' . 'bagNummeraanduidingId' . '}',
+                ObjectSerializer::toPathValue($bag_nummeraanduiding_id),
                 $resourcePath
             );
         }

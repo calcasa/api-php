@@ -499,7 +499,7 @@ class WaarderingenApi
      *
      * Waardering op basis van Id.
      *
-     * @param  string $id id (required)
+     * @param  string $id De waardering Id in de vorm van een UUID. (required)
      *
      * @throws \Calcasa\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -516,7 +516,7 @@ class WaarderingenApi
      *
      * Waardering op basis van Id.
      *
-     * @param  string $id (required)
+     * @param  string $id De waardering Id in de vorm van een UUID. (required)
      *
      * @throws \Calcasa\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -689,7 +689,7 @@ class WaarderingenApi
      *
      * Waardering op basis van Id.
      *
-     * @param  string $id (required)
+     * @param  string $id De waardering Id in de vorm van een UUID. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -709,7 +709,7 @@ class WaarderingenApi
      *
      * Waardering op basis van Id.
      *
-     * @param  string $id (required)
+     * @param  string $id De waardering Id in de vorm van een UUID. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -755,7 +755,7 @@ class WaarderingenApi
     /**
      * Create request for operation 'getWaardering'
      *
-     * @param  string $id (required)
+     * @param  string $id De waardering Id in de vorm van een UUID. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -852,9 +852,9 @@ class WaarderingenApi
     /**
      * Operation getWaarderingOntwikkeling
      *
-     * Waardering ontwikkeling op basis van Id.
+     * Waardering ontwikkeling op basis van waardering Id.
      *
-     * @param  string $id id (required)
+     * @param  string $id De waardering Id in de vorm van een UUID. (required)
      *
      * @throws \Calcasa\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -869,9 +869,9 @@ class WaarderingenApi
     /**
      * Operation getWaarderingOntwikkelingWithHttpInfo
      *
-     * Waardering ontwikkeling op basis van Id.
+     * Waardering ontwikkeling op basis van waardering Id.
      *
-     * @param  string $id (required)
+     * @param  string $id De waardering Id in de vorm van een UUID. (required)
      *
      * @throws \Calcasa\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1042,9 +1042,9 @@ class WaarderingenApi
     /**
      * Operation getWaarderingOntwikkelingAsync
      *
-     * Waardering ontwikkeling op basis van Id.
+     * Waardering ontwikkeling op basis van waardering Id.
      *
-     * @param  string $id (required)
+     * @param  string $id De waardering Id in de vorm van een UUID. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1062,9 +1062,9 @@ class WaarderingenApi
     /**
      * Operation getWaarderingOntwikkelingAsyncWithHttpInfo
      *
-     * Waardering ontwikkeling op basis van Id.
+     * Waardering ontwikkeling op basis van waardering Id.
      *
-     * @param  string $id (required)
+     * @param  string $id De waardering Id in de vorm van een UUID. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1110,7 +1110,7 @@ class WaarderingenApi
     /**
      * Create request for operation 'getWaarderingOntwikkeling'
      *
-     * @param  string $id (required)
+     * @param  string $id De waardering Id in de vorm van een UUID. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1209,7 +1209,7 @@ class WaarderingenApi
      *
      * Patcht een waardering.
      *
-     * @param  string $id Het waarderings Id in de vorm van een UUID. (required)
+     * @param  string $id De waardering Id in de vorm van een UUID. (required)
      * @param  \Calcasa\Api\Model\JsonPatchDocument $json_patch_document Het JsonPatch document voor de operatie. (optional)
      *
      * @throws \Calcasa\Api\ApiException on non-2xx response
@@ -1227,7 +1227,7 @@ class WaarderingenApi
      *
      * Patcht een waardering.
      *
-     * @param  string $id Het waarderings Id in de vorm van een UUID. (required)
+     * @param  string $id De waardering Id in de vorm van een UUID. (required)
      * @param  \Calcasa\Api\Model\JsonPatchDocument $json_patch_document Het JsonPatch document voor de operatie. (optional)
      *
      * @throws \Calcasa\Api\ApiException on non-2xx response
@@ -1401,7 +1401,7 @@ class WaarderingenApi
      *
      * Patcht een waardering.
      *
-     * @param  string $id Het waarderings Id in de vorm van een UUID. (required)
+     * @param  string $id De waardering Id in de vorm van een UUID. (required)
      * @param  \Calcasa\Api\Model\JsonPatchDocument $json_patch_document Het JsonPatch document voor de operatie. (optional)
      *
      * @throws \InvalidArgumentException
@@ -1422,7 +1422,7 @@ class WaarderingenApi
      *
      * Patcht een waardering.
      *
-     * @param  string $id Het waarderings Id in de vorm van een UUID. (required)
+     * @param  string $id De waardering Id in de vorm van een UUID. (required)
      * @param  \Calcasa\Api\Model\JsonPatchDocument $json_patch_document Het JsonPatch document voor de operatie. (optional)
      *
      * @throws \InvalidArgumentException
@@ -1469,7 +1469,7 @@ class WaarderingenApi
     /**
      * Create request for operation 'patchWaarderingen'
      *
-     * @param  string $id Het waarderings Id in de vorm van een UUID. (required)
+     * @param  string $id De waardering Id in de vorm van een UUID. (required)
      * @param  \Calcasa\Api\Model\JsonPatchDocument $json_patch_document Het JsonPatch document voor de operatie. (optional)
      *
      * @throws \InvalidArgumentException
@@ -1575,7 +1575,7 @@ class WaarderingenApi
      *
      * Zoek waardering op basis van input parameters.
      *
-     * @param  \Calcasa\Api\Model\WaarderingZoekParameters $waardering_zoek_parameters waardering_zoek_parameters (optional)
+     * @param  \Calcasa\Api\Model\WaarderingZoekParameters $waardering_zoek_parameters De parameters voor deze zoekopdracht. (optional)
      *
      * @throws \Calcasa\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1592,7 +1592,7 @@ class WaarderingenApi
      *
      * Zoek waardering op basis van input parameters.
      *
-     * @param  \Calcasa\Api\Model\WaarderingZoekParameters $waardering_zoek_parameters (optional)
+     * @param  \Calcasa\Api\Model\WaarderingZoekParameters $waardering_zoek_parameters De parameters voor deze zoekopdracht. (optional)
      *
      * @throws \Calcasa\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -1745,7 +1745,7 @@ class WaarderingenApi
      *
      * Zoek waardering op basis van input parameters.
      *
-     * @param  \Calcasa\Api\Model\WaarderingZoekParameters $waardering_zoek_parameters (optional)
+     * @param  \Calcasa\Api\Model\WaarderingZoekParameters $waardering_zoek_parameters De parameters voor deze zoekopdracht. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1765,7 +1765,7 @@ class WaarderingenApi
      *
      * Zoek waardering op basis van input parameters.
      *
-     * @param  \Calcasa\Api\Model\WaarderingZoekParameters $waardering_zoek_parameters (optional)
+     * @param  \Calcasa\Api\Model\WaarderingZoekParameters $waardering_zoek_parameters De parameters voor deze zoekopdracht. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1811,7 +1811,7 @@ class WaarderingenApi
     /**
      * Create request for operation 'searchWaarderingen'
      *
-     * @param  \Calcasa\Api\Model\WaarderingZoekParameters $waardering_zoek_parameters (optional)
+     * @param  \Calcasa\Api\Model\WaarderingZoekParameters $waardering_zoek_parameters De parameters voor deze zoekopdracht. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

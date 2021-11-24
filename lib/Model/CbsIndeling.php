@@ -248,7 +248,7 @@ class CbsIndeling implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets buurt_id
      *
-     * @param int|null $buurt_id buurt_id
+     * @param int|null $buurt_id Het buurt id zoals bekend bij het CBS (Centraal Bureau voor de Statistiek).
      *
      * @return self
      */
@@ -272,7 +272,7 @@ class CbsIndeling implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets buurtnaam
      *
-     * @param string|null $buurtnaam buurtnaam
+     * @param string|null $buurtnaam De naam van de buurt.
      *
      * @return self
      */
@@ -296,7 +296,7 @@ class CbsIndeling implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets wijknaam
      *
-     * @param string|null $wijknaam wijknaam
+     * @param string|null $wijknaam De naam van de wijk.
      *
      * @return self
      */
@@ -320,7 +320,7 @@ class CbsIndeling implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets gemeentenaam
      *
-     * @param string|null $gemeentenaam gemeentenaam
+     * @param string|null $gemeentenaam De naam van de gemeente.
      *
      * @return self
      */

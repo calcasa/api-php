@@ -45,7 +45,7 @@ use \Calcasa\Api\ObjectSerializer;
  * Taxatiestatus Class Doc Comment
  *
  * @category Class
- * @description | Waarde | Omschrijving | | --- | --- | | &#x60;nietGecontroleerd&#x60; | Status is onbekend of niet van toepassing. | | &#x60;goedgekeurd&#x60; | De waardering is geaccepteerd. | | &#x60;afgekeurd&#x60; | De waardering is afgewezen. |
+ * @description | Waarde | Omschrijving | | --- | --- | | &#x60;nietGecontroleerd&#x60; | Status is onbekend of niet van toepassing. | | &#x60;goedgekeurd&#x60; | De waardering is geaccepteerd door een taxateur. | | &#x60;afgekeurd&#x60; | De waardering is afgewezen door een taxateur. |
  * @package  Calcasa\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

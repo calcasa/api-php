@@ -45,7 +45,7 @@ use \Calcasa\Api\ObjectSerializer;
  * ProductType Class Doc Comment
  *
  * @category Class
- * @description | Waarde | Omschrijving | | --- | --- | | &#x60;onbekend&#x60; | Onbekend product type. Geen geldige invoer. | | &#x60;modelwaardeCalcasa&#x60; | Modelwaarde aanvraag met Calcasa Waardebepalingrapport. | | &#x60;modelwaardeRisico&#x60; | Modelwaarde aanvraag met risicorapport. | | &#x60;modelwaardeDesktopTaxatie&#x60; | Modelwaarde aanvraag met Desktop Taxatie Beknoptwaarderapport. | | &#x60;desktopTaxatie&#x60; | Desktop taxatie aanvraag Desktop Taxatie rapport. |
+ * @description | Waarde | Omschrijving | | --- | --- | | &#x60;onbekend&#x60; | Onbekend product type. Geen geldige invoer. | | &#x60;modelwaardeCalcasa&#x60; | Modelwaarde aanvraag met Calcasa Waardebepalingrapport. | | &#x60;modelwaardeRisico&#x60; | Modelwaarde aanvraag met risicorapport. | | &#x60;modelwaardeDesktopTaxatie&#x60; | Modelwaarde aanvraag met Desktop Taxatie Beknoptwaarderapport. | | &#x60;desktopTaxatie&#x60; | Desktop taxatie aanvraag met Desktop Taxatie rapport. |
  * @package  Calcasa\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

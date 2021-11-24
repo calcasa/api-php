@@ -264,7 +264,7 @@ class Callback implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets url
      *
-     * @param string|null $url De URL van de callback.
+     * @param string|null $url De URL van de callback. Bij het aanroepen zal de CallbackName hier achter geplaatst worden. English: when making the call, the CallbackName will be appended to this Url.
      *
      * @return self
      */

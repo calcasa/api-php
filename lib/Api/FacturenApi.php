@@ -130,9 +130,9 @@ class FacturenApi
     /**
      * Operation getFactuur
      *
-     * Factuur op basis van een Id.
+     * Factuur op basis van een waardering Id.
      *
-     * @param  string $id id (required)
+     * @param  string $id De Id van een waardering. (required)
      *
      * @throws \Calcasa\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -147,9 +147,9 @@ class FacturenApi
     /**
      * Operation getFactuurWithHttpInfo
      *
-     * Factuur op basis van een Id.
+     * Factuur op basis van een waardering Id.
      *
-     * @param  string $id (required)
+     * @param  string $id De Id van een waardering. (required)
      *
      * @throws \Calcasa\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -300,9 +300,9 @@ class FacturenApi
     /**
      * Operation getFactuurAsync
      *
-     * Factuur op basis van een Id.
+     * Factuur op basis van een waardering Id.
      *
-     * @param  string $id (required)
+     * @param  string $id De Id van een waardering. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -320,9 +320,9 @@ class FacturenApi
     /**
      * Operation getFactuurAsyncWithHttpInfo
      *
-     * Factuur op basis van een Id.
+     * Factuur op basis van een waardering Id.
      *
-     * @param  string $id (required)
+     * @param  string $id De Id van een waardering. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -368,7 +368,7 @@ class FacturenApi
     /**
      * Create request for operation 'getFactuur'
      *
-     * @param  string $id (required)
+     * @param  string $id De Id van een waardering. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

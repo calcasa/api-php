@@ -262,6 +262,9 @@ class WaarderingInputParameters implements ModelInterface, ArrayAccess, \JsonSer
     {
         $invalidProperties = [];
 
+        if ($this->container['product_type'] === null) {
+            $invalidProperties[] = "'product_type' can't be null";
+        }
         if ($this->container['bag_nummeraanduiding_id'] === null) {
             $invalidProperties[] = "'bag_nummeraanduiding_id' can't be null";
         }
@@ -307,7 +310,7 @@ class WaarderingInputParameters implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets product_type
      *
-     * @return ProductType|null
+     * @return ProductType
      */
     public function getProductType()
     {
@@ -317,7 +320,7 @@ class WaarderingInputParameters implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets product_type
      *
-     * @param ProductType|null $product_type | Waarde | Omschrijving | | --- | --- | | `onbekend` | Onbekend product type. Geen geldige invoer. | | `modelwaardeCalcasa` | Modelwaarde aanvraag met Calcasa Waardebepalingrapport. | | `modelwaardeRisico` | Modelwaarde aanvraag met risicorapport. | | `modelwaardeDesktopTaxatie` | Modelwaarde aanvraag met Desktop Taxatie Beknoptwaarderapport. | | `desktopTaxatie` | Desktop taxatie aanvraag Desktop Taxatie rapport. |
+     * @param ProductType $product_type | Waarde | Omschrijving | | --- | --- | | `onbekend` | Onbekend product type. Geen geldige invoer. | | `modelwaardeCalcasa` | Modelwaarde aanvraag met Calcasa Waardebepalingrapport. | | `modelwaardeRisico` | Modelwaarde aanvraag met risicorapport. | | `modelwaardeDesktopTaxatie` | Modelwaarde aanvraag met Desktop Taxatie Beknoptwaarderapport. | | `desktopTaxatie` | Desktop taxatie aanvraag met Desktop Taxatie rapport. |
      *
      * @return self
      */
@@ -389,7 +392,7 @@ class WaarderingInputParameters implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets klantwaarde
      *
-     * @param int|null $klantwaarde In hele euros.
+     * @param int|null $klantwaarde In hele euros. De waarde zoals bekend bij de klant met bijbehorende KlantwaardeType.
      *
      * @return self
      */
@@ -437,7 +440,7 @@ class WaarderingInputParameters implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets is_bestaande_woning
      *
-     * @param bool|null $is_bestaande_woning is_bestaande_woning
+     * @param bool|null $is_bestaande_woning Geeft aan of het te waarderen object een bestaande koopwoning is.
      *
      * @return self
      */
@@ -461,7 +464,7 @@ class WaarderingInputParameters implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets bag_nummeraanduiding_id
      *
-     * @param int $bag_nummeraanduiding_id bag_nummeraanduiding_id
+     * @param int $bag_nummeraanduiding_id Het BAG (Basisregistratie Adressen en Gebouwen) nummeraanduiding id.
      *
      * @return self
      */
@@ -485,7 +488,7 @@ class WaarderingInputParameters implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets is_nhg
      *
-     * @param bool|null $is_nhg is_nhg
+     * @param bool|null $is_nhg Geeft aan of er gebruikt gemaakt wordt van de Nationale Hypotheekgarantie.
      *
      * @return self
      */
@@ -509,7 +512,7 @@ class WaarderingInputParameters implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets is_bestaande_nhg_hypotheek
      *
-     * @param bool|null $is_bestaande_nhg_hypotheek is_bestaande_nhg_hypotheek
+     * @param bool|null $is_bestaande_nhg_hypotheek Geeft aan of er bij de eventuele bestaande hypotheek gebruik is gemaakt van de Nationale Hypotheekgarantie.
      *
      * @return self
      */
@@ -533,7 +536,7 @@ class WaarderingInputParameters implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets benodigde_overbrugging
      *
-     * @param int|null $benodigde_overbrugging In hele euros.
+     * @param int|null $benodigde_overbrugging In hele euros. Alleen van toepassing voor aanvraagdoel Overbruggingsfinanciering.
      *
      * @return self
      */

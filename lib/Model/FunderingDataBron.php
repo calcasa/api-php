@@ -45,7 +45,7 @@ use \Calcasa\Api\ObjectSerializer;
  * FunderingDataBron Class Doc Comment
  *
  * @category Class
- * @description Bron waar de funderingsinformatie opgehaald is. | Waarde | Omschrijving | | --- | --- | | &#x60;calcasa&#x60; | Eigen data. | | &#x60;fundermaps&#x60; | Fundermaps data. |
+ * @description Bron waar de funderingsinformatie opgehaald is. | Waarde | Omschrijving | | --- | --- | | &#x60;calcasa&#x60; | Calcasa data. | | &#x60;fundermaps&#x60; | Fundermaps data. |
  * @package  Calcasa\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

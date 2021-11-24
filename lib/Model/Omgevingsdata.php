@@ -254,7 +254,7 @@ class Omgevingsdata implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets buurt
      *
-     * @param Gebiedsdata|null $buurt buurt
+     * @param Gebiedsdata|null $buurt Statistieken op buurt-niveau.
      *
      * @return self
      */
@@ -278,7 +278,7 @@ class Omgevingsdata implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets wijk
      *
-     * @param Gebiedsdata|null $wijk wijk
+     * @param Gebiedsdata|null $wijk Statistieken op wijk-niveau.
      *
      * @return self
      */
@@ -302,7 +302,7 @@ class Omgevingsdata implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets gemeente
      *
-     * @param Gebiedsdata|null $gemeente gemeente
+     * @param Gebiedsdata|null $gemeente Statistieken op gemeente-niveau.
      *
      * @return self
      */
@@ -326,7 +326,7 @@ class Omgevingsdata implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets provincie
      *
-     * @param Gebiedsdata|null $provincie provincie
+     * @param Gebiedsdata|null $provincie Statistieken op provincie-niveau.
      *
      * @return self
      */
@@ -350,7 +350,7 @@ class Omgevingsdata implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets land
      *
-     * @param Gebiedsdata|null $land land
+     * @param Gebiedsdata|null $land Statistieken op landelijk-niveau.
      *
      * @return self
      */

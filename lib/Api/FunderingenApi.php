@@ -132,15 +132,15 @@ class FunderingenApi
      *
      * Gegevens over de fundering op de locatie van een adres (BAG Nummeraanduiding ID).
      *
-     * @param  int $id Een BAG Nummeraanduiding ID om een adres te specificeren. (required)
+     * @param  int $bag_nummeraanduiding_id Een BAG Nummeraanduiding ID om een adres te specificeren. (required)
      *
      * @throws \Calcasa\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Calcasa\Api\Model\NotFoundProblemDetails|\Calcasa\Api\Model\PermissionsDeniedProblemDetails|\Calcasa\Api\Model\ProblemDetails|\Calcasa\Api\Model\Funderingdata
      */
-    public function getFunderingById($id)
+    public function getFunderingById($bag_nummeraanduiding_id)
     {
-        list($response) = $this->getFunderingByIdWithHttpInfo($id);
+        list($response) = $this->getFunderingByIdWithHttpInfo($bag_nummeraanduiding_id);
         return $response;
     }
 
@@ -149,15 +149,15 @@ class FunderingenApi
      *
      * Gegevens over de fundering op de locatie van een adres (BAG Nummeraanduiding ID).
      *
-     * @param  int $id Een BAG Nummeraanduiding ID om een adres te specificeren. (required)
+     * @param  int $bag_nummeraanduiding_id Een BAG Nummeraanduiding ID om een adres te specificeren. (required)
      *
      * @throws \Calcasa\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Calcasa\Api\Model\NotFoundProblemDetails|\Calcasa\Api\Model\PermissionsDeniedProblemDetails|\Calcasa\Api\Model\ProblemDetails|\Calcasa\Api\Model\Funderingdata, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getFunderingByIdWithHttpInfo($id)
+    public function getFunderingByIdWithHttpInfo($bag_nummeraanduiding_id)
     {
-        $request = $this->getFunderingByIdRequest($id);
+        $request = $this->getFunderingByIdRequest($bag_nummeraanduiding_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -302,14 +302,14 @@ class FunderingenApi
      *
      * Gegevens over de fundering op de locatie van een adres (BAG Nummeraanduiding ID).
      *
-     * @param  int $id Een BAG Nummeraanduiding ID om een adres te specificeren. (required)
+     * @param  int $bag_nummeraanduiding_id Een BAG Nummeraanduiding ID om een adres te specificeren. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFunderingByIdAsync($id)
+    public function getFunderingByIdAsync($bag_nummeraanduiding_id)
     {
-        return $this->getFunderingByIdAsyncWithHttpInfo($id)
+        return $this->getFunderingByIdAsyncWithHttpInfo($bag_nummeraanduiding_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -322,15 +322,15 @@ class FunderingenApi
      *
      * Gegevens over de fundering op de locatie van een adres (BAG Nummeraanduiding ID).
      *
-     * @param  int $id Een BAG Nummeraanduiding ID om een adres te specificeren. (required)
+     * @param  int $bag_nummeraanduiding_id Een BAG Nummeraanduiding ID om een adres te specificeren. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFunderingByIdAsyncWithHttpInfo($id)
+    public function getFunderingByIdAsyncWithHttpInfo($bag_nummeraanduiding_id)
     {
         $returnType = '\Calcasa\Api\Model\Funderingdata';
-        $request = $this->getFunderingByIdRequest($id);
+        $request = $this->getFunderingByIdRequest($bag_nummeraanduiding_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -368,21 +368,21 @@ class FunderingenApi
     /**
      * Create request for operation 'getFunderingById'
      *
-     * @param  int $id Een BAG Nummeraanduiding ID om een adres te specificeren. (required)
+     * @param  int $bag_nummeraanduiding_id Een BAG Nummeraanduiding ID om een adres te specificeren. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getFunderingByIdRequest($id)
+    public function getFunderingByIdRequest($bag_nummeraanduiding_id)
     {
-        // verify the required parameter 'id' is set
-        if ($id === null || (is_array($id) && count($id) === 0)) {
+        // verify the required parameter 'bag_nummeraanduiding_id' is set
+        if ($bag_nummeraanduiding_id === null || (is_array($bag_nummeraanduiding_id) && count($bag_nummeraanduiding_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling getFunderingById'
+                'Missing the required parameter $bag_nummeraanduiding_id when calling getFunderingById'
             );
         }
 
-        $resourcePath = '/api/v0/funderingen/{id}';
+        $resourcePath = '/api/v0/funderingen/{bagNummeraanduidingId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -392,10 +392,10 @@ class FunderingenApi
 
 
         // path params
-        if ($id !== null) {
+        if ($bag_nummeraanduiding_id !== null) {
             $resourcePath = str_replace(
-                '{' . 'id' . '}',
-                ObjectSerializer::toPathValue($id),
+                '{' . 'bagNummeraanduidingId' . '}',
+                ObjectSerializer::toPathValue($bag_nummeraanduiding_id),
                 $resourcePath
             );
         }

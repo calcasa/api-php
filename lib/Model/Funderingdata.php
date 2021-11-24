@@ -411,7 +411,7 @@ class Funderingdata implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets bron
      *
-     * @param FunderingDataBron|null $bron De bron van de data.Bron waar de funderingsinformatie opgehaald is. | Waarde | Omschrijving | | --- | --- | | `calcasa` | Eigen data. | | `fundermaps` | Fundermaps data. |
+     * @param FunderingDataBron|null $bron De bron van de data.Bron waar de funderingsinformatie opgehaald is. | Waarde | Omschrijving | | --- | --- | | `calcasa` | Calcasa data. | | `fundermaps` | Fundermaps data. |
      *
      * @return self
      */

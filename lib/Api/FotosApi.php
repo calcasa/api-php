@@ -130,9 +130,9 @@ class FotosApi
     /**
      * Operation getFoto
      *
-     * Foto op basis van Id.
+     * Foto op basis van een foto Id.
      *
-     * @param  string $id id (required)
+     * @param  string $id De Id van een foto, welke onder andere bij waarderingen en referenties teruggestuurd worden. (required)
      *
      * @throws \Calcasa\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -147,9 +147,9 @@ class FotosApi
     /**
      * Operation getFotoWithHttpInfo
      *
-     * Foto op basis van Id.
+     * Foto op basis van een foto Id.
      *
-     * @param  string $id (required)
+     * @param  string $id De Id van een foto, welke onder andere bij waarderingen en referenties teruggestuurd worden. (required)
      *
      * @throws \Calcasa\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -300,9 +300,9 @@ class FotosApi
     /**
      * Operation getFotoAsync
      *
-     * Foto op basis van Id.
+     * Foto op basis van een foto Id.
      *
-     * @param  string $id (required)
+     * @param  string $id De Id van een foto, welke onder andere bij waarderingen en referenties teruggestuurd worden. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -320,9 +320,9 @@ class FotosApi
     /**
      * Operation getFotoAsyncWithHttpInfo
      *
-     * Foto op basis van Id.
+     * Foto op basis van een foto Id.
      *
-     * @param  string $id (required)
+     * @param  string $id De Id van een foto, welke onder andere bij waarderingen en referenties teruggestuurd worden. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -368,7 +368,7 @@ class FotosApi
     /**
      * Create request for operation 'getFoto'
      *
-     * @param  string $id (required)
+     * @param  string $id De Id van een foto, welke onder andere bij waarderingen en referenties teruggestuurd worden. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

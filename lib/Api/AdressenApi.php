@@ -130,9 +130,9 @@ class AdressenApi
     /**
      * Operation getAdres
      *
-     * Adres info op met het BAG Nummeraanduiding Id.
+     * Adres info op basis van BAG Nummeraanduiding Id.
      *
-     * @param  int $bag_nummeraanduiding_id bag_nummeraanduiding_id (required)
+     * @param  int $bag_nummeraanduiding_id Een BAG Nummeraanduiding ID om een adres te specificeren. (required)
      *
      * @throws \Calcasa\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -147,9 +147,9 @@ class AdressenApi
     /**
      * Operation getAdresWithHttpInfo
      *
-     * Adres info op met het BAG Nummeraanduiding Id.
+     * Adres info op basis van BAG Nummeraanduiding Id.
      *
-     * @param  int $bag_nummeraanduiding_id (required)
+     * @param  int $bag_nummeraanduiding_id Een BAG Nummeraanduiding ID om een adres te specificeren. (required)
      *
      * @throws \Calcasa\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -300,9 +300,9 @@ class AdressenApi
     /**
      * Operation getAdresAsync
      *
-     * Adres info op met het BAG Nummeraanduiding Id.
+     * Adres info op basis van BAG Nummeraanduiding Id.
      *
-     * @param  int $bag_nummeraanduiding_id (required)
+     * @param  int $bag_nummeraanduiding_id Een BAG Nummeraanduiding ID om een adres te specificeren. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -320,9 +320,9 @@ class AdressenApi
     /**
      * Operation getAdresAsyncWithHttpInfo
      *
-     * Adres info op met het BAG Nummeraanduiding Id.
+     * Adres info op basis van BAG Nummeraanduiding Id.
      *
-     * @param  int $bag_nummeraanduiding_id (required)
+     * @param  int $bag_nummeraanduiding_id Een BAG Nummeraanduiding ID om een adres te specificeren. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -368,7 +368,7 @@ class AdressenApi
     /**
      * Create request for operation 'getAdres'
      *
-     * @param  int $bag_nummeraanduiding_id (required)
+     * @param  int $bag_nummeraanduiding_id Een BAG Nummeraanduiding ID om een adres te specificeren. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -467,11 +467,11 @@ class AdressenApi
      *
      * Zoek adres info op basis van het gegeven adres.
      *
-     * @param  \Calcasa\Api\Model\Adres $adres adres (optional)
+     * @param  \Calcasa\Api\Model\Adres $adres De adres zoekopdracht. (optional)
      *
      * @throws \Calcasa\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Calcasa\Api\Model\PermissionsDeniedProblemDetails|\Calcasa\Api\Model\ProblemDetails|\Calcasa\Api\Model\AdresInfo
+     * @return \Calcasa\Api\Model\PermissionsDeniedProblemDetails|\Calcasa\Api\Model\ProblemDetails|\Calcasa\Api\Model\NotFoundProblemDetails|\Calcasa\Api\Model\AdresInfo
      */
     public function searchAdres($adres = null)
     {
@@ -484,11 +484,11 @@ class AdressenApi
      *
      * Zoek adres info op basis van het gegeven adres.
      *
-     * @param  \Calcasa\Api\Model\Adres $adres (optional)
+     * @param  \Calcasa\Api\Model\Adres $adres De adres zoekopdracht. (optional)
      *
      * @throws \Calcasa\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Calcasa\Api\Model\PermissionsDeniedProblemDetails|\Calcasa\Api\Model\ProblemDetails|\Calcasa\Api\Model\AdresInfo, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Calcasa\Api\Model\PermissionsDeniedProblemDetails|\Calcasa\Api\Model\ProblemDetails|\Calcasa\Api\Model\NotFoundProblemDetails|\Calcasa\Api\Model\AdresInfo, HTTP status code, HTTP response headers (array of strings)
      */
     public function searchAdresWithHttpInfo($adres = null)
     {
@@ -554,6 +554,18 @@ class AdressenApi
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
+                case 404:
+                    if ('\Calcasa\Api\Model\NotFoundProblemDetails' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Calcasa\Api\Model\NotFoundProblemDetails', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
                 case 200:
                     if ('\Calcasa\Api\Model\AdresInfo' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
@@ -599,6 +611,14 @@ class AdressenApi
                     );
                     $e->setResponseObject($data);
                     break;
+                case 404:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Calcasa\Api\Model\NotFoundProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -617,7 +637,7 @@ class AdressenApi
      *
      * Zoek adres info op basis van het gegeven adres.
      *
-     * @param  \Calcasa\Api\Model\Adres $adres (optional)
+     * @param  \Calcasa\Api\Model\Adres $adres De adres zoekopdracht. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -637,7 +657,7 @@ class AdressenApi
      *
      * Zoek adres info op basis van het gegeven adres.
      *
-     * @param  \Calcasa\Api\Model\Adres $adres (optional)
+     * @param  \Calcasa\Api\Model\Adres $adres De adres zoekopdracht. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -683,7 +703,7 @@ class AdressenApi
     /**
      * Create request for operation 'searchAdres'
      *
-     * @param  \Calcasa\Api\Model\Adres $adres (optional)
+     * @param  \Calcasa\Api\Model\Adres $adres De adres zoekopdracht. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

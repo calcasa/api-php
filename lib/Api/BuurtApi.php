@@ -132,15 +132,15 @@ class BuurtApi
      *
      * Gegevens over een buurt en de wijk, gemeente en land waarin deze buurt gesitueerd is.
      *
-     * @param  int $id id (required)
+     * @param  int $buurt_id Een CBS buurt ID. (required)
      *
      * @throws \Calcasa\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Calcasa\Api\Model\NotFoundProblemDetails|\Calcasa\Api\Model\PermissionsDeniedProblemDetails|\Calcasa\Api\Model\ProblemDetails|\Calcasa\Api\Model\Omgevingsdata
      */
-    public function getBuurt($id)
+    public function getBuurt($buurt_id)
     {
-        list($response) = $this->getBuurtWithHttpInfo($id);
+        list($response) = $this->getBuurtWithHttpInfo($buurt_id);
         return $response;
     }
 
@@ -149,15 +149,15 @@ class BuurtApi
      *
      * Gegevens over een buurt en de wijk, gemeente en land waarin deze buurt gesitueerd is.
      *
-     * @param  int $id (required)
+     * @param  int $buurt_id Een CBS buurt ID. (required)
      *
      * @throws \Calcasa\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Calcasa\Api\Model\NotFoundProblemDetails|\Calcasa\Api\Model\PermissionsDeniedProblemDetails|\Calcasa\Api\Model\ProblemDetails|\Calcasa\Api\Model\Omgevingsdata, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getBuurtWithHttpInfo($id)
+    public function getBuurtWithHttpInfo($buurt_id)
     {
-        $request = $this->getBuurtRequest($id);
+        $request = $this->getBuurtRequest($buurt_id);
 
         try {
             $options = $this->createHttpClientOption();
@@ -302,14 +302,14 @@ class BuurtApi
      *
      * Gegevens over een buurt en de wijk, gemeente en land waarin deze buurt gesitueerd is.
      *
-     * @param  int $id (required)
+     * @param  int $buurt_id Een CBS buurt ID. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBuurtAsync($id)
+    public function getBuurtAsync($buurt_id)
     {
-        return $this->getBuurtAsyncWithHttpInfo($id)
+        return $this->getBuurtAsyncWithHttpInfo($buurt_id)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -322,15 +322,15 @@ class BuurtApi
      *
      * Gegevens over een buurt en de wijk, gemeente en land waarin deze buurt gesitueerd is.
      *
-     * @param  int $id (required)
+     * @param  int $buurt_id Een CBS buurt ID. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getBuurtAsyncWithHttpInfo($id)
+    public function getBuurtAsyncWithHttpInfo($buurt_id)
     {
         $returnType = '\Calcasa\Api\Model\Omgevingsdata';
-        $request = $this->getBuurtRequest($id);
+        $request = $this->getBuurtRequest($buurt_id);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -368,21 +368,21 @@ class BuurtApi
     /**
      * Create request for operation 'getBuurt'
      *
-     * @param  int $id (required)
+     * @param  int $buurt_id Een CBS buurt ID. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getBuurtRequest($id)
+    public function getBuurtRequest($buurt_id)
     {
-        // verify the required parameter 'id' is set
-        if ($id === null || (is_array($id) && count($id) === 0)) {
+        // verify the required parameter 'buurt_id' is set
+        if ($buurt_id === null || (is_array($buurt_id) && count($buurt_id) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling getBuurt'
+                'Missing the required parameter $buurt_id when calling getBuurt'
             );
         }
 
-        $resourcePath = '/api/v0/buurt/{id}';
+        $resourcePath = '/api/v0/buurt/{buurtId}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -392,10 +392,10 @@ class BuurtApi
 
 
         // path params
-        if ($id !== null) {
+        if ($buurt_id !== null) {
             $resourcePath = str_replace(
-                '{' . 'id' . '}',
-                ObjectSerializer::toPathValue($id),
+                '{' . 'buurtId' . '}',
+                ObjectSerializer::toPathValue($buurt_id),
                 $resourcePath
             );
         }

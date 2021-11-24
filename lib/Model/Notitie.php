@@ -45,7 +45,7 @@ use \Calcasa\Api\ObjectSerializer;
  * Notitie Class Doc Comment
  *
  * @category Class
- * @description | Waarde | Omschrijving | | --- | --- | | &#x60;geen&#x60; | De input was correct. | | &#x60;gecorrigeerd&#x60; | De input was gecorrigeerd. | | &#x60;onbekend&#x60; | The input is onbekend en kon niet gevonden of gecorrigeerd worden. | | &#x60;ontbreekt&#x60; | De input was leeg en is wel nodig voor een succesvolle zoekopdracht. |
+ * @description | Waarde | Omschrijving | | --- | --- | | &#x60;geen&#x60; | De input was correct. | | &#x60;gecorrigeerd&#x60; | De input was gecorrigeerd. | | &#x60;onbekend&#x60; | De input is onbekend en kon niet gevonden of gecorrigeerd worden. | | &#x60;ontbreekt&#x60; | De input was leeg en is wel nodig voor een succesvolle zoekopdracht. |
  * @package  Calcasa\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

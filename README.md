@@ -4,8 +4,12 @@ This is a preliminary version of the Calcasa Public API. This service is current
 
 ## Changelog
 
-### 2021-11-15
-- Add callback update and read endpoints and models.
+### 2021-11-23 (v0.0.4)
+- Added per square meter developments to the `WaarderingOntwikkeling` object (fields with the `PerVierkantemeter` suffix).
+
+### 2021-11-15 (v0.0.3)
+- Added callback update and read endpoints and models.
+- Updated documentation.
 
 ### 2021-11-11
 - Renamed /fundering endpoint to /funderingen to be more in line with other endpoints
@@ -41,7 +45,7 @@ This is a preliminary version of the Calcasa Public API. This service is current
 - Initial release of v0
 
 ## Client packages
-![Nuget](https://img.shields.io/nuget/v/Calcasa.Api?label=Nuget) - ![Packagist Downloads](https://img.shields.io/packagist/v/calcasa/api?label=Packagist) - ![PyPI - Downloads](https://img.shields.io/pypi/v/calcasa-api?label=PyPi)
+[Nuget](https://www.nuget.org/packages/Calcasa.Api) - [Packagist](https://packagist.org/packages/calcasa/api) - [PyPI](https://pypi.org/project/calcasa.api)
 ## Client implementation notes
 Clients should at all times be tolerant to the following:
 
@@ -121,7 +125,7 @@ $apiInstance = new Calcasa\Api\Api\AdressenApi(
     new GuzzleHttp\Client(),
     $config
 );
-$bag_nummeraanduiding_id = 56; // int
+$bag_nummeraanduiding_id = 56; // int | Een BAG Nummeraanduiding ID om een adres te specificeren.
 
 try {
     $result = $apiInstance->getAdres($bag_nummeraanduiding_id);
@@ -138,20 +142,20 @@ All URIs are relative to *https://api.calcasa.nl*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AdressenApi* | [**getAdres**](docs/Api/AdressenApi.md#getadres) | **GET** /api/v0/adressen/{bagNummeraanduidingId} | Adres info op met het BAG Nummeraanduiding Id.
+*AdressenApi* | [**getAdres**](docs/Api/AdressenApi.md#getadres) | **GET** /api/v0/adressen/{bagNummeraanduidingId} | Adres info op basis van BAG Nummeraanduiding Id.
 *AdressenApi* | [**searchAdres**](docs/Api/AdressenApi.md#searchadres) | **POST** /api/v0/adressen/zoeken | Zoek adres info op basis van het gegeven adres.
-*BestemmingsplannenApi* | [**getBestemmingById**](docs/Api/BestemmingsplannenApi.md#getbestemmingbyid) | **GET** /api/v0/bestemmingsplannen/{id} | Gegevens over de bestemmingsplannen op de locatie van een adres (BAG Nummeraanduiding ID).
+*BestemmingsplannenApi* | [**getBestemmingById**](docs/Api/BestemmingsplannenApi.md#getbestemmingbyid) | **GET** /api/v0/bestemmingsplannen/{bagNummeraanduidingId} | Gegevens over de bestemmingsplannen op de locatie van een adres (BAG Nummeraanduiding ID).
 *BodemApi* | [**getBodemById**](docs/Api/BodemApi.md#getbodembyid) | **GET** /api/v0/bodem/{id} | Gegevens over de bodemkwaliteit op de locatie van een adres (BAG Nummeraanduiding ID).
-*BuurtApi* | [**getBuurt**](docs/Api/BuurtApi.md#getbuurt) | **GET** /api/v0/buurt/{id} | Gegevens over een buurt en de wijk, gemeente en land waarin deze buurt gesitueerd is.
+*BuurtApi* | [**getBuurt**](docs/Api/BuurtApi.md#getbuurt) | **GET** /api/v0/buurt/{buurtId} | Gegevens over een buurt en de wijk, gemeente en land waarin deze buurt gesitueerd is.
 *ConfiguratieApi* | [**getCallbacks**](docs/Api/ConfiguratieApi.md#getcallbacks) | **GET** /api/v0/configuratie/callbacks | Haal de geconfigureerde callback URL&#39;s op voor de huidige client.
 *ConfiguratieApi* | [**updateCallbacks**](docs/Api/ConfiguratieApi.md#updatecallbacks) | **POST** /api/v0/configuratie/callbacks | Configureer callback URL voor een specifieke API versie voor de huidige client.
-*FacturenApi* | [**getFactuur**](docs/Api/FacturenApi.md#getfactuur) | **GET** /api/v0/facturen/{id} | Factuur op basis van een Id.
-*FotosApi* | [**getFoto**](docs/Api/FotosApi.md#getfoto) | **GET** /api/v0/fotos/{id} | Foto op basis van Id.
-*FunderingenApi* | [**getFunderingById**](docs/Api/FunderingenApi.md#getfunderingbyid) | **GET** /api/v0/funderingen/{id} | Gegevens over de fundering op de locatie van een adres (BAG Nummeraanduiding ID).
-*RapportenApi* | [**getRapport**](docs/Api/RapportenApi.md#getrapport) | **GET** /api/v0/rapporten/{id} | Rapport op basis van Id.
+*FacturenApi* | [**getFactuur**](docs/Api/FacturenApi.md#getfactuur) | **GET** /api/v0/facturen/{id} | Factuur op basis van een waardering Id.
+*FotosApi* | [**getFoto**](docs/Api/FotosApi.md#getfoto) | **GET** /api/v0/fotos/{id} | Foto op basis van een foto Id.
+*FunderingenApi* | [**getFunderingById**](docs/Api/FunderingenApi.md#getfunderingbyid) | **GET** /api/v0/funderingen/{bagNummeraanduidingId} | Gegevens over de fundering op de locatie van een adres (BAG Nummeraanduiding ID).
+*RapportenApi* | [**getRapport**](docs/Api/RapportenApi.md#getrapport) | **GET** /api/v0/rapporten/{id} | Rapport op basis van waardering Id.
 *WaarderingenApi* | [**createWaardering**](docs/Api/WaarderingenApi.md#createwaardering) | **POST** /api/v0/waarderingen | Creërt een waardering.
 *WaarderingenApi* | [**getWaardering**](docs/Api/WaarderingenApi.md#getwaardering) | **GET** /api/v0/waarderingen/{id} | Waardering op basis van Id.
-*WaarderingenApi* | [**getWaarderingOntwikkeling**](docs/Api/WaarderingenApi.md#getwaarderingontwikkeling) | **GET** /api/v0/waarderingen/{id}/ontwikkeling | Waardering ontwikkeling op basis van Id.
+*WaarderingenApi* | [**getWaarderingOntwikkeling**](docs/Api/WaarderingenApi.md#getwaarderingontwikkeling) | **GET** /api/v0/waarderingen/{id}/ontwikkeling | Waardering ontwikkeling op basis van waardering Id.
 *WaarderingenApi* | [**patchWaarderingen**](docs/Api/WaarderingenApi.md#patchwaarderingen) | **PATCH** /api/v0/waarderingen/{id} | Patcht een waardering.
 *WaarderingenApi* | [**searchWaarderingen**](docs/Api/WaarderingenApi.md#searchwaarderingen) | **POST** /api/v0/waarderingen/zoeken | Zoek waardering op basis van input parameters.
 

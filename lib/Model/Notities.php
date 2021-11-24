@@ -254,7 +254,7 @@ class Notities implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets straat
      *
-     * @param Notitie|null $straat De straatnaamnotitie. | Waarde | Omschrijving | | --- | --- | | `geen` | De input was correct. | | `gecorrigeerd` | De input was gecorrigeerd. | | `onbekend` | The input is onbekend en kon niet gevonden of gecorrigeerd worden. | | `ontbreekt` | De input was leeg en is wel nodig voor een succesvolle zoekopdracht. |
+     * @param Notitie|null $straat De straatnaamnotitie. | Waarde | Omschrijving | | --- | --- | | `geen` | De input was correct. | | `gecorrigeerd` | De input was gecorrigeerd. | | `onbekend` | De input is onbekend en kon niet gevonden of gecorrigeerd worden. | | `ontbreekt` | De input was leeg en is wel nodig voor een succesvolle zoekopdracht. |
      *
      * @return self
      */
@@ -278,7 +278,7 @@ class Notities implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets huisnummer
      *
-     * @param Notitie|null $huisnummer De huisnummernotitie. | Waarde | Omschrijving | | --- | --- | | `geen` | De input was correct. | | `gecorrigeerd` | De input was gecorrigeerd. | | `onbekend` | The input is onbekend en kon niet gevonden of gecorrigeerd worden. | | `ontbreekt` | De input was leeg en is wel nodig voor een succesvolle zoekopdracht. |
+     * @param Notitie|null $huisnummer De huisnummernotitie. | Waarde | Omschrijving | | --- | --- | | `geen` | De input was correct. | | `gecorrigeerd` | De input was gecorrigeerd. | | `onbekend` | De input is onbekend en kon niet gevonden of gecorrigeerd worden. | | `ontbreekt` | De input was leeg en is wel nodig voor een succesvolle zoekopdracht. |
      *
      * @return self
      */
@@ -302,7 +302,7 @@ class Notities implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets huisnummertoevoeging
      *
-     * @param Notitie|null $huisnummertoevoeging De huisnummertoevoegingnotitie. | Waarde | Omschrijving | | --- | --- | | `geen` | De input was correct. | | `gecorrigeerd` | De input was gecorrigeerd. | | `onbekend` | The input is onbekend en kon niet gevonden of gecorrigeerd worden. | | `ontbreekt` | De input was leeg en is wel nodig voor een succesvolle zoekopdracht. |
+     * @param Notitie|null $huisnummertoevoeging De huisnummertoevoegingnotitie. | Waarde | Omschrijving | | --- | --- | | `geen` | De input was correct. | | `gecorrigeerd` | De input was gecorrigeerd. | | `onbekend` | De input is onbekend en kon niet gevonden of gecorrigeerd worden. | | `ontbreekt` | De input was leeg en is wel nodig voor een succesvolle zoekopdracht. |
      *
      * @return self
      */
@@ -326,7 +326,7 @@ class Notities implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets postcode
      *
-     * @param Notitie|null $postcode De postcodenotitie. | Waarde | Omschrijving | | --- | --- | | `geen` | De input was correct. | | `gecorrigeerd` | De input was gecorrigeerd. | | `onbekend` | The input is onbekend en kon niet gevonden of gecorrigeerd worden. | | `ontbreekt` | De input was leeg en is wel nodig voor een succesvolle zoekopdracht. |
+     * @param Notitie|null $postcode De postcodenotitie. | Waarde | Omschrijving | | --- | --- | | `geen` | De input was correct. | | `gecorrigeerd` | De input was gecorrigeerd. | | `onbekend` | De input is onbekend en kon niet gevonden of gecorrigeerd worden. | | `ontbreekt` | De input was leeg en is wel nodig voor een succesvolle zoekopdracht. |
      *
      * @return self
      */
@@ -350,7 +350,7 @@ class Notities implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets woonplaats
      *
-     * @param Notitie|null $woonplaats De woonplaatsnotitie. | Waarde | Omschrijving | | --- | --- | | `geen` | De input was correct. | | `gecorrigeerd` | De input was gecorrigeerd. | | `onbekend` | The input is onbekend en kon niet gevonden of gecorrigeerd worden. | | `ontbreekt` | De input was leeg en is wel nodig voor een succesvolle zoekopdracht. |
+     * @param Notitie|null $woonplaats De woonplaatsnotitie. | Waarde | Omschrijving | | --- | --- | | `geen` | De input was correct. | | `gecorrigeerd` | De input was gecorrigeerd. | | `onbekend` | De input is onbekend en kon niet gevonden of gecorrigeerd worden. | | `ontbreekt` | De input was leeg en is wel nodig voor een succesvolle zoekopdracht. |
      *
      * @return self
      */

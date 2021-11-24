@@ -236,7 +236,7 @@ class Bestemmingsdata implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets enkelbestemming
      *
-     * @param string|null $enkelbestemming enkelbestemming
+     * @param string|null $enkelbestemming De enkelbestemming volgens het bestemmingsplan.
      *
      * @return self
      */
@@ -260,7 +260,7 @@ class Bestemmingsdata implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets datum_bestemmingplan
      *
-     * @param \DateTime|null $datum_bestemmingplan datum_bestemmingplan
+     * @param \DateTime|null $datum_bestemmingplan De datum waarop dit bestemmingsplan vastgelegd is.
      *
      * @return self
      */

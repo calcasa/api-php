@@ -73,9 +73,13 @@ class WaarderingOntwikkeling implements ModelInterface, ArrayAccess, \JsonSerial
     protected static $openAPITypes = [
         'id' => 'string',
         'object_prijs_ontwikkeling' => '\Calcasa\Api\V0\Model\\Calcasa\Api\Model\WaarderingOntwikkelingKwartaal[]',
+        'object_prijs_ontwikkeling_per_vierkantemeter' => '\Calcasa\Api\V0\Model\\Calcasa\Api\Model\WaarderingOntwikkelingKwartaal[]',
         'buurt_prijs_ontwikkeling' => '\Calcasa\Api\V0\Model\\Calcasa\Api\Model\WaarderingOntwikkelingKwartaal[]',
+        'buurt_prijs_ontwikkeling_per_vierkantemeter' => '\Calcasa\Api\V0\Model\\Calcasa\Api\Model\WaarderingOntwikkelingKwartaal[]',
         'wijk_prijs_ontwikkeling' => '\Calcasa\Api\V0\Model\\Calcasa\Api\Model\WaarderingOntwikkelingKwartaal[]',
-        'gemeente_prijs_ontwikkeling' => '\Calcasa\Api\V0\Model\\Calcasa\Api\Model\WaarderingOntwikkelingKwartaal[]'
+        'wijk_prijs_ontwikkeling_per_vierkantemeter' => '\Calcasa\Api\V0\Model\\Calcasa\Api\Model\WaarderingOntwikkelingKwartaal[]',
+        'gemeente_prijs_ontwikkeling' => '\Calcasa\Api\V0\Model\\Calcasa\Api\Model\WaarderingOntwikkelingKwartaal[]',
+        'gemeente_prijs_ontwikkeling_per_vierkantemeter' => '\Calcasa\Api\V0\Model\\Calcasa\Api\Model\WaarderingOntwikkelingKwartaal[]'
     ];
 
     /**
@@ -88,9 +92,13 @@ class WaarderingOntwikkeling implements ModelInterface, ArrayAccess, \JsonSerial
     protected static $openAPIFormats = [
         'id' => 'uuid',
         'object_prijs_ontwikkeling' => null,
+        'object_prijs_ontwikkeling_per_vierkantemeter' => null,
         'buurt_prijs_ontwikkeling' => null,
+        'buurt_prijs_ontwikkeling_per_vierkantemeter' => null,
         'wijk_prijs_ontwikkeling' => null,
-        'gemeente_prijs_ontwikkeling' => null
+        'wijk_prijs_ontwikkeling_per_vierkantemeter' => null,
+        'gemeente_prijs_ontwikkeling' => null,
+        'gemeente_prijs_ontwikkeling_per_vierkantemeter' => null
     ];
 
     /**
@@ -122,9 +130,13 @@ class WaarderingOntwikkeling implements ModelInterface, ArrayAccess, \JsonSerial
     protected static $attributeMap = [
         'id' => 'id',
         'object_prijs_ontwikkeling' => 'objectPrijsOntwikkeling',
+        'object_prijs_ontwikkeling_per_vierkantemeter' => 'objectPrijsOntwikkelingPerVierkantemeter',
         'buurt_prijs_ontwikkeling' => 'buurtPrijsOntwikkeling',
+        'buurt_prijs_ontwikkeling_per_vierkantemeter' => 'buurtPrijsOntwikkelingPerVierkantemeter',
         'wijk_prijs_ontwikkeling' => 'wijkPrijsOntwikkeling',
-        'gemeente_prijs_ontwikkeling' => 'gemeentePrijsOntwikkeling'
+        'wijk_prijs_ontwikkeling_per_vierkantemeter' => 'wijkPrijsOntwikkelingPerVierkantemeter',
+        'gemeente_prijs_ontwikkeling' => 'gemeentePrijsOntwikkeling',
+        'gemeente_prijs_ontwikkeling_per_vierkantemeter' => 'gemeentePrijsOntwikkelingPerVierkantemeter'
     ];
 
     /**
@@ -135,9 +147,13 @@ class WaarderingOntwikkeling implements ModelInterface, ArrayAccess, \JsonSerial
     protected static $setters = [
         'id' => 'setId',
         'object_prijs_ontwikkeling' => 'setObjectPrijsOntwikkeling',
+        'object_prijs_ontwikkeling_per_vierkantemeter' => 'setObjectPrijsOntwikkelingPerVierkantemeter',
         'buurt_prijs_ontwikkeling' => 'setBuurtPrijsOntwikkeling',
+        'buurt_prijs_ontwikkeling_per_vierkantemeter' => 'setBuurtPrijsOntwikkelingPerVierkantemeter',
         'wijk_prijs_ontwikkeling' => 'setWijkPrijsOntwikkeling',
-        'gemeente_prijs_ontwikkeling' => 'setGemeentePrijsOntwikkeling'
+        'wijk_prijs_ontwikkeling_per_vierkantemeter' => 'setWijkPrijsOntwikkelingPerVierkantemeter',
+        'gemeente_prijs_ontwikkeling' => 'setGemeentePrijsOntwikkeling',
+        'gemeente_prijs_ontwikkeling_per_vierkantemeter' => 'setGemeentePrijsOntwikkelingPerVierkantemeter'
     ];
 
     /**
@@ -148,9 +164,13 @@ class WaarderingOntwikkeling implements ModelInterface, ArrayAccess, \JsonSerial
     protected static $getters = [
         'id' => 'getId',
         'object_prijs_ontwikkeling' => 'getObjectPrijsOntwikkeling',
+        'object_prijs_ontwikkeling_per_vierkantemeter' => 'getObjectPrijsOntwikkelingPerVierkantemeter',
         'buurt_prijs_ontwikkeling' => 'getBuurtPrijsOntwikkeling',
+        'buurt_prijs_ontwikkeling_per_vierkantemeter' => 'getBuurtPrijsOntwikkelingPerVierkantemeter',
         'wijk_prijs_ontwikkeling' => 'getWijkPrijsOntwikkeling',
-        'gemeente_prijs_ontwikkeling' => 'getGemeentePrijsOntwikkeling'
+        'wijk_prijs_ontwikkeling_per_vierkantemeter' => 'getWijkPrijsOntwikkelingPerVierkantemeter',
+        'gemeente_prijs_ontwikkeling' => 'getGemeentePrijsOntwikkeling',
+        'gemeente_prijs_ontwikkeling_per_vierkantemeter' => 'getGemeentePrijsOntwikkelingPerVierkantemeter'
     ];
 
     /**
@@ -212,9 +232,13 @@ class WaarderingOntwikkeling implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $this->container['id'] = $data['id'] ?? null;
         $this->container['object_prijs_ontwikkeling'] = $data['object_prijs_ontwikkeling'] ?? null;
+        $this->container['object_prijs_ontwikkeling_per_vierkantemeter'] = $data['object_prijs_ontwikkeling_per_vierkantemeter'] ?? null;
         $this->container['buurt_prijs_ontwikkeling'] = $data['buurt_prijs_ontwikkeling'] ?? null;
+        $this->container['buurt_prijs_ontwikkeling_per_vierkantemeter'] = $data['buurt_prijs_ontwikkeling_per_vierkantemeter'] ?? null;
         $this->container['wijk_prijs_ontwikkeling'] = $data['wijk_prijs_ontwikkeling'] ?? null;
+        $this->container['wijk_prijs_ontwikkeling_per_vierkantemeter'] = $data['wijk_prijs_ontwikkeling_per_vierkantemeter'] ?? null;
         $this->container['gemeente_prijs_ontwikkeling'] = $data['gemeente_prijs_ontwikkeling'] ?? null;
+        $this->container['gemeente_prijs_ontwikkeling_per_vierkantemeter'] = $data['gemeente_prijs_ontwikkeling_per_vierkantemeter'] ?? null;
     }
 
     /**
@@ -278,13 +302,37 @@ class WaarderingOntwikkeling implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets object_prijs_ontwikkeling
      *
-     * @param \Calcasa\Api\Model\WaarderingOntwikkelingKwartaal[]|null $object_prijs_ontwikkeling object_prijs_ontwikkeling
+     * @param \Calcasa\Api\Model\WaarderingOntwikkelingKwartaal[]|null $object_prijs_ontwikkeling De prijsontwikkeling van het gewaardeerde object.
      *
      * @return self
      */
     public function setObjectPrijsOntwikkeling($object_prijs_ontwikkeling)
     {
         $this->container['object_prijs_ontwikkeling'] = $object_prijs_ontwikkeling;
+
+        return $this;
+    }
+
+    /**
+     * Gets object_prijs_ontwikkeling_per_vierkantemeter
+     *
+     * @return \Calcasa\Api\Model\WaarderingOntwikkelingKwartaal[]|null
+     */
+    public function getObjectPrijsOntwikkelingPerVierkantemeter()
+    {
+        return $this->container['object_prijs_ontwikkeling_per_vierkantemeter'];
+    }
+
+    /**
+     * Sets object_prijs_ontwikkeling_per_vierkantemeter
+     *
+     * @param \Calcasa\Api\Model\WaarderingOntwikkelingKwartaal[]|null $object_prijs_ontwikkeling_per_vierkantemeter De prijsontwikkeling van het gewaardeerde object per vierkantemeter.
+     *
+     * @return self
+     */
+    public function setObjectPrijsOntwikkelingPerVierkantemeter($object_prijs_ontwikkeling_per_vierkantemeter)
+    {
+        $this->container['object_prijs_ontwikkeling_per_vierkantemeter'] = $object_prijs_ontwikkeling_per_vierkantemeter;
 
         return $this;
     }
@@ -302,13 +350,37 @@ class WaarderingOntwikkeling implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets buurt_prijs_ontwikkeling
      *
-     * @param \Calcasa\Api\Model\WaarderingOntwikkelingKwartaal[]|null $buurt_prijs_ontwikkeling buurt_prijs_ontwikkeling
+     * @param \Calcasa\Api\Model\WaarderingOntwikkelingKwartaal[]|null $buurt_prijs_ontwikkeling De prijsontwikkeling van de buurt van het gewaardeerde object.
      *
      * @return self
      */
     public function setBuurtPrijsOntwikkeling($buurt_prijs_ontwikkeling)
     {
         $this->container['buurt_prijs_ontwikkeling'] = $buurt_prijs_ontwikkeling;
+
+        return $this;
+    }
+
+    /**
+     * Gets buurt_prijs_ontwikkeling_per_vierkantemeter
+     *
+     * @return \Calcasa\Api\Model\WaarderingOntwikkelingKwartaal[]|null
+     */
+    public function getBuurtPrijsOntwikkelingPerVierkantemeter()
+    {
+        return $this->container['buurt_prijs_ontwikkeling_per_vierkantemeter'];
+    }
+
+    /**
+     * Sets buurt_prijs_ontwikkeling_per_vierkantemeter
+     *
+     * @param \Calcasa\Api\Model\WaarderingOntwikkelingKwartaal[]|null $buurt_prijs_ontwikkeling_per_vierkantemeter De prijsontwikkeling van de buurt van het gewaardeerde object per vierkantemeter.
+     *
+     * @return self
+     */
+    public function setBuurtPrijsOntwikkelingPerVierkantemeter($buurt_prijs_ontwikkeling_per_vierkantemeter)
+    {
+        $this->container['buurt_prijs_ontwikkeling_per_vierkantemeter'] = $buurt_prijs_ontwikkeling_per_vierkantemeter;
 
         return $this;
     }
@@ -326,13 +398,37 @@ class WaarderingOntwikkeling implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets wijk_prijs_ontwikkeling
      *
-     * @param \Calcasa\Api\Model\WaarderingOntwikkelingKwartaal[]|null $wijk_prijs_ontwikkeling wijk_prijs_ontwikkeling
+     * @param \Calcasa\Api\Model\WaarderingOntwikkelingKwartaal[]|null $wijk_prijs_ontwikkeling De prijsontwikkeling van de wijk van het gewaardeerde object.
      *
      * @return self
      */
     public function setWijkPrijsOntwikkeling($wijk_prijs_ontwikkeling)
     {
         $this->container['wijk_prijs_ontwikkeling'] = $wijk_prijs_ontwikkeling;
+
+        return $this;
+    }
+
+    /**
+     * Gets wijk_prijs_ontwikkeling_per_vierkantemeter
+     *
+     * @return \Calcasa\Api\Model\WaarderingOntwikkelingKwartaal[]|null
+     */
+    public function getWijkPrijsOntwikkelingPerVierkantemeter()
+    {
+        return $this->container['wijk_prijs_ontwikkeling_per_vierkantemeter'];
+    }
+
+    /**
+     * Sets wijk_prijs_ontwikkeling_per_vierkantemeter
+     *
+     * @param \Calcasa\Api\Model\WaarderingOntwikkelingKwartaal[]|null $wijk_prijs_ontwikkeling_per_vierkantemeter De prijsontwikkeling van de wijk van het gewaardeerde object per vierkantemeter.
+     *
+     * @return self
+     */
+    public function setWijkPrijsOntwikkelingPerVierkantemeter($wijk_prijs_ontwikkeling_per_vierkantemeter)
+    {
+        $this->container['wijk_prijs_ontwikkeling_per_vierkantemeter'] = $wijk_prijs_ontwikkeling_per_vierkantemeter;
 
         return $this;
     }
@@ -350,13 +446,37 @@ class WaarderingOntwikkeling implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets gemeente_prijs_ontwikkeling
      *
-     * @param \Calcasa\Api\Model\WaarderingOntwikkelingKwartaal[]|null $gemeente_prijs_ontwikkeling gemeente_prijs_ontwikkeling
+     * @param \Calcasa\Api\Model\WaarderingOntwikkelingKwartaal[]|null $gemeente_prijs_ontwikkeling De prijsontwikkeling van de gemeente van het gewaardeerde object.
      *
      * @return self
      */
     public function setGemeentePrijsOntwikkeling($gemeente_prijs_ontwikkeling)
     {
         $this->container['gemeente_prijs_ontwikkeling'] = $gemeente_prijs_ontwikkeling;
+
+        return $this;
+    }
+
+    /**
+     * Gets gemeente_prijs_ontwikkeling_per_vierkantemeter
+     *
+     * @return \Calcasa\Api\Model\WaarderingOntwikkelingKwartaal[]|null
+     */
+    public function getGemeentePrijsOntwikkelingPerVierkantemeter()
+    {
+        return $this->container['gemeente_prijs_ontwikkeling_per_vierkantemeter'];
+    }
+
+    /**
+     * Sets gemeente_prijs_ontwikkeling_per_vierkantemeter
+     *
+     * @param \Calcasa\Api\Model\WaarderingOntwikkelingKwartaal[]|null $gemeente_prijs_ontwikkeling_per_vierkantemeter De prijsontwikkeling van de gemeente van het gewaardeerde object per vierkantemeter.
+     *
+     * @return self
+     */
+    public function setGemeentePrijsOntwikkelingPerVierkantemeter($gemeente_prijs_ontwikkeling_per_vierkantemeter)
+    {
+        $this->container['gemeente_prijs_ontwikkeling_per_vierkantemeter'] = $gemeente_prijs_ontwikkeling_per_vierkantemeter;
 
         return $this;
     }
