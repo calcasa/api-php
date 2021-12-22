@@ -1,6 +1,6 @@
 <?php
 /**
- * Foto
+ * WaarderingWebhookPayload
  *
  * PHP version 7.3
  *
@@ -44,9 +44,10 @@ use \ArrayAccess;
 use \Calcasa\Api\ObjectSerializer;
 
 /**
- * Foto Class Doc Comment
+ * WaarderingWebhookPayload Class Doc Comment
  *
  * @category Class
+ * @description De payload van de webhooks voor de waarderingen.
  * @package  Calcasa\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -54,7 +55,7 @@ use \Calcasa\Api\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Foto implements ModelInterface, ArrayAccess, \JsonSerializable
+class WaarderingWebhookPayload implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -63,7 +64,7 @@ class Foto implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Foto';
+    protected static $openAPIModelName = 'WaarderingWebhookPayload';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -71,7 +72,13 @@ class Foto implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'id' => 'string'
+        'callback_name' => 'string',
+        'event_id' => 'string',
+        'waardering_id' => 'string',
+        'old_status' => '\Calcasa\Api\V0\Model\WaarderingStatus',
+        'new_status' => '\Calcasa\Api\V0\Model\WaarderingStatus',
+        'timestamp' => '\DateTime',
+        'is_test' => 'bool'
     ];
 
     /**
@@ -82,7 +89,13 @@ class Foto implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'id' => 'uuid'
+        'callback_name' => null,
+        'event_id' => 'uuid',
+        'waardering_id' => 'uuid',
+        'old_status' => null,
+        'new_status' => null,
+        'timestamp' => 'date-time',
+        'is_test' => null
     ];
 
     /**
@@ -112,7 +125,13 @@ class Foto implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'id' => 'id'
+        'callback_name' => 'callbackName',
+        'event_id' => 'eventId',
+        'waardering_id' => 'waarderingId',
+        'old_status' => 'oldStatus',
+        'new_status' => 'newStatus',
+        'timestamp' => 'timestamp',
+        'is_test' => 'isTest'
     ];
 
     /**
@@ -121,7 +140,13 @@ class Foto implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'id' => 'setId'
+        'callback_name' => 'setCallbackName',
+        'event_id' => 'setEventId',
+        'waardering_id' => 'setWaarderingId',
+        'old_status' => 'setOldStatus',
+        'new_status' => 'setNewStatus',
+        'timestamp' => 'setTimestamp',
+        'is_test' => 'setIsTest'
     ];
 
     /**
@@ -130,7 +155,13 @@ class Foto implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'id' => 'getId'
+        'callback_name' => 'getCallbackName',
+        'event_id' => 'getEventId',
+        'waardering_id' => 'getWaarderingId',
+        'old_status' => 'getOldStatus',
+        'new_status' => 'getNewStatus',
+        'timestamp' => 'getTimestamp',
+        'is_test' => 'getIsTest'
     ];
 
     /**
@@ -190,7 +221,13 @@ class Foto implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['id'] = $data['id'] ?? null;
+        $this->container['callback_name'] = $data['callback_name'] ?? null;
+        $this->container['event_id'] = $data['event_id'] ?? null;
+        $this->container['waardering_id'] = $data['waardering_id'] ?? null;
+        $this->container['old_status'] = $data['old_status'] ?? null;
+        $this->container['new_status'] = $data['new_status'] ?? null;
+        $this->container['timestamp'] = $data['timestamp'] ?? null;
+        $this->container['is_test'] = $data['is_test'] ?? null;
     }
 
     /**
@@ -218,25 +255,169 @@ class Foto implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets id
+     * Gets callback_name
      *
      * @return string|null
      */
-    public function getId()
+    public function getCallbackName()
     {
-        return $this->container['id'];
+        return $this->container['callback_name'];
     }
 
     /**
-     * Sets id
+     * Sets callback_name
      *
-     * @param string|null $id Het foto Id.
+     * @param string|null $callback_name callback_name
      *
      * @return self
      */
-    public function setId($id)
+    public function setCallbackName($callback_name)
     {
-        $this->container['id'] = $id;
+        $this->container['callback_name'] = $callback_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets event_id
+     *
+     * @return string|null
+     */
+    public function getEventId()
+    {
+        return $this->container['event_id'];
+    }
+
+    /**
+     * Sets event_id
+     *
+     * @param string|null $event_id Uniek Id voor deze callback.
+     *
+     * @return self
+     */
+    public function setEventId($event_id)
+    {
+        $this->container['event_id'] = $event_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets waardering_id
+     *
+     * @return string|null
+     */
+    public function getWaarderingId()
+    {
+        return $this->container['waardering_id'];
+    }
+
+    /**
+     * Sets waardering_id
+     *
+     * @param string|null $waardering_id Het Id van de waardering waarop deze callback betrekking heeft.
+     *
+     * @return self
+     */
+    public function setWaarderingId($waardering_id)
+    {
+        $this->container['waardering_id'] = $waardering_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets old_status
+     *
+     * @return WaarderingStatus|null
+     */
+    public function getOldStatus()
+    {
+        return $this->container['old_status'];
+    }
+
+    /**
+     * Sets old_status
+     *
+     * @param WaarderingStatus|null $old_status De oude status van de waardering. | Waarde | Omschrijving | | --- | --- | | `onbekend` | Status onbekend. | | `initialiseren` | Deze waardering is geinitialiseerd maar moet nog bevestigd worden. | | `open` | Deze waardering is bevestigd maar moet nog uitgevoerd worden. | | `voltooid` | Deze waardering is voltooid. | | `opgewaardeerd` | Deze waardering is geupgrade naar een ander waardering type. | | `ongeldig` | Deze waardering is niet geldig, bijvoorbeeld omdat hij niet door de business rules is gekomen. | | `verlopen` | Deze waardering is verlopen omdat hij niet op tijd bevestigd is. | | `error` | Er is iets mis gegaan voor deze waardering. |
+     *
+     * @return self
+     */
+    public function setOldStatus($old_status)
+    {
+        $this->container['old_status'] = $old_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets new_status
+     *
+     * @return WaarderingStatus|null
+     */
+    public function getNewStatus()
+    {
+        return $this->container['new_status'];
+    }
+
+    /**
+     * Sets new_status
+     *
+     * @param WaarderingStatus|null $new_status De nieuwe status van de waardering. | Waarde | Omschrijving | | --- | --- | | `onbekend` | Status onbekend. | | `initialiseren` | Deze waardering is geinitialiseerd maar moet nog bevestigd worden. | | `open` | Deze waardering is bevestigd maar moet nog uitgevoerd worden. | | `voltooid` | Deze waardering is voltooid. | | `opgewaardeerd` | Deze waardering is geupgrade naar een ander waardering type. | | `ongeldig` | Deze waardering is niet geldig, bijvoorbeeld omdat hij niet door de business rules is gekomen. | | `verlopen` | Deze waardering is verlopen omdat hij niet op tijd bevestigd is. | | `error` | Er is iets mis gegaan voor deze waardering. |
+     *
+     * @return self
+     */
+    public function setNewStatus($new_status)
+    {
+        $this->container['new_status'] = $new_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets timestamp
+     *
+     * @return \DateTime|null
+     */
+    public function getTimestamp()
+    {
+        return $this->container['timestamp'];
+    }
+
+    /**
+     * Sets timestamp
+     *
+     * @param \DateTime|null $timestamp Het tijdstip van het event, in UTC.
+     *
+     * @return self
+     */
+    public function setTimestamp($timestamp)
+    {
+        $this->container['timestamp'] = $timestamp;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_test
+     *
+     * @return bool|null
+     */
+    public function getIsTest()
+    {
+        return $this->container['is_test'];
+    }
+
+    /**
+     * Sets is_test
+     *
+     * @param bool|null $is_test Geeft aan of de betreffende waardering aangevraagd is met een test token.
+     *
+     * @return self
+     */
+    public function setIsTest($is_test)
+    {
+        $this->container['is_test'] = $is_test;
 
         return $this;
     }
