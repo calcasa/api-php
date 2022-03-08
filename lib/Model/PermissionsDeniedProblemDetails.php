@@ -1,6 +1,6 @@
 <?php
 /**
- * Taxatiedata
+ * PermissionsDeniedProblemDetails
  *
  * PHP version 7.3
  *
@@ -44,7 +44,7 @@ use \ArrayAccess;
 use \Calcasa\Api\ObjectSerializer;
 
 /**
- * Taxatiedata Class Doc Comment
+ * PermissionsDeniedProblemDetails Class Doc Comment
  *
  * @category Class
  * @package  Calcasa\Api
@@ -54,7 +54,7 @@ use \Calcasa\Api\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Taxatiedata implements ModelInterface, ArrayAccess, \JsonSerializable
+class PermissionsDeniedProblemDetails implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -63,7 +63,7 @@ class Taxatiedata implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Taxatiedata';
+    protected static $openAPIModelName = 'PermissionsDeniedProblemDetails';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -71,9 +71,12 @@ class Taxatiedata implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'taxatieorganisatie' => 'string',
-        'status' => '\Calcasa\Api\V0\Model\Taxatiestatus',
-        'taxatiedatum' => '\DateTime'
+        'required_permission' => 'string',
+        'type' => 'string',
+        'title' => 'string',
+        'status' => 'int',
+        'detail' => 'string',
+        'instance' => 'string'
     ];
 
     /**
@@ -84,9 +87,12 @@ class Taxatiedata implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'taxatieorganisatie' => null,
-        'status' => null,
-        'taxatiedatum' => 'date-time'
+        'required_permission' => null,
+        'type' => null,
+        'title' => null,
+        'status' => 'int32',
+        'detail' => null,
+        'instance' => null
     ];
 
     /**
@@ -116,9 +122,12 @@ class Taxatiedata implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'taxatieorganisatie' => 'taxatieorganisatie',
+        'required_permission' => 'requiredPermission',
+        'type' => 'type',
+        'title' => 'title',
         'status' => 'status',
-        'taxatiedatum' => 'taxatiedatum'
+        'detail' => 'detail',
+        'instance' => 'instance'
     ];
 
     /**
@@ -127,9 +136,12 @@ class Taxatiedata implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'taxatieorganisatie' => 'setTaxatieorganisatie',
+        'required_permission' => 'setRequiredPermission',
+        'type' => 'setType',
+        'title' => 'setTitle',
         'status' => 'setStatus',
-        'taxatiedatum' => 'setTaxatiedatum'
+        'detail' => 'setDetail',
+        'instance' => 'setInstance'
     ];
 
     /**
@@ -138,9 +150,12 @@ class Taxatiedata implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'taxatieorganisatie' => 'getTaxatieorganisatie',
+        'required_permission' => 'getRequiredPermission',
+        'type' => 'getType',
+        'title' => 'getTitle',
         'status' => 'getStatus',
-        'taxatiedatum' => 'getTaxatiedatum'
+        'detail' => 'getDetail',
+        'instance' => 'getInstance'
     ];
 
     /**
@@ -200,9 +215,12 @@ class Taxatiedata implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['taxatieorganisatie'] = $data['taxatieorganisatie'] ?? null;
+        $this->container['required_permission'] = $data['required_permission'] ?? null;
+        $this->container['type'] = $data['type'] ?? null;
+        $this->container['title'] = $data['title'] ?? null;
         $this->container['status'] = $data['status'] ?? null;
-        $this->container['taxatiedatum'] = $data['taxatiedatum'] ?? null;
+        $this->container['detail'] = $data['detail'] ?? null;
+        $this->container['instance'] = $data['instance'] ?? null;
     }
 
     /**
@@ -230,25 +248,73 @@ class Taxatiedata implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets taxatieorganisatie
+     * Gets required_permission
      *
      * @return string|null
      */
-    public function getTaxatieorganisatie()
+    public function getRequiredPermission()
     {
-        return $this->container['taxatieorganisatie'];
+        return $this->container['required_permission'];
     }
 
     /**
-     * Sets taxatieorganisatie
+     * Sets required_permission
      *
-     * @param string|null $taxatieorganisatie De naam van de taxatieorganisatie.
+     * @param string|null $required_permission required_permission
      *
      * @return self
      */
-    public function setTaxatieorganisatie($taxatieorganisatie)
+    public function setRequiredPermission($required_permission)
     {
-        $this->container['taxatieorganisatie'] = $taxatieorganisatie;
+        $this->container['required_permission'] = $required_permission;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string|null
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string|null $type type
+     *
+     * @return self
+     */
+    public function setType($type)
+    {
+        $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets title
+     *
+     * @return string|null
+     */
+    public function getTitle()
+    {
+        return $this->container['title'];
+    }
+
+    /**
+     * Sets title
+     *
+     * @param string|null $title title
+     *
+     * @return self
+     */
+    public function setTitle($title)
+    {
+        $this->container['title'] = $title;
 
         return $this;
     }
@@ -256,7 +322,7 @@ class Taxatiedata implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets status
      *
-     * @return Taxatiestatus|null
+     * @return int|null
      */
     public function getStatus()
     {
@@ -266,7 +332,7 @@ class Taxatiedata implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets status
      *
-     * @param Taxatiestatus|null $status De status van een taxatie (alleen van toepassing voor desktop taxaties). | Waarde | Omschrijving | | --- | --- | | `nietGecontroleerd` | Status is onbekend of niet van toepassing. | | `goedgekeurd` | De waardering is geaccepteerd door een taxateur. | | `afgekeurd` | De waardering is afgewezen door een taxateur. |
+     * @param int|null $status status
      *
      * @return self
      */
@@ -278,25 +344,49 @@ class Taxatiedata implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets taxatiedatum
+     * Gets detail
      *
-     * @return \DateTime|null
+     * @return string|null
      */
-    public function getTaxatiedatum()
+    public function getDetail()
     {
-        return $this->container['taxatiedatum'];
+        return $this->container['detail'];
     }
 
     /**
-     * Sets taxatiedatum
+     * Sets detail
      *
-     * @param \DateTime|null $taxatiedatum De datum/tijd waarop de waardering getaxeerd is, in UTC.
+     * @param string|null $detail detail
      *
      * @return self
      */
-    public function setTaxatiedatum($taxatiedatum)
+    public function setDetail($detail)
     {
-        $this->container['taxatiedatum'] = $taxatiedatum;
+        $this->container['detail'] = $detail;
+
+        return $this;
+    }
+
+    /**
+     * Gets instance
+     *
+     * @return string|null
+     */
+    public function getInstance()
+    {
+        return $this->container['instance'];
+    }
+
+    /**
+     * Sets instance
+     *
+     * @param string|null $instance instance
+     *
+     * @return self
+     */
+    public function setInstance($instance)
+    {
+        $this->container['instance'] = $instance;
 
         return $this;
     }

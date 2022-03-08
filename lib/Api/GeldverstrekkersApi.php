@@ -1,6 +1,6 @@
 <?php
 /**
- * FacturenApi
+ * GeldverstrekkersApi
  * PHP version 7.3
  *
  * @category Class
@@ -52,14 +52,14 @@ use Calcasa\Api\HeaderSelector;
 use Calcasa\Api\ObjectSerializer;
 
 /**
- * FacturenApi Class Doc Comment
+ * GeldverstrekkersApi Class Doc Comment
  *
  * @category Class
  * @package  Calcasa\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class FacturenApi
+class GeldverstrekkersApi
 {
     /**
      * @var ClientInterface
@@ -128,36 +128,36 @@ class FacturenApi
     }
 
     /**
-     * Operation getFactuur
+     * Operation getGeldverstrekkers
      *
-     * Factuur op basis van een waardering Id.
+     * Alle geldverstrekkers die te gebruiken zijn voor aanvragen.
      *
-     * @param  string $id De Id van een waardering. (required)
+     * @param  ProductType $product_type Een parameter om de lijst te filteren op gesupporte producttypen. (required)
      *
      * @throws \Calcasa\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Calcasa\Api\Model\NotFoundProblemDetails|\Calcasa\Api\Model\PermissionsDeniedProblemDetails|\Calcasa\Api\Model\ProblemDetails|\SplFileObject
+     * @return \Calcasa\Api\Model\PermissionsDeniedProblemDetails|\Calcasa\Api\Model\ProblemDetails|\Calcasa\Api\Model\AdresInfo
      */
-    public function getFactuur($id)
+    public function getGeldverstrekkers($product_type)
     {
-        list($response) = $this->getFactuurWithHttpInfo($id);
+        list($response) = $this->getGeldverstrekkersWithHttpInfo($product_type);
         return $response;
     }
 
     /**
-     * Operation getFactuurWithHttpInfo
+     * Operation getGeldverstrekkersWithHttpInfo
      *
-     * Factuur op basis van een waardering Id.
+     * Alle geldverstrekkers die te gebruiken zijn voor aanvragen.
      *
-     * @param  string $id De Id van een waardering. (required)
+     * @param  ProductType $product_type Een parameter om de lijst te filteren op gesupporte producttypen. (required)
      *
      * @throws \Calcasa\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Calcasa\Api\Model\NotFoundProblemDetails|\Calcasa\Api\Model\PermissionsDeniedProblemDetails|\Calcasa\Api\Model\ProblemDetails|\SplFileObject, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Calcasa\Api\Model\PermissionsDeniedProblemDetails|\Calcasa\Api\Model\ProblemDetails|\Calcasa\Api\Model\AdresInfo, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getFactuurWithHttpInfo($id)
+    public function getGeldverstrekkersWithHttpInfo($product_type)
     {
-        $request = $this->getFactuurRequest($id);
+        $request = $this->getGeldverstrekkersRequest($product_type);
 
         try {
             $options = $this->createHttpClientOption();
@@ -195,18 +195,6 @@ class FacturenApi
             }
 
             switch($statusCode) {
-                case 404:
-                    if ('\Calcasa\Api\Model\NotFoundProblemDetails' === '\SplFileObject') {
-                        $content = $response->getBody(); //stream goes to serializer
-                    } else {
-                        $content = (string) $response->getBody();
-                    }
-
-                    return [
-                        ObjectSerializer::deserialize($content, '\Calcasa\Api\Model\NotFoundProblemDetails', []),
-                        $response->getStatusCode(),
-                        $response->getHeaders()
-                    ];
                 case 403:
                     if ('\Calcasa\Api\Model\PermissionsDeniedProblemDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
@@ -232,20 +220,20 @@ class FacturenApi
                         $response->getHeaders()
                     ];
                 case 200:
-                    if ('\SplFileObject' === '\SplFileObject') {
+                    if ('\Calcasa\Api\Model\AdresInfo' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\SplFileObject', []),
+                        ObjectSerializer::deserialize($content, '\Calcasa\Api\Model\AdresInfo', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\SplFileObject';
+            $returnType = '\Calcasa\Api\Model\AdresInfo';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -260,14 +248,6 @@ class FacturenApi
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
-                case 404:
-                    $data = ObjectSerializer::deserialize(
-                        $e->getResponseBody(),
-                        '\Calcasa\Api\Model\NotFoundProblemDetails',
-                        $e->getResponseHeaders()
-                    );
-                    $e->setResponseObject($data);
-                    break;
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
@@ -287,7 +267,7 @@ class FacturenApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\SplFileObject',
+                        '\Calcasa\Api\Model\AdresInfo',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -298,18 +278,18 @@ class FacturenApi
     }
 
     /**
-     * Operation getFactuurAsync
+     * Operation getGeldverstrekkersAsync
      *
-     * Factuur op basis van een waardering Id.
+     * Alle geldverstrekkers die te gebruiken zijn voor aanvragen.
      *
-     * @param  string $id De Id van een waardering. (required)
+     * @param  ProductType $product_type Een parameter om de lijst te filteren op gesupporte producttypen. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFactuurAsync($id)
+    public function getGeldverstrekkersAsync($product_type)
     {
-        return $this->getFactuurAsyncWithHttpInfo($id)
+        return $this->getGeldverstrekkersAsyncWithHttpInfo($product_type)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -318,19 +298,19 @@ class FacturenApi
     }
 
     /**
-     * Operation getFactuurAsyncWithHttpInfo
+     * Operation getGeldverstrekkersAsyncWithHttpInfo
      *
-     * Factuur op basis van een waardering Id.
+     * Alle geldverstrekkers die te gebruiken zijn voor aanvragen.
      *
-     * @param  string $id De Id van een waardering. (required)
+     * @param  ProductType $product_type Een parameter om de lijst te filteren op gesupporte producttypen. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFactuurAsyncWithHttpInfo($id)
+    public function getGeldverstrekkersAsyncWithHttpInfo($product_type)
     {
-        $returnType = '\SplFileObject';
-        $request = $this->getFactuurRequest($id);
+        $returnType = '\Calcasa\Api\Model\AdresInfo';
+        $request = $this->getGeldverstrekkersRequest($product_type);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -366,23 +346,23 @@ class FacturenApi
     }
 
     /**
-     * Create request for operation 'getFactuur'
+     * Create request for operation 'getGeldverstrekkers'
      *
-     * @param  string $id De Id van een waardering. (required)
+     * @param  ProductType $product_type Een parameter om de lijst te filteren op gesupporte producttypen. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getFactuurRequest($id)
+    public function getGeldverstrekkersRequest($product_type)
     {
-        // verify the required parameter 'id' is set
-        if ($id === null || (is_array($id) && count($id) === 0)) {
+        // verify the required parameter 'product_type' is set
+        if ($product_type === null || (is_array($product_type) && count($product_type) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $id when calling getFactuur'
+                'Missing the required parameter $product_type when calling getGeldverstrekkers'
             );
         }
 
-        $resourcePath = '/api/v1/facturen/{id}';
+        $resourcePath = '/api/v1/geldverstrekkers/{productType}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -392,10 +372,10 @@ class FacturenApi
 
 
         // path params
-        if ($id !== null) {
+        if ($product_type !== null) {
             $resourcePath = str_replace(
-                '{' . 'id' . '}',
-                ObjectSerializer::toPathValue($id),
+                '{' . 'productType' . '}',
+                ObjectSerializer::toPathValue($product_type),
                 $resourcePath
             );
         }
@@ -403,11 +383,11 @@ class FacturenApi
 
         if ($multipart) {
             $headers = $this->headerSelector->selectHeadersForMultipart(
-                ['application/problem+json', 'application/pdf']
+                ['application/problem+json', 'application/json']
             );
         } else {
             $headers = $this->headerSelector->selectHeaders(
-                ['application/problem+json', 'application/pdf'],
+                ['application/problem+json', 'application/json'],
                 []
             );
         }
