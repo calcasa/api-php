@@ -1,6 +1,6 @@
 <?php
 /**
- * Notities
+ * Geldverstrekker
  *
  * PHP version 7.3
  *
@@ -44,7 +44,7 @@ use \ArrayAccess;
 use \Calcasa\Api\ObjectSerializer;
 
 /**
- * Notities Class Doc Comment
+ * Geldverstrekker Class Doc Comment
  *
  * @category Class
  * @package  Calcasa\Api
@@ -54,7 +54,7 @@ use \Calcasa\Api\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Notities implements ModelInterface, ArrayAccess, \JsonSerializable
+class Geldverstrekker implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -63,7 +63,7 @@ class Notities implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Notities';
+    protected static $openAPIModelName = 'Geldverstrekker';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -71,11 +71,8 @@ class Notities implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'straat' => '\Calcasa\Api\V0\Model\Notitie',
-        'huisnummer' => '\Calcasa\Api\V0\Model\Notitie',
-        'huisnummertoevoeging' => '\Calcasa\Api\V0\Model\Notitie',
-        'postcode' => '\Calcasa\Api\V0\Model\Notitie',
-        'woonplaats' => '\Calcasa\Api\V0\Model\Notitie'
+        'slug' => 'string',
+        'name' => 'string'
     ];
 
     /**
@@ -86,11 +83,8 @@ class Notities implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'straat' => null,
-        'huisnummer' => null,
-        'huisnummertoevoeging' => null,
-        'postcode' => null,
-        'woonplaats' => null
+        'slug' => null,
+        'name' => null
     ];
 
     /**
@@ -120,11 +114,8 @@ class Notities implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'straat' => 'straat',
-        'huisnummer' => 'huisnummer',
-        'huisnummertoevoeging' => 'huisnummertoevoeging',
-        'postcode' => 'postcode',
-        'woonplaats' => 'woonplaats'
+        'slug' => 'slug',
+        'name' => 'name'
     ];
 
     /**
@@ -133,11 +124,8 @@ class Notities implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'straat' => 'setStraat',
-        'huisnummer' => 'setHuisnummer',
-        'huisnummertoevoeging' => 'setHuisnummertoevoeging',
-        'postcode' => 'setPostcode',
-        'woonplaats' => 'setWoonplaats'
+        'slug' => 'setSlug',
+        'name' => 'setName'
     ];
 
     /**
@@ -146,11 +134,8 @@ class Notities implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'straat' => 'getStraat',
-        'huisnummer' => 'getHuisnummer',
-        'huisnummertoevoeging' => 'getHuisnummertoevoeging',
-        'postcode' => 'getPostcode',
-        'woonplaats' => 'getWoonplaats'
+        'slug' => 'getSlug',
+        'name' => 'getName'
     ];
 
     /**
@@ -210,11 +195,8 @@ class Notities implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['straat'] = $data['straat'] ?? null;
-        $this->container['huisnummer'] = $data['huisnummer'] ?? null;
-        $this->container['huisnummertoevoeging'] = $data['huisnummertoevoeging'] ?? null;
-        $this->container['postcode'] = $data['postcode'] ?? null;
-        $this->container['woonplaats'] = $data['woonplaats'] ?? null;
+        $this->container['slug'] = $data['slug'] ?? null;
+        $this->container['name'] = $data['name'] ?? null;
     }
 
     /**
@@ -242,121 +224,49 @@ class Notities implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets straat
+     * Gets slug
      *
-     * @return Notitie|null
+     * @return string|null
      */
-    public function getStraat()
+    public function getSlug()
     {
-        return $this->container['straat'];
+        return $this->container['slug'];
     }
 
     /**
-     * Sets straat
+     * Sets slug
      *
-     * @param Notitie|null $straat De straatnaamnotitie. | Waarde | Omschrijving | | --- | --- | | `geen` | De input was correct. | | `gecorrigeerd` | De input was gecorrigeerd. | | `onbekend` | De input is onbekend en kon niet gevonden of gecorrigeerd worden. | | `ontbreekt` | De input was leeg en is wel nodig voor een succesvolle zoekopdracht. |
+     * @param string|null $slug De slug voor deze geldverstrekker, dit is de waarde die gebruikt moet worden als input voor andere endpoints.
      *
      * @return self
      */
-    public function setStraat($straat)
+    public function setSlug($slug)
     {
-        $this->container['straat'] = $straat;
+        $this->container['slug'] = $slug;
 
         return $this;
     }
 
     /**
-     * Gets huisnummer
+     * Gets name
      *
-     * @return Notitie|null
+     * @return string|null
      */
-    public function getHuisnummer()
+    public function getName()
     {
-        return $this->container['huisnummer'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets huisnummer
+     * Sets name
      *
-     * @param Notitie|null $huisnummer De huisnummernotitie. | Waarde | Omschrijving | | --- | --- | | `geen` | De input was correct. | | `gecorrigeerd` | De input was gecorrigeerd. | | `onbekend` | De input is onbekend en kon niet gevonden of gecorrigeerd worden. | | `ontbreekt` | De input was leeg en is wel nodig voor een succesvolle zoekopdracht. |
+     * @param string|null $name De volledige naam van deze geldverstrekker.
      *
      * @return self
      */
-    public function setHuisnummer($huisnummer)
+    public function setName($name)
     {
-        $this->container['huisnummer'] = $huisnummer;
-
-        return $this;
-    }
-
-    /**
-     * Gets huisnummertoevoeging
-     *
-     * @return Notitie|null
-     */
-    public function getHuisnummertoevoeging()
-    {
-        return $this->container['huisnummertoevoeging'];
-    }
-
-    /**
-     * Sets huisnummertoevoeging
-     *
-     * @param Notitie|null $huisnummertoevoeging De huisnummertoevoegingnotitie. | Waarde | Omschrijving | | --- | --- | | `geen` | De input was correct. | | `gecorrigeerd` | De input was gecorrigeerd. | | `onbekend` | De input is onbekend en kon niet gevonden of gecorrigeerd worden. | | `ontbreekt` | De input was leeg en is wel nodig voor een succesvolle zoekopdracht. |
-     *
-     * @return self
-     */
-    public function setHuisnummertoevoeging($huisnummertoevoeging)
-    {
-        $this->container['huisnummertoevoeging'] = $huisnummertoevoeging;
-
-        return $this;
-    }
-
-    /**
-     * Gets postcode
-     *
-     * @return Notitie|null
-     */
-    public function getPostcode()
-    {
-        return $this->container['postcode'];
-    }
-
-    /**
-     * Sets postcode
-     *
-     * @param Notitie|null $postcode De postcodenotitie. | Waarde | Omschrijving | | --- | --- | | `geen` | De input was correct. | | `gecorrigeerd` | De input was gecorrigeerd. | | `onbekend` | De input is onbekend en kon niet gevonden of gecorrigeerd worden. | | `ontbreekt` | De input was leeg en is wel nodig voor een succesvolle zoekopdracht. |
-     *
-     * @return self
-     */
-    public function setPostcode($postcode)
-    {
-        $this->container['postcode'] = $postcode;
-
-        return $this;
-    }
-
-    /**
-     * Gets woonplaats
-     *
-     * @return Notitie|null
-     */
-    public function getWoonplaats()
-    {
-        return $this->container['woonplaats'];
-    }
-
-    /**
-     * Sets woonplaats
-     *
-     * @param Notitie|null $woonplaats De woonplaatsnotitie. | Waarde | Omschrijving | | --- | --- | | `geen` | De input was correct. | | `gecorrigeerd` | De input was gecorrigeerd. | | `onbekend` | De input is onbekend en kon niet gevonden of gecorrigeerd worden. | | `ontbreekt` | De input was leeg en is wel nodig voor een succesvolle zoekopdracht. |
-     *
-     * @return self
-     */
-    public function setWoonplaats($woonplaats)
-    {
-        $this->container['woonplaats'] = $woonplaats;
+        $this->container['name'] = $name;
 
         return $this;
     }
