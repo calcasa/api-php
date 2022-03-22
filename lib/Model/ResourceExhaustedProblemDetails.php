@@ -1,6 +1,6 @@
 <?php
 /**
- * Notities
+ * ResourceExhaustedProblemDetails
  *
  * PHP version 7.3
  *
@@ -44,7 +44,7 @@ use \ArrayAccess;
 use \Calcasa\Api\ObjectSerializer;
 
 /**
- * Notities Class Doc Comment
+ * ResourceExhaustedProblemDetails Class Doc Comment
  *
  * @category Class
  * @package  Calcasa\Api
@@ -54,7 +54,7 @@ use \Calcasa\Api\ObjectSerializer;
  * @template TKey int|null
  * @template TValue mixed|null
  */
-class Notities implements ModelInterface, ArrayAccess, \JsonSerializable
+class ResourceExhaustedProblemDetails implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -63,7 +63,7 @@ class Notities implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Notities';
+    protected static $openAPIModelName = 'ResourceExhaustedProblemDetails';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -71,11 +71,12 @@ class Notities implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'straat' => '\Calcasa\Api\V0\Model\Notitie',
-        'huisnummer' => '\Calcasa\Api\V0\Model\Notitie',
-        'huisnummertoevoeging' => '\Calcasa\Api\V0\Model\Notitie',
-        'postcode' => '\Calcasa\Api\V0\Model\Notitie',
-        'woonplaats' => '\Calcasa\Api\V0\Model\Notitie'
+        'resource' => 'string',
+        'type' => 'string',
+        'title' => 'string',
+        'status' => 'int',
+        'detail' => 'string',
+        'instance' => 'string'
     ];
 
     /**
@@ -86,11 +87,12 @@ class Notities implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'straat' => null,
-        'huisnummer' => null,
-        'huisnummertoevoeging' => null,
-        'postcode' => null,
-        'woonplaats' => null
+        'resource' => null,
+        'type' => null,
+        'title' => null,
+        'status' => 'int32',
+        'detail' => null,
+        'instance' => null
     ];
 
     /**
@@ -120,11 +122,12 @@ class Notities implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'straat' => 'straat',
-        'huisnummer' => 'huisnummer',
-        'huisnummertoevoeging' => 'huisnummertoevoeging',
-        'postcode' => 'postcode',
-        'woonplaats' => 'woonplaats'
+        'resource' => 'resource',
+        'type' => 'type',
+        'title' => 'title',
+        'status' => 'status',
+        'detail' => 'detail',
+        'instance' => 'instance'
     ];
 
     /**
@@ -133,11 +136,12 @@ class Notities implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'straat' => 'setStraat',
-        'huisnummer' => 'setHuisnummer',
-        'huisnummertoevoeging' => 'setHuisnummertoevoeging',
-        'postcode' => 'setPostcode',
-        'woonplaats' => 'setWoonplaats'
+        'resource' => 'setResource',
+        'type' => 'setType',
+        'title' => 'setTitle',
+        'status' => 'setStatus',
+        'detail' => 'setDetail',
+        'instance' => 'setInstance'
     ];
 
     /**
@@ -146,11 +150,12 @@ class Notities implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'straat' => 'getStraat',
-        'huisnummer' => 'getHuisnummer',
-        'huisnummertoevoeging' => 'getHuisnummertoevoeging',
-        'postcode' => 'getPostcode',
-        'woonplaats' => 'getWoonplaats'
+        'resource' => 'getResource',
+        'type' => 'getType',
+        'title' => 'getTitle',
+        'status' => 'getStatus',
+        'detail' => 'getDetail',
+        'instance' => 'getInstance'
     ];
 
     /**
@@ -210,11 +215,12 @@ class Notities implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['straat'] = $data['straat'] ?? null;
-        $this->container['huisnummer'] = $data['huisnummer'] ?? null;
-        $this->container['huisnummertoevoeging'] = $data['huisnummertoevoeging'] ?? null;
-        $this->container['postcode'] = $data['postcode'] ?? null;
-        $this->container['woonplaats'] = $data['woonplaats'] ?? null;
+        $this->container['resource'] = $data['resource'] ?? null;
+        $this->container['type'] = $data['type'] ?? null;
+        $this->container['title'] = $data['title'] ?? null;
+        $this->container['status'] = $data['status'] ?? null;
+        $this->container['detail'] = $data['detail'] ?? null;
+        $this->container['instance'] = $data['instance'] ?? null;
     }
 
     /**
@@ -242,121 +248,145 @@ class Notities implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets straat
+     * Gets resource
      *
-     * @return Notitie|null
+     * @return string|null
      */
-    public function getStraat()
+    public function getResource()
     {
-        return $this->container['straat'];
+        return $this->container['resource'];
     }
 
     /**
-     * Sets straat
+     * Sets resource
      *
-     * @param Notitie|null $straat De straatnaamnotitie. | Waarde | Omschrijving | | --- | --- | | `geen` | De input was correct. | | `gecorrigeerd` | De input was gecorrigeerd. | | `onbekend` | De input is onbekend en kon niet gevonden of gecorrigeerd worden. | | `ontbreekt` | De input was leeg en is wel nodig voor een succesvolle zoekopdracht. |
+     * @param string|null $resource resource
      *
      * @return self
      */
-    public function setStraat($straat)
+    public function setResource($resource)
     {
-        $this->container['straat'] = $straat;
+        $this->container['resource'] = $resource;
 
         return $this;
     }
 
     /**
-     * Gets huisnummer
+     * Gets type
      *
-     * @return Notitie|null
+     * @return string|null
      */
-    public function getHuisnummer()
+    public function getType()
     {
-        return $this->container['huisnummer'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets huisnummer
+     * Sets type
      *
-     * @param Notitie|null $huisnummer De huisnummernotitie. | Waarde | Omschrijving | | --- | --- | | `geen` | De input was correct. | | `gecorrigeerd` | De input was gecorrigeerd. | | `onbekend` | De input is onbekend en kon niet gevonden of gecorrigeerd worden. | | `ontbreekt` | De input was leeg en is wel nodig voor een succesvolle zoekopdracht. |
+     * @param string|null $type type
      *
      * @return self
      */
-    public function setHuisnummer($huisnummer)
+    public function setType($type)
     {
-        $this->container['huisnummer'] = $huisnummer;
+        $this->container['type'] = $type;
 
         return $this;
     }
 
     /**
-     * Gets huisnummertoevoeging
+     * Gets title
      *
-     * @return Notitie|null
+     * @return string|null
      */
-    public function getHuisnummertoevoeging()
+    public function getTitle()
     {
-        return $this->container['huisnummertoevoeging'];
+        return $this->container['title'];
     }
 
     /**
-     * Sets huisnummertoevoeging
+     * Sets title
      *
-     * @param Notitie|null $huisnummertoevoeging De huisnummertoevoegingnotitie. | Waarde | Omschrijving | | --- | --- | | `geen` | De input was correct. | | `gecorrigeerd` | De input was gecorrigeerd. | | `onbekend` | De input is onbekend en kon niet gevonden of gecorrigeerd worden. | | `ontbreekt` | De input was leeg en is wel nodig voor een succesvolle zoekopdracht. |
+     * @param string|null $title title
      *
      * @return self
      */
-    public function setHuisnummertoevoeging($huisnummertoevoeging)
+    public function setTitle($title)
     {
-        $this->container['huisnummertoevoeging'] = $huisnummertoevoeging;
+        $this->container['title'] = $title;
 
         return $this;
     }
 
     /**
-     * Gets postcode
+     * Gets status
      *
-     * @return Notitie|null
+     * @return int|null
      */
-    public function getPostcode()
+    public function getStatus()
     {
-        return $this->container['postcode'];
+        return $this->container['status'];
     }
 
     /**
-     * Sets postcode
+     * Sets status
      *
-     * @param Notitie|null $postcode De postcodenotitie. | Waarde | Omschrijving | | --- | --- | | `geen` | De input was correct. | | `gecorrigeerd` | De input was gecorrigeerd. | | `onbekend` | De input is onbekend en kon niet gevonden of gecorrigeerd worden. | | `ontbreekt` | De input was leeg en is wel nodig voor een succesvolle zoekopdracht. |
+     * @param int|null $status status
      *
      * @return self
      */
-    public function setPostcode($postcode)
+    public function setStatus($status)
     {
-        $this->container['postcode'] = $postcode;
+        $this->container['status'] = $status;
 
         return $this;
     }
 
     /**
-     * Gets woonplaats
+     * Gets detail
      *
-     * @return Notitie|null
+     * @return string|null
      */
-    public function getWoonplaats()
+    public function getDetail()
     {
-        return $this->container['woonplaats'];
+        return $this->container['detail'];
     }
 
     /**
-     * Sets woonplaats
+     * Sets detail
      *
-     * @param Notitie|null $woonplaats De woonplaatsnotitie. | Waarde | Omschrijving | | --- | --- | | `geen` | De input was correct. | | `gecorrigeerd` | De input was gecorrigeerd. | | `onbekend` | De input is onbekend en kon niet gevonden of gecorrigeerd worden. | | `ontbreekt` | De input was leeg en is wel nodig voor een succesvolle zoekopdracht. |
+     * @param string|null $detail detail
      *
      * @return self
      */
-    public function setWoonplaats($woonplaats)
+    public function setDetail($detail)
     {
-        $this->container['woonplaats'] = $woonplaats;
+        $this->container['detail'] = $detail;
+
+        return $this;
+    }
+
+    /**
+     * Gets instance
+     *
+     * @return string|null
+     */
+    public function getInstance()
+    {
+        return $this->container['instance'];
+    }
+
+    /**
+     * Sets instance
+     *
+     * @param string|null $instance instance
+     *
+     * @return self
+     */
+    public function setInstance($instance)
+    {
+        $this->container['instance'] = $instance;
 
         return $this;
     }
