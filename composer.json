@@ -1,6 +1,6 @@
 {
     "name": "calcasa/api",
-    "version": "1.1.6",
+    "version": "1.1.7",
     "description": "API client for the Calcasa Public API.",
     "keywords": [
         "openapitools",

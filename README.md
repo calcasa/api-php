@@ -17,6 +17,10 @@ This API is documented in **OpenAPI format version 3** you can use tools like th
 
 ## Changelog
 
+### 2022-07-12 (v1.1.7)
+- Added support for the OAuth 2.0 authorization code flow for use of the API with user accounts.
+- Add `Bouweenheid` to `FunderingSoortBron` enumeration.
+
 ### 2022-05-19 (v1.1.6)
 - Added `LtvTeHoogOverbrugging` value to the `BusinessRulesCode` enumeration.
 
@@ -135,8 +139,8 @@ For more information, please visit [https://www.calcasa.nl/contact](https://www.
 
 ### Requirements
 
-PHP 7.3 and later.
-Should also work with PHP 8.0 or 8.1 but has not been tested.
+PHP 7.4 and later.
+Should also work with PHP 8.0.
 
 ### Composer
 
@@ -176,6 +180,9 @@ Please follow the [installation procedure](#installation--usage) and then run th
 require_once(__DIR__ . '/vendor/autoload.php');
 
 
+
+// Configure OAuth2 access token for authorization: oauth
+$config = Calcasa\Api\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
 
 // Configure OAuth2 access token for authorization: oauth
 $config = Calcasa\Api\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
@@ -227,6 +234,8 @@ Class | Method | HTTP request | Description
 - [Aanvraagdoel](docs/Model/Aanvraagdoel.md)
 - [Adres](docs/Model/Adres.md)
 - [AdresInfo](docs/Model/AdresInfo.md)
+- [AdresInfoAdres](docs/Model/AdresInfoAdres.md)
+- [AdresInfoNotities](docs/Model/AdresInfoNotities.md)
 - [Bestemmingsdata](docs/Model/Bestemmingsdata.md)
 - [BodemStatusType](docs/Model/BodemStatusType.md)
 - [Bodemdata](docs/Model/Bodemdata.md)
@@ -245,6 +254,10 @@ Class | Method | HTTP request | Description
 - [FunderingType](docs/Model/FunderingType.md)
 - [FunderingTypering](docs/Model/FunderingTypering.md)
 - [Funderingdata](docs/Model/Funderingdata.md)
+- [FunderingdataBioInfectieRisico](docs/Model/FunderingdataBioInfectieRisico.md)
+- [FunderingdataDroogstandRisico](docs/Model/FunderingdataDroogstandRisico.md)
+- [FunderingdataOptrekkendVochtRisico](docs/Model/FunderingdataOptrekkendVochtRisico.md)
+- [FunderingdataTypering](docs/Model/FunderingdataTypering.md)
 - [Gebiedsdata](docs/Model/Gebiedsdata.md)
 - [Geldverstrekker](docs/Model/Geldverstrekker.md)
 - [HttpValidationProblemDetails](docs/Model/HttpValidationProblemDetails.md)
@@ -258,6 +271,11 @@ Class | Method | HTTP request | Description
 - [Notities](docs/Model/Notities.md)
 - [Objectdata](docs/Model/Objectdata.md)
 - [Omgevingsdata](docs/Model/Omgevingsdata.md)
+- [OmgevingsdataBuurt](docs/Model/OmgevingsdataBuurt.md)
+- [OmgevingsdataGemeente](docs/Model/OmgevingsdataGemeente.md)
+- [OmgevingsdataLand](docs/Model/OmgevingsdataLand.md)
+- [OmgevingsdataProvincie](docs/Model/OmgevingsdataProvincie.md)
+- [OmgevingsdataWijk](docs/Model/OmgevingsdataWijk.md)
 - [Operation](docs/Model/Operation.md)
 - [OperationType](docs/Model/OperationType.md)
 - [PermissionsDeniedProblemDetails](docs/Model/PermissionsDeniedProblemDetails.md)
@@ -265,6 +283,9 @@ Class | Method | HTTP request | Description
 - [ProductType](docs/Model/ProductType.md)
 - [Rapport](docs/Model/Rapport.md)
 - [Referentieobject](docs/Model/Referentieobject.md)
+- [ReferentieobjectAdres](docs/Model/ReferentieobjectAdres.md)
+- [ReferentieobjectCbsIndeling](docs/Model/ReferentieobjectCbsIndeling.md)
+- [ReferentieobjectObject](docs/Model/ReferentieobjectObject.md)
 - [ResourceExhaustedProblemDetails](docs/Model/ResourceExhaustedProblemDetails.md)
 - [Taxatiedata](docs/Model/Taxatiedata.md)
 - [Taxatiestatus](docs/Model/Taxatiestatus.md)
@@ -272,10 +293,18 @@ Class | Method | HTTP request | Description
 - [VerkoopBijzonderheden](docs/Model/VerkoopBijzonderheden.md)
 - [VorigeVerkoop](docs/Model/VorigeVerkoop.md)
 - [Waardering](docs/Model/Waardering.md)
+- [WaarderingCbsIndeling](docs/Model/WaarderingCbsIndeling.md)
+- [WaarderingFactuur](docs/Model/WaarderingFactuur.md)
 - [WaarderingInputParameters](docs/Model/WaarderingInputParameters.md)
+- [WaarderingModel](docs/Model/WaarderingModel.md)
+- [WaarderingObject](docs/Model/WaarderingObject.md)
 - [WaarderingOntwikkeling](docs/Model/WaarderingOntwikkeling.md)
 - [WaarderingOntwikkelingKwartaal](docs/Model/WaarderingOntwikkelingKwartaal.md)
+- [WaarderingOntwikkelingKwartaalKwartaal](docs/Model/WaarderingOntwikkelingKwartaalKwartaal.md)
+- [WaarderingOrigineleInput](docs/Model/WaarderingOrigineleInput.md)
+- [WaarderingRapport](docs/Model/WaarderingRapport.md)
 - [WaarderingStatus](docs/Model/WaarderingStatus.md)
+- [WaarderingTaxatie](docs/Model/WaarderingTaxatie.md)
 - [WaarderingWebhookPayload](docs/Model/WaarderingWebhookPayload.md)
 - [WaarderingZoekParameters](docs/Model/WaarderingZoekParameters.md)
 - [WoningType](docs/Model/WoningType.md)
@@ -287,6 +316,40 @@ Class | Method | HTTP request | Description
 - **Type**: `OAuth`
 - **Flow**: `application`
 - **Authorization URL**: ``
+- **Scopes**: 
+    - **all**: Full permissions for all areas.
+    - **api:all**: Full permissions for all areas of the public API.
+    - **api:bestemmingsplannen:all**: Full permissions for the bestemmingsplannen area of the public API.
+    - **api:bodem:all**: Full permissions for the bodem area of the public API.
+    - **api:buurt:all**: Full permissions for the buurt area of the public API.
+    - **api:configuratie:all**: Full permissions for the configuratie area of the public API.
+    - **api:facturen:all**: Full permissions for the facturen area of the public API.
+    - **api:fotos:all**: Full permissions for the fotos area of the public API.
+    - **api:funderingen:all**: Full permissions for the funderingen area of the public API.
+    - **api:rapporten:all**: Full permissions for the rapporten area of the public API.
+    - **api:waarderingen:all**: Full permissions for the waarderingen area of the public API.
+    - **api:adressen:read**: Read permissions for the adressen area of the public API.
+    - **api:bestemmingsplannen:read**: Read permissions for the bestemmingsplannen area of the public API.
+    - **api:bodem:read**: Read permissions for the bodem area of the public API.
+    - **api:buurt:read**: Read permissions for the buurt area of the public API.
+    - **api:configuratie:read**: Read permissions for the configuratie area of the public API.
+    - **api:configuratie:write**: Write permissions for the configuratie area of the public API.
+    - **api:facturen:read**: Read permissions for the facturen area of the public API.
+    - **api:fotos:read**: Read permissions for the fotos area of the public API.
+    - **api:funderingen:read**: Read permissions for the funderingen area of the public API.
+    - **api:geldverstrekkers:read**: Read permissions for the geldverstrekkers area of the public API.
+    - **api:rapporten:read**: Read permissions for the rapporten area of the public API.
+    - **api:waarderingen:create**: Create permissions for the waarderingen area of the public API.
+    - **api:waarderingen:patch**: Patch permissions for the waarderingen area of the public API.
+    - **api:waarderingen:read**: Read permissions for the waarderingen area of the public API.
+    - **api:waarderingen:ontwikkeling**: Read permissions for the ontwikkelingen endpoint in the waarderingen area of the public API.
+
+
+### oauth
+
+- **Type**: `OAuth`
+- **Flow**: `accessCode`
+- **Authorization URL**: `https://authentication.calcasa.nl/oauth2/v2.0/authorize`
 - **Scopes**: 
     - **all**: Full permissions for all areas.
     - **api:all**: Full permissions for all areas of the public API.
@@ -332,5 +395,5 @@ info@calcasa.nl
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `1.1.6`
+- API version: `1.1.7`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`
