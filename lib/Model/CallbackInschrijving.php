@@ -1,6 +1,6 @@
 <?php
 /**
- * Taxatiedata
+ * CallbackInschrijving
  *
  * PHP version 7.4
  *
@@ -44,7 +44,7 @@ use \ArrayAccess;
 use \Calcasa\Api\ObjectSerializer;
 
 /**
- * Taxatiedata Class Doc Comment
+ * CallbackInschrijving Class Doc Comment
  *
  * @category Class
  * @package  Calcasa\Api
@@ -52,7 +52,7 @@ use \Calcasa\Api\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class Taxatiedata implements ModelInterface, ArrayAccess, \JsonSerializable
+class CallbackInschrijving implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -61,7 +61,7 @@ class Taxatiedata implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Taxatiedata';
+    protected static $openAPIModelName = 'CallbackInschrijving';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -69,10 +69,8 @@ class Taxatiedata implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'taxatieorganisatie' => 'string',
-        'taxateurnaam' => 'string',
-        'status' => '\Calcasa\Api\Model\Taxatiestatus',
-        'taxatiedatum' => '\DateTime'
+        'bagNummeraanduidingId' => 'int',
+        'geldigTot' => '\DateTime'
     ];
 
     /**
@@ -83,10 +81,8 @@ class Taxatiedata implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'taxatieorganisatie' => null,
-        'taxateurnaam' => null,
-        'status' => null,
-        'taxatiedatum' => 'date-time'
+        'bagNummeraanduidingId' => 'int64',
+        'geldigTot' => 'date-time'
     ];
 
     /**
@@ -116,10 +112,8 @@ class Taxatiedata implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'taxatieorganisatie' => 'taxatieorganisatie',
-        'taxateurnaam' => 'taxateurnaam',
-        'status' => 'status',
-        'taxatiedatum' => 'taxatiedatum'
+        'bagNummeraanduidingId' => 'bagNummeraanduidingId',
+        'geldigTot' => 'geldigTot'
     ];
 
     /**
@@ -128,10 +122,8 @@ class Taxatiedata implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'taxatieorganisatie' => 'setTaxatieorganisatie',
-        'taxateurnaam' => 'setTaxateurnaam',
-        'status' => 'setStatus',
-        'taxatiedatum' => 'setTaxatiedatum'
+        'bagNummeraanduidingId' => 'setBagNummeraanduidingId',
+        'geldigTot' => 'setGeldigTot'
     ];
 
     /**
@@ -140,10 +132,8 @@ class Taxatiedata implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'taxatieorganisatie' => 'getTaxatieorganisatie',
-        'taxateurnaam' => 'getTaxateurnaam',
-        'status' => 'getStatus',
-        'taxatiedatum' => 'getTaxatiedatum'
+        'bagNummeraanduidingId' => 'getBagNummeraanduidingId',
+        'geldigTot' => 'getGeldigTot'
     ];
 
     /**
@@ -203,10 +193,8 @@ class Taxatiedata implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['taxatieorganisatie'] = $data['taxatieorganisatie'] ?? null;
-        $this->container['taxateurnaam'] = $data['taxateurnaam'] ?? null;
-        $this->container['status'] = $data['status'] ?? null;
-        $this->container['taxatiedatum'] = $data['taxatiedatum'] ?? null;
+        $this->container['bagNummeraanduidingId'] = $data['bagNummeraanduidingId'] ?? null;
+        $this->container['geldigTot'] = $data['geldigTot'] ?? null;
     }
 
     /**
@@ -218,6 +206,12 @@ class Taxatiedata implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['bagNummeraanduidingId'] === null) {
+            $invalidProperties[] = "'bagNummeraanduidingId' can't be null";
+        }
+        if ($this->container['geldigTot'] === null) {
+            $invalidProperties[] = "'geldigTot' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -234,97 +228,49 @@ class Taxatiedata implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets taxatieorganisatie
+     * Gets bagNummeraanduidingId
      *
-     * @return string|null
+     * @return int
      */
-    public function getTaxatieorganisatie()
+    public function getBagNummeraanduidingId()
     {
-        return $this->container['taxatieorganisatie'];
+        return $this->container['bagNummeraanduidingId'];
     }
 
     /**
-     * Sets taxatieorganisatie
+     * Sets bagNummeraanduidingId
      *
-     * @param string|null $taxatieorganisatie De naam van de taxatieorganisatie.
+     * @param int $bagNummeraanduidingId Verplicht.  Het BAG (Basisregistratie Adressen en Gebouwen) nummeraanduiding id.
      *
      * @return self
      */
-    public function setTaxatieorganisatie($taxatieorganisatie)
+    public function setBagNummeraanduidingId($bagNummeraanduidingId)
     {
-        $this->container['taxatieorganisatie'] = $taxatieorganisatie;
+        $this->container['bagNummeraanduidingId'] = $bagNummeraanduidingId;
 
         return $this;
     }
 
     /**
-     * Gets taxateurnaam
+     * Gets geldigTot
      *
-     * @return string|null
+     * @return \DateTime
      */
-    public function getTaxateurnaam()
+    public function getGeldigTot()
     {
-        return $this->container['taxateurnaam'];
+        return $this->container['geldigTot'];
     }
 
     /**
-     * Sets taxateurnaam
+     * Sets geldigTot
      *
-     * @param string|null $taxateurnaam De naam van de taxateur die de waardering heeft behandeld.
+     * @param \DateTime $geldigTot Verplicht.  De datum tot wanneer deze inschrijving effect moet hebben. Als deze inschrijving verloopt wordt deze automatisch opgeruimt. De maximale termijn is afhankelijk van de gebruikte client.
      *
      * @return self
      */
-    public function setTaxateurnaam($taxateurnaam)
+    public function setGeldigTot($geldigTot)
     {
-        $this->container['taxateurnaam'] = $taxateurnaam;
-
-        return $this;
-    }
-
-    /**
-     * Gets status
-     *
-     * @return Taxatiestatus|null
-     */
-    public function getStatus()
-    {
-        return $this->container['status'];
-    }
-
-    /**
-     * Sets status
-     *
-     * @param Taxatiestatus|null $status De status van een taxatie (alleen van toepassing voor desktop taxaties). | Waarde | Omschrijving | | --- | --- | | `nietGecontroleerd` | Status is onbekend of niet van toepassing. | | `goedgekeurd` | De waardering is geaccepteerd door een taxateur. | | `afgekeurd` | De waardering is afgewezen door een taxateur. |
-     *
-     * @return self
-     */
-    public function setStatus($status)
-    {
-        $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
-     * Gets taxatiedatum
-     *
-     * @return \DateTime|null
-     */
-    public function getTaxatiedatum()
-    {
-        return $this->container['taxatiedatum'];
-    }
-
-    /**
-     * Sets taxatiedatum
-     *
-     * @param \DateTime|null $taxatiedatum De datum/tijd waarop de waardering getaxeerd is, in UTC.
-     *
-     * @return self
-     */
-    public function setTaxatiedatum($taxatiedatum)
-    {
-        $this->container['taxatiedatum'] = $taxatiedatum;
+        $this->container['geldigTot'] = $geldigTot;
 
         return $this;
     }

@@ -17,12 +17,23 @@ This API is documented in **OpenAPI format version 3** you can use tools like th
 
 ## Changelog
 
+### 2022-08-04 (v1.2.0)
+- Add support for managing `CallbackSubscription`'s, this allows you to subscribe to callbacks for valuations that were not created with your API client.
+    - `GET /v1/callbacks/inschrijvingen`
+    - `POST /v1/callbacks/inschrijvingen`
+    - `GET /v1/callbacks/inschrijvingen/{bagNummeraanduidingId}`
+    - `DELETE /v1/callbacks/inschrijvingen/{bagNummeraanduidingId}`
+- Add `taxateurnaam` field to the `Taxatiedata` model.
+- Callback URIs should now end in `/` not just contain it to help stop common errors (ending in `=` is also still allowed when using a query string).
+- Updating configuration in the `POST /v1/configuratie/callbacks` endpoint now clears stored but decommissioned versions from the configuration object.
+- Add `klantkenmerk` to the `WaarderingInputParameters` and `Waardering` models.
+
 ### 2022-07-12 (v1.1.7)
 - Added support for the OAuth 2.0 authorization code flow for use of the API with user accounts.
-- Add `Bouweenheid` to `FunderingSoortBron` enumeration.
+- Add `bouweenheid` to `FunderingSoortBron` enumeration.
 
 ### 2022-05-19 (v1.1.6)
-- Added `LtvTeHoogOverbrugging` value to the `BusinessRulesCode` enumeration.
+- Added `ltvTeHoogOverbrugging` value to the `BusinessRulesCode` enumeration.
 
 ### 2022-04-13 (v1.1.5)
 - Fix the schema for `Operation` `value` field for the benefit of the PHP and Python code generators, these will now correctly support any value type.
@@ -216,6 +227,10 @@ Class | Method | HTTP request | Description
 *BestemmingsplannenApi* | [**getBestemmingById**](docs/Api/BestemmingsplannenApi.md#getbestemmingbyid) | **GET** /api/v1/bestemmingsplannen/{bagNummeraanduidingId} | Gegevens over de bestemmingsplannen op de locatie van een adres (BAG Nummeraanduiding ID).
 *BodemApi* | [**getBodemById**](docs/Api/BodemApi.md#getbodembyid) | **GET** /api/v1/bodem/{bagNummeraanduidingId} | Gegevens over de bodemkwaliteit op de locatie van een adres (BAG Nummeraanduiding ID).
 *BuurtApi* | [**getBuurt**](docs/Api/BuurtApi.md#getbuurt) | **GET** /api/v1/buurt/{buurtId} | Gegevens over een buurt en de wijk, gemeente en land waarin deze buurt gesitueerd is.
+*CallbacksApi* | [**addOrUpdateCallbackSubscription**](docs/Api/CallbacksApi.md#addorupdatecallbacksubscription) | **POST** /api/v1/callbacks/inschrijvingen | Voeg een callback inschrijving toe (of werk bij) voor de huidige client voor een adres.
+*CallbacksApi* | [**deleteNotificationSubscription**](docs/Api/CallbacksApi.md#deletenotificationsubscription) | **DELETE** /api/v1/callbacks/inschrijvingen/{bagNummeraanduidingId} | Verwijder de callback inschrijving voor deze client en dit adres.
+*CallbacksApi* | [**getNotificationSubscription**](docs/Api/CallbacksApi.md#getnotificationsubscription) | **GET** /api/v1/callbacks/inschrijvingen/{bagNummeraanduidingId} | Haal de callback inschrijving op voor deze client en dit adres.
+*CallbacksApi* | [**getNotificationSubscriptions**](docs/Api/CallbacksApi.md#getnotificationsubscriptions) | **GET** /api/v1/callbacks/inschrijvingen | Haal de callback inschrijvingen binnen voor deze client.
 *ConfiguratieApi* | [**getCallbacks**](docs/Api/ConfiguratieApi.md#getcallbacks) | **GET** /api/v1/configuratie/callbacks | Haal de geconfigureerde callback URL&#39;s op voor de huidige client.
 *ConfiguratieApi* | [**updateCallbacks**](docs/Api/ConfiguratieApi.md#updatecallbacks) | **POST** /api/v1/configuratie/callbacks | Configureer callback URL voor een specifieke API versie voor de huidige client.
 *FacturenApi* | [**getFactuur**](docs/Api/FacturenApi.md#getfactuur) | **GET** /api/v1/facturen/{id} | Factuur op basis van een waardering Id.
@@ -242,6 +257,7 @@ Class | Method | HTTP request | Description
 - [BusinessRulesCode](docs/Model/BusinessRulesCode.md)
 - [BusinessRulesProblemDetails](docs/Model/BusinessRulesProblemDetails.md)
 - [Callback](docs/Model/Callback.md)
+- [CallbackInschrijving](docs/Model/CallbackInschrijving.md)
 - [CbsIndeling](docs/Model/CbsIndeling.md)
 - [Energielabel](docs/Model/Energielabel.md)
 - [Factuur](docs/Model/Factuur.md)
@@ -323,6 +339,7 @@ Class | Method | HTTP request | Description
     - **api:bodem:all**: Full permissions for the bodem area of the public API.
     - **api:buurt:all**: Full permissions for the buurt area of the public API.
     - **api:configuratie:all**: Full permissions for the configuratie area of the public API.
+    - **api:callback:all**: Full permissions for the callback area of the public API.
     - **api:facturen:all**: Full permissions for the facturen area of the public API.
     - **api:fotos:all**: Full permissions for the fotos area of the public API.
     - **api:funderingen:all**: Full permissions for the funderingen area of the public API.
@@ -334,6 +351,8 @@ Class | Method | HTTP request | Description
     - **api:buurt:read**: Read permissions for the buurt area of the public API.
     - **api:configuratie:read**: Read permissions for the configuratie area of the public API.
     - **api:configuratie:write**: Write permissions for the configuratie area of the public API.
+    - **api:callback:read**: Read permissions for the callback area of the public API.
+    - **api:callback:write**: Write permissions for the callback area of the public API.
     - **api:facturen:read**: Read permissions for the facturen area of the public API.
     - **api:fotos:read**: Read permissions for the fotos area of the public API.
     - **api:funderingen:read**: Read permissions for the funderingen area of the public API.
@@ -357,6 +376,7 @@ Class | Method | HTTP request | Description
     - **api:bodem:all**: Full permissions for the bodem area of the public API.
     - **api:buurt:all**: Full permissions for the buurt area of the public API.
     - **api:configuratie:all**: Full permissions for the configuratie area of the public API.
+    - **api:callback:all**: Full permissions for the callback area of the public API.
     - **api:facturen:all**: Full permissions for the facturen area of the public API.
     - **api:fotos:all**: Full permissions for the fotos area of the public API.
     - **api:funderingen:all**: Full permissions for the funderingen area of the public API.
@@ -368,6 +388,8 @@ Class | Method | HTTP request | Description
     - **api:buurt:read**: Read permissions for the buurt area of the public API.
     - **api:configuratie:read**: Read permissions for the configuratie area of the public API.
     - **api:configuratie:write**: Write permissions for the configuratie area of the public API.
+    - **api:callback:read**: Read permissions for the callback area of the public API.
+    - **api:callback:write**: Write permissions for the callback area of the public API.
     - **api:facturen:read**: Read permissions for the facturen area of the public API.
     - **api:fotos:read**: Read permissions for the fotos area of the public API.
     - **api:funderingen:read**: Read permissions for the funderingen area of the public API.
@@ -395,5 +417,5 @@ info@calcasa.nl
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `1.1.7`
+- API version: `1.2.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`
