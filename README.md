@@ -17,6 +17,28 @@ This API is documented in **OpenAPI format version 3** you can use tools like th
 
 ## Changelog
 
+### 2023-10-24 (v1.3.0)
+- Add `geldverstrekker` field to the `CallbackInschrijving` model.
+- Add support for mTLS on the callback service.
+    - By default when requested by the target server the public CA signed TLS certificate with the appropriate domain as Common Name will be offered as the client certificate. 
+    - Public TLS Certificates rotate every couple of months.
+- Change a couple of `date-time` fields that only contained a date to pure `date` fields. This might result is a different type in the generated clients and the service-side validation will be more strict. Times included in values will no longer be silently dropped, but will generate an error.
+    - Change `Modeldata` model `waardebepalingsdatum` field to type `date` in OpenAPI spec.
+    - Change `Bestemmingsdata` model `datumBestemmingplan` field to type `date` in OpenAPI spec.
+    - Change `Bodemdata` model `datumLaatsteOnderzoek` field to type `date` in OpenAPI spec.
+    - Change `Referentieobject` model `verkoopdatum` field to type `date` in OpenAPI spec.
+    - Change `VorigeVerkoop` model `verkoopdatum` field to type `date` in OpenAPI spec.
+    - Change `waarderingInputParameters` model `peildatum` field to type `date` in OpenAPI spec. This is an input field and will now require a date without a time.
+- Add `desktopTaxatieHerwaardering` product to enumeration `ProductType`.
+- The service no longer returns CORS headers.
+- Actions now correctly report the 'application/problem+json' Content-Type in the documentation for the `HTTP 422 Unprocessable Entity` responses.
+- Added `energielabelData` field to `Objectdata` model to contain the extra information about the energy label.
+- The OpenAPI spec generation was changed slightly and thus the generated and published clients might be affected. There might be some slight breaking changes at compile time, but the functionality remains the same.
+    - For example for C# and PHP `AdresInfoAdres` is now just covered by `Adres`
+    - Likewise for the `Omgevingsdata*` models that are now all covered by `Gebiedsdata`
+    - For a lot of the `Waardering*` models they are now using the correct model names, like `WaarderingModel` -> `Modeldata`
+
+
 ### 2023-04-17 (v1.2.1)
 - Add `externeReferentie` field to the `CallbackInschrijving` and `WaarderingWebhookPayload` models.
 
@@ -231,8 +253,8 @@ Class | Method | HTTP request | Description
 *BodemApi* | [**getBodemById**](docs/Api/BodemApi.md#getbodembyid) | **GET** /api/v1/bodem/{bagNummeraanduidingId} | Gegevens over de bodemkwaliteit op de locatie van een adres (BAG Nummeraanduiding ID).
 *BuurtApi* | [**getBuurt**](docs/Api/BuurtApi.md#getbuurt) | **GET** /api/v1/buurt/{buurtId} | Gegevens over een buurt en de wijk, gemeente en land waarin deze buurt gesitueerd is.
 *CallbacksApi* | [**addOrUpdateCallbackSubscription**](docs/Api/CallbacksApi.md#addorupdatecallbacksubscription) | **POST** /api/v1/callbacks/inschrijvingen | Voeg een callback inschrijving toe (of werk bij) voor de huidige client voor een adres.
-*CallbacksApi* | [**deleteNotificationSubscription**](docs/Api/CallbacksApi.md#deletenotificationsubscription) | **DELETE** /api/v1/callbacks/inschrijvingen/{bagNummeraanduidingId} | Verwijder de callback inschrijving voor deze client en dit adres.
-*CallbacksApi* | [**getNotificationSubscription**](docs/Api/CallbacksApi.md#getnotificationsubscription) | **GET** /api/v1/callbacks/inschrijvingen/{bagNummeraanduidingId} | Haal de callback inschrijving op voor deze client en dit adres.
+*CallbacksApi* | [**deleteNotificationSubscription**](docs/Api/CallbacksApi.md#deletenotificationsubscription) | **DELETE** /api/v1/callbacks/inschrijvingen/{bagNummeraanduidingId} | Verwijder de callback inschrijving voor deze client, dit adres en optioneel een geldverstrekker.
+*CallbacksApi* | [**getNotificationSubscription**](docs/Api/CallbacksApi.md#getnotificationsubscription) | **GET** /api/v1/callbacks/inschrijvingen/{bagNummeraanduidingId} | Haal de callback inschrijving op voor deze client, dit adres en eventueel opgegeven geldverstrekker.
 *CallbacksApi* | [**getNotificationSubscriptions**](docs/Api/CallbacksApi.md#getnotificationsubscriptions) | **GET** /api/v1/callbacks/inschrijvingen | Haal de callback inschrijvingen binnen voor deze client.
 *ConfiguratieApi* | [**getCallbacks**](docs/Api/ConfiguratieApi.md#getcallbacks) | **GET** /api/v1/configuratie/callbacks | Haal de geconfigureerde callback URL&#39;s op voor de huidige client.
 *ConfiguratieApi* | [**updateCallbacks**](docs/Api/ConfiguratieApi.md#updatecallbacks) | **POST** /api/v1/configuratie/callbacks | Configureer callback URL voor een specifieke API versie voor de huidige client.
@@ -252,8 +274,6 @@ Class | Method | HTTP request | Description
 - [Aanvraagdoel](docs/Model/Aanvraagdoel.md)
 - [Adres](docs/Model/Adres.md)
 - [AdresInfo](docs/Model/AdresInfo.md)
-- [AdresInfoAdres](docs/Model/AdresInfoAdres.md)
-- [AdresInfoNotities](docs/Model/AdresInfoNotities.md)
 - [Bestemmingsdata](docs/Model/Bestemmingsdata.md)
 - [BodemStatusType](docs/Model/BodemStatusType.md)
 - [Bodemdata](docs/Model/Bodemdata.md)
@@ -263,6 +283,7 @@ Class | Method | HTTP request | Description
 - [CallbackInschrijving](docs/Model/CallbackInschrijving.md)
 - [CbsIndeling](docs/Model/CbsIndeling.md)
 - [Energielabel](docs/Model/Energielabel.md)
+- [EnergielabelData](docs/Model/EnergielabelData.md)
 - [Factuur](docs/Model/Factuur.md)
 - [Foto](docs/Model/Foto.md)
 - [FunderingDataBron](docs/Model/FunderingDataBron.md)
@@ -273,13 +294,8 @@ Class | Method | HTTP request | Description
 - [FunderingType](docs/Model/FunderingType.md)
 - [FunderingTypering](docs/Model/FunderingTypering.md)
 - [Funderingdata](docs/Model/Funderingdata.md)
-- [FunderingdataBioInfectieRisico](docs/Model/FunderingdataBioInfectieRisico.md)
-- [FunderingdataDroogstandRisico](docs/Model/FunderingdataDroogstandRisico.md)
-- [FunderingdataOptrekkendVochtRisico](docs/Model/FunderingdataOptrekkendVochtRisico.md)
-- [FunderingdataTypering](docs/Model/FunderingdataTypering.md)
 - [Gebiedsdata](docs/Model/Gebiedsdata.md)
 - [Geldverstrekker](docs/Model/Geldverstrekker.md)
-- [HttpValidationProblemDetails](docs/Model/HttpValidationProblemDetails.md)
 - [InvalidArgumentProblemDetails](docs/Model/InvalidArgumentProblemDetails.md)
 - [JsonPatchDocument](docs/Model/JsonPatchDocument.md)
 - [KlantwaardeType](docs/Model/KlantwaardeType.md)
@@ -290,11 +306,6 @@ Class | Method | HTTP request | Description
 - [Notities](docs/Model/Notities.md)
 - [Objectdata](docs/Model/Objectdata.md)
 - [Omgevingsdata](docs/Model/Omgevingsdata.md)
-- [OmgevingsdataBuurt](docs/Model/OmgevingsdataBuurt.md)
-- [OmgevingsdataGemeente](docs/Model/OmgevingsdataGemeente.md)
-- [OmgevingsdataLand](docs/Model/OmgevingsdataLand.md)
-- [OmgevingsdataProvincie](docs/Model/OmgevingsdataProvincie.md)
-- [OmgevingsdataWijk](docs/Model/OmgevingsdataWijk.md)
 - [Operation](docs/Model/Operation.md)
 - [OperationType](docs/Model/OperationType.md)
 - [PermissionsDeniedProblemDetails](docs/Model/PermissionsDeniedProblemDetails.md)
@@ -302,9 +313,6 @@ Class | Method | HTTP request | Description
 - [ProductType](docs/Model/ProductType.md)
 - [Rapport](docs/Model/Rapport.md)
 - [Referentieobject](docs/Model/Referentieobject.md)
-- [ReferentieobjectAdres](docs/Model/ReferentieobjectAdres.md)
-- [ReferentieobjectCbsIndeling](docs/Model/ReferentieobjectCbsIndeling.md)
-- [ReferentieobjectObject](docs/Model/ReferentieobjectObject.md)
 - [ResourceExhaustedProblemDetails](docs/Model/ResourceExhaustedProblemDetails.md)
 - [Taxatiedata](docs/Model/Taxatiedata.md)
 - [Taxatiestatus](docs/Model/Taxatiestatus.md)
@@ -312,18 +320,10 @@ Class | Method | HTTP request | Description
 - [VerkoopBijzonderheden](docs/Model/VerkoopBijzonderheden.md)
 - [VorigeVerkoop](docs/Model/VorigeVerkoop.md)
 - [Waardering](docs/Model/Waardering.md)
-- [WaarderingCbsIndeling](docs/Model/WaarderingCbsIndeling.md)
-- [WaarderingFactuur](docs/Model/WaarderingFactuur.md)
 - [WaarderingInputParameters](docs/Model/WaarderingInputParameters.md)
-- [WaarderingModel](docs/Model/WaarderingModel.md)
-- [WaarderingObject](docs/Model/WaarderingObject.md)
 - [WaarderingOntwikkeling](docs/Model/WaarderingOntwikkeling.md)
 - [WaarderingOntwikkelingKwartaal](docs/Model/WaarderingOntwikkelingKwartaal.md)
-- [WaarderingOntwikkelingKwartaalKwartaal](docs/Model/WaarderingOntwikkelingKwartaalKwartaal.md)
-- [WaarderingOrigineleInput](docs/Model/WaarderingOrigineleInput.md)
-- [WaarderingRapport](docs/Model/WaarderingRapport.md)
 - [WaarderingStatus](docs/Model/WaarderingStatus.md)
-- [WaarderingTaxatie](docs/Model/WaarderingTaxatie.md)
 - [WaarderingWebhookPayload](docs/Model/WaarderingWebhookPayload.md)
 - [WaarderingZoekParameters](docs/Model/WaarderingZoekParameters.md)
 - [WoningType](docs/Model/WoningType.md)
@@ -420,5 +420,5 @@ info@calcasa.nl
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `1.2.1`
+- API version: `1.3.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`
