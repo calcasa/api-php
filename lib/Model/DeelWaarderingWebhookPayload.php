@@ -1,6 +1,6 @@
 <?php
 /**
- * Operation
+ * DeelWaarderingWebhookPayload
  *
  * PHP version 7.4
  *
@@ -44,15 +44,16 @@ use \ArrayAccess;
 use \Calcasa\Api\ObjectSerializer;
 
 /**
- * Operation Class Doc Comment
+ * DeelWaarderingWebhookPayload Class Doc Comment
  *
  * @category Class
+ * @description De payload van de webhooks die verstuurd worden op het moment dat een klant toestemming geeft voor het delen van een waardering.
  * @package  Calcasa\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class Operation implements ModelInterface, ArrayAccess, \JsonSerializable
+class DeelWaarderingWebhookPayload implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -61,7 +62,7 @@ class Operation implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Operation';
+    protected static $openAPIModelName = 'DeelWaarderingWebhookPayload';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -69,10 +70,10 @@ class Operation implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'op' => '\Calcasa\Api\Model\OperationType',
-        'from' => 'string',
-        'value' => 'mixed',
-        'path' => 'string'
+        'callbackName' => 'string',
+        'eventId' => 'string',
+        'waarderingId' => 'string',
+        'timestamp' => '\DateTime'
     ];
 
     /**
@@ -83,10 +84,10 @@ class Operation implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'op' => null,
-        'from' => null,
-        'value' => null,
-        'path' => null
+        'callbackName' => null,
+        'eventId' => 'uuid',
+        'waarderingId' => 'uuid',
+        'timestamp' => 'date-time'
     ];
 
     /**
@@ -116,10 +117,10 @@ class Operation implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'op' => 'op',
-        'from' => 'from',
-        'value' => 'value',
-        'path' => 'path'
+        'callbackName' => 'callbackName',
+        'eventId' => 'eventId',
+        'waarderingId' => 'waarderingId',
+        'timestamp' => 'timestamp'
     ];
 
     /**
@@ -128,10 +129,10 @@ class Operation implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'op' => 'setOp',
-        'from' => 'setFrom',
-        'value' => 'setValue',
-        'path' => 'setPath'
+        'callbackName' => 'setCallbackName',
+        'eventId' => 'setEventId',
+        'waarderingId' => 'setWaarderingId',
+        'timestamp' => 'setTimestamp'
     ];
 
     /**
@@ -140,10 +141,10 @@ class Operation implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'op' => 'getOp',
-        'from' => 'getFrom',
-        'value' => 'getValue',
-        'path' => 'getPath'
+        'callbackName' => 'getCallbackName',
+        'eventId' => 'getEventId',
+        'waarderingId' => 'getWaarderingId',
+        'timestamp' => 'getTimestamp'
     ];
 
     /**
@@ -203,10 +204,10 @@ class Operation implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(array $data = null)
     {
-        $this->container['op'] = $data['op'] ?? null;
-        $this->container['from'] = $data['from'] ?? null;
-        $this->container['value'] = $data['value'] ?? null;
-        $this->container['path'] = $data['path'] ?? null;
+        $this->container['callbackName'] = $data['callbackName'] ?? null;
+        $this->container['eventId'] = $data['eventId'] ?? null;
+        $this->container['waarderingId'] = $data['waarderingId'] ?? null;
+        $this->container['timestamp'] = $data['timestamp'] ?? null;
     }
 
     /**
@@ -234,97 +235,97 @@ class Operation implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets op
-     *
-     * @return \Calcasa\Api\Model\OperationType|null
-     */
-    public function getOp()
-    {
-        return $this->container['op'];
-    }
-
-    /**
-     * Sets op
-     *
-     * @param \Calcasa\Api\Model\OperationType|null $op op
-     *
-     * @return self
-     */
-    public function setOp($op)
-    {
-        $this->container['op'] = $op;
-
-        return $this;
-    }
-
-    /**
-     * Gets from
+     * Gets callbackName
      *
      * @return string|null
      */
-    public function getFrom()
+    public function getCallbackName()
     {
-        return $this->container['from'];
+        return $this->container['callbackName'];
     }
 
     /**
-     * Sets from
+     * Sets callbackName
      *
-     * @param string|null $from from
+     * @param string|null $callbackName callbackName
      *
      * @return self
      */
-    public function setFrom($from)
+    public function setCallbackName($callbackName)
     {
-        $this->container['from'] = $from;
+        $this->container['callbackName'] = $callbackName;
 
         return $this;
     }
 
     /**
-     * Gets value
-     *
-     * @return mixed|null
-     */
-    public function getValue()
-    {
-        return $this->container['value'];
-    }
-
-    /**
-     * Sets value
-     *
-     * @param mixed|null $value value
-     *
-     * @return self
-     */
-    public function setValue($value)
-    {
-        $this->container['value'] = $value;
-
-        return $this;
-    }
-
-    /**
-     * Gets path
+     * Gets eventId
      *
      * @return string|null
      */
-    public function getPath()
+    public function getEventId()
     {
-        return $this->container['path'];
+        return $this->container['eventId'];
     }
 
     /**
-     * Sets path
+     * Sets eventId
      *
-     * @param string|null $path path
+     * @param string|null $eventId Uniek Id voor deze callback.
      *
      * @return self
      */
-    public function setPath($path)
+    public function setEventId($eventId)
     {
-        $this->container['path'] = $path;
+        $this->container['eventId'] = $eventId;
+
+        return $this;
+    }
+
+    /**
+     * Gets waarderingId
+     *
+     * @return string|null
+     */
+    public function getWaarderingId()
+    {
+        return $this->container['waarderingId'];
+    }
+
+    /**
+     * Sets waarderingId
+     *
+     * @param string|null $waarderingId Het Id van de waardering waarop deze callback betrekking heeft.
+     *
+     * @return self
+     */
+    public function setWaarderingId($waarderingId)
+    {
+        $this->container['waarderingId'] = $waarderingId;
+
+        return $this;
+    }
+
+    /**
+     * Gets timestamp
+     *
+     * @return \DateTime|null
+     */
+    public function getTimestamp()
+    {
+        return $this->container['timestamp'];
+    }
+
+    /**
+     * Sets timestamp
+     *
+     * @param \DateTime|null $timestamp Het tijdstip van het event, in UTC.
+     *
+     * @return self
+     */
+    public function setTimestamp($timestamp)
+    {
+        $this->container['timestamp'] = $timestamp;
 
         return $this;
     }
