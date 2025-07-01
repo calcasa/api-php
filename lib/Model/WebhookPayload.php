@@ -1,6 +1,6 @@
 <?php
 /**
- * Callback
+ * WebhookPayload
  *
  * PHP version 8.1
  *
@@ -47,15 +47,16 @@ use \ArrayAccess;
 use \Calcasa\Api\ObjectSerializer;
 
 /**
- * Callback Class Doc Comment
+ * WebhookPayload Class Doc Comment
  *
  * @category Class
+ * @description De base payload van de webhooks die verstuurd worden voor verschillende events.
  * @package  Calcasa\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class Callback implements ModelInterface, ArrayAccess, \JsonSerializable
+class WebhookPayload implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -64,7 +65,7 @@ class Callback implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Callback';
+    protected static $openAPIModelName = 'WebhookPayload';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -72,8 +73,9 @@ class Callback implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'version' => 'string',
-        'url' => 'string'
+        'callbackName' => 'string',
+        'eventId' => 'string',
+        'timestamp' => '\DateTime'
     ];
 
     /**
@@ -84,8 +86,9 @@ class Callback implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'version' => null,
-        'url' => null
+        'callbackName' => null,
+        'eventId' => 'uuid',
+        'timestamp' => 'date-time'
     ];
 
     /**
@@ -94,8 +97,9 @@ class Callback implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'version' => false,
-        'url' => true
+        'callbackName' => false,
+        'eventId' => false,
+        'timestamp' => false
     ];
 
     /**
@@ -184,8 +188,9 @@ class Callback implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'version' => 'version',
-        'url' => 'url'
+        'callbackName' => 'callbackName',
+        'eventId' => 'eventId',
+        'timestamp' => 'timestamp'
     ];
 
     /**
@@ -194,8 +199,9 @@ class Callback implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'version' => 'setVersion',
-        'url' => 'setUrl'
+        'callbackName' => 'setCallbackName',
+        'eventId' => 'setEventId',
+        'timestamp' => 'setTimestamp'
     ];
 
     /**
@@ -204,8 +210,9 @@ class Callback implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'version' => 'getVersion',
-        'url' => 'getUrl'
+        'callbackName' => 'getCallbackName',
+        'eventId' => 'getEventId',
+        'timestamp' => 'getTimestamp'
     ];
 
     /**
@@ -265,8 +272,9 @@ class Callback implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('version', $data ?? [], null);
-        $this->setIfExists('url', $data ?? [], null);
+        $this->setIfExists('callbackName', $data ?? [], null);
+        $this->setIfExists('eventId', $data ?? [], null);
+        $this->setIfExists('timestamp', $data ?? [], null);
     }
 
     /**
@@ -296,10 +304,15 @@ class Callback implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if (!is_null($this->container['url']) && (mb_strlen($this->container['url']) > 2048)) {
-            $invalidProperties[] = "invalid value for 'url', the character length must be smaller than or equal to 2048.";
+        if ($this->container['callbackName'] === null) {
+            $invalidProperties[] = "'callbackName' can't be null";
         }
-
+        if ($this->container['eventId'] === null) {
+            $invalidProperties[] = "'eventId' can't be null";
+        }
+        if ($this->container['timestamp'] === null) {
+            $invalidProperties[] = "'timestamp' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -316,66 +329,82 @@ class Callback implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets version
+     * Gets callbackName
      *
-     * @return string|null
+     * @return string
      */
-    public function getVersion()
+    public function getCallbackName()
     {
-        return $this->container['version'];
+        return $this->container['callbackName'];
     }
 
     /**
-     * Sets version
+     * Sets callbackName
      *
-     * @param string|null $version De API versie waarvoor deze callback aangeroepen wordt.
+     * @param string $callbackName callbackName
      *
      * @return self
      */
-    public function setVersion($version)
+    public function setCallbackName($callbackName)
     {
-        if (is_null($version)) {
-            throw new \InvalidArgumentException('non-nullable version cannot be null');
+        if (is_null($callbackName)) {
+            throw new \InvalidArgumentException('non-nullable callbackName cannot be null');
         }
-        $this->container['version'] = $version;
+        $this->container['callbackName'] = $callbackName;
 
         return $this;
     }
 
     /**
-     * Gets url
+     * Gets eventId
      *
-     * @return string|null
+     * @return string
      */
-    public function getUrl()
+    public function getEventId()
     {
-        return $this->container['url'];
+        return $this->container['eventId'];
     }
 
     /**
-     * Sets url
+     * Sets eventId
      *
-     * @param string|null $url De URL van de callback. Bij het aanroepen zal de CallbackName hier achter geplaatst worden. Null of lege string om te verwijderen. English: when making the call, the CallbackName will be appended to this Url. Null or empty string to remove.
+     * @param string $eventId Uniek Id voor deze callback.
      *
      * @return self
      */
-    public function setUrl($url)
+    public function setEventId($eventId)
     {
-        if (is_null($url)) {
-            array_push($this->openAPINullablesSetToNull, 'url');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('url', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($eventId)) {
+            throw new \InvalidArgumentException('non-nullable eventId cannot be null');
         }
-        if (!is_null($url) && (mb_strlen($url) > 2048)) {
-            throw new \InvalidArgumentException('invalid length for $url when calling Callback., must be smaller than or equal to 2048.');
-        }
+        $this->container['eventId'] = $eventId;
 
-        $this->container['url'] = $url;
+        return $this;
+    }
+
+    /**
+     * Gets timestamp
+     *
+     * @return \DateTime
+     */
+    public function getTimestamp()
+    {
+        return $this->container['timestamp'];
+    }
+
+    /**
+     * Sets timestamp
+     *
+     * @param \DateTime $timestamp Het tijdstip van het event, in UTC.
+     *
+     * @return self
+     */
+    public function setTimestamp($timestamp)
+    {
+        if (is_null($timestamp)) {
+            throw new \InvalidArgumentException('non-nullable timestamp cannot be null');
+        }
+        $this->container['timestamp'] = $timestamp;
 
         return $this;
     }

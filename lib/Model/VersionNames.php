@@ -1,6 +1,6 @@
 <?php
 /**
- * WoningType
+ * VersionNames
  *
  * PHP version 8.1
  *
@@ -45,38 +45,19 @@ namespace Calcasa\Api\Model;
 use \Calcasa\Api\ObjectSerializer;
 
 /**
- * WoningType Class Doc Comment
+ * VersionNames Class Doc Comment
  *
  * @category Class
- * @description Woningtypes zoals gedefinieerd in het Calcasa-model. | Waarde | Omschrijving | | --- | --- | | &#x60;onbekend&#x60; | Onbekend woning type. | | &#x60;vrijstaand&#x60; | Vrijstaande woning. | | &#x60;halfVrijstaand&#x60; | Half-vrijstaande woning / twee-onder-een-kap. | | &#x60;hoekwoning&#x60; | Hoekwoning. | | &#x60;tussenwoning&#x60; | Tussenwoning. | | &#x60;galerijflat&#x60; | Galerijflat. | | &#x60;portiekflat&#x60; | Portiekflat. | | &#x60;maisonnette&#x60; | Maisonette. | | &#x60;bovenwoning&#x60; | Bovenwoning. | | &#x60;benedenwoning&#x60; | Benedenwoning. |
  * @package  Calcasa\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class WoningType
+class VersionNames
 {
     /**
      * Possible values of this enum
      */
-    public const ONBEKEND = 'onbekend';
-
-    public const VRIJSTAAND = 'vrijstaand';
-
-    public const HALF_VRIJSTAAND = 'halfVrijstaand';
-
-    public const HOEKWONING = 'hoekwoning';
-
-    public const TUSSENWONING = 'tussenwoning';
-
-    public const GALERIJFLAT = 'galerijflat';
-
-    public const PORTIEKFLAT = 'portiekflat';
-
-    public const MAISONNETTE = 'maisonnette';
-
-    public const BOVENWONING = 'bovenwoning';
-
-    public const BENEDENWONING = 'benedenwoning';
+    public const V1 = 'v1';
 
     /**
      * Gets allowable values of the enum
@@ -85,16 +66,7 @@ class WoningType
     public static function getAllowableEnumValues()
     {
         return [
-            self::ONBEKEND,
-            self::VRIJSTAAND,
-            self::HALF_VRIJSTAAND,
-            self::HOEKWONING,
-            self::TUSSENWONING,
-            self::GALERIJFLAT,
-            self::PORTIEKFLAT,
-            self::MAISONNETTE,
-            self::BOVENWONING,
-            self::BENEDENWONING
+            self::V1
         ];
     }
 }
