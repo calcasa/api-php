@@ -1,6 +1,6 @@
 <?php
 /**
- * ProductType
+ * OnderhoudStaat
  *
  * PHP version 8.1
  *
@@ -44,32 +44,31 @@ namespace Calcasa\Api\Model;
 use \Calcasa\Api\ObjectSerializer;
 
 /**
- * ProductType Class Doc Comment
+ * OnderhoudStaat Class Doc Comment
  *
  * @category Class
- * @description Het product type voor een waardering. Deze moeten handmatig aangezet worden voor de gebruikte credentails. | Waarde | Omschrijving | | --- | --- | | &#x60;onbekend&#x60; | Geen geldige invoer. Onbekend product type. | | &#x60;modelwaardeCalcasa&#x60; | Niet beschikbaar op dit moment.&lt;br&gt;            Modelwaarde aanvraag met Calcasa Waardebepalingrapport. | | &#x60;modelwaardeRisico&#x60; | Modelwaarde aanvraag met risicorapport. | | &#x60;modelwaardeDesktopTaxatie&#x60; | Modelwaarde aanvraag met Desktop Taxatie Beknoptwaarderapport. | | &#x60;desktopTaxatie&#x60; | Desktop taxatie aanvraag met Desktop Taxatie rapport. | | &#x60;desktopTaxatieHerwaardering&#x60; | Desktop taxatie aanvraag met Desktop Taxatie rapport voor herwaarderingen. | | &#x60;desktopTaxatiePlus&#x60; | Desktop taxatie plus aanvraag met Desktop Taxatie Plus rapport. |
  * @package  Calcasa\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class ProductType
+class OnderhoudStaat
 {
     /**
      * Possible values of this enum
      */
     public const ONBEKEND = 'onbekend';
 
-    public const MODELWAARDE_CALCASA = 'modelwaardeCalcasa';
+    public const SLECHT = 'slecht';
 
-    public const MODELWAARDE_RISICO = 'modelwaardeRisico';
+    public const MATIG = 'matig';
 
-    public const MODELWAARDE_DESKTOP_TAXATIE = 'modelwaardeDesktopTaxatie';
+    public const REDELIJK = 'redelijk';
 
-    public const DESKTOP_TAXATIE = 'desktopTaxatie';
+    public const GOED = 'goed';
 
-    public const DESKTOP_TAXATIE_HERWAARDERING = 'desktopTaxatieHerwaardering';
+    public const NIET_WAARNEEMBAAR = 'nietWaarneembaar';
 
-    public const DESKTOP_TAXATIE_PLUS = 'desktopTaxatiePlus';
+    public const NIET_VAN_TOEPASSING = 'nietVanToepassing';
 
     /**
      * Gets allowable values of the enum
@@ -79,12 +78,12 @@ class ProductType
     {
         return [
             self::ONBEKEND,
-            self::MODELWAARDE_CALCASA,
-            self::MODELWAARDE_RISICO,
-            self::MODELWAARDE_DESKTOP_TAXATIE,
-            self::DESKTOP_TAXATIE,
-            self::DESKTOP_TAXATIE_HERWAARDERING,
-            self::DESKTOP_TAXATIE_PLUS
+            self::SLECHT,
+            self::MATIG,
+            self::REDELIJK,
+            self::GOED,
+            self::NIET_WAARNEEMBAAR,
+            self::NIET_VAN_TOEPASSING
         ];
     }
 }

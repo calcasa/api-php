@@ -1,6 +1,6 @@
 <?php
 /**
- * Objectdata
+ * Opnamedata
  *
  * PHP version 8.1
  *
@@ -46,7 +46,7 @@ use \ArrayAccess;
 use \Calcasa\Api\ObjectSerializer;
 
 /**
- * Objectdata Class Doc Comment
+ * Opnamedata Class Doc Comment
  *
  * @category Class
  * @package  Calcasa\Api
@@ -54,7 +54,7 @@ use \Calcasa\Api\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class Objectdata implements ModelInterface, ArrayAccess, \JsonSerializable
+class Opnamedata implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -63,7 +63,7 @@ class Objectdata implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Objectdata';
+    protected static $openAPIModelName = 'Opnamedata';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -71,15 +71,7 @@ class Objectdata implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'woningType' => '\Calcasa\Api\Model\WoningType',
-        'bouwjaar' => 'int',
-        'oppervlak' => 'int',
-        'perceeloppervlak' => 'int',
-        'inhoud' => 'int',
-        'energielabel' => '\Calcasa\Api\Model\Energielabel',
-        'energielabelData' => '\Calcasa\Api\Model\EnergielabelData',
-        'bagPandId' => 'int',
-        'bagVerblijfsobjectId' => 'int'
+        'algemeenOnderhoudBuiten' => '\Calcasa\Api\Model\OnderhoudStaat'
     ];
 
     /**
@@ -90,15 +82,7 @@ class Objectdata implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'woningType' => null,
-        'bouwjaar' => 'int32',
-        'oppervlak' => 'int32',
-        'perceeloppervlak' => 'int32',
-        'inhoud' => 'int32',
-        'energielabel' => null,
-        'energielabelData' => null,
-        'bagPandId' => 'int64',
-        'bagVerblijfsobjectId' => 'int64'
+        'algemeenOnderhoudBuiten' => null
     ];
 
     /**
@@ -107,15 +91,7 @@ class Objectdata implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'woningType' => false,
-        'bouwjaar' => false,
-        'oppervlak' => false,
-        'perceeloppervlak' => false,
-        'inhoud' => false,
-        'energielabel' => false,
-        'energielabelData' => false,
-        'bagPandId' => false,
-        'bagVerblijfsobjectId' => false
+        'algemeenOnderhoudBuiten' => false
     ];
 
     /**
@@ -204,15 +180,7 @@ class Objectdata implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'woningType' => 'woningType',
-        'bouwjaar' => 'bouwjaar',
-        'oppervlak' => 'oppervlak',
-        'perceeloppervlak' => 'perceeloppervlak',
-        'inhoud' => 'inhoud',
-        'energielabel' => 'energielabel',
-        'energielabelData' => 'energielabelData',
-        'bagPandId' => 'bagPandId',
-        'bagVerblijfsobjectId' => 'bagVerblijfsobjectId'
+        'algemeenOnderhoudBuiten' => 'algemeenOnderhoudBuiten'
     ];
 
     /**
@@ -221,15 +189,7 @@ class Objectdata implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'woningType' => 'setWoningType',
-        'bouwjaar' => 'setBouwjaar',
-        'oppervlak' => 'setOppervlak',
-        'perceeloppervlak' => 'setPerceeloppervlak',
-        'inhoud' => 'setInhoud',
-        'energielabel' => 'setEnergielabel',
-        'energielabelData' => 'setEnergielabelData',
-        'bagPandId' => 'setBagPandId',
-        'bagVerblijfsobjectId' => 'setBagVerblijfsobjectId'
+        'algemeenOnderhoudBuiten' => 'setAlgemeenOnderhoudBuiten'
     ];
 
     /**
@@ -238,15 +198,7 @@ class Objectdata implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'woningType' => 'getWoningType',
-        'bouwjaar' => 'getBouwjaar',
-        'oppervlak' => 'getOppervlak',
-        'perceeloppervlak' => 'getPerceeloppervlak',
-        'inhoud' => 'getInhoud',
-        'energielabel' => 'getEnergielabel',
-        'energielabelData' => 'getEnergielabelData',
-        'bagPandId' => 'getBagPandId',
-        'bagVerblijfsobjectId' => 'getBagVerblijfsobjectId'
+        'algemeenOnderhoudBuiten' => 'getAlgemeenOnderhoudBuiten'
     ];
 
     /**
@@ -306,15 +258,7 @@ class Objectdata implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('woningType', $data ?? [], null);
-        $this->setIfExists('bouwjaar', $data ?? [], null);
-        $this->setIfExists('oppervlak', $data ?? [], null);
-        $this->setIfExists('perceeloppervlak', $data ?? [], null);
-        $this->setIfExists('inhoud', $data ?? [], null);
-        $this->setIfExists('energielabel', $data ?? [], null);
-        $this->setIfExists('energielabelData', $data ?? [], null);
-        $this->setIfExists('bagPandId', $data ?? [], null);
-        $this->setIfExists('bagVerblijfsobjectId', $data ?? [], null);
+        $this->setIfExists('algemeenOnderhoudBuiten', $data ?? [], null);
     }
 
     /**
@@ -360,244 +304,28 @@ class Objectdata implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets woningType
+     * Gets algemeenOnderhoudBuiten
      *
-     * @return \Calcasa\Api\Model\WoningType|null
+     * @return \Calcasa\Api\Model\OnderhoudStaat|null
      */
-    public function getWoningType()
+    public function getAlgemeenOnderhoudBuiten()
     {
-        return $this->container['woningType'];
+        return $this->container['algemeenOnderhoudBuiten'];
     }
 
     /**
-     * Sets woningType
+     * Sets algemeenOnderhoudBuiten
      *
-     * @param \Calcasa\Api\Model\WoningType|null $woningType woningType
+     * @param \Calcasa\Api\Model\OnderhoudStaat|null $algemeenOnderhoudBuiten De algemene staat van onderhoud buiten.
      *
      * @return self
      */
-    public function setWoningType($woningType)
+    public function setAlgemeenOnderhoudBuiten($algemeenOnderhoudBuiten)
     {
-        if (is_null($woningType)) {
-            throw new \InvalidArgumentException('non-nullable woningType cannot be null');
+        if (is_null($algemeenOnderhoudBuiten)) {
+            throw new \InvalidArgumentException('non-nullable algemeenOnderhoudBuiten cannot be null');
         }
-        $this->container['woningType'] = $woningType;
-
-        return $this;
-    }
-
-    /**
-     * Gets bouwjaar
-     *
-     * @return int|null
-     */
-    public function getBouwjaar()
-    {
-        return $this->container['bouwjaar'];
-    }
-
-    /**
-     * Sets bouwjaar
-     *
-     * @param int|null $bouwjaar bouwjaar
-     *
-     * @return self
-     */
-    public function setBouwjaar($bouwjaar)
-    {
-        if (is_null($bouwjaar)) {
-            throw new \InvalidArgumentException('non-nullable bouwjaar cannot be null');
-        }
-        $this->container['bouwjaar'] = $bouwjaar;
-
-        return $this;
-    }
-
-    /**
-     * Gets oppervlak
-     *
-     * @return int|null
-     */
-    public function getOppervlak()
-    {
-        return $this->container['oppervlak'];
-    }
-
-    /**
-     * Sets oppervlak
-     *
-     * @param int|null $oppervlak Het woonoppervlak in hele vierkante meters.
-     *
-     * @return self
-     */
-    public function setOppervlak($oppervlak)
-    {
-        if (is_null($oppervlak)) {
-            throw new \InvalidArgumentException('non-nullable oppervlak cannot be null');
-        }
-        $this->container['oppervlak'] = $oppervlak;
-
-        return $this;
-    }
-
-    /**
-     * Gets perceeloppervlak
-     *
-     * @return int|null
-     */
-    public function getPerceeloppervlak()
-    {
-        return $this->container['perceeloppervlak'];
-    }
-
-    /**
-     * Sets perceeloppervlak
-     *
-     * @param int|null $perceeloppervlak Het perceeloppervlak in hele vierkante meters.
-     *
-     * @return self
-     */
-    public function setPerceeloppervlak($perceeloppervlak)
-    {
-        if (is_null($perceeloppervlak)) {
-            throw new \InvalidArgumentException('non-nullable perceeloppervlak cannot be null');
-        }
-        $this->container['perceeloppervlak'] = $perceeloppervlak;
-
-        return $this;
-    }
-
-    /**
-     * Gets inhoud
-     *
-     * @return int|null
-     */
-    public function getInhoud()
-    {
-        return $this->container['inhoud'];
-    }
-
-    /**
-     * Sets inhoud
-     *
-     * @param int|null $inhoud De inhoud in hele kubieke meters.
-     *
-     * @return self
-     */
-    public function setInhoud($inhoud)
-    {
-        if (is_null($inhoud)) {
-            throw new \InvalidArgumentException('non-nullable inhoud cannot be null');
-        }
-        $this->container['inhoud'] = $inhoud;
-
-        return $this;
-    }
-
-    /**
-     * Gets energielabel
-     *
-     * @return \Calcasa\Api\Model\Energielabel|null
-     */
-    public function getEnergielabel()
-    {
-        return $this->container['energielabel'];
-    }
-
-    /**
-     * Sets energielabel
-     *
-     * @param \Calcasa\Api\Model\Energielabel|null $energielabel energielabel
-     *
-     * @return self
-     */
-    public function setEnergielabel($energielabel)
-    {
-        if (is_null($energielabel)) {
-            throw new \InvalidArgumentException('non-nullable energielabel cannot be null');
-        }
-        $this->container['energielabel'] = $energielabel;
-
-        return $this;
-    }
-
-    /**
-     * Gets energielabelData
-     *
-     * @return \Calcasa\Api\Model\EnergielabelData|null
-     */
-    public function getEnergielabelData()
-    {
-        return $this->container['energielabelData'];
-    }
-
-    /**
-     * Sets energielabelData
-     *
-     * @param \Calcasa\Api\Model\EnergielabelData|null $energielabelData energielabelData
-     *
-     * @return self
-     */
-    public function setEnergielabelData($energielabelData)
-    {
-        if (is_null($energielabelData)) {
-            throw new \InvalidArgumentException('non-nullable energielabelData cannot be null');
-        }
-        $this->container['energielabelData'] = $energielabelData;
-
-        return $this;
-    }
-
-    /**
-     * Gets bagPandId
-     *
-     * @return int|null
-     */
-    public function getBagPandId()
-    {
-        return $this->container['bagPandId'];
-    }
-
-    /**
-     * Sets bagPandId
-     *
-     * @param int|null $bagPandId bagPandId
-     *
-     * @return self
-     */
-    public function setBagPandId($bagPandId)
-    {
-        if (is_null($bagPandId)) {
-            throw new \InvalidArgumentException('non-nullable bagPandId cannot be null');
-        }
-        $this->container['bagPandId'] = $bagPandId;
-
-        return $this;
-    }
-
-    /**
-     * Gets bagVerblijfsobjectId
-     *
-     * @return int|null
-     */
-    public function getBagVerblijfsobjectId()
-    {
-        return $this->container['bagVerblijfsobjectId'];
-    }
-
-    /**
-     * Sets bagVerblijfsobjectId
-     *
-     * @param int|null $bagVerblijfsobjectId bagVerblijfsobjectId
-     *
-     * @return self
-     */
-    public function setBagVerblijfsobjectId($bagVerblijfsobjectId)
-    {
-        if (is_null($bagVerblijfsobjectId)) {
-            throw new \InvalidArgumentException('non-nullable bagVerblijfsobjectId cannot be null');
-        }
-        $this->container['bagVerblijfsobjectId'] = $bagVerblijfsobjectId;
+        $this->container['algemeenOnderhoudBuiten'] = $algemeenOnderhoudBuiten;
 
         return $this;
     }

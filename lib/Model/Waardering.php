@@ -79,6 +79,7 @@ class Waardering implements ModelInterface, ArrayAccess, \JsonSerializable
         'model' => '\Calcasa\Api\Model\Modeldata',
         'taxatie' => '\Calcasa\Api\Model\Taxatiedata',
         'object' => '\Calcasa\Api\Model\Objectdata',
+        'opname' => '\Calcasa\Api\Model\Opnamedata',
         'cbsIndeling' => '\Calcasa\Api\Model\CbsIndeling',
         'fotos' => '\Calcasa\Api\Model\Foto[]',
         'referenties' => '\Calcasa\Api\Model\Referentieobject[]',
@@ -103,6 +104,7 @@ class Waardering implements ModelInterface, ArrayAccess, \JsonSerializable
         'model' => null,
         'taxatie' => null,
         'object' => null,
+        'opname' => null,
         'cbsIndeling' => null,
         'fotos' => null,
         'referenties' => null,
@@ -125,6 +127,7 @@ class Waardering implements ModelInterface, ArrayAccess, \JsonSerializable
         'model' => false,
         'taxatie' => false,
         'object' => false,
+        'opname' => false,
         'cbsIndeling' => false,
         'fotos' => true,
         'referenties' => true,
@@ -227,6 +230,7 @@ class Waardering implements ModelInterface, ArrayAccess, \JsonSerializable
         'model' => 'model',
         'taxatie' => 'taxatie',
         'object' => 'object',
+        'opname' => 'opname',
         'cbsIndeling' => 'cbsIndeling',
         'fotos' => 'fotos',
         'referenties' => 'referenties',
@@ -249,6 +253,7 @@ class Waardering implements ModelInterface, ArrayAccess, \JsonSerializable
         'model' => 'setModel',
         'taxatie' => 'setTaxatie',
         'object' => 'setObject',
+        'opname' => 'setOpname',
         'cbsIndeling' => 'setCbsIndeling',
         'fotos' => 'setFotos',
         'referenties' => 'setReferenties',
@@ -271,6 +276,7 @@ class Waardering implements ModelInterface, ArrayAccess, \JsonSerializable
         'model' => 'getModel',
         'taxatie' => 'getTaxatie',
         'object' => 'getObject',
+        'opname' => 'getOpname',
         'cbsIndeling' => 'getCbsIndeling',
         'fotos' => 'getFotos',
         'referenties' => 'getReferenties',
@@ -344,6 +350,7 @@ class Waardering implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('model', $data ?? [], null);
         $this->setIfExists('taxatie', $data ?? [], null);
         $this->setIfExists('object', $data ?? [], null);
+        $this->setIfExists('opname', $data ?? [], null);
         $this->setIfExists('cbsIndeling', $data ?? [], null);
         $this->setIfExists('fotos', $data ?? [], null);
         $this->setIfExists('referenties', $data ?? [], null);
@@ -621,6 +628,33 @@ class Waardering implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable object cannot be null');
         }
         $this->container['object'] = $object;
+
+        return $this;
+    }
+
+    /**
+     * Gets opname
+     *
+     * @return \Calcasa\Api\Model\Opnamedata|null
+     */
+    public function getOpname()
+    {
+        return $this->container['opname'];
+    }
+
+    /**
+     * Sets opname
+     *
+     * @param \Calcasa\Api\Model\Opnamedata|null $opname opname
+     *
+     * @return self
+     */
+    public function setOpname($opname)
+    {
+        if (is_null($opname)) {
+            throw new \InvalidArgumentException('non-nullable opname cannot be null');
+        }
+        $this->container['opname'] = $opname;
 
         return $this;
     }

@@ -84,7 +84,9 @@ class WaarderingInputParameters implements ModelInterface, ArrayAccess, \JsonSer
         'benodigdeOverbrugging' => 'int',
         'peildatum' => '\DateTime',
         'isErfpacht' => 'bool',
-        'klantkenmerk' => 'string'
+        'klantkenmerk' => 'string',
+        'heeftAflossingsvrijDeel' => 'bool',
+        'aflossingsvrijDeel' => 'int'
     ];
 
     /**
@@ -108,7 +110,9 @@ class WaarderingInputParameters implements ModelInterface, ArrayAccess, \JsonSer
         'benodigdeOverbrugging' => 'int32',
         'peildatum' => 'date',
         'isErfpacht' => null,
-        'klantkenmerk' => null
+        'klantkenmerk' => null,
+        'heeftAflossingsvrijDeel' => null,
+        'aflossingsvrijDeel' => 'int32'
     ];
 
     /**
@@ -130,7 +134,9 @@ class WaarderingInputParameters implements ModelInterface, ArrayAccess, \JsonSer
         'benodigdeOverbrugging' => false,
         'peildatum' => true,
         'isErfpacht' => true,
-        'klantkenmerk' => false
+        'klantkenmerk' => false,
+        'heeftAflossingsvrijDeel' => true,
+        'aflossingsvrijDeel' => true
     ];
 
     /**
@@ -232,7 +238,9 @@ class WaarderingInputParameters implements ModelInterface, ArrayAccess, \JsonSer
         'benodigdeOverbrugging' => 'benodigdeOverbrugging',
         'peildatum' => 'peildatum',
         'isErfpacht' => 'isErfpacht',
-        'klantkenmerk' => 'klantkenmerk'
+        'klantkenmerk' => 'klantkenmerk',
+        'heeftAflossingsvrijDeel' => 'heeftAflossingsvrijDeel',
+        'aflossingsvrijDeel' => 'aflossingsvrijDeel'
     ];
 
     /**
@@ -254,7 +262,9 @@ class WaarderingInputParameters implements ModelInterface, ArrayAccess, \JsonSer
         'benodigdeOverbrugging' => 'setBenodigdeOverbrugging',
         'peildatum' => 'setPeildatum',
         'isErfpacht' => 'setIsErfpacht',
-        'klantkenmerk' => 'setKlantkenmerk'
+        'klantkenmerk' => 'setKlantkenmerk',
+        'heeftAflossingsvrijDeel' => 'setHeeftAflossingsvrijDeel',
+        'aflossingsvrijDeel' => 'setAflossingsvrijDeel'
     ];
 
     /**
@@ -276,7 +286,9 @@ class WaarderingInputParameters implements ModelInterface, ArrayAccess, \JsonSer
         'benodigdeOverbrugging' => 'getBenodigdeOverbrugging',
         'peildatum' => 'getPeildatum',
         'isErfpacht' => 'getIsErfpacht',
-        'klantkenmerk' => 'getKlantkenmerk'
+        'klantkenmerk' => 'getKlantkenmerk',
+        'heeftAflossingsvrijDeel' => 'getHeeftAflossingsvrijDeel',
+        'aflossingsvrijDeel' => 'getAflossingsvrijDeel'
     ];
 
     /**
@@ -350,6 +362,8 @@ class WaarderingInputParameters implements ModelInterface, ArrayAccess, \JsonSer
         $this->setIfExists('peildatum', $data ?? [], null);
         $this->setIfExists('isErfpacht', $data ?? [], null);
         $this->setIfExists('klantkenmerk', $data ?? [], null);
+        $this->setIfExists('heeftAflossingsvrijDeel', $data ?? [], null);
+        $this->setIfExists('aflossingsvrijDeel', $data ?? [], null);
     }
 
     /**
@@ -803,6 +817,74 @@ class WaarderingInputParameters implements ModelInterface, ArrayAccess, \JsonSer
         }
 
         $this->container['klantkenmerk'] = $klantkenmerk;
+
+        return $this;
+    }
+
+    /**
+     * Gets heeftAflossingsvrijDeel
+     *
+     * @return bool|null
+     */
+    public function getHeeftAflossingsvrijDeel()
+    {
+        return $this->container['heeftAflossingsvrijDeel'];
+    }
+
+    /**
+     * Sets heeftAflossingsvrijDeel
+     *
+     * @param bool|null $heeftAflossingsvrijDeel True als de lening een aflossingsvrij deel heeft.
+     *
+     * @return self
+     */
+    public function setHeeftAflossingsvrijDeel($heeftAflossingsvrijDeel)
+    {
+        if (is_null($heeftAflossingsvrijDeel)) {
+            array_push($this->openAPINullablesSetToNull, 'heeftAflossingsvrijDeel');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('heeftAflossingsvrijDeel', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['heeftAflossingsvrijDeel'] = $heeftAflossingsvrijDeel;
+
+        return $this;
+    }
+
+    /**
+     * Gets aflossingsvrijDeel
+     *
+     * @return int|null
+     */
+    public function getAflossingsvrijDeel()
+    {
+        return $this->container['aflossingsvrijDeel'];
+    }
+
+    /**
+     * Sets aflossingsvrijDeel
+     *
+     * @param int|null $aflossingsvrijDeel De hoogte van het aflossingsvrije deel van het veld `hypotheekwaarde` van de lening. Alleen relevant als `heeftAflossingsvrijDeel` true is. In hele euros.
+     *
+     * @return self
+     */
+    public function setAflossingsvrijDeel($aflossingsvrijDeel)
+    {
+        if (is_null($aflossingsvrijDeel)) {
+            array_push($this->openAPINullablesSetToNull, 'aflossingsvrijDeel');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('aflossingsvrijDeel', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['aflossingsvrijDeel'] = $aflossingsvrijDeel;
 
         return $this;
     }
