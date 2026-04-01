@@ -1,6 +1,6 @@
 <?php
 /**
- * WaarderingInputParameters
+ * ProductCheckParameters
  *
  * PHP version 8.1
  *
@@ -46,7 +46,7 @@ use \ArrayAccess;
 use \Calcasa\Api\ObjectSerializer;
 
 /**
- * WaarderingInputParameters Class Doc Comment
+ * ProductCheckParameters Class Doc Comment
  *
  * @category Class
  * @package  Calcasa\Api
@@ -54,7 +54,7 @@ use \Calcasa\Api\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class WaarderingInputParameters implements ModelInterface, ArrayAccess, \JsonSerializable
+class ProductCheckParameters implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -63,7 +63,7 @@ class WaarderingInputParameters implements ModelInterface, ArrayAccess, \JsonSer
       *
       * @var string
       */
-    protected static $openAPIModelName = 'WaarderingInputParameters';
+    protected static $openAPIModelName = 'ProductCheckParameters';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -71,7 +71,6 @@ class WaarderingInputParameters implements ModelInterface, ArrayAccess, \JsonSer
       * @var string[]
       */
     protected static $openAPITypes = [
-        'productType' => '\Calcasa\Api\Model\ProductType',
         'geldverstrekker' => 'string',
         'hypotheekwaarde' => 'int',
         'aanvraagdoel' => '\Calcasa\Api\Model\Aanvraagdoel',
@@ -97,7 +96,6 @@ class WaarderingInputParameters implements ModelInterface, ArrayAccess, \JsonSer
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'productType' => null,
         'geldverstrekker' => null,
         'hypotheekwaarde' => 'int32',
         'aanvraagdoel' => null,
@@ -121,7 +119,6 @@ class WaarderingInputParameters implements ModelInterface, ArrayAccess, \JsonSer
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'productType' => false,
         'geldverstrekker' => false,
         'hypotheekwaarde' => false,
         'aanvraagdoel' => false,
@@ -225,7 +222,6 @@ class WaarderingInputParameters implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $attributeMap = [
-        'productType' => 'productType',
         'geldverstrekker' => 'geldverstrekker',
         'hypotheekwaarde' => 'hypotheekwaarde',
         'aanvraagdoel' => 'aanvraagdoel',
@@ -249,7 +245,6 @@ class WaarderingInputParameters implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $setters = [
-        'productType' => 'setProductType',
         'geldverstrekker' => 'setGeldverstrekker',
         'hypotheekwaarde' => 'setHypotheekwaarde',
         'aanvraagdoel' => 'setAanvraagdoel',
@@ -273,7 +268,6 @@ class WaarderingInputParameters implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $getters = [
-        'productType' => 'getProductType',
         'geldverstrekker' => 'getGeldverstrekker',
         'hypotheekwaarde' => 'getHypotheekwaarde',
         'aanvraagdoel' => 'getAanvraagdoel',
@@ -348,7 +342,6 @@ class WaarderingInputParameters implements ModelInterface, ArrayAccess, \JsonSer
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('productType', $data ?? [], null);
         $this->setIfExists('geldverstrekker', $data ?? [], null);
         $this->setIfExists('hypotheekwaarde', $data ?? [], null);
         $this->setIfExists('aanvraagdoel', $data ?? [], null);
@@ -393,9 +386,6 @@ class WaarderingInputParameters implements ModelInterface, ArrayAccess, \JsonSer
     {
         $invalidProperties = [];
 
-        if ($this->container['productType'] === null) {
-            $invalidProperties[] = "'productType' can't be null";
-        }
         if ($this->container['bagNummeraanduidingId'] === null) {
             $invalidProperties[] = "'bagNummeraanduidingId' can't be null";
         }
@@ -421,33 +411,6 @@ class WaarderingInputParameters implements ModelInterface, ArrayAccess, \JsonSer
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets productType
-     *
-     * @return \Calcasa\Api\Model\ProductType
-     */
-    public function getProductType()
-    {
-        return $this->container['productType'];
-    }
-
-    /**
-     * Sets productType
-     *
-     * @param \Calcasa\Api\Model\ProductType $productType productType
-     *
-     * @return self
-     */
-    public function setProductType($productType)
-    {
-        if (is_null($productType)) {
-            throw new \InvalidArgumentException('non-nullable productType cannot be null');
-        }
-        $this->container['productType'] = $productType;
-
-        return $this;
-    }
 
     /**
      * Gets geldverstrekker
@@ -810,10 +773,10 @@ class WaarderingInputParameters implements ModelInterface, ArrayAccess, \JsonSer
             throw new \InvalidArgumentException('non-nullable klantkenmerk cannot be null');
         }
         if ((mb_strlen($klantkenmerk) > 100)) {
-            throw new \InvalidArgumentException('invalid length for $klantkenmerk when calling WaarderingInputParameters., must be smaller than or equal to 100.');
+            throw new \InvalidArgumentException('invalid length for $klantkenmerk when calling ProductCheckParameters., must be smaller than or equal to 100.');
         }
         if ((mb_strlen($klantkenmerk) < 0)) {
-            throw new \InvalidArgumentException('invalid length for $klantkenmerk when calling WaarderingInputParameters., must be bigger than or equal to 0.');
+            throw new \InvalidArgumentException('invalid length for $klantkenmerk when calling ProductCheckParameters., must be bigger than or equal to 0.');
         }
 
         $this->container['klantkenmerk'] = $klantkenmerk;
