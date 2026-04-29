@@ -372,7 +372,7 @@ class WaarderingOntwikkeling implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets id
      *
-     * @param string|null $id Id van de waardering of tracking Id.
+     * @param string|null $id Id van de waardering.
      *
      * @return self
      */
