@@ -78,7 +78,8 @@ class Funderingdata implements ModelInterface, ArrayAccess, \JsonSerializable
         'optrekkendVochtRisico' => '\Calcasa\Api\Model\FunderingRisico',
         'bioInfectieRisico' => '\Calcasa\Api\Model\FunderingRisico',
         'herstelkosten' => 'float',
-        'bron' => '\Calcasa\Api\Model\FunderingDataBron'
+        'bron' => '\Calcasa\Api\Model\FunderingDataBron',
+        'risicolabel' => '\Calcasa\Api\Model\Funderingsrisico'
     ];
 
     /**
@@ -95,7 +96,8 @@ class Funderingdata implements ModelInterface, ArrayAccess, \JsonSerializable
         'optrekkendVochtRisico' => null,
         'bioInfectieRisico' => null,
         'herstelkosten' => 'double',
-        'bron' => null
+        'bron' => null,
+        'risicolabel' => null
     ];
 
     /**
@@ -110,7 +112,8 @@ class Funderingdata implements ModelInterface, ArrayAccess, \JsonSerializable
         'optrekkendVochtRisico' => false,
         'bioInfectieRisico' => false,
         'herstelkosten' => true,
-        'bron' => false
+        'bron' => false,
+        'risicolabel' => false
     ];
 
     /**
@@ -205,7 +208,8 @@ class Funderingdata implements ModelInterface, ArrayAccess, \JsonSerializable
         'optrekkendVochtRisico' => 'optrekkendVochtRisico',
         'bioInfectieRisico' => 'bioInfectieRisico',
         'herstelkosten' => 'herstelkosten',
-        'bron' => 'bron'
+        'bron' => 'bron',
+        'risicolabel' => 'risicolabel'
     ];
 
     /**
@@ -220,7 +224,8 @@ class Funderingdata implements ModelInterface, ArrayAccess, \JsonSerializable
         'optrekkendVochtRisico' => 'setOptrekkendVochtRisico',
         'bioInfectieRisico' => 'setBioInfectieRisico',
         'herstelkosten' => 'setHerstelkosten',
-        'bron' => 'setBron'
+        'bron' => 'setBron',
+        'risicolabel' => 'setRisicolabel'
     ];
 
     /**
@@ -235,7 +240,8 @@ class Funderingdata implements ModelInterface, ArrayAccess, \JsonSerializable
         'optrekkendVochtRisico' => 'getOptrekkendVochtRisico',
         'bioInfectieRisico' => 'getBioInfectieRisico',
         'herstelkosten' => 'getHerstelkosten',
-        'bron' => 'getBron'
+        'bron' => 'getBron',
+        'risicolabel' => 'getRisicolabel'
     ];
 
     /**
@@ -302,6 +308,7 @@ class Funderingdata implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('bioInfectieRisico', $data ?? [], null);
         $this->setIfExists('herstelkosten', $data ?? [], null);
         $this->setIfExists('bron', $data ?? [], null);
+        $this->setIfExists('risicolabel', $data ?? [], null);
     }
 
     /**
@@ -494,7 +501,7 @@ class Funderingdata implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets herstelkosten
      *
-     * @param float|null $herstelkosten Indicatieve herstelkosten van de fundering.
+     * @param float|null $herstelkosten Indicatieve herstelkosten van de fundering. Voor consumenten doeleinden ronden gebruiken we de volgende regels om tot een orijsrange te komen: < 5_000: \"Minder dan 5000\" < 50_000: \"afronden op 5000, min: floor, max: ceil\" else: min: x * 0.9, max: x * 1.1, beiden afgerond op 5000
      *
      * @return self
      */
@@ -538,6 +545,33 @@ class Funderingdata implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable bron cannot be null');
         }
         $this->container['bron'] = $bron;
+
+        return $this;
+    }
+
+    /**
+     * Gets risicolabel
+     *
+     * @return \Calcasa\Api\Model\Funderingsrisico|null
+     */
+    public function getRisicolabel()
+    {
+        return $this->container['risicolabel'];
+    }
+
+    /**
+     * Sets risicolabel
+     *
+     * @param \Calcasa\Api\Model\Funderingsrisico|null $risicolabel risicolabel
+     *
+     * @return self
+     */
+    public function setRisicolabel($risicolabel)
+    {
+        if (is_null($risicolabel)) {
+            throw new \InvalidArgumentException('non-nullable risicolabel cannot be null');
+        }
+        $this->container['risicolabel'] = $risicolabel;
 
         return $this;
     }
