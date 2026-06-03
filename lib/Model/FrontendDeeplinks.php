@@ -1,6 +1,6 @@
 <?php
 /**
- * ProductCheckItem
+ * FrontendDeeplinks
  *
  * PHP version 8.1
  *
@@ -46,7 +46,7 @@ use \ArrayAccess;
 use \Calcasa\Api\ObjectSerializer;
 
 /**
- * ProductCheckItem Class Doc Comment
+ * FrontendDeeplinks Class Doc Comment
  *
  * @category Class
  * @package  Calcasa\Api
@@ -54,7 +54,7 @@ use \Calcasa\Api\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ProductCheckItem implements ModelInterface, ArrayAccess, \JsonSerializable
+class FrontendDeeplinks implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -63,7 +63,7 @@ class ProductCheckItem implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ProductCheckItem';
+    protected static $openAPIModelName = 'FrontendDeeplinks';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -71,9 +71,7 @@ class ProductCheckItem implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'productType' => '\Calcasa\Api\Model\ProductType',
-        'businessRulesCode' => '\Calcasa\Api\Model\BusinessRulesCode',
-        'deeplinks' => '\Calcasa\Api\Model\FrontendDeeplinks'
+        'loggedIn' => 'string'
     ];
 
     /**
@@ -84,9 +82,7 @@ class ProductCheckItem implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'productType' => null,
-        'businessRulesCode' => null,
-        'deeplinks' => null
+        'loggedIn' => null
     ];
 
     /**
@@ -95,9 +91,7 @@ class ProductCheckItem implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'productType' => false,
-        'businessRulesCode' => true,
-        'deeplinks' => true
+        'loggedIn' => true
     ];
 
     /**
@@ -186,9 +180,7 @@ class ProductCheckItem implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'productType' => 'productType',
-        'businessRulesCode' => 'businessRulesCode',
-        'deeplinks' => 'deeplinks'
+        'loggedIn' => 'loggedIn'
     ];
 
     /**
@@ -197,9 +189,7 @@ class ProductCheckItem implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'productType' => 'setProductType',
-        'businessRulesCode' => 'setBusinessRulesCode',
-        'deeplinks' => 'setDeeplinks'
+        'loggedIn' => 'setLoggedIn'
     ];
 
     /**
@@ -208,9 +198,7 @@ class ProductCheckItem implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'productType' => 'getProductType',
-        'businessRulesCode' => 'getBusinessRulesCode',
-        'deeplinks' => 'getDeeplinks'
+        'loggedIn' => 'getLoggedIn'
     ];
 
     /**
@@ -270,9 +258,7 @@ class ProductCheckItem implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('productType', $data ?? [], null);
-        $this->setIfExists('businessRulesCode', $data ?? [], null);
-        $this->setIfExists('deeplinks', $data ?? [], null);
+        $this->setIfExists('loggedIn', $data ?? [], null);
     }
 
     /**
@@ -302,9 +288,6 @@ class ProductCheckItem implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['productType'] === null) {
-            $invalidProperties[] = "'productType' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -321,96 +304,35 @@ class ProductCheckItem implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets productType
+     * Gets loggedIn
      *
-     * @return \Calcasa\Api\Model\ProductType
+     * @return string|null
      */
-    public function getProductType()
+    public function getLoggedIn()
     {
-        return $this->container['productType'];
+        return $this->container['loggedIn'];
     }
 
     /**
-     * Sets productType
+     * Sets loggedIn
      *
-     * @param \Calcasa\Api\Model\ProductType $productType De producttypen waarvoor deze waardering geldt.
+     * @param string|null $loggedIn De URL van de frontend deeplink om deze waardering aan te vragen. Deze link is voor gebruikers met een account.
      *
      * @return self
      */
-    public function setProductType($productType)
+    public function setLoggedIn($loggedIn)
     {
-        if (is_null($productType)) {
-            throw new \InvalidArgumentException('non-nullable productType cannot be null');
-        }
-        $this->container['productType'] = $productType;
-
-        return $this;
-    }
-
-    /**
-     * Gets businessRulesCode
-     *
-     * @return \Calcasa\Api\Model\BusinessRulesCode|null
-     */
-    public function getBusinessRulesCode()
-    {
-        return $this->container['businessRulesCode'];
-    }
-
-    /**
-     * Sets businessRulesCode
-     *
-     * @param \Calcasa\Api\Model\BusinessRulesCode|null $businessRulesCode Indien deze waardering niet voldoet aan de eisen voor dit product type, dan is dit veld ingevuld met de reden waarom deze is afgekeurd.
-     *
-     * @return self
-     */
-    public function setBusinessRulesCode($businessRulesCode)
-    {
-        if (is_null($businessRulesCode)) {
-            array_push($this->openAPINullablesSetToNull, 'businessRulesCode');
+        if (is_null($loggedIn)) {
+            array_push($this->openAPINullablesSetToNull, 'loggedIn');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('businessRulesCode', $nullablesSetToNull);
+            $index = array_search('loggedIn', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['businessRulesCode'] = $businessRulesCode;
-
-        return $this;
-    }
-
-    /**
-     * Gets deeplinks
-     *
-     * @return \Calcasa\Api\Model\FrontendDeeplinks|null
-     */
-    public function getDeeplinks()
-    {
-        return $this->container['deeplinks'];
-    }
-
-    /**
-     * Sets deeplinks
-     *
-     * @param \Calcasa\Api\Model\FrontendDeeplinks|null $deeplinks deeplinks
-     *
-     * @return self
-     */
-    public function setDeeplinks($deeplinks)
-    {
-        if (is_null($deeplinks)) {
-            array_push($this->openAPINullablesSetToNull, 'deeplinks');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('deeplinks', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['deeplinks'] = $deeplinks;
+        $this->container['loggedIn'] = $loggedIn;
 
         return $this;
     }

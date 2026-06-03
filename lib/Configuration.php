@@ -114,7 +114,7 @@ class Configuration
      *
      * @var string
      */
-    protected $userAgent = 'Calcasa PHP Api Client/1.5.3';
+    protected $userAgent = 'Calcasa PHP Api Client/1.5.4';
 
     /**
      * Debug switch (default set to false)
@@ -446,7 +446,7 @@ class Configuration
         $report  = 'PHP SDK (Calcasa\Api) Debug Report:' . PHP_EOL;
         $report .= '    OS: ' . php_uname() . PHP_EOL;
         $report .= '    PHP Version: ' . PHP_VERSION . PHP_EOL;
-        $report .= '    The version of the OpenAPI document: 1.5.3' . PHP_EOL;
+        $report .= '    The version of the OpenAPI document: 1.5.4' . PHP_EOL;
         $report .= '    Temp Folder Path: ' . self::getDefaultConfiguration()->getTempFolderPath() . PHP_EOL;
 
         return $report;
