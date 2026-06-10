@@ -73,6 +73,7 @@ class FunderingRisico implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'label' => '\Calcasa\Api\Model\FunderingRisicoLabel',
+        'risicolabel' => '\Calcasa\Api\Model\Funderingsrisico',
         'bron' => '\Calcasa\Api\Model\FunderingSoortBron',
         'omschrijving' => 'string'
     ];
@@ -86,6 +87,7 @@ class FunderingRisico implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPIFormats = [
         'label' => null,
+        'risicolabel' => null,
         'bron' => null,
         'omschrijving' => null
     ];
@@ -97,6 +99,7 @@ class FunderingRisico implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static array $openAPINullables = [
         'label' => false,
+        'risicolabel' => false,
         'bron' => false,
         'omschrijving' => false
     ];
@@ -188,6 +191,7 @@ class FunderingRisico implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'label' => 'label',
+        'risicolabel' => 'risicolabel',
         'bron' => 'bron',
         'omschrijving' => 'omschrijving'
     ];
@@ -199,6 +203,7 @@ class FunderingRisico implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'label' => 'setLabel',
+        'risicolabel' => 'setRisicolabel',
         'bron' => 'setBron',
         'omschrijving' => 'setOmschrijving'
     ];
@@ -210,6 +215,7 @@ class FunderingRisico implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'label' => 'getLabel',
+        'risicolabel' => 'getRisicolabel',
         'bron' => 'getBron',
         'omschrijving' => 'getOmschrijving'
     ];
@@ -272,6 +278,7 @@ class FunderingRisico implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(?array $data = null)
     {
         $this->setIfExists('label', $data ?? [], null);
+        $this->setIfExists('risicolabel', $data ?? [], null);
         $this->setIfExists('bron', $data ?? [], null);
         $this->setIfExists('omschrijving', $data ?? [], null);
     }
@@ -322,6 +329,7 @@ class FunderingRisico implements ModelInterface, ArrayAccess, \JsonSerializable
      * Gets label
      *
      * @return \Calcasa\Api\Model\FunderingRisicoLabel|null
+     * @deprecated
      */
     public function getLabel()
     {
@@ -334,6 +342,7 @@ class FunderingRisico implements ModelInterface, ArrayAccess, \JsonSerializable
      * @param \Calcasa\Api\Model\FunderingRisicoLabel|null $label label
      *
      * @return self
+     * @deprecated
      */
     public function setLabel($label)
     {
@@ -341,6 +350,33 @@ class FunderingRisico implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable label cannot be null');
         }
         $this->container['label'] = $label;
+
+        return $this;
+    }
+
+    /**
+     * Gets risicolabel
+     *
+     * @return \Calcasa\Api\Model\Funderingsrisico|null
+     */
+    public function getRisicolabel()
+    {
+        return $this->container['risicolabel'];
+    }
+
+    /**
+     * Sets risicolabel
+     *
+     * @param \Calcasa\Api\Model\Funderingsrisico|null $risicolabel risicolabel
+     *
+     * @return self
+     */
+    public function setRisicolabel($risicolabel)
+    {
+        if (is_null($risicolabel)) {
+            throw new \InvalidArgumentException('non-nullable risicolabel cannot be null');
+        }
+        $this->container['risicolabel'] = $risicolabel;
 
         return $this;
     }

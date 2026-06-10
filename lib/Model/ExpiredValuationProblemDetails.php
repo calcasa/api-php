@@ -1,6 +1,6 @@
 <?php
 /**
- * Funderingdata
+ * ExpiredValuationProblemDetails
  *
  * PHP version 8.1
  *
@@ -46,16 +46,16 @@ use \ArrayAccess;
 use \Calcasa\Api\ObjectSerializer;
 
 /**
- * Funderingdata Class Doc Comment
+ * ExpiredValuationProblemDetails Class Doc Comment
  *
  * @category Class
- * @description Uitvoer met funderingsinformatie.
+ * @description Expired valuation.
  * @package  Calcasa\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class Funderingdata implements ModelInterface, ArrayAccess, \JsonSerializable
+class ExpiredValuationProblemDetails implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -64,7 +64,7 @@ class Funderingdata implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Funderingdata';
+    protected static $openAPIModelName = 'ExpiredValuationProblemDetails';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -72,15 +72,13 @@ class Funderingdata implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'typering' => '\Calcasa\Api\Model\FunderingTypering',
-        'herstelType' => '\Calcasa\Api\Model\FunderingHerstelType',
-        'technischHerstelType' => '\Calcasa\Api\Model\FunderingTechnischHerstelType',
-        'droogstandRisico' => '\Calcasa\Api\Model\FunderingRisico',
-        'optrekkendVochtRisico' => '\Calcasa\Api\Model\FunderingRisico',
-        'bioInfectieRisico' => '\Calcasa\Api\Model\FunderingRisico',
-        'herstelkosten' => 'float',
-        'bron' => '\Calcasa\Api\Model\FunderingDataBron',
-        'risicolabel' => '\Calcasa\Api\Model\Funderingsrisico'
+        'waarderingId' => 'string',
+        'origineleAanmaakDatum' => '\DateTime',
+        'type' => 'string',
+        'title' => 'string',
+        'status' => 'int',
+        'detail' => 'string',
+        'instance' => 'string'
     ];
 
     /**
@@ -91,15 +89,13 @@ class Funderingdata implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'typering' => null,
-        'herstelType' => null,
-        'technischHerstelType' => null,
-        'droogstandRisico' => null,
-        'optrekkendVochtRisico' => null,
-        'bioInfectieRisico' => null,
-        'herstelkosten' => 'double',
-        'bron' => null,
-        'risicolabel' => null
+        'waarderingId' => 'uuid',
+        'origineleAanmaakDatum' => 'date',
+        'type' => null,
+        'title' => null,
+        'status' => 'int32',
+        'detail' => null,
+        'instance' => null
     ];
 
     /**
@@ -108,15 +104,13 @@ class Funderingdata implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'typering' => false,
-        'herstelType' => false,
-        'technischHerstelType' => false,
-        'droogstandRisico' => false,
-        'optrekkendVochtRisico' => false,
-        'bioInfectieRisico' => false,
-        'herstelkosten' => true,
-        'bron' => false,
-        'risicolabel' => false
+        'waarderingId' => false,
+        'origineleAanmaakDatum' => true,
+        'type' => true,
+        'title' => true,
+        'status' => true,
+        'detail' => true,
+        'instance' => true
     ];
 
     /**
@@ -205,15 +199,13 @@ class Funderingdata implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'typering' => 'typering',
-        'herstelType' => 'herstelType',
-        'technischHerstelType' => 'technischHerstelType',
-        'droogstandRisico' => 'droogstandRisico',
-        'optrekkendVochtRisico' => 'optrekkendVochtRisico',
-        'bioInfectieRisico' => 'bioInfectieRisico',
-        'herstelkosten' => 'herstelkosten',
-        'bron' => 'bron',
-        'risicolabel' => 'risicolabel'
+        'waarderingId' => 'waarderingId',
+        'origineleAanmaakDatum' => 'origineleAanmaakDatum',
+        'type' => 'type',
+        'title' => 'title',
+        'status' => 'status',
+        'detail' => 'detail',
+        'instance' => 'instance'
     ];
 
     /**
@@ -222,15 +214,13 @@ class Funderingdata implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'typering' => 'setTypering',
-        'herstelType' => 'setHerstelType',
-        'technischHerstelType' => 'setTechnischHerstelType',
-        'droogstandRisico' => 'setDroogstandRisico',
-        'optrekkendVochtRisico' => 'setOptrekkendVochtRisico',
-        'bioInfectieRisico' => 'setBioInfectieRisico',
-        'herstelkosten' => 'setHerstelkosten',
-        'bron' => 'setBron',
-        'risicolabel' => 'setRisicolabel'
+        'waarderingId' => 'setWaarderingId',
+        'origineleAanmaakDatum' => 'setOrigineleAanmaakDatum',
+        'type' => 'setType',
+        'title' => 'setTitle',
+        'status' => 'setStatus',
+        'detail' => 'setDetail',
+        'instance' => 'setInstance'
     ];
 
     /**
@@ -239,15 +229,13 @@ class Funderingdata implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'typering' => 'getTypering',
-        'herstelType' => 'getHerstelType',
-        'technischHerstelType' => 'getTechnischHerstelType',
-        'droogstandRisico' => 'getDroogstandRisico',
-        'optrekkendVochtRisico' => 'getOptrekkendVochtRisico',
-        'bioInfectieRisico' => 'getBioInfectieRisico',
-        'herstelkosten' => 'getHerstelkosten',
-        'bron' => 'getBron',
-        'risicolabel' => 'getRisicolabel'
+        'waarderingId' => 'getWaarderingId',
+        'origineleAanmaakDatum' => 'getOrigineleAanmaakDatum',
+        'type' => 'getType',
+        'title' => 'getTitle',
+        'status' => 'getStatus',
+        'detail' => 'getDetail',
+        'instance' => 'getInstance'
     ];
 
     /**
@@ -307,15 +295,13 @@ class Funderingdata implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('typering', $data ?? [], null);
-        $this->setIfExists('herstelType', $data ?? [], null);
-        $this->setIfExists('technischHerstelType', $data ?? [], null);
-        $this->setIfExists('droogstandRisico', $data ?? [], null);
-        $this->setIfExists('optrekkendVochtRisico', $data ?? [], null);
-        $this->setIfExists('bioInfectieRisico', $data ?? [], null);
-        $this->setIfExists('herstelkosten', $data ?? [], null);
-        $this->setIfExists('bron', $data ?? [], null);
-        $this->setIfExists('risicolabel', $data ?? [], null);
+        $this->setIfExists('waarderingId', $data ?? [], null);
+        $this->setIfExists('origineleAanmaakDatum', $data ?? [], null);
+        $this->setIfExists('type', $data ?? [], null);
+        $this->setIfExists('title', $data ?? [], null);
+        $this->setIfExists('status', $data ?? [], null);
+        $this->setIfExists('detail', $data ?? [], null);
+        $this->setIfExists('instance', $data ?? [], null);
     }
 
     /**
@@ -361,253 +347,232 @@ class Funderingdata implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets typering
+     * Gets waarderingId
      *
-     * @return \Calcasa\Api\Model\FunderingTypering|null
+     * @return string|null
      */
-    public function getTypering()
+    public function getWaarderingId()
     {
-        return $this->container['typering'];
+        return $this->container['waarderingId'];
     }
 
     /**
-     * Sets typering
+     * Sets waarderingId
      *
-     * @param \Calcasa\Api\Model\FunderingTypering|null $typering typering
+     * @param string|null $waarderingId waarderingId
      *
      * @return self
      */
-    public function setTypering($typering)
+    public function setWaarderingId($waarderingId)
     {
-        if (is_null($typering)) {
-            throw new \InvalidArgumentException('non-nullable typering cannot be null');
+        if (is_null($waarderingId)) {
+            throw new \InvalidArgumentException('non-nullable waarderingId cannot be null');
         }
-        $this->container['typering'] = $typering;
+        $this->container['waarderingId'] = $waarderingId;
 
         return $this;
     }
 
     /**
-     * Gets herstelType
+     * Gets origineleAanmaakDatum
      *
-     * @return \Calcasa\Api\Model\FunderingHerstelType|null
-     * @deprecated
+     * @return \DateTime|null
      */
-    public function getHerstelType()
+    public function getOrigineleAanmaakDatum()
     {
-        return $this->container['herstelType'];
+        return $this->container['origineleAanmaakDatum'];
     }
 
     /**
-     * Sets herstelType
+     * Sets origineleAanmaakDatum
      *
-     * @param \Calcasa\Api\Model\FunderingHerstelType|null $herstelType herstelType
-     *
-     * @return self
-     * @deprecated
-     */
-    public function setHerstelType($herstelType)
-    {
-        if (is_null($herstelType)) {
-            throw new \InvalidArgumentException('non-nullable herstelType cannot be null');
-        }
-        $this->container['herstelType'] = $herstelType;
-
-        return $this;
-    }
-
-    /**
-     * Gets technischHerstelType
-     *
-     * @return \Calcasa\Api\Model\FunderingTechnischHerstelType|null
-     */
-    public function getTechnischHerstelType()
-    {
-        return $this->container['technischHerstelType'];
-    }
-
-    /**
-     * Sets technischHerstelType
-     *
-     * @param \Calcasa\Api\Model\FunderingTechnischHerstelType|null $technischHerstelType technischHerstelType
+     * @param \DateTime|null $origineleAanmaakDatum origineleAanmaakDatum
      *
      * @return self
      */
-    public function setTechnischHerstelType($technischHerstelType)
+    public function setOrigineleAanmaakDatum($origineleAanmaakDatum)
     {
-        if (is_null($technischHerstelType)) {
-            throw new \InvalidArgumentException('non-nullable technischHerstelType cannot be null');
-        }
-        $this->container['technischHerstelType'] = $technischHerstelType;
-
-        return $this;
-    }
-
-    /**
-     * Gets droogstandRisico
-     *
-     * @return \Calcasa\Api\Model\FunderingRisico|null
-     */
-    public function getDroogstandRisico()
-    {
-        return $this->container['droogstandRisico'];
-    }
-
-    /**
-     * Sets droogstandRisico
-     *
-     * @param \Calcasa\Api\Model\FunderingRisico|null $droogstandRisico droogstandRisico
-     *
-     * @return self
-     */
-    public function setDroogstandRisico($droogstandRisico)
-    {
-        if (is_null($droogstandRisico)) {
-            throw new \InvalidArgumentException('non-nullable droogstandRisico cannot be null');
-        }
-        $this->container['droogstandRisico'] = $droogstandRisico;
-
-        return $this;
-    }
-
-    /**
-     * Gets optrekkendVochtRisico
-     *
-     * @return \Calcasa\Api\Model\FunderingRisico|null
-     */
-    public function getOptrekkendVochtRisico()
-    {
-        return $this->container['optrekkendVochtRisico'];
-    }
-
-    /**
-     * Sets optrekkendVochtRisico
-     *
-     * @param \Calcasa\Api\Model\FunderingRisico|null $optrekkendVochtRisico optrekkendVochtRisico
-     *
-     * @return self
-     */
-    public function setOptrekkendVochtRisico($optrekkendVochtRisico)
-    {
-        if (is_null($optrekkendVochtRisico)) {
-            throw new \InvalidArgumentException('non-nullable optrekkendVochtRisico cannot be null');
-        }
-        $this->container['optrekkendVochtRisico'] = $optrekkendVochtRisico;
-
-        return $this;
-    }
-
-    /**
-     * Gets bioInfectieRisico
-     *
-     * @return \Calcasa\Api\Model\FunderingRisico|null
-     */
-    public function getBioInfectieRisico()
-    {
-        return $this->container['bioInfectieRisico'];
-    }
-
-    /**
-     * Sets bioInfectieRisico
-     *
-     * @param \Calcasa\Api\Model\FunderingRisico|null $bioInfectieRisico bioInfectieRisico
-     *
-     * @return self
-     */
-    public function setBioInfectieRisico($bioInfectieRisico)
-    {
-        if (is_null($bioInfectieRisico)) {
-            throw new \InvalidArgumentException('non-nullable bioInfectieRisico cannot be null');
-        }
-        $this->container['bioInfectieRisico'] = $bioInfectieRisico;
-
-        return $this;
-    }
-
-    /**
-     * Gets herstelkosten
-     *
-     * @return float|null
-     */
-    public function getHerstelkosten()
-    {
-        return $this->container['herstelkosten'];
-    }
-
-    /**
-     * Sets herstelkosten
-     *
-     * @param float|null $herstelkosten Indicatieve herstelkosten van de fundering. Voor consumenten doeleinden ronden gebruiken we de volgende regels om tot een orijsrange te komen: < 5_000: \"Minder dan 5000\" < 50_000: \"afronden op 5000, min: floor, max: ceil\" else: min: x * 0.9, max: x * 1.1, beiden afgerond op 5000
-     *
-     * @return self
-     */
-    public function setHerstelkosten($herstelkosten)
-    {
-        if (is_null($herstelkosten)) {
-            array_push($this->openAPINullablesSetToNull, 'herstelkosten');
+        if (is_null($origineleAanmaakDatum)) {
+            array_push($this->openAPINullablesSetToNull, 'origineleAanmaakDatum');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('herstelkosten', $nullablesSetToNull);
+            $index = array_search('origineleAanmaakDatum', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['herstelkosten'] = $herstelkosten;
+        $this->container['origineleAanmaakDatum'] = $origineleAanmaakDatum;
 
         return $this;
     }
 
     /**
-     * Gets bron
+     * Gets type
      *
-     * @return \Calcasa\Api\Model\FunderingDataBron|null
+     * @return string|null
      */
-    public function getBron()
+    public function getType()
     {
-        return $this->container['bron'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets bron
+     * Sets type
      *
-     * @param \Calcasa\Api\Model\FunderingDataBron|null $bron bron
+     * @param string|null $type A URI reference [RFC3986] that identifies the problem type.
      *
      * @return self
      */
-    public function setBron($bron)
+    public function setType($type)
     {
-        if (is_null($bron)) {
-            throw new \InvalidArgumentException('non-nullable bron cannot be null');
+        if (is_null($type)) {
+            array_push($this->openAPINullablesSetToNull, 'type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['bron'] = $bron;
+        $this->container['type'] = $type;
 
         return $this;
     }
 
     /**
-     * Gets risicolabel
+     * Gets title
      *
-     * @return \Calcasa\Api\Model\Funderingsrisico|null
+     * @return string|null
      */
-    public function getRisicolabel()
+    public function getTitle()
     {
-        return $this->container['risicolabel'];
+        return $this->container['title'];
     }
 
     /**
-     * Sets risicolabel
+     * Sets title
      *
-     * @param \Calcasa\Api\Model\Funderingsrisico|null $risicolabel risicolabel
+     * @param string|null $title A short, human-readable summary of the problem type.
      *
      * @return self
      */
-    public function setRisicolabel($risicolabel)
+    public function setTitle($title)
     {
-        if (is_null($risicolabel)) {
-            throw new \InvalidArgumentException('non-nullable risicolabel cannot be null');
+        if (is_null($title)) {
+            array_push($this->openAPINullablesSetToNull, 'title');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('title', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['risicolabel'] = $risicolabel;
+        $this->container['title'] = $title;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return int|null
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param int|null $status The HTTP status code for this occurrence of the problem.
+     *
+     * @return self
+     */
+    public function setStatus($status)
+    {
+        if (is_null($status)) {
+            array_push($this->openAPINullablesSetToNull, 'status');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('status', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets detail
+     *
+     * @return string|null
+     */
+    public function getDetail()
+    {
+        return $this->container['detail'];
+    }
+
+    /**
+     * Sets detail
+     *
+     * @param string|null $detail A human-readable explanation specific to this occurrence of the problem.
+     *
+     * @return self
+     */
+    public function setDetail($detail)
+    {
+        if (is_null($detail)) {
+            array_push($this->openAPINullablesSetToNull, 'detail');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('detail', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['detail'] = $detail;
+
+        return $this;
+    }
+
+    /**
+     * Gets instance
+     *
+     * @return string|null
+     */
+    public function getInstance()
+    {
+        return $this->container['instance'];
+    }
+
+    /**
+     * Sets instance
+     *
+     * @param string|null $instance A URI reference that identifies the specific occurrence of the problem.
+     *
+     * @return self
+     */
+    public function setInstance($instance)
+    {
+        if (is_null($instance)) {
+            array_push($this->openAPINullablesSetToNull, 'instance');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('instance', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['instance'] = $instance;
 
         return $this;
     }

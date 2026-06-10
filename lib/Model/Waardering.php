@@ -85,7 +85,8 @@ class Waardering implements ModelInterface, ArrayAccess, \JsonSerializable
         'referenties' => '\Calcasa\Api\Model\Referentieobject[]',
         'vorigeVerkopen' => '\Calcasa\Api\Model\VorigeVerkoop[]',
         'rapport' => '\Calcasa\Api\Model\Rapport',
-        'factuur' => '\Calcasa\Api\Model\Factuur'
+        'factuur' => '\Calcasa\Api\Model\Factuur',
+        'fundering' => '\Calcasa\Api\Model\Funderingdata'
     ];
 
     /**
@@ -110,7 +111,8 @@ class Waardering implements ModelInterface, ArrayAccess, \JsonSerializable
         'referenties' => null,
         'vorigeVerkopen' => null,
         'rapport' => null,
-        'factuur' => null
+        'factuur' => null,
+        'fundering' => null
     ];
 
     /**
@@ -133,7 +135,8 @@ class Waardering implements ModelInterface, ArrayAccess, \JsonSerializable
         'referenties' => true,
         'vorigeVerkopen' => true,
         'rapport' => false,
-        'factuur' => false
+        'factuur' => false,
+        'fundering' => false
     ];
 
     /**
@@ -236,7 +239,8 @@ class Waardering implements ModelInterface, ArrayAccess, \JsonSerializable
         'referenties' => 'referenties',
         'vorigeVerkopen' => 'vorigeVerkopen',
         'rapport' => 'rapport',
-        'factuur' => 'factuur'
+        'factuur' => 'factuur',
+        'fundering' => 'fundering'
     ];
 
     /**
@@ -259,7 +263,8 @@ class Waardering implements ModelInterface, ArrayAccess, \JsonSerializable
         'referenties' => 'setReferenties',
         'vorigeVerkopen' => 'setVorigeVerkopen',
         'rapport' => 'setRapport',
-        'factuur' => 'setFactuur'
+        'factuur' => 'setFactuur',
+        'fundering' => 'setFundering'
     ];
 
     /**
@@ -282,7 +287,8 @@ class Waardering implements ModelInterface, ArrayAccess, \JsonSerializable
         'referenties' => 'getReferenties',
         'vorigeVerkopen' => 'getVorigeVerkopen',
         'rapport' => 'getRapport',
-        'factuur' => 'getFactuur'
+        'factuur' => 'getFactuur',
+        'fundering' => 'getFundering'
     ];
 
     /**
@@ -357,6 +363,7 @@ class Waardering implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('vorigeVerkopen', $data ?? [], null);
         $this->setIfExists('rapport', $data ?? [], null);
         $this->setIfExists('factuur', $data ?? [], null);
+        $this->setIfExists('fundering', $data ?? [], null);
     }
 
     /**
@@ -838,6 +845,33 @@ class Waardering implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable factuur cannot be null');
         }
         $this->container['factuur'] = $factuur;
+
+        return $this;
+    }
+
+    /**
+     * Gets fundering
+     *
+     * @return \Calcasa\Api\Model\Funderingdata|null
+     */
+    public function getFundering()
+    {
+        return $this->container['fundering'];
+    }
+
+    /**
+     * Sets fundering
+     *
+     * @param \Calcasa\Api\Model\Funderingdata|null $fundering fundering
+     *
+     * @return self
+     */
+    public function setFundering($fundering)
+    {
+        if (is_null($fundering)) {
+            throw new \InvalidArgumentException('non-nullable fundering cannot be null');
+        }
+        $this->container['fundering'] = $fundering;
 
         return $this;
     }

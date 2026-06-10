@@ -138,6 +138,7 @@ class FunderingenApi
      * @throws \Calcasa\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Calcasa\Api\Model\Funderingdata|\Calcasa\Api\Model\UnauthorizedProblemDetails|\Calcasa\Api\Model\PermissionsDeniedProblemDetails|\Calcasa\Api\Model\NotFoundProblemDetails|\Calcasa\Api\Model\ProblemDetails
+     * @deprecated
      */
     public function getFunderingById($bagNummeraanduidingId)
     {
@@ -155,6 +156,7 @@ class FunderingenApi
      * @throws \Calcasa\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Calcasa\Api\Model\Funderingdata|\Calcasa\Api\Model\UnauthorizedProblemDetails|\Calcasa\Api\Model\PermissionsDeniedProblemDetails|\Calcasa\Api\Model\NotFoundProblemDetails|\Calcasa\Api\Model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @deprecated
      */
     public function getFunderingByIdWithHttpInfo($bagNummeraanduidingId)
     {
@@ -345,6 +347,7 @@ class FunderingenApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function getFunderingByIdAsync($bagNummeraanduidingId)
     {
@@ -365,6 +368,7 @@ class FunderingenApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
+     * @deprecated
      */
     public function getFunderingByIdAsyncWithHttpInfo($bagNummeraanduidingId)
     {
@@ -414,6 +418,7 @@ class FunderingenApi
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
+     * @deprecated
      */
     public function getFunderingByIdRequest($bagNummeraanduidingId)
     {
