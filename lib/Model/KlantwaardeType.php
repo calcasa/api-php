@@ -47,7 +47,6 @@ use \Calcasa\Api\ObjectSerializer;
  * KlantwaardeType Class Doc Comment
  *
  * @category Class
- * @description | Waarde | Omschrijving | | --- | --- | | &#x60;onbekend&#x60; |  | | &#x60;koopsom&#x60; |  | | &#x60;taxatiewaarde&#x60; |  | | &#x60;wozWaarde&#x60; |  | | &#x60;eigenWaardeinschatting&#x60; |  |
  * @package  Calcasa\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech

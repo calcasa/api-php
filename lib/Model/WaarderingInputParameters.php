@@ -86,7 +86,11 @@ class WaarderingInputParameters implements ModelInterface, ArrayAccess, \JsonSer
         'isErfpacht' => 'bool',
         'klantkenmerk' => 'string',
         'heeftAflossingsvrijDeel' => 'bool',
-        'aflossingsvrijDeel' => 'int'
+        'aflossingsvrijDeel' => 'int',
+        'verdieping' => 'int',
+        'woonadresInBuitenland' => 'bool',
+        'woonadresBagNummeraanduidingId' => 'int',
+        'opdrachtgever' => 'string'
     ];
 
     /**
@@ -112,7 +116,11 @@ class WaarderingInputParameters implements ModelInterface, ArrayAccess, \JsonSer
         'isErfpacht' => null,
         'klantkenmerk' => null,
         'heeftAflossingsvrijDeel' => null,
-        'aflossingsvrijDeel' => 'int32'
+        'aflossingsvrijDeel' => 'int32',
+        'verdieping' => 'int32',
+        'woonadresInBuitenland' => null,
+        'woonadresBagNummeraanduidingId' => 'int64',
+        'opdrachtgever' => null
     ];
 
     /**
@@ -136,7 +144,11 @@ class WaarderingInputParameters implements ModelInterface, ArrayAccess, \JsonSer
         'isErfpacht' => true,
         'klantkenmerk' => false,
         'heeftAflossingsvrijDeel' => true,
-        'aflossingsvrijDeel' => true
+        'aflossingsvrijDeel' => true,
+        'verdieping' => true,
+        'woonadresInBuitenland' => true,
+        'woonadresBagNummeraanduidingId' => true,
+        'opdrachtgever' => true
     ];
 
     /**
@@ -240,7 +252,11 @@ class WaarderingInputParameters implements ModelInterface, ArrayAccess, \JsonSer
         'isErfpacht' => 'isErfpacht',
         'klantkenmerk' => 'klantkenmerk',
         'heeftAflossingsvrijDeel' => 'heeftAflossingsvrijDeel',
-        'aflossingsvrijDeel' => 'aflossingsvrijDeel'
+        'aflossingsvrijDeel' => 'aflossingsvrijDeel',
+        'verdieping' => 'verdieping',
+        'woonadresInBuitenland' => 'woonadresInBuitenland',
+        'woonadresBagNummeraanduidingId' => 'woonadresBagNummeraanduidingId',
+        'opdrachtgever' => 'opdrachtgever'
     ];
 
     /**
@@ -264,7 +280,11 @@ class WaarderingInputParameters implements ModelInterface, ArrayAccess, \JsonSer
         'isErfpacht' => 'setIsErfpacht',
         'klantkenmerk' => 'setKlantkenmerk',
         'heeftAflossingsvrijDeel' => 'setHeeftAflossingsvrijDeel',
-        'aflossingsvrijDeel' => 'setAflossingsvrijDeel'
+        'aflossingsvrijDeel' => 'setAflossingsvrijDeel',
+        'verdieping' => 'setVerdieping',
+        'woonadresInBuitenland' => 'setWoonadresInBuitenland',
+        'woonadresBagNummeraanduidingId' => 'setWoonadresBagNummeraanduidingId',
+        'opdrachtgever' => 'setOpdrachtgever'
     ];
 
     /**
@@ -288,7 +308,11 @@ class WaarderingInputParameters implements ModelInterface, ArrayAccess, \JsonSer
         'isErfpacht' => 'getIsErfpacht',
         'klantkenmerk' => 'getKlantkenmerk',
         'heeftAflossingsvrijDeel' => 'getHeeftAflossingsvrijDeel',
-        'aflossingsvrijDeel' => 'getAflossingsvrijDeel'
+        'aflossingsvrijDeel' => 'getAflossingsvrijDeel',
+        'verdieping' => 'getVerdieping',
+        'woonadresInBuitenland' => 'getWoonadresInBuitenland',
+        'woonadresBagNummeraanduidingId' => 'getWoonadresBagNummeraanduidingId',
+        'opdrachtgever' => 'getOpdrachtgever'
     ];
 
     /**
@@ -364,6 +388,10 @@ class WaarderingInputParameters implements ModelInterface, ArrayAccess, \JsonSer
         $this->setIfExists('klantkenmerk', $data ?? [], null);
         $this->setIfExists('heeftAflossingsvrijDeel', $data ?? [], null);
         $this->setIfExists('aflossingsvrijDeel', $data ?? [], null);
+        $this->setIfExists('verdieping', $data ?? [], null);
+        $this->setIfExists('woonadresInBuitenland', $data ?? [], null);
+        $this->setIfExists('woonadresBagNummeraanduidingId', $data ?? [], null);
+        $this->setIfExists('opdrachtgever', $data ?? [], null);
     }
 
     /**
@@ -766,7 +794,7 @@ class WaarderingInputParameters implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets isErfpacht
      *
-     * @param bool|null $isErfpacht Potentieel verplicht voor de product typen `modelwaardeDesktopTaxatie`, `desktopTaxatie` en `desktopTaxatiePlus` afhankelijk van de geldverstrekker- en accountconfiguratie.
+     * @param bool|null $isErfpacht Potentieel verplicht voor de producttypen `modelwaardeDesktopTaxatie`, `desktopTaxatie` en `desktopTaxatiePlus` afhankelijk van de geldverstrekker- en accountconfiguratie.
      *
      * @return self
      */
@@ -834,7 +862,7 @@ class WaarderingInputParameters implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets heeftAflossingsvrijDeel
      *
-     * @param bool|null $heeftAflossingsvrijDeel True als de lening een aflossingsvrij deel heeft. Potentieel verplicht voor de product typen `modelwaardeDesktopTaxatie`, `desktopTaxatie` en `desktopTaxatiePlus` afhankelijk van de geldverstrekker- en accountconfiguratie.
+     * @param bool|null $heeftAflossingsvrijDeel True als de lening een aflossingsvrij deel heeft. Potentieel verplicht voor de producttypen `modelwaardeDesktopTaxatie`, `desktopTaxatie` en `desktopTaxatiePlus` afhankelijk van de geldverstrekker- en accountconfiguratie.
      *
      * @return self
      */
@@ -868,7 +896,7 @@ class WaarderingInputParameters implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets aflossingsvrijDeel
      *
-     * @param int|null $aflossingsvrijDeel De hoogte van het aflossingsvrije deel van het veld `hypotheekwaarde` van de lening. Alleen relevant als `heeftAflossingsvrijDeel` true is. Potentieel verplicht voor de product typen `modelwaardeDesktopTaxatie`, `desktopTaxatie` en `desktopTaxatiePlus` afhankelijk van de geldverstrekker- en accountconfiguratie. In hele euros.
+     * @param int|null $aflossingsvrijDeel De hoogte van het aflossingsvrije deel van het veld `hypotheekwaarde` van de lening. Alleen relevant als `heeftAflossingsvrijDeel` true is. Potentieel verplicht voor de producttypen `modelwaardeDesktopTaxatie`, `desktopTaxatie` en `desktopTaxatiePlus` afhankelijk van de geldverstrekker- en accountconfiguratie. In hele euros.
      *
      * @return self
      */
@@ -885,6 +913,142 @@ class WaarderingInputParameters implements ModelInterface, ArrayAccess, \JsonSer
             }
         }
         $this->container['aflossingsvrijDeel'] = $aflossingsvrijDeel;
+
+        return $this;
+    }
+
+    /**
+     * Gets verdieping
+     *
+     * @return int|null
+     */
+    public function getVerdieping()
+    {
+        return $this->container['verdieping'];
+    }
+
+    /**
+     * Sets verdieping
+     *
+     * @param int|null $verdieping Dit is de verdieping waarop de woning gelegen is (bel-etage), voor een eengezinswoning is dit de begane grond (=0). In de toekomst verplicht voor de producttypen `desktopTaxatie` en `desktopTaxatiePlus`.
+     *
+     * @return self
+     */
+    public function setVerdieping($verdieping)
+    {
+        if (is_null($verdieping)) {
+            array_push($this->openAPINullablesSetToNull, 'verdieping');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('verdieping', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['verdieping'] = $verdieping;
+
+        return $this;
+    }
+
+    /**
+     * Gets woonadresInBuitenland
+     *
+     * @return bool|null
+     */
+    public function getWoonadresInBuitenland()
+    {
+        return $this->container['woonadresInBuitenland'];
+    }
+
+    /**
+     * Sets woonadresInBuitenland
+     *
+     * @param bool|null $woonadresInBuitenland Geeft aan of het woonadres van de aanvrager in het buitenland ligt. In de toekomst verplicht voor de producttypen `desktopTaxatie` en `desktopTaxatiePlus`.
+     *
+     * @return self
+     */
+    public function setWoonadresInBuitenland($woonadresInBuitenland)
+    {
+        if (is_null($woonadresInBuitenland)) {
+            array_push($this->openAPINullablesSetToNull, 'woonadresInBuitenland');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('woonadresInBuitenland', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['woonadresInBuitenland'] = $woonadresInBuitenland;
+
+        return $this;
+    }
+
+    /**
+     * Gets woonadresBagNummeraanduidingId
+     *
+     * @return int|null
+     */
+    public function getWoonadresBagNummeraanduidingId()
+    {
+        return $this->container['woonadresBagNummeraanduidingId'];
+    }
+
+    /**
+     * Sets woonadresBagNummeraanduidingId
+     *
+     * @param int|null $woonadresBagNummeraanduidingId Het BAG Id van het woonadres van de aanvrager. Alleen als woonadresInBuitenland false is. In de toekomst verplicht voor de producttypen `desktopTaxatie` en `desktopTaxatiePlus`.
+     *
+     * @return self
+     */
+    public function setWoonadresBagNummeraanduidingId($woonadresBagNummeraanduidingId)
+    {
+        if (is_null($woonadresBagNummeraanduidingId)) {
+            array_push($this->openAPINullablesSetToNull, 'woonadresBagNummeraanduidingId');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('woonadresBagNummeraanduidingId', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['woonadresBagNummeraanduidingId'] = $woonadresBagNummeraanduidingId;
+
+        return $this;
+    }
+
+    /**
+     * Gets opdrachtgever
+     *
+     * @return string|null
+     */
+    public function getOpdrachtgever()
+    {
+        return $this->container['opdrachtgever'];
+    }
+
+    /**
+     * Sets opdrachtgever
+     *
+     * @param string|null $opdrachtgever De volledige naam van de opdrachtgever. In de toekomst verplicht voor de producttypen `desktopTaxatie` en `desktopTaxatiePlus`.
+     *
+     * @return self
+     */
+    public function setOpdrachtgever($opdrachtgever)
+    {
+        if (is_null($opdrachtgever)) {
+            array_push($this->openAPINullablesSetToNull, 'opdrachtgever');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('opdrachtgever', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['opdrachtgever'] = $opdrachtgever;
 
         return $this;
     }

@@ -93,6 +93,15 @@ Class | Method | HTTP request | Description
 *ConfiguratieApi* | [**postCallbackAuthentication**](docs/Api/ConfiguratieApi.md#postcallbackauthentication) | **POST** /configuratie/callbacks/authentication | Update de geconfigureerde callback authenticatie voor de huidige client.
 *ConfiguratieApi* | [**updateCallbacks**](docs/Api/ConfiguratieApi.md#updatecallbacks) | **POST** /configuratie/callbacks | Configureer callback URL voor een specifieke API versie voor de huidige client.
 *FacturenApi* | [**getFactuur**](docs/Api/FacturenApi.md#getfactuur) | **GET** /facturen/{id} | Factuur op basis van een waardering Id.
+*FileSetsApi* | [**confirmInboundFileSetById**](docs/Api/FileSetsApi.md#confirminboundfilesetbyid) | **PUT** /file-sets/inbound/{inboundFileSetId} | 
+*FileSetsApi* | [**createInboundFileSet**](docs/Api/FileSetsApi.md#createinboundfileset) | **POST** /file-sets/inbound | 
+*FileSetsApi* | [**deleteOutboundFileSetById**](docs/Api/FileSetsApi.md#deleteoutboundfilesetbyid) | **DELETE** /file-sets/outbound/{outboundFileSetId} | Delete outbound file set after it&#39;s has been correctly received. If a outbound file set is not downloaded and deleted after 48 hours, it will expire and all its contents will be deleted automatically.
+*FileSetsApi* | [**getInboundFileSetById**](docs/Api/FileSetsApi.md#getinboundfilesetbyid) | **GET** /file-sets/inbound/{inboundFileSetId} | Get a specific inbound file set by its ID.
+*FileSetsApi* | [**getInboundFileSets**](docs/Api/FileSetsApi.md#getinboundfilesets) | **GET** /file-sets/inbound | Get all inbound file sets.
+*FileSetsApi* | [**getOutboundFileByIndex**](docs/Api/FileSetsApi.md#getoutboundfilebyindex) | **GET** /file-sets/outbound/{outboundFileSetId}/{fileIndex} | Get a specific outbound file content by its index within a file set.  Used the Http Range header to request a specific byte range of the file.  If the Range header is not provided, the entire file will be returned.
+*FileSetsApi* | [**getOutboundFileSetById**](docs/Api/FileSetsApi.md#getoutboundfilesetbyid) | **GET** /file-sets/outbound/{outboundFileSetId} | Get a specific outbound file set by its ID.
+*FileSetsApi* | [**getOutboundFileSets**](docs/Api/FileSetsApi.md#getoutboundfilesets) | **GET** /file-sets/outbound | Get all outbound file sets.
+*FileSetsApi* | [**putFileChunk**](docs/Api/FileSetsApi.md#putfilechunk) | **PUT** /file-sets/inbound/{inboundFileSetId}/{fileIndex} | Upload a specific file chunk for an inbound file set. All chunks must be uploaded in order, if the file is small enough, it can be uploaded in a single request. Total size must not exceed reported file size in the file set.
 *FotosApi* | [**getFoto**](docs/Api/FotosApi.md#getfoto) | **GET** /fotos/{id} | Foto op basis van een foto Id.
 *FunderingenApi* | [**getFunderingById**](docs/Api/FunderingenApi.md#getfunderingbyid) | **GET** /funderingen/{bagNummeraanduidingId} | Gegevens over de fundering op de locatie van een adres (BAG Nummeraanduiding ID).
 *GeldverstrekkersApi* | [**getGeldverstrekkers**](docs/Api/GeldverstrekkersApi.md#getgeldverstrekkers) | **GET** /geldverstrekkers/{productType} | Alle geldverstrekkers die te gebruiken zijn voor aanvragen.
@@ -124,6 +133,14 @@ Class | Method | HTTP request | Description
 - [EnergielabelData](docs/Model/EnergielabelData.md)
 - [ExpiredValuationProblemDetails](docs/Model/ExpiredValuationProblemDetails.md)
 - [Factuur](docs/Model/Factuur.md)
+- [FileError](docs/Model/FileError.md)
+- [FileSetsFileInfo](docs/Model/FileSetsFileInfo.md)
+- [FileSetsFileSet](docs/Model/FileSetsFileSet.md)
+- [FileSetsInboundFileSet](docs/Model/FileSetsInboundFileSet.md)
+- [FileSetsInboundFileSetWebhookPayload](docs/Model/FileSetsInboundFileSetWebhookPayload.md)
+- [FileSetsOutboundFileSet](docs/Model/FileSetsOutboundFileSet.md)
+- [FileSetsOutboundFileSetWebhookPayload](docs/Model/FileSetsOutboundFileSetWebhookPayload.md)
+- [FileWarning](docs/Model/FileWarning.md)
 - [Foto](docs/Model/Foto.md)
 - [FrontendDeeplinks](docs/Model/FrontendDeeplinks.md)
 - [FunderingDataBron](docs/Model/FunderingDataBron.md)
@@ -138,6 +155,9 @@ Class | Method | HTTP request | Description
 - [Funderingsrisico](docs/Model/Funderingsrisico.md)
 - [Gebiedsdata](docs/Model/Gebiedsdata.md)
 - [Geldverstrekker](docs/Model/Geldverstrekker.md)
+- [InboundFileSetAlreadyCompletedProblemDetails](docs/Model/InboundFileSetAlreadyCompletedProblemDetails.md)
+- [InboundFileSetAlreadyExistsProblemDetails](docs/Model/InboundFileSetAlreadyExistsProblemDetails.md)
+- [InboundFileSetState](docs/Model/InboundFileSetState.md)
 - [InvalidArgumentProblemDetails](docs/Model/InvalidArgumentProblemDetails.md)
 - [JsonPatchDocument](docs/Model/JsonPatchDocument.md)
 - [KlantwaardeType](docs/Model/KlantwaardeType.md)
@@ -153,6 +173,7 @@ Class | Method | HTTP request | Description
 - [Operation](docs/Model/Operation.md)
 - [OperationType](docs/Model/OperationType.md)
 - [Opnamedata](docs/Model/Opnamedata.md)
+- [OutboundFileSetState](docs/Model/OutboundFileSetState.md)
 - [PermissionsDeniedProblemDetails](docs/Model/PermissionsDeniedProblemDetails.md)
 - [ProblemDetails](docs/Model/ProblemDetails.md)
 - [ProductCheck](docs/Model/ProductCheck.md)
@@ -205,6 +226,10 @@ Authentication schemes defined for the API:
     - **api:waarderingen:patch**: 
     - **api:waarderingen:ontwikkeling**: 
     - **api:waarderingen:create**: 
+    - **api:file-set-inbound:write**: 
+    - **api:file-set-inbound:read**: 
+    - **api:file-set-outbound:read**: 
+    - **api:file-set-outbound:write**: 
 
 ## Tests
 
@@ -223,6 +248,6 @@ info@calcasa.nl
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `1.5.5`
+- API version: `1.6.0-beta1`
     - Generator version: `7.16.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

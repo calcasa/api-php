@@ -1,6 +1,6 @@
 <?php
 /**
- * OperationType
+ * OutboundFileSetState
  *
  * PHP version 8.1
  *
@@ -44,31 +44,24 @@ namespace Calcasa\Api\Model;
 use \Calcasa\Api\ObjectSerializer;
 
 /**
- * OperationType Class Doc Comment
+ * OutboundFileSetState Class Doc Comment
  *
  * @category Class
+ * @description Outbound file set states.  | Value | Description | | --- | --- | | &#x60;ready&#x60; | File set is ready and is waiting for the files to be downloaded. | | &#x60;deleted&#x60; | File set has been downloaded and has been deleted. | | &#x60;expired&#x60; | File set has expired and all its contents have been deleted. |
  * @package  Calcasa\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class OperationType
+class OutboundFileSetState
 {
     /**
      * Possible values of this enum
      */
-    public const ADD = 'add';
+    public const READY = 'ready';
 
-    public const REMOVE = 'remove';
+    public const DELETED = 'deleted';
 
-    public const REPLACE = 'replace';
-
-    public const MOVE = 'move';
-
-    public const COPY = 'copy';
-
-    public const TEST = 'test';
-
-    public const INVALID = 'invalid';
+    public const EXPIRED = 'expired';
 
     /**
      * Gets allowable values of the enum
@@ -77,13 +70,9 @@ class OperationType
     public static function getAllowableEnumValues()
     {
         return [
-            self::ADD,
-            self::REMOVE,
-            self::REPLACE,
-            self::MOVE,
-            self::COPY,
-            self::TEST,
-            self::INVALID
+            self::READY,
+            self::DELETED,
+            self::EXPIRED
         ];
     }
 }
