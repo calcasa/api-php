@@ -73,9 +73,9 @@ class FileError implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'index' => 'int',
         'name' => 'string',
-        'expectedSha256hash' => 'string',
+        'expectedContentHash' => 'string',
         'expectedFileSize' => 'int',
-        'actualSha256hash' => 'string',
+        'actualContentHash' => 'string',
         'actualFileSize' => 'int'
     ];
 
@@ -89,9 +89,9 @@ class FileError implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'index' => 'int32',
         'name' => null,
-        'expectedSha256hash' => 'hex',
+        'expectedContentHash' => 'hex',
         'expectedFileSize' => 'int64',
-        'actualSha256hash' => 'hex',
+        'actualContentHash' => 'hex',
         'actualFileSize' => 'int64'
     ];
 
@@ -103,9 +103,9 @@ class FileError implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static array $openAPINullables = [
         'index' => false,
         'name' => false,
-        'expectedSha256hash' => false,
+        'expectedContentHash' => false,
         'expectedFileSize' => false,
-        'actualSha256hash' => false,
+        'actualContentHash' => false,
         'actualFileSize' => false
     ];
 
@@ -197,9 +197,9 @@ class FileError implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'index' => 'index',
         'name' => 'name',
-        'expectedSha256hash' => 'expectedSha256hash',
+        'expectedContentHash' => 'expectedContentHash',
         'expectedFileSize' => 'expectedFileSize',
-        'actualSha256hash' => 'actualSha256hash',
+        'actualContentHash' => 'actualContentHash',
         'actualFileSize' => 'actualFileSize'
     ];
 
@@ -211,9 +211,9 @@ class FileError implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'index' => 'setIndex',
         'name' => 'setName',
-        'expectedSha256hash' => 'setExpectedSha256hash',
+        'expectedContentHash' => 'setExpectedContentHash',
         'expectedFileSize' => 'setExpectedFileSize',
-        'actualSha256hash' => 'setActualSha256hash',
+        'actualContentHash' => 'setActualContentHash',
         'actualFileSize' => 'setActualFileSize'
     ];
 
@@ -225,9 +225,9 @@ class FileError implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'index' => 'getIndex',
         'name' => 'getName',
-        'expectedSha256hash' => 'getExpectedSha256hash',
+        'expectedContentHash' => 'getExpectedContentHash',
         'expectedFileSize' => 'getExpectedFileSize',
-        'actualSha256hash' => 'getActualSha256hash',
+        'actualContentHash' => 'getActualContentHash',
         'actualFileSize' => 'getActualFileSize'
     ];
 
@@ -290,9 +290,9 @@ class FileError implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->setIfExists('index', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('expectedSha256hash', $data ?? [], null);
+        $this->setIfExists('expectedContentHash', $data ?? [], null);
         $this->setIfExists('expectedFileSize', $data ?? [], null);
-        $this->setIfExists('actualSha256hash', $data ?? [], null);
+        $this->setIfExists('actualContentHash', $data ?? [], null);
         $this->setIfExists('actualFileSize', $data ?? [], null);
     }
 
@@ -329,21 +329,21 @@ class FileError implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
         }
-        if ($this->container['expectedSha256hash'] === null) {
-            $invalidProperties[] = "'expectedSha256hash' can't be null";
+        if ($this->container['expectedContentHash'] === null) {
+            $invalidProperties[] = "'expectedContentHash' can't be null";
         }
-        if (!preg_match("/^[A-F0-9]{64}$/", $this->container['expectedSha256hash'])) {
-            $invalidProperties[] = "invalid value for 'expectedSha256hash', must be conform to the pattern /^[A-F0-9]{64}$/.";
+        if (!preg_match("/^[A-F0-9]{64}$/", $this->container['expectedContentHash'])) {
+            $invalidProperties[] = "invalid value for 'expectedContentHash', must be conform to the pattern /^[A-F0-9]{64}$/.";
         }
 
         if ($this->container['expectedFileSize'] === null) {
             $invalidProperties[] = "'expectedFileSize' can't be null";
         }
-        if ($this->container['actualSha256hash'] === null) {
-            $invalidProperties[] = "'actualSha256hash' can't be null";
+        if ($this->container['actualContentHash'] === null) {
+            $invalidProperties[] = "'actualContentHash' can't be null";
         }
-        if (!preg_match("/^[A-F0-9]{64}$/", $this->container['actualSha256hash'])) {
-            $invalidProperties[] = "invalid value for 'actualSha256hash', must be conform to the pattern /^[A-F0-9]{64}$/.";
+        if (!preg_match("/^[A-F0-9]{64}$/", $this->container['actualContentHash'])) {
+            $invalidProperties[] = "invalid value for 'actualContentHash', must be conform to the pattern /^[A-F0-9]{64}$/.";
         }
 
         if ($this->container['actualFileSize'] === null) {
@@ -419,33 +419,33 @@ class FileError implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets expectedSha256hash
+     * Gets expectedContentHash
      *
      * @return string
      */
-    public function getExpectedSha256hash()
+    public function getExpectedContentHash()
     {
-        return $this->container['expectedSha256hash'];
+        return $this->container['expectedContentHash'];
     }
 
     /**
-     * Sets expectedSha256hash
+     * Sets expectedContentHash
      *
-     * @param string $expectedSha256hash The expected SHA256 hash of the file contents, represented as an uppercase hexadecimal string.
+     * @param string $expectedContentHash The expected SHA256 hash of the file contents, represented as an uppercase hexadecimal string.
      *
      * @return self
      */
-    public function setExpectedSha256hash($expectedSha256hash)
+    public function setExpectedContentHash($expectedContentHash)
     {
-        if (is_null($expectedSha256hash)) {
-            throw new \InvalidArgumentException('non-nullable expectedSha256hash cannot be null');
+        if (is_null($expectedContentHash)) {
+            throw new \InvalidArgumentException('non-nullable expectedContentHash cannot be null');
         }
 
-        if ((!preg_match("/^[A-F0-9]{64}$/", ObjectSerializer::toString($expectedSha256hash)))) {
-            throw new \InvalidArgumentException("invalid value for \$expectedSha256hash when calling FileError., must conform to the pattern /^[A-F0-9]{64}$/.");
+        if ((!preg_match("/^[A-F0-9]{64}$/", ObjectSerializer::toString($expectedContentHash)))) {
+            throw new \InvalidArgumentException("invalid value for \$expectedContentHash when calling FileError., must conform to the pattern /^[A-F0-9]{64}$/.");
         }
 
-        $this->container['expectedSha256hash'] = $expectedSha256hash;
+        $this->container['expectedContentHash'] = $expectedContentHash;
 
         return $this;
     }
@@ -478,33 +478,33 @@ class FileError implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets actualSha256hash
+     * Gets actualContentHash
      *
      * @return string
      */
-    public function getActualSha256hash()
+    public function getActualContentHash()
     {
-        return $this->container['actualSha256hash'];
+        return $this->container['actualContentHash'];
     }
 
     /**
-     * Sets actualSha256hash
+     * Sets actualContentHash
      *
-     * @param string $actualSha256hash The actual SHA256 hash of the file contents, represented as an uppercase hexadecimal string.
+     * @param string $actualContentHash The actual SHA256 hash of the file contents, represented as an uppercase hexadecimal string.
      *
      * @return self
      */
-    public function setActualSha256hash($actualSha256hash)
+    public function setActualContentHash($actualContentHash)
     {
-        if (is_null($actualSha256hash)) {
-            throw new \InvalidArgumentException('non-nullable actualSha256hash cannot be null');
+        if (is_null($actualContentHash)) {
+            throw new \InvalidArgumentException('non-nullable actualContentHash cannot be null');
         }
 
-        if ((!preg_match("/^[A-F0-9]{64}$/", ObjectSerializer::toString($actualSha256hash)))) {
-            throw new \InvalidArgumentException("invalid value for \$actualSha256hash when calling FileError., must conform to the pattern /^[A-F0-9]{64}$/.");
+        if ((!preg_match("/^[A-F0-9]{64}$/", ObjectSerializer::toString($actualContentHash)))) {
+            throw new \InvalidArgumentException("invalid value for \$actualContentHash when calling FileError., must conform to the pattern /^[A-F0-9]{64}$/.");
         }
 
-        $this->container['actualSha256hash'] = $actualSha256hash;
+        $this->container['actualContentHash'] = $actualContentHash;
 
         return $this;
     }

@@ -131,6 +131,8 @@ class FileSetsApi
     /**
      * Operation confirmInboundFileSetById
      *
+     * Confirm an inbound file set after it has been fully uploaded.
+     *
      * @param  string $inboundFileSetId inboundFileSetId (required)
      *
      * @throws \Calcasa\Api\ApiException on non-2xx response
@@ -145,6 +147,8 @@ class FileSetsApi
 
     /**
      * Operation confirmInboundFileSetByIdWithHttpInfo
+     *
+     * Confirm an inbound file set after it has been fully uploaded.
      *
      * @param  string $inboundFileSetId (required)
      *
@@ -335,6 +339,8 @@ class FileSetsApi
     /**
      * Operation confirmInboundFileSetByIdAsync
      *
+     * Confirm an inbound file set after it has been fully uploaded.
+     *
      * @param  string $inboundFileSetId (required)
      *
      * @throws \InvalidArgumentException
@@ -352,6 +358,8 @@ class FileSetsApi
 
     /**
      * Operation confirmInboundFileSetByIdAsyncWithHttpInfo
+     *
+     * Confirm an inbound file set after it has been fully uploaded.
      *
      * @param  string $inboundFileSetId (required)
      *
@@ -499,6 +507,8 @@ class FileSetsApi
     /**
      * Operation createInboundFileSet
      *
+     * Create a new inbound file set.
+     *
      * @param  \Calcasa\Api\Model\InboundFileSet $inboundFileSet inboundFileSet (required)
      *
      * @throws \Calcasa\Api\ApiException on non-2xx response
@@ -513,6 +523,8 @@ class FileSetsApi
 
     /**
      * Operation createInboundFileSetWithHttpInfo
+     *
+     * Create a new inbound file set.
      *
      * @param  \Calcasa\Api\Model\InboundFileSet $inboundFileSet (required)
      *
@@ -703,6 +715,8 @@ class FileSetsApi
     /**
      * Operation createInboundFileSetAsync
      *
+     * Create a new inbound file set.
+     *
      * @param  \Calcasa\Api\Model\InboundFileSet $inboundFileSet (required)
      *
      * @throws \InvalidArgumentException
@@ -720,6 +734,8 @@ class FileSetsApi
 
     /**
      * Operation createInboundFileSetAsyncWithHttpInfo
+     *
+     * Create a new inbound file set.
      *
      * @param  \Calcasa\Api\Model\InboundFileSet $inboundFileSet (required)
      *
@@ -865,7 +881,7 @@ class FileSetsApi
     /**
      * Operation deleteOutboundFileSetById
      *
-     * Delete outbound file set after it&#39;s has been correctly received. If a outbound file set is not downloaded and deleted after 48 hours, it will expire and all its contents will be deleted automatically.
+     * Delete an outbound file set after it has been correctly received. If an outbound file set is not downloaded and deleted within 48 hours, it will expire and all its contents will be deleted automatically.
      *
      * @param  string $outboundFileSetId outboundFileSetId (required)
      *
@@ -881,7 +897,7 @@ class FileSetsApi
     /**
      * Operation deleteOutboundFileSetByIdWithHttpInfo
      *
-     * Delete outbound file set after it&#39;s has been correctly received. If a outbound file set is not downloaded and deleted after 48 hours, it will expire and all its contents will be deleted automatically.
+     * Delete an outbound file set after it has been correctly received. If an outbound file set is not downloaded and deleted within 48 hours, it will expire and all its contents will be deleted automatically.
      *
      * @param  string $outboundFileSetId (required)
      *
@@ -964,7 +980,7 @@ class FileSetsApi
     /**
      * Operation deleteOutboundFileSetByIdAsync
      *
-     * Delete outbound file set after it&#39;s has been correctly received. If a outbound file set is not downloaded and deleted after 48 hours, it will expire and all its contents will be deleted automatically.
+     * Delete an outbound file set after it has been correctly received. If an outbound file set is not downloaded and deleted within 48 hours, it will expire and all its contents will be deleted automatically.
      *
      * @param  string $outboundFileSetId (required)
      *
@@ -984,7 +1000,7 @@ class FileSetsApi
     /**
      * Operation deleteOutboundFileSetByIdAsyncWithHttpInfo
      *
-     * Delete outbound file set after it&#39;s has been correctly received. If a outbound file set is not downloaded and deleted after 48 hours, it will expire and all its contents will be deleted automatically.
+     * Delete an outbound file set after it has been correctly received. If an outbound file set is not downloaded and deleted within 48 hours, it will expire and all its contents will be deleted automatically.
      *
      * @param  string $outboundFileSetId (required)
      *
@@ -1783,38 +1799,40 @@ class FileSetsApi
     /**
      * Operation getOutboundFileByIndex
      *
-     * Get a specific outbound file content by its index within a file set.  Used the Http Range header to request a specific byte range of the file.  If the Range header is not provided, the entire file will be returned.
+     * Get a specific outbound file content by its index within a file set.
      *
      * @param  string $outboundFileSetId outboundFileSetId (required)
      * @param  int $fileIndex fileIndex (required)
      * @param  string $range range (optional)
+     * @param  string $acceptEncoding acceptEncoding (optional)
      *
      * @throws \Calcasa\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \SplFileObject|\Calcasa\Api\Model\UnauthorizedProblemDetails|\Calcasa\Api\Model\NotFoundProblemDetails|\Calcasa\Api\Model\ProblemDetails
      */
-    public function getOutboundFileByIndex($outboundFileSetId, $fileIndex, $range = null)
+    public function getOutboundFileByIndex($outboundFileSetId, $fileIndex, $range = null, $acceptEncoding = null)
     {
-        list($response) = $this->getOutboundFileByIndexWithHttpInfo($outboundFileSetId, $fileIndex, $range);
+        list($response) = $this->getOutboundFileByIndexWithHttpInfo($outboundFileSetId, $fileIndex, $range, $acceptEncoding);
         return $response;
     }
 
     /**
      * Operation getOutboundFileByIndexWithHttpInfo
      *
-     * Get a specific outbound file content by its index within a file set.  Used the Http Range header to request a specific byte range of the file.  If the Range header is not provided, the entire file will be returned.
+     * Get a specific outbound file content by its index within a file set.
      *
      * @param  string $outboundFileSetId (required)
      * @param  int $fileIndex (required)
      * @param  string $range (optional)
+     * @param  string $acceptEncoding (optional)
      *
      * @throws \Calcasa\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \SplFileObject|\Calcasa\Api\Model\UnauthorizedProblemDetails|\Calcasa\Api\Model\NotFoundProblemDetails|\Calcasa\Api\Model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getOutboundFileByIndexWithHttpInfo($outboundFileSetId, $fileIndex, $range = null)
+    public function getOutboundFileByIndexWithHttpInfo($outboundFileSetId, $fileIndex, $range = null, $acceptEncoding = null)
     {
-        $request = $this->getOutboundFileByIndexRequest($outboundFileSetId, $fileIndex, $range);
+        $request = $this->getOutboundFileByIndexRequest($outboundFileSetId, $fileIndex, $range, $acceptEncoding);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1972,18 +1990,19 @@ class FileSetsApi
     /**
      * Operation getOutboundFileByIndexAsync
      *
-     * Get a specific outbound file content by its index within a file set.  Used the Http Range header to request a specific byte range of the file.  If the Range header is not provided, the entire file will be returned.
+     * Get a specific outbound file content by its index within a file set.
      *
      * @param  string $outboundFileSetId (required)
      * @param  int $fileIndex (required)
      * @param  string $range (optional)
+     * @param  string $acceptEncoding (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOutboundFileByIndexAsync($outboundFileSetId, $fileIndex, $range = null)
+    public function getOutboundFileByIndexAsync($outboundFileSetId, $fileIndex, $range = null, $acceptEncoding = null)
     {
-        return $this->getOutboundFileByIndexAsyncWithHttpInfo($outboundFileSetId, $fileIndex, $range)
+        return $this->getOutboundFileByIndexAsyncWithHttpInfo($outboundFileSetId, $fileIndex, $range, $acceptEncoding)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1994,19 +2013,20 @@ class FileSetsApi
     /**
      * Operation getOutboundFileByIndexAsyncWithHttpInfo
      *
-     * Get a specific outbound file content by its index within a file set.  Used the Http Range header to request a specific byte range of the file.  If the Range header is not provided, the entire file will be returned.
+     * Get a specific outbound file content by its index within a file set.
      *
      * @param  string $outboundFileSetId (required)
      * @param  int $fileIndex (required)
      * @param  string $range (optional)
+     * @param  string $acceptEncoding (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getOutboundFileByIndexAsyncWithHttpInfo($outboundFileSetId, $fileIndex, $range = null)
+    public function getOutboundFileByIndexAsyncWithHttpInfo($outboundFileSetId, $fileIndex, $range = null, $acceptEncoding = null)
     {
         $returnType = '\SplFileObject';
-        $request = $this->getOutboundFileByIndexRequest($outboundFileSetId, $fileIndex, $range);
+        $request = $this->getOutboundFileByIndexRequest($outboundFileSetId, $fileIndex, $range, $acceptEncoding);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2050,11 +2070,12 @@ class FileSetsApi
      * @param  string $outboundFileSetId (required)
      * @param  int $fileIndex (required)
      * @param  string $range (optional)
+     * @param  string $acceptEncoding (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function getOutboundFileByIndexRequest($outboundFileSetId, $fileIndex, $range = null)
+    public function getOutboundFileByIndexRequest($outboundFileSetId, $fileIndex, $range = null, $acceptEncoding = null)
     {
         // verify the required parameter 'outboundFileSetId' is set
         if ($outboundFileSetId === null || (is_array($outboundFileSetId) && count($outboundFileSetId) === 0)) {
@@ -2080,6 +2101,10 @@ class FileSetsApi
         // header params
         if ($range !== null) {
             $headerParams['range'] = ObjectSerializer::toHeaderValue($range);
+        }
+        // header params
+        if ($acceptEncoding !== null) {
+            $headerParams['accept-encoding'] = ObjectSerializer::toHeaderValue($acceptEncoding);
         }
 
         // path params
@@ -2828,37 +2853,39 @@ class FileSetsApi
     /**
      * Operation putFileChunk
      *
-     * Upload a specific file chunk for an inbound file set. All chunks must be uploaded in order, if the file is small enough, it can be uploaded in a single request. Total size must not exceed reported file size in the file set.
+     * Upload a specific file chunk for an inbound file set.
      *
      * @param  string $inboundFileSetId inboundFileSetId (required)
      * @param  int $fileIndex fileIndex (required)
      * @param  \SplFileObject $body body (required)
+     * @param  string $contentEncoding contentEncoding (optional)
      *
      * @throws \Calcasa\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function putFileChunk($inboundFileSetId, $fileIndex, $body)
+    public function putFileChunk($inboundFileSetId, $fileIndex, $body, $contentEncoding = null)
     {
-        $this->putFileChunkWithHttpInfo($inboundFileSetId, $fileIndex, $body);
+        $this->putFileChunkWithHttpInfo($inboundFileSetId, $fileIndex, $body, $contentEncoding);
     }
 
     /**
      * Operation putFileChunkWithHttpInfo
      *
-     * Upload a specific file chunk for an inbound file set. All chunks must be uploaded in order, if the file is small enough, it can be uploaded in a single request. Total size must not exceed reported file size in the file set.
+     * Upload a specific file chunk for an inbound file set.
      *
      * @param  string $inboundFileSetId (required)
      * @param  int $fileIndex (required)
      * @param  \SplFileObject $body (required)
+     * @param  string $contentEncoding (optional)
      *
      * @throws \Calcasa\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function putFileChunkWithHttpInfo($inboundFileSetId, $fileIndex, $body)
+    public function putFileChunkWithHttpInfo($inboundFileSetId, $fileIndex, $body, $contentEncoding = null)
     {
-        $request = $this->putFileChunkRequest($inboundFileSetId, $fileIndex, $body);
+        $request = $this->putFileChunkRequest($inboundFileSetId, $fileIndex, $body, $contentEncoding);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2939,18 +2966,19 @@ class FileSetsApi
     /**
      * Operation putFileChunkAsync
      *
-     * Upload a specific file chunk for an inbound file set. All chunks must be uploaded in order, if the file is small enough, it can be uploaded in a single request. Total size must not exceed reported file size in the file set.
+     * Upload a specific file chunk for an inbound file set.
      *
      * @param  string $inboundFileSetId (required)
      * @param  int $fileIndex (required)
      * @param  \SplFileObject $body (required)
+     * @param  string $contentEncoding (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function putFileChunkAsync($inboundFileSetId, $fileIndex, $body)
+    public function putFileChunkAsync($inboundFileSetId, $fileIndex, $body, $contentEncoding = null)
     {
-        return $this->putFileChunkAsyncWithHttpInfo($inboundFileSetId, $fileIndex, $body)
+        return $this->putFileChunkAsyncWithHttpInfo($inboundFileSetId, $fileIndex, $body, $contentEncoding)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2961,19 +2989,20 @@ class FileSetsApi
     /**
      * Operation putFileChunkAsyncWithHttpInfo
      *
-     * Upload a specific file chunk for an inbound file set. All chunks must be uploaded in order, if the file is small enough, it can be uploaded in a single request. Total size must not exceed reported file size in the file set.
+     * Upload a specific file chunk for an inbound file set.
      *
      * @param  string $inboundFileSetId (required)
      * @param  int $fileIndex (required)
      * @param  \SplFileObject $body (required)
+     * @param  string $contentEncoding (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function putFileChunkAsyncWithHttpInfo($inboundFileSetId, $fileIndex, $body)
+    public function putFileChunkAsyncWithHttpInfo($inboundFileSetId, $fileIndex, $body, $contentEncoding = null)
     {
         $returnType = '';
-        $request = $this->putFileChunkRequest($inboundFileSetId, $fileIndex, $body);
+        $request = $this->putFileChunkRequest($inboundFileSetId, $fileIndex, $body, $contentEncoding);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3004,11 +3033,12 @@ class FileSetsApi
      * @param  string $inboundFileSetId (required)
      * @param  int $fileIndex (required)
      * @param  \SplFileObject $body (required)
+     * @param  string $contentEncoding (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function putFileChunkRequest($inboundFileSetId, $fileIndex, $body)
+    public function putFileChunkRequest($inboundFileSetId, $fileIndex, $body, $contentEncoding = null)
     {
         // verify the required parameter 'inboundFileSetId' is set
         if ($inboundFileSetId === null || (is_array($inboundFileSetId) && count($inboundFileSetId) === 0)) {
@@ -3037,6 +3067,10 @@ class FileSetsApi
         $multipart = false;
 
 
+        // header params
+        if ($contentEncoding !== null) {
+            $headerParams['content-encoding'] = ObjectSerializer::toHeaderValue($contentEncoding);
+        }
 
         // path params
         if ($inboundFileSetId !== null) {

@@ -133,7 +133,7 @@ class GeldverstrekkersApi
      *
      * Alle geldverstrekkers die te gebruiken zijn voor aanvragen.
      *
-     * @param  \Calcasa\Api\Model\ProductType $productType Een parameter om de lijst te filteren op gesupporte producttypen. (required)
+     * @param  \Calcasa\Api\Model\ProductType $productType Een parameter om de lijst te filteren op ondersteunde producttypen. (required)
      *
      * @throws \Calcasa\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -150,7 +150,7 @@ class GeldverstrekkersApi
      *
      * Alle geldverstrekkers die te gebruiken zijn voor aanvragen.
      *
-     * @param  \Calcasa\Api\Model\ProductType $productType Een parameter om de lijst te filteren op gesupporte producttypen. (required)
+     * @param  \Calcasa\Api\Model\ProductType $productType Een parameter om de lijst te filteren op ondersteunde producttypen. (required)
      *
      * @throws \Calcasa\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -318,7 +318,7 @@ class GeldverstrekkersApi
      *
      * Alle geldverstrekkers die te gebruiken zijn voor aanvragen.
      *
-     * @param  \Calcasa\Api\Model\ProductType $productType Een parameter om de lijst te filteren op gesupporte producttypen. (required)
+     * @param  \Calcasa\Api\Model\ProductType $productType Een parameter om de lijst te filteren op ondersteunde producttypen. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -338,7 +338,7 @@ class GeldverstrekkersApi
      *
      * Alle geldverstrekkers die te gebruiken zijn voor aanvragen.
      *
-     * @param  \Calcasa\Api\Model\ProductType $productType Een parameter om de lijst te filteren op gesupporte producttypen. (required)
+     * @param  \Calcasa\Api\Model\ProductType $productType Een parameter om de lijst te filteren op ondersteunde producttypen. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -387,7 +387,7 @@ class GeldverstrekkersApi
     /**
      * Create request for operation 'getGeldverstrekkers'
      *
-     * @param  \Calcasa\Api\Model\ProductType $productType Een parameter om de lijst te filteren op gesupporte producttypen. (required)
+     * @param  \Calcasa\Api\Model\ProductType $productType Een parameter om de lijst te filteren op ondersteunde producttypen. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

@@ -75,7 +75,7 @@ class InboundFileSetWebhookPayload implements ModelInterface, ArrayAccess, \Json
         'callbackName' => 'string',
         'eventId' => 'string',
         'timestamp' => '\DateTime',
-        'fileSetId' => 'string',
+        'inboundFileSetId' => 'string',
         'oldStatus' => '\Calcasa\Api\Model\InboundFileSetState',
         'newStatus' => '\Calcasa\Api\Model\InboundFileSetState'
     ];
@@ -91,7 +91,7 @@ class InboundFileSetWebhookPayload implements ModelInterface, ArrayAccess, \Json
         'callbackName' => null,
         'eventId' => 'uuid',
         'timestamp' => 'date-time',
-        'fileSetId' => 'uuid',
+        'inboundFileSetId' => 'uuid',
         'oldStatus' => null,
         'newStatus' => null
     ];
@@ -105,7 +105,7 @@ class InboundFileSetWebhookPayload implements ModelInterface, ArrayAccess, \Json
         'callbackName' => false,
         'eventId' => false,
         'timestamp' => false,
-        'fileSetId' => false,
+        'inboundFileSetId' => false,
         'oldStatus' => false,
         'newStatus' => false
     ];
@@ -199,7 +199,7 @@ class InboundFileSetWebhookPayload implements ModelInterface, ArrayAccess, \Json
         'callbackName' => 'callbackName',
         'eventId' => 'eventId',
         'timestamp' => 'timestamp',
-        'fileSetId' => 'fileSetId',
+        'inboundFileSetId' => 'inboundFileSetId',
         'oldStatus' => 'oldStatus',
         'newStatus' => 'newStatus'
     ];
@@ -213,7 +213,7 @@ class InboundFileSetWebhookPayload implements ModelInterface, ArrayAccess, \Json
         'callbackName' => 'setCallbackName',
         'eventId' => 'setEventId',
         'timestamp' => 'setTimestamp',
-        'fileSetId' => 'setFileSetId',
+        'inboundFileSetId' => 'setInboundFileSetId',
         'oldStatus' => 'setOldStatus',
         'newStatus' => 'setNewStatus'
     ];
@@ -227,7 +227,7 @@ class InboundFileSetWebhookPayload implements ModelInterface, ArrayAccess, \Json
         'callbackName' => 'getCallbackName',
         'eventId' => 'getEventId',
         'timestamp' => 'getTimestamp',
-        'fileSetId' => 'getFileSetId',
+        'inboundFileSetId' => 'getInboundFileSetId',
         'oldStatus' => 'getOldStatus',
         'newStatus' => 'getNewStatus'
     ];
@@ -292,7 +292,7 @@ class InboundFileSetWebhookPayload implements ModelInterface, ArrayAccess, \Json
         $this->setIfExists('callbackName', $data ?? [], null);
         $this->setIfExists('eventId', $data ?? [], null);
         $this->setIfExists('timestamp', $data ?? [], null);
-        $this->setIfExists('fileSetId', $data ?? [], null);
+        $this->setIfExists('inboundFileSetId', $data ?? [], null);
         $this->setIfExists('oldStatus', $data ?? [], null);
         $this->setIfExists('newStatus', $data ?? [], null);
     }
@@ -430,28 +430,28 @@ class InboundFileSetWebhookPayload implements ModelInterface, ArrayAccess, \Json
     }
 
     /**
-     * Gets fileSetId
+     * Gets inboundFileSetId
      *
      * @return string|null
      */
-    public function getFileSetId()
+    public function getInboundFileSetId()
     {
-        return $this->container['fileSetId'];
+        return $this->container['inboundFileSetId'];
     }
 
     /**
-     * Sets fileSetId
+     * Sets inboundFileSetId
      *
-     * @param string|null $fileSetId The Id of the file set to which this callback pertains.
+     * @param string|null $inboundFileSetId The ID of the file set to which this callback pertains.
      *
      * @return self
      */
-    public function setFileSetId($fileSetId)
+    public function setInboundFileSetId($inboundFileSetId)
     {
-        if (is_null($fileSetId)) {
-            throw new \InvalidArgumentException('non-nullable fileSetId cannot be null');
+        if (is_null($inboundFileSetId)) {
+            throw new \InvalidArgumentException('non-nullable inboundFileSetId cannot be null');
         }
-        $this->container['fileSetId'] = $fileSetId;
+        $this->container['inboundFileSetId'] = $inboundFileSetId;
 
         return $this;
     }

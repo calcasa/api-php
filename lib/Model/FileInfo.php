@@ -73,7 +73,7 @@ class FileInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'index' => 'int',
         'name' => 'string',
-        'sha256hash' => 'string',
+        'contentHash' => 'string',
         'size' => 'int',
         'contentType' => 'string'
     ];
@@ -88,7 +88,7 @@ class FileInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'index' => 'int32',
         'name' => null,
-        'sha256hash' => 'hex',
+        'contentHash' => 'hex',
         'size' => 'int64',
         'contentType' => null
     ];
@@ -101,7 +101,7 @@ class FileInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static array $openAPINullables = [
         'index' => false,
         'name' => false,
-        'sha256hash' => false,
+        'contentHash' => false,
         'size' => false,
         'contentType' => false
     ];
@@ -194,7 +194,7 @@ class FileInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'index' => 'index',
         'name' => 'name',
-        'sha256hash' => 'sha256hash',
+        'contentHash' => 'contentHash',
         'size' => 'size',
         'contentType' => 'contentType'
     ];
@@ -207,7 +207,7 @@ class FileInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'index' => 'setIndex',
         'name' => 'setName',
-        'sha256hash' => 'setSha256hash',
+        'contentHash' => 'setContentHash',
         'size' => 'setSize',
         'contentType' => 'setContentType'
     ];
@@ -220,7 +220,7 @@ class FileInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'index' => 'getIndex',
         'name' => 'getName',
-        'sha256hash' => 'getSha256hash',
+        'contentHash' => 'getContentHash',
         'size' => 'getSize',
         'contentType' => 'getContentType'
     ];
@@ -284,7 +284,7 @@ class FileInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->setIfExists('index', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('sha256hash', $data ?? [], null);
+        $this->setIfExists('contentHash', $data ?? [], null);
         $this->setIfExists('size', $data ?? [], null);
         $this->setIfExists('contentType', $data ?? [], null);
     }
@@ -322,11 +322,11 @@ class FileInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
         }
-        if ($this->container['sha256hash'] === null) {
-            $invalidProperties[] = "'sha256hash' can't be null";
+        if ($this->container['contentHash'] === null) {
+            $invalidProperties[] = "'contentHash' can't be null";
         }
-        if (!preg_match("/^[A-F0-9]{64}$/", $this->container['sha256hash'])) {
-            $invalidProperties[] = "invalid value for 'sha256hash', must be conform to the pattern /^[A-F0-9]{64}$/.";
+        if (!preg_match("/^[A-F0-9]{64}$/", $this->container['contentHash'])) {
+            $invalidProperties[] = "invalid value for 'contentHash', must be conform to the pattern /^[A-F0-9]{64}$/.";
         }
 
         if ($this->container['size'] === null) {
@@ -405,33 +405,33 @@ class FileInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets sha256hash
+     * Gets contentHash
      *
      * @return string
      */
-    public function getSha256hash()
+    public function getContentHash()
     {
-        return $this->container['sha256hash'];
+        return $this->container['contentHash'];
     }
 
     /**
-     * Sets sha256hash
+     * Sets contentHash
      *
-     * @param string $sha256hash The SHA256 hash of the file contents, represented as an uppercase hexadecimal string. For the outbound file sets this is the expected hash, for inbound file sets this is the actual hash of the file contents.
+     * @param string $contentHash The SHA256 hash of the file contents, represented as an uppercase hexadecimal string. For the outbound file sets this is the expected hash, for inbound file sets this is the actual hash of the file contents.
      *
      * @return self
      */
-    public function setSha256hash($sha256hash)
+    public function setContentHash($contentHash)
     {
-        if (is_null($sha256hash)) {
-            throw new \InvalidArgumentException('non-nullable sha256hash cannot be null');
+        if (is_null($contentHash)) {
+            throw new \InvalidArgumentException('non-nullable contentHash cannot be null');
         }
 
-        if ((!preg_match("/^[A-F0-9]{64}$/", ObjectSerializer::toString($sha256hash)))) {
-            throw new \InvalidArgumentException("invalid value for \$sha256hash when calling FileInfo., must conform to the pattern /^[A-F0-9]{64}$/.");
+        if ((!preg_match("/^[A-F0-9]{64}$/", ObjectSerializer::toString($contentHash)))) {
+            throw new \InvalidArgumentException("invalid value for \$contentHash when calling FileInfo., must conform to the pattern /^[A-F0-9]{64}$/.");
         }
 
-        $this->container['sha256hash'] = $sha256hash;
+        $this->container['contentHash'] = $contentHash;
 
         return $this;
     }

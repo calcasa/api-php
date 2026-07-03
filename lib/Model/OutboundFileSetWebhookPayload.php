@@ -75,7 +75,7 @@ class OutboundFileSetWebhookPayload implements ModelInterface, ArrayAccess, \Jso
         'callbackName' => 'string',
         'eventId' => 'string',
         'timestamp' => '\DateTime',
-        'fileSetId' => 'string',
+        'outboundFileSetId' => 'string',
         'oldStatus' => '\Calcasa\Api\Model\OutboundFileSetState',
         'newStatus' => '\Calcasa\Api\Model\OutboundFileSetState'
     ];
@@ -91,7 +91,7 @@ class OutboundFileSetWebhookPayload implements ModelInterface, ArrayAccess, \Jso
         'callbackName' => null,
         'eventId' => 'uuid',
         'timestamp' => 'date-time',
-        'fileSetId' => 'uuid',
+        'outboundFileSetId' => 'uuid',
         'oldStatus' => null,
         'newStatus' => null
     ];
@@ -105,7 +105,7 @@ class OutboundFileSetWebhookPayload implements ModelInterface, ArrayAccess, \Jso
         'callbackName' => false,
         'eventId' => false,
         'timestamp' => false,
-        'fileSetId' => false,
+        'outboundFileSetId' => false,
         'oldStatus' => false,
         'newStatus' => false
     ];
@@ -199,7 +199,7 @@ class OutboundFileSetWebhookPayload implements ModelInterface, ArrayAccess, \Jso
         'callbackName' => 'callbackName',
         'eventId' => 'eventId',
         'timestamp' => 'timestamp',
-        'fileSetId' => 'fileSetId',
+        'outboundFileSetId' => 'outboundFileSetId',
         'oldStatus' => 'oldStatus',
         'newStatus' => 'newStatus'
     ];
@@ -213,7 +213,7 @@ class OutboundFileSetWebhookPayload implements ModelInterface, ArrayAccess, \Jso
         'callbackName' => 'setCallbackName',
         'eventId' => 'setEventId',
         'timestamp' => 'setTimestamp',
-        'fileSetId' => 'setFileSetId',
+        'outboundFileSetId' => 'setOutboundFileSetId',
         'oldStatus' => 'setOldStatus',
         'newStatus' => 'setNewStatus'
     ];
@@ -227,7 +227,7 @@ class OutboundFileSetWebhookPayload implements ModelInterface, ArrayAccess, \Jso
         'callbackName' => 'getCallbackName',
         'eventId' => 'getEventId',
         'timestamp' => 'getTimestamp',
-        'fileSetId' => 'getFileSetId',
+        'outboundFileSetId' => 'getOutboundFileSetId',
         'oldStatus' => 'getOldStatus',
         'newStatus' => 'getNewStatus'
     ];
@@ -292,7 +292,7 @@ class OutboundFileSetWebhookPayload implements ModelInterface, ArrayAccess, \Jso
         $this->setIfExists('callbackName', $data ?? [], null);
         $this->setIfExists('eventId', $data ?? [], null);
         $this->setIfExists('timestamp', $data ?? [], null);
-        $this->setIfExists('fileSetId', $data ?? [], null);
+        $this->setIfExists('outboundFileSetId', $data ?? [], null);
         $this->setIfExists('oldStatus', $data ?? [], null);
         $this->setIfExists('newStatus', $data ?? [], null);
     }
@@ -430,28 +430,28 @@ class OutboundFileSetWebhookPayload implements ModelInterface, ArrayAccess, \Jso
     }
 
     /**
-     * Gets fileSetId
+     * Gets outboundFileSetId
      *
      * @return string|null
      */
-    public function getFileSetId()
+    public function getOutboundFileSetId()
     {
-        return $this->container['fileSetId'];
+        return $this->container['outboundFileSetId'];
     }
 
     /**
-     * Sets fileSetId
+     * Sets outboundFileSetId
      *
-     * @param string|null $fileSetId The Id of the file set to which this callback pertains.
+     * @param string|null $outboundFileSetId The ID of the file set to which this callback pertains.
      *
      * @return self
      */
-    public function setFileSetId($fileSetId)
+    public function setOutboundFileSetId($outboundFileSetId)
     {
-        if (is_null($fileSetId)) {
-            throw new \InvalidArgumentException('non-nullable fileSetId cannot be null');
+        if (is_null($outboundFileSetId)) {
+            throw new \InvalidArgumentException('non-nullable outboundFileSetId cannot be null');
         }
-        $this->container['fileSetId'] = $fileSetId;
+        $this->container['outboundFileSetId'] = $outboundFileSetId;
 
         return $this;
     }

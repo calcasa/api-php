@@ -528,7 +528,7 @@ class WaarderingenApi
     /**
      * Operation createWaardering
      *
-     * Creërt een waardering.
+     * Maak een waardering aan.
      *
      * @param  \Calcasa\Api\Model\WaarderingInputParameters $waarderingInputParameters waarderingInputParameters (required)
      *
@@ -545,7 +545,7 @@ class WaarderingenApi
     /**
      * Operation createWaarderingWithHttpInfo
      *
-     * Creërt een waardering.
+     * Maak een waardering aan.
      *
      * @param  \Calcasa\Api\Model\WaarderingInputParameters $waarderingInputParameters (required)
      *
@@ -782,7 +782,7 @@ class WaarderingenApi
     /**
      * Operation createWaarderingAsync
      *
-     * Creërt een waardering.
+     * Maak een waardering aan.
      *
      * @param  \Calcasa\Api\Model\WaarderingInputParameters $waarderingInputParameters (required)
      *
@@ -802,7 +802,7 @@ class WaarderingenApi
     /**
      * Operation createWaarderingAsyncWithHttpInfo
      *
-     * Creërt een waardering.
+     * Maak een waardering aan.
      *
      * @param  \Calcasa\Api\Model\WaarderingInputParameters $waarderingInputParameters (required)
      *
@@ -2663,7 +2663,7 @@ class WaarderingenApi
      *
      * @throws \Calcasa\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Calcasa\Api\Model\Waardering[]|\Calcasa\Api\Model\UnauthorizedProblemDetails|\Calcasa\Api\Model\PermissionsDeniedProblemDetails|\Calcasa\Api\Model\ValidationProblemDetails|\Calcasa\Api\Model\ProblemDetails
+     * @return \Calcasa\Api\Model\Waardering[]|\Calcasa\Api\Model\InvalidArgumentProblemDetails|\Calcasa\Api\Model\UnauthorizedProblemDetails|\Calcasa\Api\Model\PermissionsDeniedProblemDetails|\Calcasa\Api\Model\ValidationProblemDetails|\Calcasa\Api\Model\ProblemDetails
      */
     public function searchWaarderingen($waarderingZoekParameters)
     {
@@ -2680,7 +2680,7 @@ class WaarderingenApi
      *
      * @throws \Calcasa\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Calcasa\Api\Model\Waardering[]|\Calcasa\Api\Model\UnauthorizedProblemDetails|\Calcasa\Api\Model\PermissionsDeniedProblemDetails|\Calcasa\Api\Model\ValidationProblemDetails|\Calcasa\Api\Model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Calcasa\Api\Model\Waardering[]|\Calcasa\Api\Model\InvalidArgumentProblemDetails|\Calcasa\Api\Model\UnauthorizedProblemDetails|\Calcasa\Api\Model\PermissionsDeniedProblemDetails|\Calcasa\Api\Model\ValidationProblemDetails|\Calcasa\Api\Model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
      */
     public function searchWaarderingenWithHttpInfo($waarderingZoekParameters)
     {
@@ -2734,6 +2734,21 @@ class WaarderingenApi
 
                     return [
                         ObjectSerializer::deserialize($content, '\Calcasa\Api\Model\Waardering[]', []),
+                        $response->getStatusCode(),
+                        $response->getHeaders()
+                    ];
+                case 400:
+                    if ('\Calcasa\Api\Model\InvalidArgumentProblemDetails' === '\SplFileObject') {
+                        $content = $response->getBody(); //stream goes to serializer
+                    } else {
+                        $content = (string) $response->getBody();
+                        if ('\Calcasa\Api\Model\InvalidArgumentProblemDetails' !== 'string') {
+                            $content = json_decode($content);
+                        }
+                    }
+
+                    return [
+                        ObjectSerializer::deserialize($content, '\Calcasa\Api\Model\InvalidArgumentProblemDetails', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -2821,6 +2836,14 @@ class WaarderingenApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Calcasa\Api\Model\Waardering[]',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    break;
+                case 400:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Calcasa\Api\Model\InvalidArgumentProblemDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);

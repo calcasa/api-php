@@ -370,7 +370,7 @@ class CallbackInschrijving implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets geldigTot
      *
-     * @param \DateTime $geldigTot Verplicht. De datum tot wanneer deze inschrijving effect moet hebben. Als deze inschrijving verloopt wordt deze automatisch opgeruimt. De maximale termijn is afhankelijk van de gebruikte client.
+     * @param \DateTime $geldigTot Verplicht. De datum tot wanneer deze inschrijving effect moet hebben. Als deze inschrijving verloopt, wordt deze automatisch opgeruimd. De maximale termijn is afhankelijk van de gebruikte client.
      *
      * @return self
      */
@@ -397,7 +397,7 @@ class CallbackInschrijving implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets externeReferentie
      *
-     * @param string|null $externeReferentie Een vrij veld dat terug komt met de callback payload om callbacks aan de juiste callback inschrijving te koppelen.
+     * @param string|null $externeReferentie Een vrij veld dat terugkomt met de callback payload om callbacks aan de juiste callbackinschrijving te koppelen.
      *
      * @return self
      */

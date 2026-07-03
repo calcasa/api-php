@@ -78,7 +78,7 @@ All URIs are relative to *https://api.calcasa.nl/api/v1*
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *AdressenApi* | [**getAdres**](docs/Api/AdressenApi.md#getadres) | **GET** /adressen/{bagNummeraanduidingId} | Adres info op basis van BAG Nummeraanduiding Id.
-*AdressenApi* | [**searchAdres**](docs/Api/AdressenApi.md#searchadres) | **POST** /adressen/zoeken | Zoek adres info op basis van het gegeven adres.
+*AdressenApi* | [**searchAdres**](docs/Api/AdressenApi.md#searchadres) | **POST** /adressen/zoeken | Zoek adresinformatie op basis van het opgegeven adres.
 *BestemmingsplannenApi* | [**getBestemmingById**](docs/Api/BestemmingsplannenApi.md#getbestemmingbyid) | **GET** /bestemmingsplannen/{bagNummeraanduidingId} | Gegevens over de bestemmingsplannen op de locatie van een adres (BAG Nummeraanduiding ID).
 *BodemApi* | [**getBodemById**](docs/Api/BodemApi.md#getbodembyid) | **GET** /bodem/{bagNummeraanduidingId} | Gegevens over de bodemkwaliteit op de locatie van een adres (BAG Nummeraanduiding ID).
 *BuurtApi* | [**getBuurt**](docs/Api/BuurtApi.md#getbuurt) | **GET** /buurt/{buurtCode} | Gegevens over een buurt en de wijk, gemeente en land waarin deze buurt gesitueerd is.
@@ -93,21 +93,21 @@ Class | Method | HTTP request | Description
 *ConfiguratieApi* | [**postCallbackAuthentication**](docs/Api/ConfiguratieApi.md#postcallbackauthentication) | **POST** /configuratie/callbacks/authentication | Update de geconfigureerde callback authenticatie voor de huidige client.
 *ConfiguratieApi* | [**updateCallbacks**](docs/Api/ConfiguratieApi.md#updatecallbacks) | **POST** /configuratie/callbacks | Configureer callback URL voor een specifieke API versie voor de huidige client.
 *FacturenApi* | [**getFactuur**](docs/Api/FacturenApi.md#getfactuur) | **GET** /facturen/{id} | Factuur op basis van een waardering Id.
-*FileSetsApi* | [**confirmInboundFileSetById**](docs/Api/FileSetsApi.md#confirminboundfilesetbyid) | **PUT** /file-sets/inbound/{inboundFileSetId} | 
-*FileSetsApi* | [**createInboundFileSet**](docs/Api/FileSetsApi.md#createinboundfileset) | **POST** /file-sets/inbound | 
-*FileSetsApi* | [**deleteOutboundFileSetById**](docs/Api/FileSetsApi.md#deleteoutboundfilesetbyid) | **DELETE** /file-sets/outbound/{outboundFileSetId} | Delete outbound file set after it&#39;s has been correctly received. If a outbound file set is not downloaded and deleted after 48 hours, it will expire and all its contents will be deleted automatically.
+*FileSetsApi* | [**confirmInboundFileSetById**](docs/Api/FileSetsApi.md#confirminboundfilesetbyid) | **PUT** /file-sets/inbound/{inboundFileSetId} | Confirm an inbound file set after it has been fully uploaded.
+*FileSetsApi* | [**createInboundFileSet**](docs/Api/FileSetsApi.md#createinboundfileset) | **POST** /file-sets/inbound | Create a new inbound file set.
+*FileSetsApi* | [**deleteOutboundFileSetById**](docs/Api/FileSetsApi.md#deleteoutboundfilesetbyid) | **DELETE** /file-sets/outbound/{outboundFileSetId} | Delete an outbound file set after it has been correctly received. If an outbound file set is not downloaded and deleted within 48 hours, it will expire and all its contents will be deleted automatically.
 *FileSetsApi* | [**getInboundFileSetById**](docs/Api/FileSetsApi.md#getinboundfilesetbyid) | **GET** /file-sets/inbound/{inboundFileSetId} | Get a specific inbound file set by its ID.
 *FileSetsApi* | [**getInboundFileSets**](docs/Api/FileSetsApi.md#getinboundfilesets) | **GET** /file-sets/inbound | Get all inbound file sets.
-*FileSetsApi* | [**getOutboundFileByIndex**](docs/Api/FileSetsApi.md#getoutboundfilebyindex) | **GET** /file-sets/outbound/{outboundFileSetId}/{fileIndex} | Get a specific outbound file content by its index within a file set.  Used the Http Range header to request a specific byte range of the file.  If the Range header is not provided, the entire file will be returned.
+*FileSetsApi* | [**getOutboundFileByIndex**](docs/Api/FileSetsApi.md#getoutboundfilebyindex) | **GET** /file-sets/outbound/{outboundFileSetId}/{fileIndex} | Get a specific outbound file content by its index within a file set.
 *FileSetsApi* | [**getOutboundFileSetById**](docs/Api/FileSetsApi.md#getoutboundfilesetbyid) | **GET** /file-sets/outbound/{outboundFileSetId} | Get a specific outbound file set by its ID.
 *FileSetsApi* | [**getOutboundFileSets**](docs/Api/FileSetsApi.md#getoutboundfilesets) | **GET** /file-sets/outbound | Get all outbound file sets.
-*FileSetsApi* | [**putFileChunk**](docs/Api/FileSetsApi.md#putfilechunk) | **PUT** /file-sets/inbound/{inboundFileSetId}/{fileIndex} | Upload a specific file chunk for an inbound file set. All chunks must be uploaded in order, if the file is small enough, it can be uploaded in a single request. Total size must not exceed reported file size in the file set.
+*FileSetsApi* | [**putFileChunk**](docs/Api/FileSetsApi.md#putfilechunk) | **PUT** /file-sets/inbound/{inboundFileSetId}/{fileIndex} | Upload a specific file chunk for an inbound file set.
 *FotosApi* | [**getFoto**](docs/Api/FotosApi.md#getfoto) | **GET** /fotos/{id} | Foto op basis van een foto Id.
 *FunderingenApi* | [**getFunderingById**](docs/Api/FunderingenApi.md#getfunderingbyid) | **GET** /funderingen/{bagNummeraanduidingId} | Gegevens over de fundering op de locatie van een adres (BAG Nummeraanduiding ID).
 *GeldverstrekkersApi* | [**getGeldverstrekkers**](docs/Api/GeldverstrekkersApi.md#getgeldverstrekkers) | **GET** /geldverstrekkers/{productType} | Alle geldverstrekkers die te gebruiken zijn voor aanvragen.
 *RapportenApi* | [**getRapport**](docs/Api/RapportenApi.md#getrapport) | **GET** /rapporten/{id} | Rapport op basis van waardering Id.
 *WaarderingenApi* | [**checkProducten**](docs/Api/WaarderingenApi.md#checkproducten) | **POST** /waarderingen/check | Controleert mogelijke producten.
-*WaarderingenApi* | [**createWaardering**](docs/Api/WaarderingenApi.md#createwaardering) | **POST** /waarderingen | Creërt een waardering.
+*WaarderingenApi* | [**createWaardering**](docs/Api/WaarderingenApi.md#createwaardering) | **POST** /waarderingen | Maak een waardering aan.
 *WaarderingenApi* | [**getWaardering**](docs/Api/WaarderingenApi.md#getwaardering) | **GET** /waarderingen/{id} | Waardering op basis van Id.
 *WaarderingenApi* | [**getWaarderingByReportHash**](docs/Api/WaarderingenApi.md#getwaarderingbyreporthash) | **GET** /waarderingen/by-hash/{hash} | Waardering op basis van upper-case hex SHA-256 hash van een PDF rapport. Als er een collision is wordt de nieuwste waardering teruggegeven.
 *WaarderingenApi* | [**getWaarderingOntwikkeling**](docs/Api/WaarderingenApi.md#getwaarderingontwikkeling) | **GET** /waarderingen/{id}/ontwikkeling | Waardering ontwikkeling op basis van waardering Id.
@@ -226,10 +226,10 @@ Authentication schemes defined for the API:
     - **api:waarderingen:patch**: 
     - **api:waarderingen:ontwikkeling**: 
     - **api:waarderingen:create**: 
-    - **api:file-set-inbound:write**: 
-    - **api:file-set-inbound:read**: 
-    - **api:file-set-outbound:read**: 
-    - **api:file-set-outbound:write**: 
+    - **api:file-set:inbound:write**: 
+    - **api:file-set:inbound:read**: 
+    - **api:file-set:outbound:read**: 
+    - **api:file-set:outbound:write**: 
 
 ## Tests
 
@@ -248,6 +248,6 @@ info@calcasa.nl
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `1.6.0-beta2`
+- API version: `1.6.0-beta3`
     - Generator version: `7.16.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

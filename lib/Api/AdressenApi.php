@@ -507,9 +507,9 @@ class AdressenApi
     /**
      * Operation searchAdres
      *
-     * Zoek adres info op basis van het gegeven adres.
+     * Zoek adresinformatie op basis van het opgegeven adres.
      *
-     * @param  \Calcasa\Api\Model\Adres $adres Het adres object dat gebruikt wordt om te zoeken naar adres informatie. (required)
+     * @param  \Calcasa\Api\Model\Adres $adres Het adresobject dat gebruikt wordt om naar adresinformatie te zoeken. (required)
      *
      * @throws \Calcasa\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -524,9 +524,9 @@ class AdressenApi
     /**
      * Operation searchAdresWithHttpInfo
      *
-     * Zoek adres info op basis van het gegeven adres.
+     * Zoek adresinformatie op basis van het opgegeven adres.
      *
-     * @param  \Calcasa\Api\Model\Adres $adres Het adres object dat gebruikt wordt om te zoeken naar adres informatie. (required)
+     * @param  \Calcasa\Api\Model\Adres $adres Het adresobject dat gebruikt wordt om naar adresinformatie te zoeken. (required)
      *
      * @throws \Calcasa\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
@@ -715,9 +715,9 @@ class AdressenApi
     /**
      * Operation searchAdresAsync
      *
-     * Zoek adres info op basis van het gegeven adres.
+     * Zoek adresinformatie op basis van het opgegeven adres.
      *
-     * @param  \Calcasa\Api\Model\Adres $adres Het adres object dat gebruikt wordt om te zoeken naar adres informatie. (required)
+     * @param  \Calcasa\Api\Model\Adres $adres Het adresobject dat gebruikt wordt om naar adresinformatie te zoeken. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -735,9 +735,9 @@ class AdressenApi
     /**
      * Operation searchAdresAsyncWithHttpInfo
      *
-     * Zoek adres info op basis van het gegeven adres.
+     * Zoek adresinformatie op basis van het opgegeven adres.
      *
-     * @param  \Calcasa\Api\Model\Adres $adres Het adres object dat gebruikt wordt om te zoeken naar adres informatie. (required)
+     * @param  \Calcasa\Api\Model\Adres $adres Het adresobject dat gebruikt wordt om naar adresinformatie te zoeken. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -786,7 +786,7 @@ class AdressenApi
     /**
      * Create request for operation 'searchAdres'
      *
-     * @param  \Calcasa\Api\Model\Adres $adres Het adres object dat gebruikt wordt om te zoeken naar adres informatie. (required)
+     * @param  \Calcasa\Api\Model\Adres $adres Het adresobject dat gebruikt wordt om naar adresinformatie te zoeken. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
