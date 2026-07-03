@@ -1,6 +1,6 @@
 <?php
 /**
- * FileSetsFileInfo
+ * InboundFileSetAlreadyConfirmedProblemDetails
  *
  * PHP version 8.1
  *
@@ -46,7 +46,7 @@ use \ArrayAccess;
 use \Calcasa\Api\ObjectSerializer;
 
 /**
- * FileSetsFileInfo Class Doc Comment
+ * InboundFileSetAlreadyConfirmedProblemDetails Class Doc Comment
  *
  * @category Class
  * @package  Calcasa\Api
@@ -54,7 +54,7 @@ use \Calcasa\Api\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class FileSetsFileInfo implements ModelInterface, ArrayAccess, \JsonSerializable
+class InboundFileSetAlreadyConfirmedProblemDetails implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -63,7 +63,7 @@ class FileSetsFileInfo implements ModelInterface, ArrayAccess, \JsonSerializable
       *
       * @var string
       */
-    protected static $openAPIModelName = 'FileSets.FileInfo';
+    protected static $openAPIModelName = 'InboundFileSetAlreadyConfirmedProblemDetails';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -71,10 +71,11 @@ class FileSetsFileInfo implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'index' => 'int',
-        'name' => 'string',
-        'sha256hash' => 'string',
-        'fileSize' => 'int'
+        'type' => 'string',
+        'title' => 'string',
+        'status' => 'int',
+        'detail' => 'string',
+        'instance' => 'string'
     ];
 
     /**
@@ -85,10 +86,11 @@ class FileSetsFileInfo implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'index' => 'uint32',
-        'name' => null,
-        'sha256hash' => 'hex',
-        'fileSize' => 'uint64'
+        'type' => null,
+        'title' => null,
+        'status' => 'int32',
+        'detail' => null,
+        'instance' => null
     ];
 
     /**
@@ -97,10 +99,11 @@ class FileSetsFileInfo implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'index' => false,
-        'name' => false,
-        'sha256hash' => false,
-        'fileSize' => false
+        'type' => true,
+        'title' => true,
+        'status' => true,
+        'detail' => true,
+        'instance' => true
     ];
 
     /**
@@ -189,10 +192,11 @@ class FileSetsFileInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'index' => 'index',
-        'name' => 'name',
-        'sha256hash' => 'sha256hash',
-        'fileSize' => 'fileSize'
+        'type' => 'type',
+        'title' => 'title',
+        'status' => 'status',
+        'detail' => 'detail',
+        'instance' => 'instance'
     ];
 
     /**
@@ -201,10 +205,11 @@ class FileSetsFileInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'index' => 'setIndex',
-        'name' => 'setName',
-        'sha256hash' => 'setSha256hash',
-        'fileSize' => 'setFileSize'
+        'type' => 'setType',
+        'title' => 'setTitle',
+        'status' => 'setStatus',
+        'detail' => 'setDetail',
+        'instance' => 'setInstance'
     ];
 
     /**
@@ -213,10 +218,11 @@ class FileSetsFileInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'index' => 'getIndex',
-        'name' => 'getName',
-        'sha256hash' => 'getSha256hash',
-        'fileSize' => 'getFileSize'
+        'type' => 'getType',
+        'title' => 'getTitle',
+        'status' => 'getStatus',
+        'detail' => 'getDetail',
+        'instance' => 'getInstance'
     ];
 
     /**
@@ -276,10 +282,11 @@ class FileSetsFileInfo implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('index', $data ?? [], null);
-        $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('sha256hash', $data ?? [], null);
-        $this->setIfExists('fileSize', $data ?? [], null);
+        $this->setIfExists('type', $data ?? [], null);
+        $this->setIfExists('title', $data ?? [], null);
+        $this->setIfExists('status', $data ?? [], null);
+        $this->setIfExists('detail', $data ?? [], null);
+        $this->setIfExists('instance', $data ?? [], null);
     }
 
     /**
@@ -309,22 +316,6 @@ class FileSetsFileInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['index'] === null) {
-            $invalidProperties[] = "'index' can't be null";
-        }
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
-        if ($this->container['sha256hash'] === null) {
-            $invalidProperties[] = "'sha256hash' can't be null";
-        }
-        if (!preg_match("/^[A-F0-9]{64}$/", $this->container['sha256hash'])) {
-            $invalidProperties[] = "invalid value for 'sha256hash', must be conform to the pattern /^[A-F0-9]{64}$/.";
-        }
-
-        if ($this->container['fileSize'] === null) {
-            $invalidProperties[] = "'fileSize' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -341,114 +332,171 @@ class FileSetsFileInfo implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets index
+     * Gets type
      *
-     * @return int
+     * @return string|null
      */
-    public function getIndex()
+    public function getType()
     {
-        return $this->container['index'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets index
+     * Sets type
      *
-     * @param int $index The index of the file within the file set. Zero-based.
+     * @param string|null $type A URI reference [RFC3986] that identifies the problem type.
      *
      * @return self
      */
-    public function setIndex($index)
+    public function setType($type)
     {
-        if (is_null($index)) {
-            throw new \InvalidArgumentException('non-nullable index cannot be null');
+        if (is_null($type)) {
+            array_push($this->openAPINullablesSetToNull, 'type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['index'] = $index;
+        $this->container['type'] = $type;
 
         return $this;
     }
 
     /**
-     * Gets name
+     * Gets title
      *
-     * @return string
+     * @return string|null
      */
-    public function getName()
+    public function getTitle()
     {
-        return $this->container['name'];
+        return $this->container['title'];
     }
 
     /**
-     * Sets name
+     * Sets title
      *
-     * @param string $name The name of the file, including its extension. This needs to be unique within the file set.
+     * @param string|null $title A short, human-readable summary of the problem type.
      *
      * @return self
      */
-    public function setName($name)
+    public function setTitle($title)
     {
-        if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+        if (is_null($title)) {
+            array_push($this->openAPINullablesSetToNull, 'title');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('title', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['name'] = $name;
+        $this->container['title'] = $title;
 
         return $this;
     }
 
     /**
-     * Gets sha256hash
+     * Gets status
      *
-     * @return string
+     * @return int|null
      */
-    public function getSha256hash()
+    public function getStatus()
     {
-        return $this->container['sha256hash'];
+        return $this->container['status'];
     }
 
     /**
-     * Sets sha256hash
+     * Sets status
      *
-     * @param string $sha256hash The SHA256 hash of the file contents, represented as an uppercase hexadecimal string. For the outbound file sets this is the expected hash, for inbound file sets this is the actual hash of the file contents.
+     * @param int|null $status The HTTP status code for this occurrence of the problem.
      *
      * @return self
      */
-    public function setSha256hash($sha256hash)
+    public function setStatus($status)
     {
-        if (is_null($sha256hash)) {
-            throw new \InvalidArgumentException('non-nullable sha256hash cannot be null');
+        if (is_null($status)) {
+            array_push($this->openAPINullablesSetToNull, 'status');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('status', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-
-        if ((!preg_match("/^[A-F0-9]{64}$/", ObjectSerializer::toString($sha256hash)))) {
-            throw new \InvalidArgumentException("invalid value for \$sha256hash when calling FileSetsFileInfo., must conform to the pattern /^[A-F0-9]{64}$/.");
-        }
-
-        $this->container['sha256hash'] = $sha256hash;
+        $this->container['status'] = $status;
 
         return $this;
     }
 
     /**
-     * Gets fileSize
+     * Gets detail
      *
-     * @return int
+     * @return string|null
      */
-    public function getFileSize()
+    public function getDetail()
     {
-        return $this->container['fileSize'];
+        return $this->container['detail'];
     }
 
     /**
-     * Sets fileSize
+     * Sets detail
      *
-     * @param int $fileSize The file size in bytes. For the outbound file sets this is the expected size, for inbound file sets this is the actual size of the file contents.
+     * @param string|null $detail A human-readable explanation specific to this occurrence of the problem.
      *
      * @return self
      */
-    public function setFileSize($fileSize)
+    public function setDetail($detail)
     {
-        if (is_null($fileSize)) {
-            throw new \InvalidArgumentException('non-nullable fileSize cannot be null');
+        if (is_null($detail)) {
+            array_push($this->openAPINullablesSetToNull, 'detail');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('detail', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['fileSize'] = $fileSize;
+        $this->container['detail'] = $detail;
+
+        return $this;
+    }
+
+    /**
+     * Gets instance
+     *
+     * @return string|null
+     */
+    public function getInstance()
+    {
+        return $this->container['instance'];
+    }
+
+    /**
+     * Sets instance
+     *
+     * @param string|null $instance A URI reference that identifies the specific occurrence of the problem.
+     *
+     * @return self
+     */
+    public function setInstance($instance)
+    {
+        if (is_null($instance)) {
+            array_push($this->openAPINullablesSetToNull, 'instance');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('instance', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['instance'] = $instance;
 
         return $this;
     }

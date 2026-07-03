@@ -135,7 +135,7 @@ class FileSetsApi
      *
      * @throws \Calcasa\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Calcasa\Api\Model\FileSetsInboundFileSet|\Calcasa\Api\Model\UnauthorizedProblemDetails|\Calcasa\Api\Model\NotFoundProblemDetails|\Calcasa\Api\Model\InboundFileSetAlreadyCompletedProblemDetails|\Calcasa\Api\Model\ProblemDetails
+     * @return \Calcasa\Api\Model\InboundFileSet|\Calcasa\Api\Model\UnauthorizedProblemDetails|\Calcasa\Api\Model\NotFoundProblemDetails|\Calcasa\Api\Model\InboundFileSetAlreadyConfirmedProblemDetails|\Calcasa\Api\Model\ProblemDetails
      */
     public function confirmInboundFileSetById($inboundFileSetId)
     {
@@ -150,7 +150,7 @@ class FileSetsApi
      *
      * @throws \Calcasa\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Calcasa\Api\Model\FileSetsInboundFileSet|\Calcasa\Api\Model\UnauthorizedProblemDetails|\Calcasa\Api\Model\NotFoundProblemDetails|\Calcasa\Api\Model\InboundFileSetAlreadyCompletedProblemDetails|\Calcasa\Api\Model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Calcasa\Api\Model\InboundFileSet|\Calcasa\Api\Model\UnauthorizedProblemDetails|\Calcasa\Api\Model\NotFoundProblemDetails|\Calcasa\Api\Model\InboundFileSetAlreadyConfirmedProblemDetails|\Calcasa\Api\Model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
      */
     public function confirmInboundFileSetByIdWithHttpInfo($inboundFileSetId)
     {
@@ -193,17 +193,17 @@ class FileSetsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Calcasa\Api\Model\FileSetsInboundFileSet' === '\SplFileObject') {
+                    if ('\Calcasa\Api\Model\InboundFileSet' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Calcasa\Api\Model\FileSetsInboundFileSet' !== 'string') {
+                        if ('\Calcasa\Api\Model\InboundFileSet' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Calcasa\Api\Model\FileSetsInboundFileSet', []),
+                        ObjectSerializer::deserialize($content, '\Calcasa\Api\Model\InboundFileSet', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -238,17 +238,17 @@ class FileSetsApi
                         $response->getHeaders()
                     ];
                 case 409:
-                    if ('\Calcasa\Api\Model\InboundFileSetAlreadyCompletedProblemDetails' === '\SplFileObject') {
+                    if ('\Calcasa\Api\Model\InboundFileSetAlreadyConfirmedProblemDetails' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Calcasa\Api\Model\InboundFileSetAlreadyCompletedProblemDetails' !== 'string') {
+                        if ('\Calcasa\Api\Model\InboundFileSetAlreadyConfirmedProblemDetails' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Calcasa\Api\Model\InboundFileSetAlreadyCompletedProblemDetails', []),
+                        ObjectSerializer::deserialize($content, '\Calcasa\Api\Model\InboundFileSetAlreadyConfirmedProblemDetails', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -269,7 +269,7 @@ class FileSetsApi
                     ];
             }
 
-            $returnType = '\Calcasa\Api\Model\FileSetsInboundFileSet';
+            $returnType = '\Calcasa\Api\Model\InboundFileSet';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -290,7 +290,7 @@ class FileSetsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Calcasa\Api\Model\FileSetsInboundFileSet',
+                        '\Calcasa\Api\Model\InboundFileSet',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -314,7 +314,7 @@ class FileSetsApi
                 case 409:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Calcasa\Api\Model\InboundFileSetAlreadyCompletedProblemDetails',
+                        '\Calcasa\Api\Model\InboundFileSetAlreadyConfirmedProblemDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -360,7 +360,7 @@ class FileSetsApi
      */
     public function confirmInboundFileSetByIdAsyncWithHttpInfo($inboundFileSetId)
     {
-        $returnType = '\Calcasa\Api\Model\FileSetsInboundFileSet';
+        $returnType = '\Calcasa\Api\Model\InboundFileSet';
         $request = $this->confirmInboundFileSetByIdRequest($inboundFileSetId);
 
         return $this->client
@@ -499,30 +499,30 @@ class FileSetsApi
     /**
      * Operation createInboundFileSet
      *
-     * @param  \Calcasa\Api\Model\FileSetsInboundFileSet $fileSetsInboundFileSet fileSetsInboundFileSet (required)
+     * @param  \Calcasa\Api\Model\InboundFileSet $inboundFileSet inboundFileSet (required)
      *
      * @throws \Calcasa\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Calcasa\Api\Model\FileSetsInboundFileSet|\Calcasa\Api\Model\InvalidArgumentProblemDetails|\Calcasa\Api\Model\UnauthorizedProblemDetails|\Calcasa\Api\Model\InboundFileSetAlreadyExistsProblemDetails|\Calcasa\Api\Model\ProblemDetails
+     * @return \Calcasa\Api\Model\InboundFileSet|\Calcasa\Api\Model\InvalidArgumentProblemDetails|\Calcasa\Api\Model\UnauthorizedProblemDetails|\Calcasa\Api\Model\InboundFileSetAlreadyExistsProblemDetails|\Calcasa\Api\Model\ProblemDetails
      */
-    public function createInboundFileSet($fileSetsInboundFileSet)
+    public function createInboundFileSet($inboundFileSet)
     {
-        list($response) = $this->createInboundFileSetWithHttpInfo($fileSetsInboundFileSet);
+        list($response) = $this->createInboundFileSetWithHttpInfo($inboundFileSet);
         return $response;
     }
 
     /**
      * Operation createInboundFileSetWithHttpInfo
      *
-     * @param  \Calcasa\Api\Model\FileSetsInboundFileSet $fileSetsInboundFileSet (required)
+     * @param  \Calcasa\Api\Model\InboundFileSet $inboundFileSet (required)
      *
      * @throws \Calcasa\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Calcasa\Api\Model\FileSetsInboundFileSet|\Calcasa\Api\Model\InvalidArgumentProblemDetails|\Calcasa\Api\Model\UnauthorizedProblemDetails|\Calcasa\Api\Model\InboundFileSetAlreadyExistsProblemDetails|\Calcasa\Api\Model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Calcasa\Api\Model\InboundFileSet|\Calcasa\Api\Model\InvalidArgumentProblemDetails|\Calcasa\Api\Model\UnauthorizedProblemDetails|\Calcasa\Api\Model\InboundFileSetAlreadyExistsProblemDetails|\Calcasa\Api\Model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createInboundFileSetWithHttpInfo($fileSetsInboundFileSet)
+    public function createInboundFileSetWithHttpInfo($inboundFileSet)
     {
-        $request = $this->createInboundFileSetRequest($fileSetsInboundFileSet);
+        $request = $this->createInboundFileSetRequest($inboundFileSet);
 
         try {
             $options = $this->createHttpClientOption();
@@ -561,17 +561,17 @@ class FileSetsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Calcasa\Api\Model\FileSetsInboundFileSet' === '\SplFileObject') {
+                    if ('\Calcasa\Api\Model\InboundFileSet' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Calcasa\Api\Model\FileSetsInboundFileSet' !== 'string') {
+                        if ('\Calcasa\Api\Model\InboundFileSet' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Calcasa\Api\Model\FileSetsInboundFileSet', []),
+                        ObjectSerializer::deserialize($content, '\Calcasa\Api\Model\InboundFileSet', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -637,7 +637,7 @@ class FileSetsApi
                     ];
             }
 
-            $returnType = '\Calcasa\Api\Model\FileSetsInboundFileSet';
+            $returnType = '\Calcasa\Api\Model\InboundFileSet';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -658,7 +658,7 @@ class FileSetsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Calcasa\Api\Model\FileSetsInboundFileSet',
+                        '\Calcasa\Api\Model\InboundFileSet',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -703,14 +703,14 @@ class FileSetsApi
     /**
      * Operation createInboundFileSetAsync
      *
-     * @param  \Calcasa\Api\Model\FileSetsInboundFileSet $fileSetsInboundFileSet (required)
+     * @param  \Calcasa\Api\Model\InboundFileSet $inboundFileSet (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createInboundFileSetAsync($fileSetsInboundFileSet)
+    public function createInboundFileSetAsync($inboundFileSet)
     {
-        return $this->createInboundFileSetAsyncWithHttpInfo($fileSetsInboundFileSet)
+        return $this->createInboundFileSetAsyncWithHttpInfo($inboundFileSet)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -721,15 +721,15 @@ class FileSetsApi
     /**
      * Operation createInboundFileSetAsyncWithHttpInfo
      *
-     * @param  \Calcasa\Api\Model\FileSetsInboundFileSet $fileSetsInboundFileSet (required)
+     * @param  \Calcasa\Api\Model\InboundFileSet $inboundFileSet (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createInboundFileSetAsyncWithHttpInfo($fileSetsInboundFileSet)
+    public function createInboundFileSetAsyncWithHttpInfo($inboundFileSet)
     {
-        $returnType = '\Calcasa\Api\Model\FileSetsInboundFileSet';
-        $request = $this->createInboundFileSetRequest($fileSetsInboundFileSet);
+        $returnType = '\Calcasa\Api\Model\InboundFileSet';
+        $request = $this->createInboundFileSetRequest($inboundFileSet);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -770,17 +770,17 @@ class FileSetsApi
     /**
      * Create request for operation 'createInboundFileSet'
      *
-     * @param  \Calcasa\Api\Model\FileSetsInboundFileSet $fileSetsInboundFileSet (required)
+     * @param  \Calcasa\Api\Model\InboundFileSet $inboundFileSet (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function createInboundFileSetRequest($fileSetsInboundFileSet)
+    public function createInboundFileSetRequest($inboundFileSet)
     {
-        // verify the required parameter 'fileSetsInboundFileSet' is set
-        if ($fileSetsInboundFileSet === null || (is_array($fileSetsInboundFileSet) && count($fileSetsInboundFileSet) === 0)) {
+        // verify the required parameter 'inboundFileSet' is set
+        if ($inboundFileSet === null || (is_array($inboundFileSet) && count($inboundFileSet) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $fileSetsInboundFileSet when calling createInboundFileSet'
+                'Missing the required parameter $inboundFileSet when calling createInboundFileSet'
             );
         }
 
@@ -807,11 +807,11 @@ class FileSetsApi
         }
 
         // for model (json/xml)
-        if (isset($fileSetsInboundFileSet)) {
+        if (isset($inboundFileSet)) {
             if ($headers['Content-Type'] === 'application/json' || $headers['Content-Type'] === 'application/json-patch+json') {
-                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($fileSetsInboundFileSet));
+                $httpBody = \GuzzleHttp\Utils::jsonEncode(ObjectSerializer::sanitizeForSerialization($inboundFileSet));
             } else {
-                $httpBody = $fileSetsInboundFileSet;
+                $httpBody = $inboundFileSet;
             }
         } elseif (count($formParams) > 0) {
             if ($multipart) {
@@ -1125,7 +1125,7 @@ class FileSetsApi
      *
      * @throws \Calcasa\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Calcasa\Api\Model\FileSetsInboundFileSet|\Calcasa\Api\Model\UnauthorizedProblemDetails|\Calcasa\Api\Model\NotFoundProblemDetails|\Calcasa\Api\Model\ProblemDetails
+     * @return \Calcasa\Api\Model\InboundFileSet|\Calcasa\Api\Model\UnauthorizedProblemDetails|\Calcasa\Api\Model\NotFoundProblemDetails|\Calcasa\Api\Model\ProblemDetails
      */
     public function getInboundFileSetById($inboundFileSetId)
     {
@@ -1142,7 +1142,7 @@ class FileSetsApi
      *
      * @throws \Calcasa\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Calcasa\Api\Model\FileSetsInboundFileSet|\Calcasa\Api\Model\UnauthorizedProblemDetails|\Calcasa\Api\Model\NotFoundProblemDetails|\Calcasa\Api\Model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Calcasa\Api\Model\InboundFileSet|\Calcasa\Api\Model\UnauthorizedProblemDetails|\Calcasa\Api\Model\NotFoundProblemDetails|\Calcasa\Api\Model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
      */
     public function getInboundFileSetByIdWithHttpInfo($inboundFileSetId)
     {
@@ -1185,17 +1185,17 @@ class FileSetsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Calcasa\Api\Model\FileSetsInboundFileSet' === '\SplFileObject') {
+                    if ('\Calcasa\Api\Model\InboundFileSet' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Calcasa\Api\Model\FileSetsInboundFileSet' !== 'string') {
+                        if ('\Calcasa\Api\Model\InboundFileSet' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Calcasa\Api\Model\FileSetsInboundFileSet', []),
+                        ObjectSerializer::deserialize($content, '\Calcasa\Api\Model\InboundFileSet', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1246,7 +1246,7 @@ class FileSetsApi
                     ];
             }
 
-            $returnType = '\Calcasa\Api\Model\FileSetsInboundFileSet';
+            $returnType = '\Calcasa\Api\Model\InboundFileSet';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1267,7 +1267,7 @@ class FileSetsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Calcasa\Api\Model\FileSetsInboundFileSet',
+                        '\Calcasa\Api\Model\InboundFileSet',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1333,7 +1333,7 @@ class FileSetsApi
      */
     public function getInboundFileSetByIdAsyncWithHttpInfo($inboundFileSetId)
     {
-        $returnType = '\Calcasa\Api\Model\FileSetsInboundFileSet';
+        $returnType = '\Calcasa\Api\Model\InboundFileSet';
         $request = $this->getInboundFileSetByIdRequest($inboundFileSetId);
 
         return $this->client
@@ -1477,7 +1477,7 @@ class FileSetsApi
      *
      * @throws \Calcasa\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Calcasa\Api\Model\FileSetsInboundFileSet[]|\Calcasa\Api\Model\UnauthorizedProblemDetails|\Calcasa\Api\Model\ProblemDetails
+     * @return \Calcasa\Api\Model\InboundFileSet[]|\Calcasa\Api\Model\UnauthorizedProblemDetails|\Calcasa\Api\Model\ProblemDetails
      */
     public function getInboundFileSets()
     {
@@ -1493,7 +1493,7 @@ class FileSetsApi
      *
      * @throws \Calcasa\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Calcasa\Api\Model\FileSetsInboundFileSet[]|\Calcasa\Api\Model\UnauthorizedProblemDetails|\Calcasa\Api\Model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Calcasa\Api\Model\InboundFileSet[]|\Calcasa\Api\Model\UnauthorizedProblemDetails|\Calcasa\Api\Model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
      */
     public function getInboundFileSetsWithHttpInfo()
     {
@@ -1536,17 +1536,17 @@ class FileSetsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Calcasa\Api\Model\FileSetsInboundFileSet[]' === '\SplFileObject') {
+                    if ('\Calcasa\Api\Model\InboundFileSet[]' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Calcasa\Api\Model\FileSetsInboundFileSet[]' !== 'string') {
+                        if ('\Calcasa\Api\Model\InboundFileSet[]' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Calcasa\Api\Model\FileSetsInboundFileSet[]', []),
+                        ObjectSerializer::deserialize($content, '\Calcasa\Api\Model\InboundFileSet[]', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -1582,7 +1582,7 @@ class FileSetsApi
                     ];
             }
 
-            $returnType = '\Calcasa\Api\Model\FileSetsInboundFileSet[]';
+            $returnType = '\Calcasa\Api\Model\InboundFileSet[]';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1603,7 +1603,7 @@ class FileSetsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Calcasa\Api\Model\FileSetsInboundFileSet[]',
+                        '\Calcasa\Api\Model\InboundFileSet[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1659,7 +1659,7 @@ class FileSetsApi
      */
     public function getInboundFileSetsAsyncWithHttpInfo()
     {
-        $returnType = '\Calcasa\Api\Model\FileSetsInboundFileSet[]';
+        $returnType = '\Calcasa\Api\Model\InboundFileSet[]';
         $request = $this->getInboundFileSetsRequest();
 
         return $this->client
@@ -2170,7 +2170,7 @@ class FileSetsApi
      *
      * @throws \Calcasa\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Calcasa\Api\Model\FileSetsOutboundFileSet|\Calcasa\Api\Model\UnauthorizedProblemDetails|\Calcasa\Api\Model\NotFoundProblemDetails|\Calcasa\Api\Model\ProblemDetails
+     * @return \Calcasa\Api\Model\OutboundFileSet|\Calcasa\Api\Model\UnauthorizedProblemDetails|\Calcasa\Api\Model\NotFoundProblemDetails|\Calcasa\Api\Model\ProblemDetails
      */
     public function getOutboundFileSetById($outboundFileSetId)
     {
@@ -2187,7 +2187,7 @@ class FileSetsApi
      *
      * @throws \Calcasa\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Calcasa\Api\Model\FileSetsOutboundFileSet|\Calcasa\Api\Model\UnauthorizedProblemDetails|\Calcasa\Api\Model\NotFoundProblemDetails|\Calcasa\Api\Model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Calcasa\Api\Model\OutboundFileSet|\Calcasa\Api\Model\UnauthorizedProblemDetails|\Calcasa\Api\Model\NotFoundProblemDetails|\Calcasa\Api\Model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
      */
     public function getOutboundFileSetByIdWithHttpInfo($outboundFileSetId)
     {
@@ -2230,17 +2230,17 @@ class FileSetsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Calcasa\Api\Model\FileSetsOutboundFileSet' === '\SplFileObject') {
+                    if ('\Calcasa\Api\Model\OutboundFileSet' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Calcasa\Api\Model\FileSetsOutboundFileSet' !== 'string') {
+                        if ('\Calcasa\Api\Model\OutboundFileSet' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Calcasa\Api\Model\FileSetsOutboundFileSet', []),
+                        ObjectSerializer::deserialize($content, '\Calcasa\Api\Model\OutboundFileSet', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -2291,7 +2291,7 @@ class FileSetsApi
                     ];
             }
 
-            $returnType = '\Calcasa\Api\Model\FileSetsOutboundFileSet';
+            $returnType = '\Calcasa\Api\Model\OutboundFileSet';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2312,7 +2312,7 @@ class FileSetsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Calcasa\Api\Model\FileSetsOutboundFileSet',
+                        '\Calcasa\Api\Model\OutboundFileSet',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2378,7 +2378,7 @@ class FileSetsApi
      */
     public function getOutboundFileSetByIdAsyncWithHttpInfo($outboundFileSetId)
     {
-        $returnType = '\Calcasa\Api\Model\FileSetsOutboundFileSet';
+        $returnType = '\Calcasa\Api\Model\OutboundFileSet';
         $request = $this->getOutboundFileSetByIdRequest($outboundFileSetId);
 
         return $this->client
@@ -2522,7 +2522,7 @@ class FileSetsApi
      *
      * @throws \Calcasa\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Calcasa\Api\Model\FileSetsOutboundFileSet[]|\Calcasa\Api\Model\UnauthorizedProblemDetails|\Calcasa\Api\Model\ProblemDetails
+     * @return \Calcasa\Api\Model\OutboundFileSet[]|\Calcasa\Api\Model\UnauthorizedProblemDetails|\Calcasa\Api\Model\ProblemDetails
      */
     public function getOutboundFileSets()
     {
@@ -2538,7 +2538,7 @@ class FileSetsApi
      *
      * @throws \Calcasa\Api\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Calcasa\Api\Model\FileSetsOutboundFileSet[]|\Calcasa\Api\Model\UnauthorizedProblemDetails|\Calcasa\Api\Model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Calcasa\Api\Model\OutboundFileSet[]|\Calcasa\Api\Model\UnauthorizedProblemDetails|\Calcasa\Api\Model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
      */
     public function getOutboundFileSetsWithHttpInfo()
     {
@@ -2581,17 +2581,17 @@ class FileSetsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Calcasa\Api\Model\FileSetsOutboundFileSet[]' === '\SplFileObject') {
+                    if ('\Calcasa\Api\Model\OutboundFileSet[]' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
-                        if ('\Calcasa\Api\Model\FileSetsOutboundFileSet[]' !== 'string') {
+                        if ('\Calcasa\Api\Model\OutboundFileSet[]' !== 'string') {
                             $content = json_decode($content);
                         }
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Calcasa\Api\Model\FileSetsOutboundFileSet[]', []),
+                        ObjectSerializer::deserialize($content, '\Calcasa\Api\Model\OutboundFileSet[]', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
@@ -2627,7 +2627,7 @@ class FileSetsApi
                     ];
             }
 
-            $returnType = '\Calcasa\Api\Model\FileSetsOutboundFileSet[]';
+            $returnType = '\Calcasa\Api\Model\OutboundFileSet[]';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2648,7 +2648,7 @@ class FileSetsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Calcasa\Api\Model\FileSetsOutboundFileSet[]',
+                        '\Calcasa\Api\Model\OutboundFileSet[]',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2704,7 +2704,7 @@ class FileSetsApi
      */
     public function getOutboundFileSetsAsyncWithHttpInfo()
     {
-        $returnType = '\Calcasa\Api\Model\FileSetsOutboundFileSet[]';
+        $returnType = '\Calcasa\Api\Model\OutboundFileSet[]';
         $request = $this->getOutboundFileSetsRequest();
 
         return $this->client

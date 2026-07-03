@@ -1,6 +1,6 @@
 <?php
 /**
- * FileSetsInboundFileSet
+ * FileInfo
  *
  * PHP version 8.1
  *
@@ -46,7 +46,7 @@ use \ArrayAccess;
 use \Calcasa\Api\ObjectSerializer;
 
 /**
- * FileSetsInboundFileSet Class Doc Comment
+ * FileInfo Class Doc Comment
  *
  * @category Class
  * @package  Calcasa\Api
@@ -54,7 +54,7 @@ use \Calcasa\Api\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class FileSetsInboundFileSet implements ModelInterface, ArrayAccess, \JsonSerializable
+class FileInfo implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -63,7 +63,7 @@ class FileSetsInboundFileSet implements ModelInterface, ArrayAccess, \JsonSerial
       *
       * @var string
       */
-    protected static $openAPIModelName = 'FileSets.InboundFileSet';
+    protected static $openAPIModelName = 'FileInfo';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -71,14 +71,11 @@ class FileSetsInboundFileSet implements ModelInterface, ArrayAccess, \JsonSerial
       * @var string[]
       */
     protected static $openAPITypes = [
-        'files' => '\Calcasa\Api\Model\FileSetsFileInfo[]',
-        'id' => 'string',
-        'type' => 'string',
-        'period' => 'string',
-        'revision' => 'int',
-        'state' => '\Calcasa\Api\Model\InboundFileSetState',
-        'errors' => '\Calcasa\Api\Model\FileError[]',
-        'warnings' => '\Calcasa\Api\Model\FileWarning[]'
+        'index' => 'int',
+        'name' => 'string',
+        'sha256hash' => 'string',
+        'size' => 'int',
+        'contentType' => 'string'
     ];
 
     /**
@@ -89,14 +86,11 @@ class FileSetsInboundFileSet implements ModelInterface, ArrayAccess, \JsonSerial
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'files' => null,
-        'id' => 'uuid',
-        'type' => null,
-        'period' => null,
-        'revision' => 'uint32',
-        'state' => null,
-        'errors' => null,
-        'warnings' => null
+        'index' => 'int32',
+        'name' => null,
+        'sha256hash' => 'hex',
+        'size' => 'int64',
+        'contentType' => null
     ];
 
     /**
@@ -105,14 +99,11 @@ class FileSetsInboundFileSet implements ModelInterface, ArrayAccess, \JsonSerial
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'files' => false,
-        'id' => false,
-        'type' => false,
-        'period' => false,
-        'revision' => false,
-        'state' => false,
-        'errors' => false,
-        'warnings' => false
+        'index' => false,
+        'name' => false,
+        'sha256hash' => false,
+        'size' => false,
+        'contentType' => false
     ];
 
     /**
@@ -201,14 +192,11 @@ class FileSetsInboundFileSet implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $attributeMap = [
-        'files' => 'files',
-        'id' => 'id',
-        'type' => 'type',
-        'period' => 'period',
-        'revision' => 'revision',
-        'state' => 'state',
-        'errors' => 'errors',
-        'warnings' => 'warnings'
+        'index' => 'index',
+        'name' => 'name',
+        'sha256hash' => 'sha256hash',
+        'size' => 'size',
+        'contentType' => 'contentType'
     ];
 
     /**
@@ -217,14 +205,11 @@ class FileSetsInboundFileSet implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $setters = [
-        'files' => 'setFiles',
-        'id' => 'setId',
-        'type' => 'setType',
-        'period' => 'setPeriod',
-        'revision' => 'setRevision',
-        'state' => 'setState',
-        'errors' => 'setErrors',
-        'warnings' => 'setWarnings'
+        'index' => 'setIndex',
+        'name' => 'setName',
+        'sha256hash' => 'setSha256hash',
+        'size' => 'setSize',
+        'contentType' => 'setContentType'
     ];
 
     /**
@@ -233,14 +218,11 @@ class FileSetsInboundFileSet implements ModelInterface, ArrayAccess, \JsonSerial
      * @var string[]
      */
     protected static $getters = [
-        'files' => 'getFiles',
-        'id' => 'getId',
-        'type' => 'getType',
-        'period' => 'getPeriod',
-        'revision' => 'getRevision',
-        'state' => 'getState',
-        'errors' => 'getErrors',
-        'warnings' => 'getWarnings'
+        'index' => 'getIndex',
+        'name' => 'getName',
+        'sha256hash' => 'getSha256hash',
+        'size' => 'getSize',
+        'contentType' => 'getContentType'
     ];
 
     /**
@@ -300,14 +282,11 @@ class FileSetsInboundFileSet implements ModelInterface, ArrayAccess, \JsonSerial
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('files', $data ?? [], null);
-        $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('type', $data ?? [], null);
-        $this->setIfExists('period', $data ?? [], null);
-        $this->setIfExists('revision', $data ?? [], null);
-        $this->setIfExists('state', $data ?? [], null);
-        $this->setIfExists('errors', $data ?? [], null);
-        $this->setIfExists('warnings', $data ?? [], null);
+        $this->setIfExists('index', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('sha256hash', $data ?? [], null);
+        $this->setIfExists('size', $data ?? [], null);
+        $this->setIfExists('contentType', $data ?? [], null);
     }
 
     /**
@@ -337,23 +316,24 @@ class FileSetsInboundFileSet implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $invalidProperties = [];
 
-        if ($this->container['files'] === null) {
-            $invalidProperties[] = "'files' can't be null";
+        if ($this->container['index'] === null) {
+            $invalidProperties[] = "'index' can't be null";
         }
-        if ($this->container['id'] === null) {
-            $invalidProperties[] = "'id' can't be null";
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
         }
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
+        if ($this->container['sha256hash'] === null) {
+            $invalidProperties[] = "'sha256hash' can't be null";
         }
-        if ($this->container['period'] === null) {
-            $invalidProperties[] = "'period' can't be null";
+        if (!preg_match("/^[A-F0-9]{64}$/", $this->container['sha256hash'])) {
+            $invalidProperties[] = "invalid value for 'sha256hash', must be conform to the pattern /^[A-F0-9]{64}$/.";
         }
-        if ($this->container['revision'] === null) {
-            $invalidProperties[] = "'revision' can't be null";
+
+        if ($this->container['size'] === null) {
+            $invalidProperties[] = "'size' can't be null";
         }
-        if ($this->container['state'] === null) {
-            $invalidProperties[] = "'state' can't be null";
+        if ($this->container['contentType'] === null) {
+            $invalidProperties[] = "'contentType' can't be null";
         }
         return $invalidProperties;
     }
@@ -371,217 +351,141 @@ class FileSetsInboundFileSet implements ModelInterface, ArrayAccess, \JsonSerial
 
 
     /**
-     * Gets files
-     *
-     * @return \Calcasa\Api\Model\FileSetsFileInfo[]
-     */
-    public function getFiles()
-    {
-        return $this->container['files'];
-    }
-
-    /**
-     * Sets files
-     *
-     * @param \Calcasa\Api\Model\FileSetsFileInfo[] $files The files associated with the file set.
-     *
-     * @return self
-     */
-    public function setFiles($files)
-    {
-        if (is_null($files)) {
-            throw new \InvalidArgumentException('non-nullable files cannot be null');
-        }
-        $this->container['files'] = $files;
-
-        return $this;
-    }
-
-    /**
-     * Gets id
-     *
-     * @return string
-     */
-    public function getId()
-    {
-        return $this->container['id'];
-    }
-
-    /**
-     * Sets id
-     *
-     * @param string $id The file set ID, which is a unique identifier for the file set. This ID is used to track and manage the file set throughout its lifecycle. It is generated by the system when the file set is created and is used in API requests to reference the specific file set.
-     *
-     * @return self
-     */
-    public function setId($id)
-    {
-        if (is_null($id)) {
-            throw new \InvalidArgumentException('non-nullable id cannot be null');
-        }
-        $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets type
-     *
-     * @return string
-     */
-    public function getType()
-    {
-        return $this->container['type'];
-    }
-
-    /**
-     * Sets type
-     *
-     * @param string $type The type of the inbound file set. This is a string that is previously agreed upon between the client and the server. It is used to categorize and identify the purpose of the file set. The type can be used to apply specific processing rules or validations based on the type of data contained in the file set.
-     *
-     * @return self
-     */
-    public function setType($type)
-    {
-        if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
-        }
-        $this->container['type'] = $type;
-
-        return $this;
-    }
-
-    /**
-     * Gets period
-     *
-     * @return string
-     */
-    public function getPeriod()
-    {
-        return $this->container['period'];
-    }
-
-    /**
-     * Sets period
-     *
-     * @param string $period The period of the inbound file set. This is a string that represents the time period for which the file set is relevant. It is used to categorize and identify the time frame of the data contained in the file set. Valid values are a year (YYYY), a year and month (YYYY-MM), a quarter (YYYYQX), and full date (YYYY-MM-DD).
-     *
-     * @return self
-     */
-    public function setPeriod($period)
-    {
-        if (is_null($period)) {
-            throw new \InvalidArgumentException('non-nullable period cannot be null');
-        }
-        $this->container['period'] = $period;
-
-        return $this;
-    }
-
-    /**
-     * Gets revision
+     * Gets index
      *
      * @return int
      */
-    public function getRevision()
+    public function getIndex()
     {
-        return $this->container['revision'];
+        return $this->container['index'];
     }
 
     /**
-     * Sets revision
+     * Sets index
      *
-     * @param int $revision A revision number for the inbound file set that is incremented for every retry or redelivery.
+     * @param int $index The index of the file within the file set. Zero-based.
      *
      * @return self
      */
-    public function setRevision($revision)
+    public function setIndex($index)
     {
-        if (is_null($revision)) {
-            throw new \InvalidArgumentException('non-nullable revision cannot be null');
+        if (is_null($index)) {
+            throw new \InvalidArgumentException('non-nullable index cannot be null');
         }
-        $this->container['revision'] = $revision;
+        $this->container['index'] = $index;
 
         return $this;
     }
 
     /**
-     * Gets state
+     * Gets name
      *
-     * @return \Calcasa\Api\Model\InboundFileSetState
+     * @return string
      */
-    public function getState()
+    public function getName()
     {
-        return $this->container['state'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets state
+     * Sets name
      *
-     * @param \Calcasa\Api\Model\InboundFileSetState $state state
+     * @param string $name The name of the file, including its extension. This needs to be unique within the file set.
      *
      * @return self
      */
-    public function setState($state)
+    public function setName($name)
     {
-        if (is_null($state)) {
-            throw new \InvalidArgumentException('non-nullable state cannot be null');
+        if (is_null($name)) {
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
-        $this->container['state'] = $state;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets errors
+     * Gets sha256hash
      *
-     * @return \Calcasa\Api\Model\FileError[]|null
+     * @return string
      */
-    public function getErrors()
+    public function getSha256hash()
     {
-        return $this->container['errors'];
+        return $this->container['sha256hash'];
     }
 
     /**
-     * Sets errors
+     * Sets sha256hash
      *
-     * @param \Calcasa\Api\Model\FileError[]|null $errors Errors that occurred during the processing of the inbound file set. This is an array of FileError objects that provide details about each error, including the index of the file within the file set, the name of the file, the expected and actual SHA256 hash values, and the expected and actual file sizes.
+     * @param string $sha256hash The SHA256 hash of the file contents, represented as an uppercase hexadecimal string. For the outbound file sets this is the expected hash, for inbound file sets this is the actual hash of the file contents.
      *
      * @return self
      */
-    public function setErrors($errors)
+    public function setSha256hash($sha256hash)
     {
-        if (is_null($errors)) {
-            throw new \InvalidArgumentException('non-nullable errors cannot be null');
+        if (is_null($sha256hash)) {
+            throw new \InvalidArgumentException('non-nullable sha256hash cannot be null');
         }
-        $this->container['errors'] = $errors;
+
+        if ((!preg_match("/^[A-F0-9]{64}$/", ObjectSerializer::toString($sha256hash)))) {
+            throw new \InvalidArgumentException("invalid value for \$sha256hash when calling FileInfo., must conform to the pattern /^[A-F0-9]{64}$/.");
+        }
+
+        $this->container['sha256hash'] = $sha256hash;
 
         return $this;
     }
 
     /**
-     * Gets warnings
+     * Gets size
      *
-     * @return \Calcasa\Api\Model\FileWarning[]|null
+     * @return int
      */
-    public function getWarnings()
+    public function getSize()
     {
-        return $this->container['warnings'];
+        return $this->container['size'];
     }
 
     /**
-     * Sets warnings
+     * Sets size
      *
-     * @param \Calcasa\Api\Model\FileWarning[]|null $warnings Warnings that occurred during the processing of the inbound file set. This is an array of FileWarning objects that provide details about each warning, including the index of the file within the file set, the name of the file.
+     * @param int $size The file size in bytes. For the outbound file sets this is the expected size, for inbound file sets this is the actual size of the file contents.
      *
      * @return self
      */
-    public function setWarnings($warnings)
+    public function setSize($size)
     {
-        if (is_null($warnings)) {
-            throw new \InvalidArgumentException('non-nullable warnings cannot be null');
+        if (is_null($size)) {
+            throw new \InvalidArgumentException('non-nullable size cannot be null');
         }
-        $this->container['warnings'] = $warnings;
+        $this->container['size'] = $size;
+
+        return $this;
+    }
+
+    /**
+     * Gets contentType
+     *
+     * @return string
+     */
+    public function getContentType()
+    {
+        return $this->container['contentType'];
+    }
+
+    /**
+     * Sets contentType
+     *
+     * @param string $contentType The content type of the file, which indicates the media type of the file contents. This is used to determine how to handle and process the file. For example, \"application/pdf\" for PDF files, \"image/jpeg\" for JPEG images, etc. Refer to [IANA Media Types](https://www.iana.org/assignments/media-types/media-types.xhtml) for possible values.
+     *
+     * @return self
+     */
+    public function setContentType($contentType)
+    {
+        if (is_null($contentType)) {
+            throw new \InvalidArgumentException('non-nullable contentType cannot be null');
+        }
+        $this->container['contentType'] = $contentType;
 
         return $this;
     }

@@ -85,7 +85,7 @@ class FileWarning implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'index' => 'uint32',
+        'index' => 'int32',
         'name' => null,
         'type' => null,
         'description' => null

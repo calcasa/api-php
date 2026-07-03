@@ -47,7 +47,7 @@ use \Calcasa\Api\ObjectSerializer;
  * OutboundFileSetState Class Doc Comment
  *
  * @category Class
- * @description Outbound file set states.  | Value | Description | | --- | --- | | &#x60;ready&#x60; | File set is ready and is waiting for the files to be downloaded. | | &#x60;deleted&#x60; | File set has been downloaded and has been deleted. | | &#x60;expired&#x60; | File set has expired and all its contents have been deleted. |
+ * @description Outbound file set states.  | Value | Description | | --- | --- | | &#x60;preparing&#x60; | File set is being prepared for download. | | &#x60;ready&#x60; | File set is ready and is waiting for the files to be downloaded. | | &#x60;deleted&#x60; | File set has been downloaded and has been deleted. | | &#x60;expired&#x60; | File set has expired and all its contents have been deleted. |
  * @package  Calcasa\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -57,6 +57,8 @@ class OutboundFileSetState
     /**
      * Possible values of this enum
      */
+    public const PREPARING = 'preparing';
+
     public const READY = 'ready';
 
     public const DELETED = 'deleted';
@@ -70,6 +72,7 @@ class OutboundFileSetState
     public static function getAllowableEnumValues()
     {
         return [
+            self::PREPARING,
             self::READY,
             self::DELETED,
             self::EXPIRED

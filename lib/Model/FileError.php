@@ -87,12 +87,12 @@ class FileError implements ModelInterface, ArrayAccess, \JsonSerializable
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'index' => 'uint32',
+        'index' => 'int32',
         'name' => null,
         'expectedSha256hash' => 'hex',
-        'expectedFileSize' => 'uint64',
+        'expectedFileSize' => 'int64',
         'actualSha256hash' => 'hex',
-        'actualFileSize' => 'uint64'
+        'actualFileSize' => 'int64'
     ];
 
     /**

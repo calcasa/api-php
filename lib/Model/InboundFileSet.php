@@ -1,6 +1,6 @@
 <?php
 /**
- * FileSetsOutboundFileSet
+ * InboundFileSet
  *
  * PHP version 8.1
  *
@@ -46,7 +46,7 @@ use \ArrayAccess;
 use \Calcasa\Api\ObjectSerializer;
 
 /**
- * FileSetsOutboundFileSet Class Doc Comment
+ * InboundFileSet Class Doc Comment
  *
  * @category Class
  * @package  Calcasa\Api
@@ -54,7 +54,7 @@ use \Calcasa\Api\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class FileSetsOutboundFileSet implements ModelInterface, ArrayAccess, \JsonSerializable
+class InboundFileSet implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -63,7 +63,7 @@ class FileSetsOutboundFileSet implements ModelInterface, ArrayAccess, \JsonSeria
       *
       * @var string
       */
-    protected static $openAPIModelName = 'FileSets.OutboundFileSet';
+    protected static $openAPIModelName = 'InboundFileSet';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -71,11 +71,17 @@ class FileSetsOutboundFileSet implements ModelInterface, ArrayAccess, \JsonSeria
       * @var string[]
       */
     protected static $openAPITypes = [
-        'files' => '\Calcasa\Api\Model\FileSetsFileInfo[]',
         'id' => 'string',
-        'inboundFileSetId' => 'string',
+        'files' => '\Calcasa\Api\Model\FileInfo[]',
+        'createdOn' => '\DateTime',
+        'expiresAfter' => '\DateTime',
+        'modifiedOn' => '\DateTime',
+        'type' => 'string',
         'revision' => 'int',
-        'state' => '\Calcasa\Api\Model\OutboundFileSetState'
+        'period' => '\DateTime',
+        'state' => '\Calcasa\Api\Model\InboundFileSetState',
+        'errors' => '\Calcasa\Api\Model\FileError[]',
+        'warnings' => '\Calcasa\Api\Model\FileWarning[]'
     ];
 
     /**
@@ -86,11 +92,17 @@ class FileSetsOutboundFileSet implements ModelInterface, ArrayAccess, \JsonSeria
       * @psalm-var array<string, string|null>
       */
     protected static $openAPIFormats = [
-        'files' => null,
         'id' => 'uuid',
-        'inboundFileSetId' => 'uuid',
-        'revision' => 'uint32',
-        'state' => null
+        'files' => null,
+        'createdOn' => 'date-time',
+        'expiresAfter' => 'date-time',
+        'modifiedOn' => 'date-time',
+        'type' => null,
+        'revision' => 'int32',
+        'period' => 'date',
+        'state' => null,
+        'errors' => null,
+        'warnings' => null
     ];
 
     /**
@@ -99,11 +111,17 @@ class FileSetsOutboundFileSet implements ModelInterface, ArrayAccess, \JsonSeria
       * @var boolean[]
       */
     protected static array $openAPINullables = [
-        'files' => false,
         'id' => false,
-        'inboundFileSetId' => false,
+        'files' => false,
+        'createdOn' => false,
+        'expiresAfter' => true,
+        'modifiedOn' => false,
+        'type' => false,
         'revision' => false,
-        'state' => false
+        'period' => true,
+        'state' => false,
+        'errors' => false,
+        'warnings' => false
     ];
 
     /**
@@ -192,11 +210,17 @@ class FileSetsOutboundFileSet implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $attributeMap = [
-        'files' => 'files',
         'id' => 'id',
-        'inboundFileSetId' => 'inboundFileSetId',
+        'files' => 'files',
+        'createdOn' => 'createdOn',
+        'expiresAfter' => 'expiresAfter',
+        'modifiedOn' => 'modifiedOn',
+        'type' => 'type',
         'revision' => 'revision',
-        'state' => 'state'
+        'period' => 'period',
+        'state' => 'state',
+        'errors' => 'errors',
+        'warnings' => 'warnings'
     ];
 
     /**
@@ -205,11 +229,17 @@ class FileSetsOutboundFileSet implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $setters = [
-        'files' => 'setFiles',
         'id' => 'setId',
-        'inboundFileSetId' => 'setInboundFileSetId',
+        'files' => 'setFiles',
+        'createdOn' => 'setCreatedOn',
+        'expiresAfter' => 'setExpiresAfter',
+        'modifiedOn' => 'setModifiedOn',
+        'type' => 'setType',
         'revision' => 'setRevision',
-        'state' => 'setState'
+        'period' => 'setPeriod',
+        'state' => 'setState',
+        'errors' => 'setErrors',
+        'warnings' => 'setWarnings'
     ];
 
     /**
@@ -218,11 +248,17 @@ class FileSetsOutboundFileSet implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $getters = [
-        'files' => 'getFiles',
         'id' => 'getId',
-        'inboundFileSetId' => 'getInboundFileSetId',
+        'files' => 'getFiles',
+        'createdOn' => 'getCreatedOn',
+        'expiresAfter' => 'getExpiresAfter',
+        'modifiedOn' => 'getModifiedOn',
+        'type' => 'getType',
         'revision' => 'getRevision',
-        'state' => 'getState'
+        'period' => 'getPeriod',
+        'state' => 'getState',
+        'errors' => 'getErrors',
+        'warnings' => 'getWarnings'
     ];
 
     /**
@@ -282,11 +318,17 @@ class FileSetsOutboundFileSet implements ModelInterface, ArrayAccess, \JsonSeria
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('files', $data ?? [], null);
         $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('inboundFileSetId', $data ?? [], null);
+        $this->setIfExists('files', $data ?? [], null);
+        $this->setIfExists('createdOn', $data ?? [], null);
+        $this->setIfExists('expiresAfter', $data ?? [], null);
+        $this->setIfExists('modifiedOn', $data ?? [], null);
+        $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('revision', $data ?? [], null);
+        $this->setIfExists('period', $data ?? [], null);
         $this->setIfExists('state', $data ?? [], null);
+        $this->setIfExists('errors', $data ?? [], null);
+        $this->setIfExists('warnings', $data ?? [], null);
     }
 
     /**
@@ -316,14 +358,20 @@ class FileSetsOutboundFileSet implements ModelInterface, ArrayAccess, \JsonSeria
     {
         $invalidProperties = [];
 
-        if ($this->container['files'] === null) {
-            $invalidProperties[] = "'files' can't be null";
-        }
         if ($this->container['id'] === null) {
             $invalidProperties[] = "'id' can't be null";
         }
-        if ($this->container['inboundFileSetId'] === null) {
-            $invalidProperties[] = "'inboundFileSetId' can't be null";
+        if ($this->container['files'] === null) {
+            $invalidProperties[] = "'files' can't be null";
+        }
+        if ($this->container['createdOn'] === null) {
+            $invalidProperties[] = "'createdOn' can't be null";
+        }
+        if ($this->container['modifiedOn'] === null) {
+            $invalidProperties[] = "'modifiedOn' can't be null";
+        }
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
         }
         if ($this->container['revision'] === null) {
             $invalidProperties[] = "'revision' can't be null";
@@ -347,33 +395,6 @@ class FileSetsOutboundFileSet implements ModelInterface, ArrayAccess, \JsonSeria
 
 
     /**
-     * Gets files
-     *
-     * @return \Calcasa\Api\Model\FileSetsFileInfo[]
-     */
-    public function getFiles()
-    {
-        return $this->container['files'];
-    }
-
-    /**
-     * Sets files
-     *
-     * @param \Calcasa\Api\Model\FileSetsFileInfo[] $files The files associated with the file set.
-     *
-     * @return self
-     */
-    public function setFiles($files)
-    {
-        if (is_null($files)) {
-            throw new \InvalidArgumentException('non-nullable files cannot be null');
-        }
-        $this->container['files'] = $files;
-
-        return $this;
-    }
-
-    /**
      * Gets id
      *
      * @return string
@@ -386,7 +407,7 @@ class FileSetsOutboundFileSet implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets id
      *
-     * @param string $id The file set ID, which is a unique identifier for the file set. This ID is used to track and manage the file set throughout its lifecycle. It is generated by the system when the file set is created and is used in API requests to reference the specific file set. It is also used for inbound file sets to reference the outbound file set from which they originated.
+     * @param string $id The file set ID, which is a unique identifier for the file set. This ID is used to track and manage the file set throughout its lifecycle. It is generated by the system when the file set is created and is used in API requests to reference the specific file set.
      *
      * @return self
      */
@@ -401,28 +422,143 @@ class FileSetsOutboundFileSet implements ModelInterface, ArrayAccess, \JsonSeria
     }
 
     /**
-     * Gets inboundFileSetId
+     * Gets files
      *
-     * @return string
+     * @return \Calcasa\Api\Model\FileInfo[]
      */
-    public function getInboundFileSetId()
+    public function getFiles()
     {
-        return $this->container['inboundFileSetId'];
+        return $this->container['files'];
     }
 
     /**
-     * Sets inboundFileSetId
+     * Sets files
      *
-     * @param string $inboundFileSetId The id of the inbound file set from which this outbound file set originated. This is used to track the relationship between inbound and outbound file sets. The inboundFileSetId and revision combination should be unique for each outbound file set.
+     * @param \Calcasa\Api\Model\FileInfo[] $files The files associated with the file set.
      *
      * @return self
      */
-    public function setInboundFileSetId($inboundFileSetId)
+    public function setFiles($files)
     {
-        if (is_null($inboundFileSetId)) {
-            throw new \InvalidArgumentException('non-nullable inboundFileSetId cannot be null');
+        if (is_null($files)) {
+            throw new \InvalidArgumentException('non-nullable files cannot be null');
         }
-        $this->container['inboundFileSetId'] = $inboundFileSetId;
+        $this->container['files'] = $files;
+
+        return $this;
+    }
+
+    /**
+     * Gets createdOn
+     *
+     * @return \DateTime
+     */
+    public function getCreatedOn()
+    {
+        return $this->container['createdOn'];
+    }
+
+    /**
+     * Sets createdOn
+     *
+     * @param \DateTime $createdOn createdOn
+     *
+     * @return self
+     */
+    public function setCreatedOn($createdOn)
+    {
+        if (is_null($createdOn)) {
+            throw new \InvalidArgumentException('non-nullable createdOn cannot be null');
+        }
+        $this->container['createdOn'] = $createdOn;
+
+        return $this;
+    }
+
+    /**
+     * Gets expiresAfter
+     *
+     * @return \DateTime|null
+     */
+    public function getExpiresAfter()
+    {
+        return $this->container['expiresAfter'];
+    }
+
+    /**
+     * Sets expiresAfter
+     *
+     * @param \DateTime|null $expiresAfter If specified the file set will expire after this date and time. If no appropiate action is taken before this date and time, the file set and all its contents will be deleted.
+     *
+     * @return self
+     */
+    public function setExpiresAfter($expiresAfter)
+    {
+        if (is_null($expiresAfter)) {
+            array_push($this->openAPINullablesSetToNull, 'expiresAfter');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('expiresAfter', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['expiresAfter'] = $expiresAfter;
+
+        return $this;
+    }
+
+    /**
+     * Gets modifiedOn
+     *
+     * @return \DateTime
+     */
+    public function getModifiedOn()
+    {
+        return $this->container['modifiedOn'];
+    }
+
+    /**
+     * Sets modifiedOn
+     *
+     * @param \DateTime $modifiedOn modifiedOn
+     *
+     * @return self
+     */
+    public function setModifiedOn($modifiedOn)
+    {
+        if (is_null($modifiedOn)) {
+            throw new \InvalidArgumentException('non-nullable modifiedOn cannot be null');
+        }
+        $this->container['modifiedOn'] = $modifiedOn;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string $type The type of the file set. This value should be constant for a given type of file set and should be agreed upon with Calcasa before use. It is used to ensure that the correct processing logic is applied to the file set based on its intended purpose.
+     *
+     * @return self
+     */
+    public function setType($type)
+    {
+        if (is_null($type)) {
+            throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $this->container['type'] = $type;
 
         return $this;
     }
@@ -440,7 +576,7 @@ class FileSetsOutboundFileSet implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets revision
      *
-     * @param int $revision A revision number for the outbound file set that is incremented for every retry or redelivery.
+     * @param int $revision A revision number for the file set that is incremented for every retry or redelivery.
      *
      * @return self
      */
@@ -455,9 +591,43 @@ class FileSetsOutboundFileSet implements ModelInterface, ArrayAccess, \JsonSeria
     }
 
     /**
+     * Gets period
+     *
+     * @return \DateTime|null
+     */
+    public function getPeriod()
+    {
+        return $this->container['period'];
+    }
+
+    /**
+     * Sets period
+     *
+     * @param \DateTime|null $period The period of the inbound file set. This is a string that represents the time period for which the file set is relevant. It is used to categorize and identify the time frame of the data contained in the file set. The first day of the period is used when the period is a year, quarter or month. For example use the first of April for Q2. The period is represented in the format YYYY-MM-DD, where YYYY is the year, MM is the month, and DD is the day. If the period is not applicable, it can be set to null, only do this after consulting with Calcasa.
+     *
+     * @return self
+     */
+    public function setPeriod($period)
+    {
+        if (is_null($period)) {
+            array_push($this->openAPINullablesSetToNull, 'period');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('period', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['period'] = $period;
+
+        return $this;
+    }
+
+    /**
      * Gets state
      *
-     * @return \Calcasa\Api\Model\OutboundFileSetState
+     * @return \Calcasa\Api\Model\InboundFileSetState
      */
     public function getState()
     {
@@ -467,7 +637,7 @@ class FileSetsOutboundFileSet implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets state
      *
-     * @param \Calcasa\Api\Model\OutboundFileSetState $state state
+     * @param \Calcasa\Api\Model\InboundFileSetState $state The current state of the inbound file set. This indicates the processing status of the file set.
      *
      * @return self
      */
@@ -477,6 +647,60 @@ class FileSetsOutboundFileSet implements ModelInterface, ArrayAccess, \JsonSeria
             throw new \InvalidArgumentException('non-nullable state cannot be null');
         }
         $this->container['state'] = $state;
+
+        return $this;
+    }
+
+    /**
+     * Gets errors
+     *
+     * @return \Calcasa\Api\Model\FileError[]|null
+     */
+    public function getErrors()
+    {
+        return $this->container['errors'];
+    }
+
+    /**
+     * Sets errors
+     *
+     * @param \Calcasa\Api\Model\FileError[]|null $errors Errors that occurred during the processing of the inbound file set. This is an array of FileError objects that provide details about each error, including the index of the file within the file set, the name of the file, the expected and actual SHA256 hash values, and the expected and actual file sizes.
+     *
+     * @return self
+     */
+    public function setErrors($errors)
+    {
+        if (is_null($errors)) {
+            throw new \InvalidArgumentException('non-nullable errors cannot be null');
+        }
+        $this->container['errors'] = $errors;
+
+        return $this;
+    }
+
+    /**
+     * Gets warnings
+     *
+     * @return \Calcasa\Api\Model\FileWarning[]|null
+     */
+    public function getWarnings()
+    {
+        return $this->container['warnings'];
+    }
+
+    /**
+     * Sets warnings
+     *
+     * @param \Calcasa\Api\Model\FileWarning[]|null $warnings Warnings that occurred during the processing of the inbound file set. This is an array of FileWarning objects that provide details about each warning, including the index of the file within the file set, the name of the file.
+     *
+     * @return self
+     */
+    public function setWarnings($warnings)
+    {
+        if (is_null($warnings)) {
+            throw new \InvalidArgumentException('non-nullable warnings cannot be null');
+        }
+        $this->container['warnings'] = $warnings;
 
         return $this;
     }

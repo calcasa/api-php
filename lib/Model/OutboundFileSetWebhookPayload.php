@@ -1,6 +1,6 @@
 <?php
 /**
- * FileSetsInboundFileSetWebhookPayload
+ * OutboundFileSetWebhookPayload
  *
  * PHP version 8.1
  *
@@ -46,16 +46,16 @@ use \ArrayAccess;
 use \Calcasa\Api\ObjectSerializer;
 
 /**
- * FileSetsInboundFileSetWebhookPayload Class Doc Comment
+ * OutboundFileSetWebhookPayload Class Doc Comment
  *
  * @category Class
- * @description The payload for the webhooks for the inbound file sets.
+ * @description The payload for the webhooks for the outbound file sets.
  * @package  Calcasa\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class FileSetsInboundFileSetWebhookPayload implements ModelInterface, ArrayAccess, \JsonSerializable
+class OutboundFileSetWebhookPayload implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -64,7 +64,7 @@ class FileSetsInboundFileSetWebhookPayload implements ModelInterface, ArrayAcces
       *
       * @var string
       */
-    protected static $openAPIModelName = 'FileSets.InboundFileSetWebhookPayload';
+    protected static $openAPIModelName = 'OutboundFileSetWebhookPayload';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -76,8 +76,8 @@ class FileSetsInboundFileSetWebhookPayload implements ModelInterface, ArrayAcces
         'eventId' => 'string',
         'timestamp' => '\DateTime',
         'fileSetId' => 'string',
-        'oldStatus' => '\Calcasa\Api\Model\InboundFileSetState',
-        'newStatus' => '\Calcasa\Api\Model\InboundFileSetState'
+        'oldStatus' => '\Calcasa\Api\Model\OutboundFileSetState',
+        'newStatus' => '\Calcasa\Api\Model\OutboundFileSetState'
     ];
 
     /**
@@ -459,7 +459,7 @@ class FileSetsInboundFileSetWebhookPayload implements ModelInterface, ArrayAcces
     /**
      * Gets oldStatus
      *
-     * @return \Calcasa\Api\Model\InboundFileSetState|null
+     * @return \Calcasa\Api\Model\OutboundFileSetState|null
      */
     public function getOldStatus()
     {
@@ -469,7 +469,7 @@ class FileSetsInboundFileSetWebhookPayload implements ModelInterface, ArrayAcces
     /**
      * Sets oldStatus
      *
-     * @param \Calcasa\Api\Model\InboundFileSetState|null $oldStatus oldStatus
+     * @param \Calcasa\Api\Model\OutboundFileSetState|null $oldStatus oldStatus
      *
      * @return self
      */
@@ -486,7 +486,7 @@ class FileSetsInboundFileSetWebhookPayload implements ModelInterface, ArrayAcces
     /**
      * Gets newStatus
      *
-     * @return \Calcasa\Api\Model\InboundFileSetState|null
+     * @return \Calcasa\Api\Model\OutboundFileSetState|null
      */
     public function getNewStatus()
     {
@@ -496,7 +496,7 @@ class FileSetsInboundFileSetWebhookPayload implements ModelInterface, ArrayAcces
     /**
      * Sets newStatus
      *
-     * @param \Calcasa\Api\Model\InboundFileSetState|null $newStatus newStatus
+     * @param \Calcasa\Api\Model\OutboundFileSetState|null $newStatus newStatus
      *
      * @return self
      */
