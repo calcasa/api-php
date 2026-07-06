@@ -1,6 +1,6 @@
 <?php
 /**
- * ProblemDetails
+ * FileSetLimits
  *
  * PHP version 8.1
  *
@@ -46,16 +46,15 @@ use \ArrayAccess;
 use \Calcasa\Api\ObjectSerializer;
 
 /**
- * ProblemDetails Class Doc Comment
+ * FileSetLimits Class Doc Comment
  *
  * @category Class
- * @description Base error response model as defined in RFC 7807 Problem Details for HTTP APIs.
  * @package  Calcasa\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class ProblemDetails implements ModelInterface, ArrayAccess, \JsonSerializable
+class FileSetLimits implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -64,7 +63,7 @@ class ProblemDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @var string
      */
-    protected static $openAPIModelName = 'ProblemDetails';
+    protected static $openAPIModelName = 'FileSetLimits';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -72,11 +71,12 @@ class ProblemDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $openAPITypes = [
-        'type' => 'string',
-        'title' => 'string',
-        'status' => 'int',
-        'detail' => 'string',
-        'instance' => 'string'
+        'inboundMaxTotalSizeInKiloBytes' => 'int',
+        'inboundMaxFileSizeInKiloBytes' => 'int',
+        'inboundMaxCompressedChunkSizeInKiloBytes' => 'int',
+        'inboundMaxTotalFiles' => 'int',
+        'inboundTtlInSeconds' => 'int',
+        'outboundTtlInSeconds' => 'int'
     ];
 
     /**
@@ -87,11 +87,12 @@ class ProblemDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'type' => null,
-        'title' => null,
-        'status' => 'int32',
-        'detail' => null,
-        'instance' => null
+        'inboundMaxTotalSizeInKiloBytes' => 'int64',
+        'inboundMaxFileSizeInKiloBytes' => 'int64',
+        'inboundMaxCompressedChunkSizeInKiloBytes' => 'int64',
+        'inboundMaxTotalFiles' => 'int32',
+        'inboundTtlInSeconds' => 'int32',
+        'outboundTtlInSeconds' => 'int32'
     ];
 
     /**
@@ -100,11 +101,12 @@ class ProblemDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'type' => true,
-        'title' => true,
-        'status' => true,
-        'detail' => true,
-        'instance' => true
+        'inboundMaxTotalSizeInKiloBytes' => false,
+        'inboundMaxFileSizeInKiloBytes' => false,
+        'inboundMaxCompressedChunkSizeInKiloBytes' => false,
+        'inboundMaxTotalFiles' => false,
+        'inboundTtlInSeconds' => false,
+        'outboundTtlInSeconds' => false
     ];
 
     /**
@@ -193,11 +195,12 @@ class ProblemDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'type' => 'type',
-        'title' => 'title',
-        'status' => 'status',
-        'detail' => 'detail',
-        'instance' => 'instance'
+        'inboundMaxTotalSizeInKiloBytes' => 'inboundMaxTotalSizeInKiloBytes',
+        'inboundMaxFileSizeInKiloBytes' => 'inboundMaxFileSizeInKiloBytes',
+        'inboundMaxCompressedChunkSizeInKiloBytes' => 'inboundMaxCompressedChunkSizeInKiloBytes',
+        'inboundMaxTotalFiles' => 'inboundMaxTotalFiles',
+        'inboundTtlInSeconds' => 'inboundTtlInSeconds',
+        'outboundTtlInSeconds' => 'outboundTtlInSeconds'
     ];
 
     /**
@@ -206,11 +209,12 @@ class ProblemDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'type' => 'setType',
-        'title' => 'setTitle',
-        'status' => 'setStatus',
-        'detail' => 'setDetail',
-        'instance' => 'setInstance'
+        'inboundMaxTotalSizeInKiloBytes' => 'setInboundMaxTotalSizeInKiloBytes',
+        'inboundMaxFileSizeInKiloBytes' => 'setInboundMaxFileSizeInKiloBytes',
+        'inboundMaxCompressedChunkSizeInKiloBytes' => 'setInboundMaxCompressedChunkSizeInKiloBytes',
+        'inboundMaxTotalFiles' => 'setInboundMaxTotalFiles',
+        'inboundTtlInSeconds' => 'setInboundTtlInSeconds',
+        'outboundTtlInSeconds' => 'setOutboundTtlInSeconds'
     ];
 
     /**
@@ -219,11 +223,12 @@ class ProblemDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'type' => 'getType',
-        'title' => 'getTitle',
-        'status' => 'getStatus',
-        'detail' => 'getDetail',
-        'instance' => 'getInstance'
+        'inboundMaxTotalSizeInKiloBytes' => 'getInboundMaxTotalSizeInKiloBytes',
+        'inboundMaxFileSizeInKiloBytes' => 'getInboundMaxFileSizeInKiloBytes',
+        'inboundMaxCompressedChunkSizeInKiloBytes' => 'getInboundMaxCompressedChunkSizeInKiloBytes',
+        'inboundMaxTotalFiles' => 'getInboundMaxTotalFiles',
+        'inboundTtlInSeconds' => 'getInboundTtlInSeconds',
+        'outboundTtlInSeconds' => 'getOutboundTtlInSeconds'
     ];
 
     /**
@@ -283,11 +288,12 @@ class ProblemDetails implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('type', $data ?? [], null);
-        $this->setIfExists('title', $data ?? [], null);
-        $this->setIfExists('status', $data ?? [], null);
-        $this->setIfExists('detail', $data ?? [], null);
-        $this->setIfExists('instance', $data ?? [], null);
+        $this->setIfExists('inboundMaxTotalSizeInKiloBytes', $data ?? [], null);
+        $this->setIfExists('inboundMaxFileSizeInKiloBytes', $data ?? [], null);
+        $this->setIfExists('inboundMaxCompressedChunkSizeInKiloBytes', $data ?? [], null);
+        $this->setIfExists('inboundMaxTotalFiles', $data ?? [], null);
+        $this->setIfExists('inboundTtlInSeconds', $data ?? [], null);
+        $this->setIfExists('outboundTtlInSeconds', $data ?? [], null);
     }
 
     /**
@@ -317,6 +323,24 @@ class ProblemDetails implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['inboundMaxTotalSizeInKiloBytes'] === null) {
+            $invalidProperties[] = "'inboundMaxTotalSizeInKiloBytes' can't be null";
+        }
+        if ($this->container['inboundMaxFileSizeInKiloBytes'] === null) {
+            $invalidProperties[] = "'inboundMaxFileSizeInKiloBytes' can't be null";
+        }
+        if ($this->container['inboundMaxCompressedChunkSizeInKiloBytes'] === null) {
+            $invalidProperties[] = "'inboundMaxCompressedChunkSizeInKiloBytes' can't be null";
+        }
+        if ($this->container['inboundMaxTotalFiles'] === null) {
+            $invalidProperties[] = "'inboundMaxTotalFiles' can't be null";
+        }
+        if ($this->container['inboundTtlInSeconds'] === null) {
+            $invalidProperties[] = "'inboundTtlInSeconds' can't be null";
+        }
+        if ($this->container['outboundTtlInSeconds'] === null) {
+            $invalidProperties[] = "'outboundTtlInSeconds' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -333,171 +357,163 @@ class ProblemDetails implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets type
+     * Gets inboundMaxTotalSizeInKiloBytes
      *
-     * @return string|null
+     * @return int
      */
-    public function getType()
+    public function getInboundMaxTotalSizeInKiloBytes()
     {
-        return $this->container['type'];
+        return $this->container['inboundMaxTotalSizeInKiloBytes'];
     }
 
     /**
-     * Sets type
+     * Sets inboundMaxTotalSizeInKiloBytes
      *
-     * @param string|null $type A URI reference [RFC3986] that identifies the problem type.
+     * @param int $inboundMaxTotalSizeInKiloBytes The maximum total size of all files in an inbound file set, in kilobytes (1000 bytes). This limit ensures that the combined size of all files within a file set does not exceed a certain threshold, which helps manage storage and processing resources.
      *
      * @return self
      */
-    public function setType($type)
+    public function setInboundMaxTotalSizeInKiloBytes($inboundMaxTotalSizeInKiloBytes)
     {
-        if (is_null($type)) {
-            array_push($this->openAPINullablesSetToNull, 'type');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('type', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($inboundMaxTotalSizeInKiloBytes)) {
+            throw new \InvalidArgumentException('non-nullable inboundMaxTotalSizeInKiloBytes cannot be null');
         }
-        $this->container['type'] = $type;
+        $this->container['inboundMaxTotalSizeInKiloBytes'] = $inboundMaxTotalSizeInKiloBytes;
 
         return $this;
     }
 
     /**
-     * Gets title
+     * Gets inboundMaxFileSizeInKiloBytes
      *
-     * @return string|null
+     * @return int
      */
-    public function getTitle()
+    public function getInboundMaxFileSizeInKiloBytes()
     {
-        return $this->container['title'];
+        return $this->container['inboundMaxFileSizeInKiloBytes'];
     }
 
     /**
-     * Sets title
+     * Sets inboundMaxFileSizeInKiloBytes
      *
-     * @param string|null $title A short, human-readable summary of the problem type.
+     * @param int $inboundMaxFileSizeInKiloBytes The maximum size of a single file in an inbound file set, in kilobytes (1000 bytes). This limit ensures that individual files do not exceed a certain size, which helps manage storage and processing resources.
      *
      * @return self
      */
-    public function setTitle($title)
+    public function setInboundMaxFileSizeInKiloBytes($inboundMaxFileSizeInKiloBytes)
     {
-        if (is_null($title)) {
-            array_push($this->openAPINullablesSetToNull, 'title');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('title', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($inboundMaxFileSizeInKiloBytes)) {
+            throw new \InvalidArgumentException('non-nullable inboundMaxFileSizeInKiloBytes cannot be null');
         }
-        $this->container['title'] = $title;
+        $this->container['inboundMaxFileSizeInKiloBytes'] = $inboundMaxFileSizeInKiloBytes;
 
         return $this;
     }
 
     /**
-     * Gets status
+     * Gets inboundMaxCompressedChunkSizeInKiloBytes
      *
-     * @return int|null
+     * @return int
      */
-    public function getStatus()
+    public function getInboundMaxCompressedChunkSizeInKiloBytes()
     {
-        return $this->container['status'];
+        return $this->container['inboundMaxCompressedChunkSizeInKiloBytes'];
     }
 
     /**
-     * Sets status
+     * Sets inboundMaxCompressedChunkSizeInKiloBytes
      *
-     * @param int|null $status The HTTP status code for this occurrence of the problem.
+     * @param int $inboundMaxCompressedChunkSizeInKiloBytes The maximum size of a compressed chunk in an inbound file set, in kilobytes (1000 bytes). This limit ensures that individual compressed chunks do not exceed a certain size, which helps manage storage and processing resources.
      *
      * @return self
      */
-    public function setStatus($status)
+    public function setInboundMaxCompressedChunkSizeInKiloBytes($inboundMaxCompressedChunkSizeInKiloBytes)
     {
-        if (is_null($status)) {
-            array_push($this->openAPINullablesSetToNull, 'status');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('status', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($inboundMaxCompressedChunkSizeInKiloBytes)) {
+            throw new \InvalidArgumentException('non-nullable inboundMaxCompressedChunkSizeInKiloBytes cannot be null');
         }
-        $this->container['status'] = $status;
+        $this->container['inboundMaxCompressedChunkSizeInKiloBytes'] = $inboundMaxCompressedChunkSizeInKiloBytes;
 
         return $this;
     }
 
     /**
-     * Gets detail
+     * Gets inboundMaxTotalFiles
      *
-     * @return string|null
+     * @return int
      */
-    public function getDetail()
+    public function getInboundMaxTotalFiles()
     {
-        return $this->container['detail'];
+        return $this->container['inboundMaxTotalFiles'];
     }
 
     /**
-     * Sets detail
+     * Sets inboundMaxTotalFiles
      *
-     * @param string|null $detail A human-readable explanation specific to this occurrence of the problem.
+     * @param int $inboundMaxTotalFiles The maximum number of files in an inbound file set. This limit ensures that the number of files within a file set does not exceed a certain threshold, which helps manage storage and processing resources.
      *
      * @return self
      */
-    public function setDetail($detail)
+    public function setInboundMaxTotalFiles($inboundMaxTotalFiles)
     {
-        if (is_null($detail)) {
-            array_push($this->openAPINullablesSetToNull, 'detail');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('detail', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($inboundMaxTotalFiles)) {
+            throw new \InvalidArgumentException('non-nullable inboundMaxTotalFiles cannot be null');
         }
-        $this->container['detail'] = $detail;
+        $this->container['inboundMaxTotalFiles'] = $inboundMaxTotalFiles;
 
         return $this;
     }
 
     /**
-     * Gets instance
+     * Gets inboundTtlInSeconds
      *
-     * @return string|null
+     * @return int
      */
-    public function getInstance()
+    public function getInboundTtlInSeconds()
     {
-        return $this->container['instance'];
+        return $this->container['inboundTtlInSeconds'];
     }
 
     /**
-     * Sets instance
+     * Sets inboundTtlInSeconds
      *
-     * @param string|null $instance A URI reference that identifies the specific occurrence of the problem.
+     * @param int $inboundTtlInSeconds The time-to-live (TTL) for inbound file sets, in seconds. This value indicates how long an inbound file set will remain valid before it expires and is deleted if it is not confirmed. It helps manage the lifecycle of inbound file sets and ensures that they are processed within a certain timeframe.
      *
      * @return self
      */
-    public function setInstance($instance)
+    public function setInboundTtlInSeconds($inboundTtlInSeconds)
     {
-        if (is_null($instance)) {
-            array_push($this->openAPINullablesSetToNull, 'instance');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('instance', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+        if (is_null($inboundTtlInSeconds)) {
+            throw new \InvalidArgumentException('non-nullable inboundTtlInSeconds cannot be null');
         }
-        $this->container['instance'] = $instance;
+        $this->container['inboundTtlInSeconds'] = $inboundTtlInSeconds;
+
+        return $this;
+    }
+
+    /**
+     * Gets outboundTtlInSeconds
+     *
+     * @return int
+     */
+    public function getOutboundTtlInSeconds()
+    {
+        return $this->container['outboundTtlInSeconds'];
+    }
+
+    /**
+     * Sets outboundTtlInSeconds
+     *
+     * @param int $outboundTtlInSeconds The time-to-live (TTL) for outbound file sets, in seconds. This value indicates how long an outbound file set will remain valid before it expires and is deleted if it is not downloaded. It helps manage the lifecycle of outbound file sets and ensures that they are processed within a certain timeframe.
+     *
+     * @return self
+     */
+    public function setOutboundTtlInSeconds($outboundTtlInSeconds)
+    {
+        if (is_null($outboundTtlInSeconds)) {
+            throw new \InvalidArgumentException('non-nullable outboundTtlInSeconds cannot be null');
+        }
+        $this->container['outboundTtlInSeconds'] = $outboundTtlInSeconds;
 
         return $this;
     }

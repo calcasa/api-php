@@ -1,6 +1,6 @@
 <?php
 /**
- * JsonPatchDocument
+ * CreateInboundFileSetRequest
  *
  * PHP version 8.1
  *
@@ -46,16 +46,15 @@ use \ArrayAccess;
 use \Calcasa\Api\ObjectSerializer;
 
 /**
- * JsonPatchDocument Class Doc Comment
+ * CreateInboundFileSetRequest Class Doc Comment
  *
  * @category Class
- * @description Array of operations to perform
  * @package  Calcasa\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class JsonPatchDocument implements ModelInterface, ArrayAccess, \JsonSerializable
+class CreateInboundFileSetRequest implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -64,7 +63,7 @@ class JsonPatchDocument implements ModelInterface, ArrayAccess, \JsonSerializabl
      *
      * @var string
      */
-    protected static $openAPIModelName = 'JsonPatchDocument';
+    protected static $openAPIModelName = 'CreateInboundFileSetRequest';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -72,7 +71,10 @@ class JsonPatchDocument implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $openAPITypes = [
-        
+        'files' => '\Calcasa\Api\Model\FileInfo[]',
+        'type' => 'string',
+        'revision' => 'int',
+        'period' => '\DateTime'
     ];
 
     /**
@@ -83,7 +85,10 @@ class JsonPatchDocument implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        
+        'files' => null,
+        'type' => null,
+        'revision' => 'int32',
+        'period' => 'date'
     ];
 
     /**
@@ -92,7 +97,10 @@ class JsonPatchDocument implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        
+        'files' => true,
+        'type' => false,
+        'revision' => false,
+        'period' => true
     ];
 
     /**
@@ -181,7 +189,10 @@ class JsonPatchDocument implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $attributeMap = [
-        
+        'files' => 'files',
+        'type' => 'type',
+        'revision' => 'revision',
+        'period' => 'period'
     ];
 
     /**
@@ -190,7 +201,10 @@ class JsonPatchDocument implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $setters = [
-        
+        'files' => 'setFiles',
+        'type' => 'setType',
+        'revision' => 'setRevision',
+        'period' => 'setPeriod'
     ];
 
     /**
@@ -199,7 +213,10 @@ class JsonPatchDocument implements ModelInterface, ArrayAccess, \JsonSerializabl
      * @var string[]
      */
     protected static $getters = [
-        
+        'files' => 'getFiles',
+        'type' => 'getType',
+        'revision' => 'getRevision',
+        'period' => 'getPeriod'
     ];
 
     /**
@@ -259,6 +276,10 @@ class JsonPatchDocument implements ModelInterface, ArrayAccess, \JsonSerializabl
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('files', $data ?? [], null);
+        $this->setIfExists('type', $data ?? [], null);
+        $this->setIfExists('revision', $data ?? [], null);
+        $this->setIfExists('period', $data ?? [], null);
     }
 
     /**
@@ -288,6 +309,12 @@ class JsonPatchDocument implements ModelInterface, ArrayAccess, \JsonSerializabl
     {
         $invalidProperties = [];
 
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
+        }
+        if ($this->container['revision'] === null) {
+            $invalidProperties[] = "'revision' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -302,6 +329,128 @@ class JsonPatchDocument implements ModelInterface, ArrayAccess, \JsonSerializabl
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets files
+     *
+     * @return \Calcasa\Api\Model\FileInfo[]|null
+     */
+    public function getFiles()
+    {
+        return $this->container['files'];
+    }
+
+    /**
+     * Sets files
+     *
+     * @param \Calcasa\Api\Model\FileInfo[]|null $files The files associated with the file set.
+     *
+     * @return self
+     */
+    public function setFiles($files)
+    {
+        if (is_null($files)) {
+            array_push($this->openAPINullablesSetToNull, 'files');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('files', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['files'] = $files;
+
+        return $this;
+    }
+
+    /**
+     * Gets type
+     *
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->container['type'];
+    }
+
+    /**
+     * Sets type
+     *
+     * @param string $type The type of the file set. This value should be constant for a given type of file set and should be agreed upon with Calcasa before use. It is used to ensure that the correct processing logic is applied to the file set based on its intended purpose.  The tuple type, revision and period should always be unique.
+     *
+     * @return self
+     */
+    public function setType($type)
+    {
+        if (is_null($type)) {
+            throw new \InvalidArgumentException('non-nullable type cannot be null');
+        }
+        $this->container['type'] = $type;
+
+        return $this;
+    }
+
+    /**
+     * Gets revision
+     *
+     * @return int
+     */
+    public function getRevision()
+    {
+        return $this->container['revision'];
+    }
+
+    /**
+     * Sets revision
+     *
+     * @param int $revision A revision number for the file set that is incremented for every retry or redelivery. The tuple type, revision and period should always be unique.
+     *
+     * @return self
+     */
+    public function setRevision($revision)
+    {
+        if (is_null($revision)) {
+            throw new \InvalidArgumentException('non-nullable revision cannot be null');
+        }
+        $this->container['revision'] = $revision;
+
+        return $this;
+    }
+
+    /**
+     * Gets period
+     *
+     * @return \DateTime|null
+     */
+    public function getPeriod()
+    {
+        return $this->container['period'];
+    }
+
+    /**
+     * Sets period
+     *
+     * @param \DateTime|null $period The period of the inbound file set. This is a string that represents the time period for which the file set is relevant. It is used to categorize and identify the time frame of the data contained in the file set. The first day of the period is used when the period is a year, quarter or month. For example use the first of April for Q2. The period is represented in the format YYYY-MM-DD, where YYYY is the year, MM is the month, and DD is the day. If the period is not applicable, it can be set to null, only do this after consulting with Calcasa. The tuple type, revision and period should always be unique.
+     *
+     * @return self
+     */
+    public function setPeriod($period)
+    {
+        if (is_null($period)) {
+            array_push($this->openAPINullablesSetToNull, 'period');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('period', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['period'] = $period;
+
+        return $this;
+    }
     /**
      * Returns true if offset exists. False otherwise.
      *
