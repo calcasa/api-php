@@ -1,6 +1,6 @@
 <?php
 /**
- * InboundFileSetAlreadyConfirmedProblemDetails
+ * InboundFileSetInvalidStateProblemDetails
  *
  * PHP version 8.1
  *
@@ -46,7 +46,7 @@ use \ArrayAccess;
 use \Calcasa\Api\ObjectSerializer;
 
 /**
- * InboundFileSetAlreadyConfirmedProblemDetails Class Doc Comment
+ * InboundFileSetInvalidStateProblemDetails Class Doc Comment
  *
  * @category Class
  * @package  Calcasa\Api
@@ -54,7 +54,7 @@ use \Calcasa\Api\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class InboundFileSetAlreadyConfirmedProblemDetails implements ModelInterface, ArrayAccess, \JsonSerializable
+class InboundFileSetInvalidStateProblemDetails implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -63,7 +63,7 @@ class InboundFileSetAlreadyConfirmedProblemDetails implements ModelInterface, Ar
      *
      * @var string
      */
-    protected static $openAPIModelName = 'InboundFileSetAlreadyConfirmedProblemDetails';
+    protected static $openAPIModelName = 'InboundFileSetInvalidStateProblemDetails';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -71,6 +71,7 @@ class InboundFileSetAlreadyConfirmedProblemDetails implements ModelInterface, Ar
      * @var string[]
      */
     protected static $openAPITypes = [
+        'state' => '\Calcasa\Api\Model\InboundFileSetState',
         'type' => 'string',
         'title' => 'string',
         'status' => 'int',
@@ -86,6 +87,7 @@ class InboundFileSetAlreadyConfirmedProblemDetails implements ModelInterface, Ar
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
+        'state' => null,
         'type' => null,
         'title' => null,
         'status' => 'int32',
@@ -99,6 +101,7 @@ class InboundFileSetAlreadyConfirmedProblemDetails implements ModelInterface, Ar
      * @var boolean[]
      */
     protected static array $openAPINullables = [
+        'state' => false,
         'type' => true,
         'title' => true,
         'status' => true,
@@ -192,6 +195,7 @@ class InboundFileSetAlreadyConfirmedProblemDetails implements ModelInterface, Ar
      * @var string[]
      */
     protected static $attributeMap = [
+        'state' => 'state',
         'type' => 'type',
         'title' => 'title',
         'status' => 'status',
@@ -205,6 +209,7 @@ class InboundFileSetAlreadyConfirmedProblemDetails implements ModelInterface, Ar
      * @var string[]
      */
     protected static $setters = [
+        'state' => 'setState',
         'type' => 'setType',
         'title' => 'setTitle',
         'status' => 'setStatus',
@@ -218,6 +223,7 @@ class InboundFileSetAlreadyConfirmedProblemDetails implements ModelInterface, Ar
      * @var string[]
      */
     protected static $getters = [
+        'state' => 'getState',
         'type' => 'getType',
         'title' => 'getTitle',
         'status' => 'getStatus',
@@ -282,6 +288,7 @@ class InboundFileSetAlreadyConfirmedProblemDetails implements ModelInterface, Ar
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('state', $data ?? [], null);
         $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('title', $data ?? [], null);
         $this->setIfExists('status', $data ?? [], null);
@@ -316,6 +323,9 @@ class InboundFileSetAlreadyConfirmedProblemDetails implements ModelInterface, Ar
     {
         $invalidProperties = [];
 
+        if ($this->container['state'] === null) {
+            $invalidProperties[] = "'state' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -330,6 +340,33 @@ class InboundFileSetAlreadyConfirmedProblemDetails implements ModelInterface, Ar
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets state
+     *
+     * @return \Calcasa\Api\Model\InboundFileSetState
+     */
+    public function getState()
+    {
+        return $this->container['state'];
+    }
+
+    /**
+     * Sets state
+     *
+     * @param \Calcasa\Api\Model\InboundFileSetState $state state
+     *
+     * @return self
+     */
+    public function setState($state)
+    {
+        if (is_null($state)) {
+            throw new \InvalidArgumentException('non-nullable state cannot be null');
+        }
+        $this->container['state'] = $state;
+
+        return $this;
+    }
 
     /**
      * Gets type

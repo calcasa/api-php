@@ -116,7 +116,7 @@ class FileSetsApi
             'application/json',
         ],
         'putFileChunk' => [
-            'application/json',
+            'application/octet-stream',
         ],
     ];
 
@@ -176,7 +176,7 @@ class FileSetsApi
      *
      * @throws \Calcasa\Api\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \Calcasa\Api\Model\InboundFileSet|\Calcasa\Api\Model\UnauthorizedProblemDetails|\Calcasa\Api\Model\NotFoundProblemDetails|\Calcasa\Api\Model\InboundFileSetAlreadyConfirmedProblemDetails|\Calcasa\Api\Model\ProblemDetails
+     * @return \Calcasa\Api\Model\InboundFileSet|\Calcasa\Api\Model\UnauthorizedProblemDetails|\Calcasa\Api\Model\NotFoundProblemDetails|\Calcasa\Api\Model\InboundFileSetInvalidStateProblemDetails|\Calcasa\Api\Model\ProblemDetails
      */
     public function confirmInboundFileSetById($inboundFileSetId, string $contentType = self::contentTypes['confirmInboundFileSetById'][0])
     {
@@ -194,7 +194,7 @@ class FileSetsApi
      *
      * @throws \Calcasa\Api\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \Calcasa\Api\Model\InboundFileSet|\Calcasa\Api\Model\UnauthorizedProblemDetails|\Calcasa\Api\Model\NotFoundProblemDetails|\Calcasa\Api\Model\InboundFileSetAlreadyConfirmedProblemDetails|\Calcasa\Api\Model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Calcasa\Api\Model\InboundFileSet|\Calcasa\Api\Model\UnauthorizedProblemDetails|\Calcasa\Api\Model\NotFoundProblemDetails|\Calcasa\Api\Model\InboundFileSetInvalidStateProblemDetails|\Calcasa\Api\Model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
      */
     public function confirmInboundFileSetByIdWithHttpInfo($inboundFileSetId, string $contentType = self::contentTypes['confirmInboundFileSetById'][0])
     {
@@ -242,9 +242,9 @@ class FileSetsApi
                         $request,
                         $response,
                     );
-                case 409:
+                case 422:
                     return $this->handleResponseWithDataType(
-                        '\Calcasa\Api\Model\InboundFileSetAlreadyConfirmedProblemDetails',
+                        '\Calcasa\Api\Model\InboundFileSetInvalidStateProblemDetails',
                         $request,
                         $response,
                     );
@@ -302,10 +302,10 @@ class FileSetsApi
                     );
                     $e->setResponseObject($data);
                     throw $e;
-                case 409:
+                case 422:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Calcasa\Api\Model\InboundFileSetAlreadyConfirmedProblemDetails',
+                        '\Calcasa\Api\Model\InboundFileSetInvalidStateProblemDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
