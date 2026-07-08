@@ -80,8 +80,9 @@ class InboundFileSet implements ModelInterface, ArrayAccess, \JsonSerializable
         'period' => '\DateTime',
         'files' => '\Calcasa\Api\Model\InboundFileInfo[]',
         'state' => '\Calcasa\Api\Model\InboundFileSetState',
-        'errors' => '\Calcasa\Api\Model\FileError[]',
-        'warnings' => '\Calcasa\Api\Model\FileWarning[]'
+        'contentErrors' => '\Calcasa\Api\Model\FileContentError[]',
+        'errors' => '\Calcasa\Api\Model\FileNotice[]',
+        'warnings' => '\Calcasa\Api\Model\FileNotice[]'
     ];
 
     /**
@@ -101,6 +102,7 @@ class InboundFileSet implements ModelInterface, ArrayAccess, \JsonSerializable
         'period' => 'date',
         'files' => null,
         'state' => null,
+        'contentErrors' => null,
         'errors' => null,
         'warnings' => null
     ];
@@ -120,7 +122,8 @@ class InboundFileSet implements ModelInterface, ArrayAccess, \JsonSerializable
         'period' => true,
         'files' => true,
         'state' => false,
-        'errors' => false,
+        'contentErrors' => false,
+        'errors' => true,
         'warnings' => true
     ];
 
@@ -219,6 +222,7 @@ class InboundFileSet implements ModelInterface, ArrayAccess, \JsonSerializable
         'period' => 'period',
         'files' => 'files',
         'state' => 'state',
+        'contentErrors' => 'contentErrors',
         'errors' => 'errors',
         'warnings' => 'warnings'
     ];
@@ -238,6 +242,7 @@ class InboundFileSet implements ModelInterface, ArrayAccess, \JsonSerializable
         'period' => 'setPeriod',
         'files' => 'setFiles',
         'state' => 'setState',
+        'contentErrors' => 'setContentErrors',
         'errors' => 'setErrors',
         'warnings' => 'setWarnings'
     ];
@@ -257,6 +262,7 @@ class InboundFileSet implements ModelInterface, ArrayAccess, \JsonSerializable
         'period' => 'getPeriod',
         'files' => 'getFiles',
         'state' => 'getState',
+        'contentErrors' => 'getContentErrors',
         'errors' => 'getErrors',
         'warnings' => 'getWarnings'
     ];
@@ -327,6 +333,7 @@ class InboundFileSet implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('period', $data ?? [], null);
         $this->setIfExists('files', $data ?? [], null);
         $this->setIfExists('state', $data ?? [], null);
+        $this->setIfExists('contentErrors', $data ?? [], null);
         $this->setIfExists('errors', $data ?? [], null);
         $this->setIfExists('warnings', $data ?? [], null);
     }
@@ -641,7 +648,7 @@ class InboundFileSet implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets state
      *
-     * @param \Calcasa\Api\Model\InboundFileSetState $state The current state of the inbound file set. This indicates the processing status of the file set.
+     * @param \Calcasa\Api\Model\InboundFileSetState $state The current state of the inbound file set. This indicates the processing state of the file set.
      *
      * @return self
      */
@@ -656,9 +663,36 @@ class InboundFileSet implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
+     * Gets contentErrors
+     *
+     * @return \Calcasa\Api\Model\FileContentError[]|null
+     */
+    public function getContentErrors()
+    {
+        return $this->container['contentErrors'];
+    }
+
+    /**
+     * Sets contentErrors
+     *
+     * @param \Calcasa\Api\Model\FileContentError[]|null $contentErrors Errors that occurred during the initial processing of the inbound file set. This is an array of FileContentError objects that provide details about each error, including the index of the file within the file set, the name of the file, the expected and actual SHA256 hash values, and the expected and actual file sizes.
+     *
+     * @return self
+     */
+    public function setContentErrors($contentErrors)
+    {
+        if (is_null($contentErrors)) {
+            throw new \InvalidArgumentException('non-nullable contentErrors cannot be null');
+        }
+        $this->container['contentErrors'] = $contentErrors;
+
+        return $this;
+    }
+
+    /**
      * Gets errors
      *
-     * @return \Calcasa\Api\Model\FileError[]|null
+     * @return \Calcasa\Api\Model\FileNotice[]|null
      */
     public function getErrors()
     {
@@ -668,14 +702,21 @@ class InboundFileSet implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets errors
      *
-     * @param \Calcasa\Api\Model\FileError[]|null $errors Errors that occurred during the processing of the inbound file set. This is an array of FileError objects that provide details about each error, including the index of the file within the file set, the name of the file, the expected and actual SHA256 hash values, and the expected and actual file sizes.
+     * @param \Calcasa\Api\Model\FileNotice[]|null $errors Warnings that occurred during the processing of the inbound file set. This is an array of FileNotice objects that provide details about each warning, including the index of the file within the file set, the name of the file.
      *
      * @return self
      */
     public function setErrors($errors)
     {
         if (is_null($errors)) {
-            throw new \InvalidArgumentException('non-nullable errors cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'errors');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('errors', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['errors'] = $errors;
 
@@ -685,7 +726,7 @@ class InboundFileSet implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets warnings
      *
-     * @return \Calcasa\Api\Model\FileWarning[]|null
+     * @return \Calcasa\Api\Model\FileNotice[]|null
      */
     public function getWarnings()
     {
@@ -695,7 +736,7 @@ class InboundFileSet implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets warnings
      *
-     * @param \Calcasa\Api\Model\FileWarning[]|null $warnings Warnings that occurred during the processing of the inbound file set. This is an array of FileWarning objects that provide details about each warning, including the index of the file within the file set, the name of the file.
+     * @param \Calcasa\Api\Model\FileNotice[]|null $warnings Warnings that occurred during the processing of the inbound file set. This is an array of FileNotice objects that provide details about each warning, including the index of the file within the file set, the name of the file.
      *
      * @return self
      */

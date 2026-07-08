@@ -1,6 +1,6 @@
 <?php
 /**
- * OutboundFileSetWebhookPayload
+ * FileContentError
  *
  * PHP version 8.1
  *
@@ -46,16 +46,15 @@ use \ArrayAccess;
 use \Calcasa\Api\ObjectSerializer;
 
 /**
- * OutboundFileSetWebhookPayload Class Doc Comment
+ * FileContentError Class Doc Comment
  *
  * @category Class
- * @description The payload for the webhooks for the outbound file sets.
  * @package  Calcasa\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class OutboundFileSetWebhookPayload implements ModelInterface, ArrayAccess, \JsonSerializable
+class FileContentError implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -64,7 +63,7 @@ class OutboundFileSetWebhookPayload implements ModelInterface, ArrayAccess, \Jso
      *
      * @var string
      */
-    protected static $openAPIModelName = 'OutboundFileSetWebhookPayload';
+    protected static $openAPIModelName = 'FileContentError';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -72,12 +71,12 @@ class OutboundFileSetWebhookPayload implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $openAPITypes = [
-        'callbackName' => 'string',
-        'eventId' => 'string',
-        'timestamp' => '\DateTime',
-        'outboundFileSetId' => 'string',
-        'oldState' => '\Calcasa\Api\Model\OutboundFileSetState',
-        'newState' => '\Calcasa\Api\Model\OutboundFileSetState'
+        'index' => 'int',
+        'name' => 'string',
+        'expectedContentHash' => 'string',
+        'expectedFileSize' => 'int',
+        'actualContentHash' => 'string',
+        'actualFileSize' => 'int'
     ];
 
     /**
@@ -88,12 +87,12 @@ class OutboundFileSetWebhookPayload implements ModelInterface, ArrayAccess, \Jso
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'callbackName' => null,
-        'eventId' => 'uuid',
-        'timestamp' => 'date-time',
-        'outboundFileSetId' => 'uuid',
-        'oldState' => null,
-        'newState' => null
+        'index' => 'int32',
+        'name' => null,
+        'expectedContentHash' => 'hex',
+        'expectedFileSize' => 'int64',
+        'actualContentHash' => 'hex',
+        'actualFileSize' => 'int64'
     ];
 
     /**
@@ -102,12 +101,12 @@ class OutboundFileSetWebhookPayload implements ModelInterface, ArrayAccess, \Jso
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'callbackName' => false,
-        'eventId' => false,
-        'timestamp' => false,
-        'outboundFileSetId' => false,
-        'oldState' => false,
-        'newState' => false
+        'index' => false,
+        'name' => false,
+        'expectedContentHash' => false,
+        'expectedFileSize' => false,
+        'actualContentHash' => false,
+        'actualFileSize' => false
     ];
 
     /**
@@ -196,12 +195,12 @@ class OutboundFileSetWebhookPayload implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $attributeMap = [
-        'callbackName' => 'callbackName',
-        'eventId' => 'eventId',
-        'timestamp' => 'timestamp',
-        'outboundFileSetId' => 'outboundFileSetId',
-        'oldState' => 'oldState',
-        'newState' => 'newState'
+        'index' => 'index',
+        'name' => 'name',
+        'expectedContentHash' => 'expectedContentHash',
+        'expectedFileSize' => 'expectedFileSize',
+        'actualContentHash' => 'actualContentHash',
+        'actualFileSize' => 'actualFileSize'
     ];
 
     /**
@@ -210,12 +209,12 @@ class OutboundFileSetWebhookPayload implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $setters = [
-        'callbackName' => 'setCallbackName',
-        'eventId' => 'setEventId',
-        'timestamp' => 'setTimestamp',
-        'outboundFileSetId' => 'setOutboundFileSetId',
-        'oldState' => 'setOldState',
-        'newState' => 'setNewState'
+        'index' => 'setIndex',
+        'name' => 'setName',
+        'expectedContentHash' => 'setExpectedContentHash',
+        'expectedFileSize' => 'setExpectedFileSize',
+        'actualContentHash' => 'setActualContentHash',
+        'actualFileSize' => 'setActualFileSize'
     ];
 
     /**
@@ -224,12 +223,12 @@ class OutboundFileSetWebhookPayload implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $getters = [
-        'callbackName' => 'getCallbackName',
-        'eventId' => 'getEventId',
-        'timestamp' => 'getTimestamp',
-        'outboundFileSetId' => 'getOutboundFileSetId',
-        'oldState' => 'getOldState',
-        'newState' => 'getNewState'
+        'index' => 'getIndex',
+        'name' => 'getName',
+        'expectedContentHash' => 'getExpectedContentHash',
+        'expectedFileSize' => 'getExpectedFileSize',
+        'actualContentHash' => 'getActualContentHash',
+        'actualFileSize' => 'getActualFileSize'
     ];
 
     /**
@@ -289,12 +288,12 @@ class OutboundFileSetWebhookPayload implements ModelInterface, ArrayAccess, \Jso
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('callbackName', $data ?? [], null);
-        $this->setIfExists('eventId', $data ?? [], null);
-        $this->setIfExists('timestamp', $data ?? [], null);
-        $this->setIfExists('outboundFileSetId', $data ?? [], null);
-        $this->setIfExists('oldState', $data ?? [], null);
-        $this->setIfExists('newState', $data ?? [], null);
+        $this->setIfExists('index', $data ?? [], null);
+        $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('expectedContentHash', $data ?? [], null);
+        $this->setIfExists('expectedFileSize', $data ?? [], null);
+        $this->setIfExists('actualContentHash', $data ?? [], null);
+        $this->setIfExists('actualFileSize', $data ?? [], null);
     }
 
     /**
@@ -324,14 +323,31 @@ class OutboundFileSetWebhookPayload implements ModelInterface, ArrayAccess, \Jso
     {
         $invalidProperties = [];
 
-        if ($this->container['callbackName'] === null) {
-            $invalidProperties[] = "'callbackName' can't be null";
+        if ($this->container['index'] === null) {
+            $invalidProperties[] = "'index' can't be null";
         }
-        if ($this->container['eventId'] === null) {
-            $invalidProperties[] = "'eventId' can't be null";
+        if ($this->container['name'] === null) {
+            $invalidProperties[] = "'name' can't be null";
         }
-        if ($this->container['timestamp'] === null) {
-            $invalidProperties[] = "'timestamp' can't be null";
+        if ($this->container['expectedContentHash'] === null) {
+            $invalidProperties[] = "'expectedContentHash' can't be null";
+        }
+        if (!preg_match("/^[A-F0-9]{64}$/", $this->container['expectedContentHash'])) {
+            $invalidProperties[] = "invalid value for 'expectedContentHash', must be conform to the pattern /^[A-F0-9]{64}$/.";
+        }
+
+        if ($this->container['expectedFileSize'] === null) {
+            $invalidProperties[] = "'expectedFileSize' can't be null";
+        }
+        if ($this->container['actualContentHash'] === null) {
+            $invalidProperties[] = "'actualContentHash' can't be null";
+        }
+        if (!preg_match("/^[A-F0-9]{64}$/", $this->container['actualContentHash'])) {
+            $invalidProperties[] = "invalid value for 'actualContentHash', must be conform to the pattern /^[A-F0-9]{64}$/.";
+        }
+
+        if ($this->container['actualFileSize'] === null) {
+            $invalidProperties[] = "'actualFileSize' can't be null";
         }
         return $invalidProperties;
     }
@@ -349,163 +365,173 @@ class OutboundFileSetWebhookPayload implements ModelInterface, ArrayAccess, \Jso
 
 
     /**
-     * Gets callbackName
+     * Gets index
+     *
+     * @return int
+     */
+    public function getIndex()
+    {
+        return $this->container['index'];
+    }
+
+    /**
+     * Sets index
+     *
+     * @param int $index index
+     *
+     * @return self
+     */
+    public function setIndex($index)
+    {
+        if (is_null($index)) {
+            throw new \InvalidArgumentException('non-nullable index cannot be null');
+        }
+        $this->container['index'] = $index;
+
+        return $this;
+    }
+
+    /**
+     * Gets name
      *
      * @return string
      */
-    public function getCallbackName()
+    public function getName()
     {
-        return $this->container['callbackName'];
+        return $this->container['name'];
     }
 
     /**
-     * Sets callbackName
+     * Sets name
      *
-     * @param string $callbackName callbackName
+     * @param string $name name
      *
      * @return self
      */
-    public function setCallbackName($callbackName)
+    public function setName($name)
     {
-        if (is_null($callbackName)) {
-            throw new \InvalidArgumentException('non-nullable callbackName cannot be null');
+        if (is_null($name)) {
+            throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
-        $this->container['callbackName'] = $callbackName;
+        $this->container['name'] = $name;
 
         return $this;
     }
 
     /**
-     * Gets eventId
+     * Gets expectedContentHash
      *
      * @return string
      */
-    public function getEventId()
+    public function getExpectedContentHash()
     {
-        return $this->container['eventId'];
+        return $this->container['expectedContentHash'];
     }
 
     /**
-     * Sets eventId
+     * Sets expectedContentHash
      *
-     * @param string $eventId Uniek Id voor deze callback.
+     * @param string $expectedContentHash The expected SHA256 hash of the file contents, represented as an uppercase hexadecimal string.
      *
      * @return self
      */
-    public function setEventId($eventId)
+    public function setExpectedContentHash($expectedContentHash)
     {
-        if (is_null($eventId)) {
-            throw new \InvalidArgumentException('non-nullable eventId cannot be null');
+        if (is_null($expectedContentHash)) {
+            throw new \InvalidArgumentException('non-nullable expectedContentHash cannot be null');
         }
-        $this->container['eventId'] = $eventId;
+
+        if ((!preg_match("/^[A-F0-9]{64}$/", ObjectSerializer::toString($expectedContentHash)))) {
+            throw new \InvalidArgumentException("invalid value for \$expectedContentHash when calling FileContentError., must conform to the pattern /^[A-F0-9]{64}$/.");
+        }
+
+        $this->container['expectedContentHash'] = $expectedContentHash;
 
         return $this;
     }
 
     /**
-     * Gets timestamp
+     * Gets expectedFileSize
      *
-     * @return \DateTime
+     * @return int
      */
-    public function getTimestamp()
+    public function getExpectedFileSize()
     {
-        return $this->container['timestamp'];
+        return $this->container['expectedFileSize'];
     }
 
     /**
-     * Sets timestamp
+     * Sets expectedFileSize
      *
-     * @param \DateTime $timestamp Het tijdstip van het event, in UTC.
+     * @param int $expectedFileSize The expected file size in bytes.
      *
      * @return self
      */
-    public function setTimestamp($timestamp)
+    public function setExpectedFileSize($expectedFileSize)
     {
-        if (is_null($timestamp)) {
-            throw new \InvalidArgumentException('non-nullable timestamp cannot be null');
+        if (is_null($expectedFileSize)) {
+            throw new \InvalidArgumentException('non-nullable expectedFileSize cannot be null');
         }
-        $this->container['timestamp'] = $timestamp;
+        $this->container['expectedFileSize'] = $expectedFileSize;
 
         return $this;
     }
 
     /**
-     * Gets outboundFileSetId
+     * Gets actualContentHash
      *
-     * @return string|null
+     * @return string
      */
-    public function getOutboundFileSetId()
+    public function getActualContentHash()
     {
-        return $this->container['outboundFileSetId'];
+        return $this->container['actualContentHash'];
     }
 
     /**
-     * Sets outboundFileSetId
+     * Sets actualContentHash
      *
-     * @param string|null $outboundFileSetId The ID of the file set to which this callback pertains.
+     * @param string $actualContentHash The actual SHA256 hash of the file contents, represented as an uppercase hexadecimal string.
      *
      * @return self
      */
-    public function setOutboundFileSetId($outboundFileSetId)
+    public function setActualContentHash($actualContentHash)
     {
-        if (is_null($outboundFileSetId)) {
-            throw new \InvalidArgumentException('non-nullable outboundFileSetId cannot be null');
+        if (is_null($actualContentHash)) {
+            throw new \InvalidArgumentException('non-nullable actualContentHash cannot be null');
         }
-        $this->container['outboundFileSetId'] = $outboundFileSetId;
+
+        if ((!preg_match("/^[A-F0-9]{64}$/", ObjectSerializer::toString($actualContentHash)))) {
+            throw new \InvalidArgumentException("invalid value for \$actualContentHash when calling FileContentError., must conform to the pattern /^[A-F0-9]{64}$/.");
+        }
+
+        $this->container['actualContentHash'] = $actualContentHash;
 
         return $this;
     }
 
     /**
-     * Gets oldState
+     * Gets actualFileSize
      *
-     * @return \Calcasa\Api\Model\OutboundFileSetState|null
+     * @return int
      */
-    public function getOldState()
+    public function getActualFileSize()
     {
-        return $this->container['oldState'];
+        return $this->container['actualFileSize'];
     }
 
     /**
-     * Sets oldState
+     * Sets actualFileSize
      *
-     * @param \Calcasa\Api\Model\OutboundFileSetState|null $oldState oldState
+     * @param int $actualFileSize The actual file size in bytes.
      *
      * @return self
      */
-    public function setOldState($oldState)
+    public function setActualFileSize($actualFileSize)
     {
-        if (is_null($oldState)) {
-            throw new \InvalidArgumentException('non-nullable oldState cannot be null');
+        if (is_null($actualFileSize)) {
+            throw new \InvalidArgumentException('non-nullable actualFileSize cannot be null');
         }
-        $this->container['oldState'] = $oldState;
-
-        return $this;
-    }
-
-    /**
-     * Gets newState
-     *
-     * @return \Calcasa\Api\Model\OutboundFileSetState|null
-     */
-    public function getNewState()
-    {
-        return $this->container['newState'];
-    }
-
-    /**
-     * Sets newState
-     *
-     * @param \Calcasa\Api\Model\OutboundFileSetState|null $newState newState
-     *
-     * @return self
-     */
-    public function setNewState($newState)
-    {
-        if (is_null($newState)) {
-            throw new \InvalidArgumentException('non-nullable newState cannot be null');
-        }
-        $this->container['newState'] = $newState;
+        $this->container['actualFileSize'] = $actualFileSize;
 
         return $this;
     }

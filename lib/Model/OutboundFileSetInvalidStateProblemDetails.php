@@ -1,6 +1,6 @@
 <?php
 /**
- * FileWarning
+ * OutboundFileSetInvalidStateProblemDetails
  *
  * PHP version 8.1
  *
@@ -46,7 +46,7 @@ use \ArrayAccess;
 use \Calcasa\Api\ObjectSerializer;
 
 /**
- * FileWarning Class Doc Comment
+ * OutboundFileSetInvalidStateProblemDetails Class Doc Comment
  *
  * @category Class
  * @package  Calcasa\Api
@@ -54,7 +54,7 @@ use \Calcasa\Api\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class FileWarning implements ModelInterface, ArrayAccess, \JsonSerializable
+class OutboundFileSetInvalidStateProblemDetails implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -63,7 +63,7 @@ class FileWarning implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @var string
      */
-    protected static $openAPIModelName = 'FileWarning';
+    protected static $openAPIModelName = 'OutboundFileSetInvalidStateProblemDetails';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -71,10 +71,12 @@ class FileWarning implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $openAPITypes = [
-        'index' => 'int',
-        'name' => 'string',
+        'state' => '\Calcasa\Api\Model\OutboundFileSetState',
         'type' => 'string',
-        'description' => 'string'
+        'title' => 'string',
+        'status' => 'int',
+        'detail' => 'string',
+        'instance' => 'string'
     ];
 
     /**
@@ -85,10 +87,12 @@ class FileWarning implements ModelInterface, ArrayAccess, \JsonSerializable
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'index' => 'int32',
-        'name' => null,
+        'state' => null,
         'type' => null,
-        'description' => null
+        'title' => null,
+        'status' => 'int32',
+        'detail' => null,
+        'instance' => null
     ];
 
     /**
@@ -97,10 +101,12 @@ class FileWarning implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'index' => false,
-        'name' => false,
-        'type' => false,
-        'description' => false
+        'state' => false,
+        'type' => true,
+        'title' => true,
+        'status' => true,
+        'detail' => true,
+        'instance' => true
     ];
 
     /**
@@ -189,10 +195,12 @@ class FileWarning implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'index' => 'index',
-        'name' => 'name',
+        'state' => 'state',
         'type' => 'type',
-        'description' => 'description'
+        'title' => 'title',
+        'status' => 'status',
+        'detail' => 'detail',
+        'instance' => 'instance'
     ];
 
     /**
@@ -201,10 +209,12 @@ class FileWarning implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'index' => 'setIndex',
-        'name' => 'setName',
+        'state' => 'setState',
         'type' => 'setType',
-        'description' => 'setDescription'
+        'title' => 'setTitle',
+        'status' => 'setStatus',
+        'detail' => 'setDetail',
+        'instance' => 'setInstance'
     ];
 
     /**
@@ -213,10 +223,12 @@ class FileWarning implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'index' => 'getIndex',
-        'name' => 'getName',
+        'state' => 'getState',
         'type' => 'getType',
-        'description' => 'getDescription'
+        'title' => 'getTitle',
+        'status' => 'getStatus',
+        'detail' => 'getDetail',
+        'instance' => 'getInstance'
     ];
 
     /**
@@ -276,10 +288,12 @@ class FileWarning implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('index', $data ?? [], null);
-        $this->setIfExists('name', $data ?? [], null);
+        $this->setIfExists('state', $data ?? [], null);
         $this->setIfExists('type', $data ?? [], null);
-        $this->setIfExists('description', $data ?? [], null);
+        $this->setIfExists('title', $data ?? [], null);
+        $this->setIfExists('status', $data ?? [], null);
+        $this->setIfExists('detail', $data ?? [], null);
+        $this->setIfExists('instance', $data ?? [], null);
     }
 
     /**
@@ -309,17 +323,8 @@ class FileWarning implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['index'] === null) {
-            $invalidProperties[] = "'index' can't be null";
-        }
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
-        }
-        if ($this->container['description'] === null) {
-            $invalidProperties[] = "'description' can't be null";
+        if ($this->container['state'] === null) {
+            $invalidProperties[] = "'state' can't be null";
         }
         return $invalidProperties;
     }
@@ -337,55 +342,28 @@ class FileWarning implements ModelInterface, ArrayAccess, \JsonSerializable
 
 
     /**
-     * Gets index
+     * Gets state
      *
-     * @return int
+     * @return \Calcasa\Api\Model\OutboundFileSetState
      */
-    public function getIndex()
+    public function getState()
     {
-        return $this->container['index'];
+        return $this->container['state'];
     }
 
     /**
-     * Sets index
+     * Sets state
      *
-     * @param int $index index
+     * @param \Calcasa\Api\Model\OutboundFileSetState $state state
      *
      * @return self
      */
-    public function setIndex($index)
+    public function setState($state)
     {
-        if (is_null($index)) {
-            throw new \InvalidArgumentException('non-nullable index cannot be null');
+        if (is_null($state)) {
+            throw new \InvalidArgumentException('non-nullable state cannot be null');
         }
-        $this->container['index'] = $index;
-
-        return $this;
-    }
-
-    /**
-     * Gets name
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->container['name'];
-    }
-
-    /**
-     * Sets name
-     *
-     * @param string $name name
-     *
-     * @return self
-     */
-    public function setName($name)
-    {
-        if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
-        }
-        $this->container['name'] = $name;
+        $this->container['state'] = $state;
 
         return $this;
     }
@@ -393,7 +371,7 @@ class FileWarning implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets type
      *
-     * @return string
+     * @return string|null
      */
     public function getType()
     {
@@ -403,14 +381,21 @@ class FileWarning implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets type
      *
-     * @param string $type The type of the warning. Short mostly stable strings that can be used to identify the warning type.
+     * @param string|null $type A URI reference [RFC3986] that identifies the problem type.
      *
      * @return self
      */
     public function setType($type)
     {
         if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['type'] = $type;
 
@@ -418,28 +403,137 @@ class FileWarning implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets description
+     * Gets title
      *
-     * @return string
+     * @return string|null
      */
-    public function getDescription()
+    public function getTitle()
     {
-        return $this->container['description'];
+        return $this->container['title'];
     }
 
     /**
-     * Sets description
+     * Sets title
      *
-     * @param string $description A description of the warning to be presented to the user.
+     * @param string|null $title A short, human-readable summary of the problem type.
      *
      * @return self
      */
-    public function setDescription($description)
+    public function setTitle($title)
     {
-        if (is_null($description)) {
-            throw new \InvalidArgumentException('non-nullable description cannot be null');
+        if (is_null($title)) {
+            array_push($this->openAPINullablesSetToNull, 'title');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('title', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
-        $this->container['description'] = $description;
+        $this->container['title'] = $title;
+
+        return $this;
+    }
+
+    /**
+     * Gets status
+     *
+     * @return int|null
+     */
+    public function getStatus()
+    {
+        return $this->container['status'];
+    }
+
+    /**
+     * Sets status
+     *
+     * @param int|null $status The HTTP status code for this occurrence of the problem.
+     *
+     * @return self
+     */
+    public function setStatus($status)
+    {
+        if (is_null($status)) {
+            array_push($this->openAPINullablesSetToNull, 'status');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('status', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['status'] = $status;
+
+        return $this;
+    }
+
+    /**
+     * Gets detail
+     *
+     * @return string|null
+     */
+    public function getDetail()
+    {
+        return $this->container['detail'];
+    }
+
+    /**
+     * Sets detail
+     *
+     * @param string|null $detail A human-readable explanation specific to this occurrence of the problem.
+     *
+     * @return self
+     */
+    public function setDetail($detail)
+    {
+        if (is_null($detail)) {
+            array_push($this->openAPINullablesSetToNull, 'detail');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('detail', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['detail'] = $detail;
+
+        return $this;
+    }
+
+    /**
+     * Gets instance
+     *
+     * @return string|null
+     */
+    public function getInstance()
+    {
+        return $this->container['instance'];
+    }
+
+    /**
+     * Sets instance
+     *
+     * @param string|null $instance A URI reference that identifies the specific occurrence of the problem.
+     *
+     * @return self
+     */
+    public function setInstance($instance)
+    {
+        if (is_null($instance)) {
+            array_push($this->openAPINullablesSetToNull, 'instance');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('instance', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['instance'] = $instance;
 
         return $this;
     }

@@ -1,6 +1,6 @@
 <?php
 /**
- * FileError
+ * FileNotice
  *
  * PHP version 8.1
  *
@@ -46,7 +46,7 @@ use \ArrayAccess;
 use \Calcasa\Api\ObjectSerializer;
 
 /**
- * FileError Class Doc Comment
+ * FileNotice Class Doc Comment
  *
  * @category Class
  * @package  Calcasa\Api
@@ -54,7 +54,7 @@ use \Calcasa\Api\ObjectSerializer;
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<string, mixed>
  */
-class FileError implements ModelInterface, ArrayAccess, \JsonSerializable
+class FileNotice implements ModelInterface, ArrayAccess, \JsonSerializable
 {
     public const DISCRIMINATOR = null;
 
@@ -63,7 +63,7 @@ class FileError implements ModelInterface, ArrayAccess, \JsonSerializable
      *
      * @var string
      */
-    protected static $openAPIModelName = 'FileError';
+    protected static $openAPIModelName = 'FileNotice';
 
     /**
      * Array of property to type mappings. Used for (de)serialization
@@ -73,10 +73,8 @@ class FileError implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'index' => 'int',
         'name' => 'string',
-        'expectedContentHash' => 'string',
-        'expectedFileSize' => 'int',
-        'actualContentHash' => 'string',
-        'actualFileSize' => 'int'
+        'type' => 'string',
+        'description' => 'string'
     ];
 
     /**
@@ -89,10 +87,8 @@ class FileError implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPIFormats = [
         'index' => 'int32',
         'name' => null,
-        'expectedContentHash' => 'hex',
-        'expectedFileSize' => 'int64',
-        'actualContentHash' => 'hex',
-        'actualFileSize' => 'int64'
+        'type' => null,
+        'description' => null
     ];
 
     /**
@@ -103,10 +99,8 @@ class FileError implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static array $openAPINullables = [
         'index' => false,
         'name' => false,
-        'expectedContentHash' => false,
-        'expectedFileSize' => false,
-        'actualContentHash' => false,
-        'actualFileSize' => false
+        'type' => false,
+        'description' => false
     ];
 
     /**
@@ -197,10 +191,8 @@ class FileError implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $attributeMap = [
         'index' => 'index',
         'name' => 'name',
-        'expectedContentHash' => 'expectedContentHash',
-        'expectedFileSize' => 'expectedFileSize',
-        'actualContentHash' => 'actualContentHash',
-        'actualFileSize' => 'actualFileSize'
+        'type' => 'type',
+        'description' => 'description'
     ];
 
     /**
@@ -211,10 +203,8 @@ class FileError implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $setters = [
         'index' => 'setIndex',
         'name' => 'setName',
-        'expectedContentHash' => 'setExpectedContentHash',
-        'expectedFileSize' => 'setExpectedFileSize',
-        'actualContentHash' => 'setActualContentHash',
-        'actualFileSize' => 'setActualFileSize'
+        'type' => 'setType',
+        'description' => 'setDescription'
     ];
 
     /**
@@ -225,10 +215,8 @@ class FileError implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $getters = [
         'index' => 'getIndex',
         'name' => 'getName',
-        'expectedContentHash' => 'getExpectedContentHash',
-        'expectedFileSize' => 'getExpectedFileSize',
-        'actualContentHash' => 'getActualContentHash',
-        'actualFileSize' => 'getActualFileSize'
+        'type' => 'getType',
+        'description' => 'getDescription'
     ];
 
     /**
@@ -290,10 +278,8 @@ class FileError implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $this->setIfExists('index', $data ?? [], null);
         $this->setIfExists('name', $data ?? [], null);
-        $this->setIfExists('expectedContentHash', $data ?? [], null);
-        $this->setIfExists('expectedFileSize', $data ?? [], null);
-        $this->setIfExists('actualContentHash', $data ?? [], null);
-        $this->setIfExists('actualFileSize', $data ?? [], null);
+        $this->setIfExists('type', $data ?? [], null);
+        $this->setIfExists('description', $data ?? [], null);
     }
 
     /**
@@ -329,25 +315,11 @@ class FileError implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
         }
-        if ($this->container['expectedContentHash'] === null) {
-            $invalidProperties[] = "'expectedContentHash' can't be null";
+        if ($this->container['type'] === null) {
+            $invalidProperties[] = "'type' can't be null";
         }
-        if (!preg_match("/^[A-F0-9]{64}$/", $this->container['expectedContentHash'])) {
-            $invalidProperties[] = "invalid value for 'expectedContentHash', must be conform to the pattern /^[A-F0-9]{64}$/.";
-        }
-
-        if ($this->container['expectedFileSize'] === null) {
-            $invalidProperties[] = "'expectedFileSize' can't be null";
-        }
-        if ($this->container['actualContentHash'] === null) {
-            $invalidProperties[] = "'actualContentHash' can't be null";
-        }
-        if (!preg_match("/^[A-F0-9]{64}$/", $this->container['actualContentHash'])) {
-            $invalidProperties[] = "invalid value for 'actualContentHash', must be conform to the pattern /^[A-F0-9]{64}$/.";
-        }
-
-        if ($this->container['actualFileSize'] === null) {
-            $invalidProperties[] = "'actualFileSize' can't be null";
+        if ($this->container['description'] === null) {
+            $invalidProperties[] = "'description' can't be null";
         }
         return $invalidProperties;
     }
@@ -419,119 +391,55 @@ class FileError implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets expectedContentHash
+     * Gets type
      *
      * @return string
      */
-    public function getExpectedContentHash()
+    public function getType()
     {
-        return $this->container['expectedContentHash'];
+        return $this->container['type'];
     }
 
     /**
-     * Sets expectedContentHash
+     * Sets type
      *
-     * @param string $expectedContentHash The expected SHA256 hash of the file contents, represented as an uppercase hexadecimal string.
+     * @param string $type The type of the warning. Short mostly stable strings that can be used to identify the warning type.
      *
      * @return self
      */
-    public function setExpectedContentHash($expectedContentHash)
+    public function setType($type)
     {
-        if (is_null($expectedContentHash)) {
-            throw new \InvalidArgumentException('non-nullable expectedContentHash cannot be null');
+        if (is_null($type)) {
+            throw new \InvalidArgumentException('non-nullable type cannot be null');
         }
-
-        if ((!preg_match("/^[A-F0-9]{64}$/", ObjectSerializer::toString($expectedContentHash)))) {
-            throw new \InvalidArgumentException("invalid value for \$expectedContentHash when calling FileError., must conform to the pattern /^[A-F0-9]{64}$/.");
-        }
-
-        $this->container['expectedContentHash'] = $expectedContentHash;
+        $this->container['type'] = $type;
 
         return $this;
     }
 
     /**
-     * Gets expectedFileSize
-     *
-     * @return int
-     */
-    public function getExpectedFileSize()
-    {
-        return $this->container['expectedFileSize'];
-    }
-
-    /**
-     * Sets expectedFileSize
-     *
-     * @param int $expectedFileSize The expected file size in bytes.
-     *
-     * @return self
-     */
-    public function setExpectedFileSize($expectedFileSize)
-    {
-        if (is_null($expectedFileSize)) {
-            throw new \InvalidArgumentException('non-nullable expectedFileSize cannot be null');
-        }
-        $this->container['expectedFileSize'] = $expectedFileSize;
-
-        return $this;
-    }
-
-    /**
-     * Gets actualContentHash
+     * Gets description
      *
      * @return string
      */
-    public function getActualContentHash()
+    public function getDescription()
     {
-        return $this->container['actualContentHash'];
+        return $this->container['description'];
     }
 
     /**
-     * Sets actualContentHash
+     * Sets description
      *
-     * @param string $actualContentHash The actual SHA256 hash of the file contents, represented as an uppercase hexadecimal string.
+     * @param string $description A description of the warning to be presented to the user.
      *
      * @return self
      */
-    public function setActualContentHash($actualContentHash)
+    public function setDescription($description)
     {
-        if (is_null($actualContentHash)) {
-            throw new \InvalidArgumentException('non-nullable actualContentHash cannot be null');
+        if (is_null($description)) {
+            throw new \InvalidArgumentException('non-nullable description cannot be null');
         }
-
-        if ((!preg_match("/^[A-F0-9]{64}$/", ObjectSerializer::toString($actualContentHash)))) {
-            throw new \InvalidArgumentException("invalid value for \$actualContentHash when calling FileError., must conform to the pattern /^[A-F0-9]{64}$/.");
-        }
-
-        $this->container['actualContentHash'] = $actualContentHash;
-
-        return $this;
-    }
-
-    /**
-     * Gets actualFileSize
-     *
-     * @return int
-     */
-    public function getActualFileSize()
-    {
-        return $this->container['actualFileSize'];
-    }
-
-    /**
-     * Sets actualFileSize
-     *
-     * @param int $actualFileSize The actual file size in bytes.
-     *
-     * @return self
-     */
-    public function setActualFileSize($actualFileSize)
-    {
-        if (is_null($actualFileSize)) {
-            throw new \InvalidArgumentException('non-nullable actualFileSize cannot be null');
-        }
-        $this->container['actualFileSize'] = $actualFileSize;
+        $this->container['description'] = $description;
 
         return $this;
     }

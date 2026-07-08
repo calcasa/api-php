@@ -76,8 +76,8 @@ class InboundFileSetWebhookPayload implements ModelInterface, ArrayAccess, \Json
         'eventId' => 'string',
         'timestamp' => '\DateTime',
         'inboundFileSetId' => 'string',
-        'oldStatus' => '\Calcasa\Api\Model\InboundFileSetState',
-        'newStatus' => '\Calcasa\Api\Model\InboundFileSetState'
+        'oldState' => '\Calcasa\Api\Model\InboundFileSetState',
+        'newState' => '\Calcasa\Api\Model\InboundFileSetState'
     ];
 
     /**
@@ -92,8 +92,8 @@ class InboundFileSetWebhookPayload implements ModelInterface, ArrayAccess, \Json
         'eventId' => 'uuid',
         'timestamp' => 'date-time',
         'inboundFileSetId' => 'uuid',
-        'oldStatus' => null,
-        'newStatus' => null
+        'oldState' => null,
+        'newState' => null
     ];
 
     /**
@@ -106,8 +106,8 @@ class InboundFileSetWebhookPayload implements ModelInterface, ArrayAccess, \Json
         'eventId' => false,
         'timestamp' => false,
         'inboundFileSetId' => false,
-        'oldStatus' => false,
-        'newStatus' => false
+        'oldState' => false,
+        'newState' => false
     ];
 
     /**
@@ -200,8 +200,8 @@ class InboundFileSetWebhookPayload implements ModelInterface, ArrayAccess, \Json
         'eventId' => 'eventId',
         'timestamp' => 'timestamp',
         'inboundFileSetId' => 'inboundFileSetId',
-        'oldStatus' => 'oldStatus',
-        'newStatus' => 'newStatus'
+        'oldState' => 'oldState',
+        'newState' => 'newState'
     ];
 
     /**
@@ -214,8 +214,8 @@ class InboundFileSetWebhookPayload implements ModelInterface, ArrayAccess, \Json
         'eventId' => 'setEventId',
         'timestamp' => 'setTimestamp',
         'inboundFileSetId' => 'setInboundFileSetId',
-        'oldStatus' => 'setOldStatus',
-        'newStatus' => 'setNewStatus'
+        'oldState' => 'setOldState',
+        'newState' => 'setNewState'
     ];
 
     /**
@@ -228,8 +228,8 @@ class InboundFileSetWebhookPayload implements ModelInterface, ArrayAccess, \Json
         'eventId' => 'getEventId',
         'timestamp' => 'getTimestamp',
         'inboundFileSetId' => 'getInboundFileSetId',
-        'oldStatus' => 'getOldStatus',
-        'newStatus' => 'getNewStatus'
+        'oldState' => 'getOldState',
+        'newState' => 'getNewState'
     ];
 
     /**
@@ -293,8 +293,8 @@ class InboundFileSetWebhookPayload implements ModelInterface, ArrayAccess, \Json
         $this->setIfExists('eventId', $data ?? [], null);
         $this->setIfExists('timestamp', $data ?? [], null);
         $this->setIfExists('inboundFileSetId', $data ?? [], null);
-        $this->setIfExists('oldStatus', $data ?? [], null);
-        $this->setIfExists('newStatus', $data ?? [], null);
+        $this->setIfExists('oldState', $data ?? [], null);
+        $this->setIfExists('newState', $data ?? [], null);
     }
 
     /**
@@ -457,55 +457,55 @@ class InboundFileSetWebhookPayload implements ModelInterface, ArrayAccess, \Json
     }
 
     /**
-     * Gets oldStatus
+     * Gets oldState
      *
      * @return \Calcasa\Api\Model\InboundFileSetState|null
      */
-    public function getOldStatus()
+    public function getOldState()
     {
-        return $this->container['oldStatus'];
+        return $this->container['oldState'];
     }
 
     /**
-     * Sets oldStatus
+     * Sets oldState
      *
-     * @param \Calcasa\Api\Model\InboundFileSetState|null $oldStatus oldStatus
+     * @param \Calcasa\Api\Model\InboundFileSetState|null $oldState oldState
      *
      * @return self
      */
-    public function setOldStatus($oldStatus)
+    public function setOldState($oldState)
     {
-        if (is_null($oldStatus)) {
-            throw new \InvalidArgumentException('non-nullable oldStatus cannot be null');
+        if (is_null($oldState)) {
+            throw new \InvalidArgumentException('non-nullable oldState cannot be null');
         }
-        $this->container['oldStatus'] = $oldStatus;
+        $this->container['oldState'] = $oldState;
 
         return $this;
     }
 
     /**
-     * Gets newStatus
+     * Gets newState
      *
      * @return \Calcasa\Api\Model\InboundFileSetState|null
      */
-    public function getNewStatus()
+    public function getNewState()
     {
-        return $this->container['newStatus'];
+        return $this->container['newState'];
     }
 
     /**
-     * Sets newStatus
+     * Sets newState
      *
-     * @param \Calcasa\Api\Model\InboundFileSetState|null $newStatus newStatus
+     * @param \Calcasa\Api\Model\InboundFileSetState|null $newState newState
      *
      * @return self
      */
-    public function setNewStatus($newStatus)
+    public function setNewState($newState)
     {
-        if (is_null($newStatus)) {
-            throw new \InvalidArgumentException('non-nullable newStatus cannot be null');
+        if (is_null($newState)) {
+            throw new \InvalidArgumentException('non-nullable newState cannot be null');
         }
-        $this->container['newStatus'] = $newStatus;
+        $this->container['newState'] = $newState;
 
         return $this;
     }

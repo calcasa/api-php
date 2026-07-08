@@ -1954,7 +1954,7 @@ class FileSetsApi
      *
      * @throws \Calcasa\Api\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \SplFileObject|\Calcasa\Api\Model\UnauthorizedProblemDetails|\Calcasa\Api\Model\NotFoundProblemDetails|\Calcasa\Api\Model\ProblemDetails
+     * @return \SplFileObject|\Calcasa\Api\Model\UnauthorizedProblemDetails|\Calcasa\Api\Model\NotFoundProblemDetails|\Calcasa\Api\Model\OutboundFileSetInvalidStateProblemDetails|\Calcasa\Api\Model\ProblemDetails
      */
     public function getOutboundFileByIndex($outboundFileSetId, $fileIndex, $range = null, $acceptEncoding = null, string $contentType = self::contentTypes['getOutboundFileByIndex'][0])
     {
@@ -1975,7 +1975,7 @@ class FileSetsApi
      *
      * @throws \Calcasa\Api\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \SplFileObject|\Calcasa\Api\Model\UnauthorizedProblemDetails|\Calcasa\Api\Model\NotFoundProblemDetails|\Calcasa\Api\Model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SplFileObject|\Calcasa\Api\Model\UnauthorizedProblemDetails|\Calcasa\Api\Model\NotFoundProblemDetails|\Calcasa\Api\Model\OutboundFileSetInvalidStateProblemDetails|\Calcasa\Api\Model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
      */
     public function getOutboundFileByIndexWithHttpInfo($outboundFileSetId, $fileIndex, $range = null, $acceptEncoding = null, string $contentType = self::contentTypes['getOutboundFileByIndex'][0])
     {
@@ -2020,6 +2020,12 @@ class FileSetsApi
                 case 404:
                     return $this->handleResponseWithDataType(
                         '\Calcasa\Api\Model\NotFoundProblemDetails',
+                        $request,
+                        $response,
+                    );
+                case 422:
+                    return $this->handleResponseWithDataType(
+                        '\Calcasa\Api\Model\OutboundFileSetInvalidStateProblemDetails',
                         $request,
                         $response,
                     );
@@ -2073,6 +2079,14 @@ class FileSetsApi
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\Calcasa\Api\Model\NotFoundProblemDetails',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 422:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\Calcasa\Api\Model\OutboundFileSetInvalidStateProblemDetails',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
