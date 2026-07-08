@@ -2896,17 +2896,17 @@ class FileSetsApi
      *
      * @param  string $inboundFileSetId inboundFileSetId (required)
      * @param  int $fileIndex fileIndex (required)
+     * @param  int $chunkIndex chunkIndex (required)
      * @param  \SplFileObject $body body (required)
-     * @param  string|null $contentEncoding contentEncoding (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putFileChunk'] to see the possible values for this operation
      *
      * @throws \Calcasa\Api\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function putFileChunk($inboundFileSetId, $fileIndex, $body, $contentEncoding = null, string $contentType = self::contentTypes['putFileChunk'][0])
+    public function putFileChunk($inboundFileSetId, $fileIndex, $chunkIndex, $body, string $contentType = self::contentTypes['putFileChunk'][0])
     {
-        $this->putFileChunkWithHttpInfo($inboundFileSetId, $fileIndex, $body, $contentEncoding, $contentType);
+        $this->putFileChunkWithHttpInfo($inboundFileSetId, $fileIndex, $chunkIndex, $body, $contentType);
     }
 
     /**
@@ -2916,17 +2916,17 @@ class FileSetsApi
      *
      * @param  string $inboundFileSetId (required)
      * @param  int $fileIndex (required)
+     * @param  int $chunkIndex (required)
      * @param  \SplFileObject $body (required)
-     * @param  string|null $contentEncoding (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putFileChunk'] to see the possible values for this operation
      *
      * @throws \Calcasa\Api\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function putFileChunkWithHttpInfo($inboundFileSetId, $fileIndex, $body, $contentEncoding = null, string $contentType = self::contentTypes['putFileChunk'][0])
+    public function putFileChunkWithHttpInfo($inboundFileSetId, $fileIndex, $chunkIndex, $body, string $contentType = self::contentTypes['putFileChunk'][0])
     {
-        $request = $this->putFileChunkRequest($inboundFileSetId, $fileIndex, $body, $contentEncoding, $contentType);
+        $request = $this->putFileChunkRequest($inboundFileSetId, $fileIndex, $chunkIndex, $body, $contentType);
 
         try {
             $options = $this->createHttpClientOption();
@@ -3016,16 +3016,16 @@ class FileSetsApi
      *
      * @param  string $inboundFileSetId (required)
      * @param  int $fileIndex (required)
+     * @param  int $chunkIndex (required)
      * @param  \SplFileObject $body (required)
-     * @param  string|null $contentEncoding (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putFileChunk'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function putFileChunkAsync($inboundFileSetId, $fileIndex, $body, $contentEncoding = null, string $contentType = self::contentTypes['putFileChunk'][0])
+    public function putFileChunkAsync($inboundFileSetId, $fileIndex, $chunkIndex, $body, string $contentType = self::contentTypes['putFileChunk'][0])
     {
-        return $this->putFileChunkAsyncWithHttpInfo($inboundFileSetId, $fileIndex, $body, $contentEncoding, $contentType)
+        return $this->putFileChunkAsyncWithHttpInfo($inboundFileSetId, $fileIndex, $chunkIndex, $body, $contentType)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -3040,17 +3040,17 @@ class FileSetsApi
      *
      * @param  string $inboundFileSetId (required)
      * @param  int $fileIndex (required)
+     * @param  int $chunkIndex (required)
      * @param  \SplFileObject $body (required)
-     * @param  string|null $contentEncoding (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putFileChunk'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function putFileChunkAsyncWithHttpInfo($inboundFileSetId, $fileIndex, $body, $contentEncoding = null, string $contentType = self::contentTypes['putFileChunk'][0])
+    public function putFileChunkAsyncWithHttpInfo($inboundFileSetId, $fileIndex, $chunkIndex, $body, string $contentType = self::contentTypes['putFileChunk'][0])
     {
         $returnType = '';
-        $request = $this->putFileChunkRequest($inboundFileSetId, $fileIndex, $body, $contentEncoding, $contentType);
+        $request = $this->putFileChunkRequest($inboundFileSetId, $fileIndex, $chunkIndex, $body, $contentType);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -3080,14 +3080,14 @@ class FileSetsApi
      *
      * @param  string $inboundFileSetId (required)
      * @param  int $fileIndex (required)
+     * @param  int $chunkIndex (required)
      * @param  \SplFileObject $body (required)
-     * @param  string|null $contentEncoding (optional)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['putFileChunk'] to see the possible values for this operation
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    public function putFileChunkRequest($inboundFileSetId, $fileIndex, $body, $contentEncoding = null, string $contentType = self::contentTypes['putFileChunk'][0])
+    public function putFileChunkRequest($inboundFileSetId, $fileIndex, $chunkIndex, $body, string $contentType = self::contentTypes['putFileChunk'][0])
     {
 
         // verify the required parameter 'inboundFileSetId' is set
@@ -3104,6 +3104,13 @@ class FileSetsApi
             );
         }
 
+        // verify the required parameter 'chunkIndex' is set
+        if ($chunkIndex === null || (is_array($chunkIndex) && count($chunkIndex) === 0)) {
+            throw new \InvalidArgumentException(
+                'Missing the required parameter $chunkIndex when calling putFileChunk'
+            );
+        }
+
         // verify the required parameter 'body' is set
         if ($body === null || (is_array($body) && count($body) === 0)) {
             throw new \InvalidArgumentException(
@@ -3112,8 +3119,7 @@ class FileSetsApi
         }
 
 
-
-        $resourcePath = '/file-sets/inbound/{inboundFileSetId}/{fileIndex}';
+        $resourcePath = '/file-sets/inbound/{inboundFileSetId}/{fileIndex}/{chunkIndex}';
         $formParams = [];
         $queryParams = [];
         $headerParams = [];
@@ -3121,10 +3127,6 @@ class FileSetsApi
         $multipart = false;
 
 
-        // header params
-        if ($contentEncoding !== null) {
-            $headerParams['content-encoding'] = ObjectSerializer::toHeaderValue($contentEncoding);
-        }
 
         // path params
         if ($inboundFileSetId !== null) {
@@ -3139,6 +3141,14 @@ class FileSetsApi
             $resourcePath = str_replace(
                 '{fileIndex}',
                 ObjectSerializer::toPathValue($fileIndex),
+                $resourcePath
+            );
+        }
+        // path params
+        if ($chunkIndex !== null) {
+            $resourcePath = str_replace(
+                '{chunkIndex}',
+                ObjectSerializer::toPathValue($chunkIndex),
                 $resourcePath
             );
         }

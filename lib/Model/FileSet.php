@@ -72,7 +72,6 @@ class FileSet implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $openAPITypes = [
         'id' => 'string',
-        'files' => '\Calcasa\Api\Model\FileInfo[]',
         'createdOn' => '\DateTime',
         'expiresAfter' => '\DateTime',
         'modifiedOn' => '\DateTime',
@@ -90,7 +89,6 @@ class FileSet implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $openAPIFormats = [
         'id' => 'uuid',
-        'files' => null,
         'createdOn' => 'date-time',
         'expiresAfter' => 'date-time',
         'modifiedOn' => 'date-time',
@@ -106,7 +104,6 @@ class FileSet implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static array $openAPINullables = [
         'id' => false,
-        'files' => true,
         'createdOn' => false,
         'expiresAfter' => true,
         'modifiedOn' => false,
@@ -202,7 +199,6 @@ class FileSet implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'id' => 'id',
-        'files' => 'files',
         'createdOn' => 'createdOn',
         'expiresAfter' => 'expiresAfter',
         'modifiedOn' => 'modifiedOn',
@@ -218,7 +214,6 @@ class FileSet implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'id' => 'setId',
-        'files' => 'setFiles',
         'createdOn' => 'setCreatedOn',
         'expiresAfter' => 'setExpiresAfter',
         'modifiedOn' => 'setModifiedOn',
@@ -234,7 +229,6 @@ class FileSet implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'id' => 'getId',
-        'files' => 'getFiles',
         'createdOn' => 'getCreatedOn',
         'expiresAfter' => 'getExpiresAfter',
         'modifiedOn' => 'getModifiedOn',
@@ -301,7 +295,6 @@ class FileSet implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(?array $data = null)
     {
         $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('files', $data ?? [], null);
         $this->setIfExists('createdOn', $data ?? [], null);
         $this->setIfExists('expiresAfter', $data ?? [], null);
         $this->setIfExists('modifiedOn', $data ?? [], null);
@@ -390,40 +383,6 @@ class FileSet implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
         $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets files
-     *
-     * @return \Calcasa\Api\Model\FileInfo[]|null
-     */
-    public function getFiles()
-    {
-        return $this->container['files'];
-    }
-
-    /**
-     * Sets files
-     *
-     * @param \Calcasa\Api\Model\FileInfo[]|null $files The files associated with the file set.
-     *
-     * @return self
-     */
-    public function setFiles($files)
-    {
-        if (is_null($files)) {
-            array_push($this->openAPINullablesSetToNull, 'files');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('files', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['files'] = $files;
 
         return $this;
     }

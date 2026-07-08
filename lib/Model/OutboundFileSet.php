@@ -72,13 +72,13 @@ class OutboundFileSet implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $openAPITypes = [
         'id' => 'string',
-        'files' => '\Calcasa\Api\Model\FileInfo[]',
         'createdOn' => '\DateTime',
         'expiresAfter' => '\DateTime',
         'modifiedOn' => '\DateTime',
         'type' => 'string',
         'revision' => 'int',
         'period' => '\DateTime',
+        'files' => '\Calcasa\Api\Model\FileInfo[]',
         'inboundFileSetId' => 'string',
         'state' => '\Calcasa\Api\Model\OutboundFileSetState'
     ];
@@ -92,13 +92,13 @@ class OutboundFileSet implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $openAPIFormats = [
         'id' => 'uuid',
-        'files' => null,
         'createdOn' => 'date-time',
         'expiresAfter' => 'date-time',
         'modifiedOn' => 'date-time',
         'type' => null,
         'revision' => 'int32',
         'period' => 'date',
+        'files' => null,
         'inboundFileSetId' => 'uuid',
         'state' => null
     ];
@@ -110,13 +110,13 @@ class OutboundFileSet implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static array $openAPINullables = [
         'id' => false,
-        'files' => true,
         'createdOn' => false,
         'expiresAfter' => true,
         'modifiedOn' => false,
         'type' => false,
         'revision' => false,
         'period' => true,
+        'files' => true,
         'inboundFileSetId' => false,
         'state' => false
     ];
@@ -208,13 +208,13 @@ class OutboundFileSet implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $attributeMap = [
         'id' => 'id',
-        'files' => 'files',
         'createdOn' => 'createdOn',
         'expiresAfter' => 'expiresAfter',
         'modifiedOn' => 'modifiedOn',
         'type' => 'type',
         'revision' => 'revision',
         'period' => 'period',
+        'files' => 'files',
         'inboundFileSetId' => 'inboundFileSetId',
         'state' => 'state'
     ];
@@ -226,13 +226,13 @@ class OutboundFileSet implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $setters = [
         'id' => 'setId',
-        'files' => 'setFiles',
         'createdOn' => 'setCreatedOn',
         'expiresAfter' => 'setExpiresAfter',
         'modifiedOn' => 'setModifiedOn',
         'type' => 'setType',
         'revision' => 'setRevision',
         'period' => 'setPeriod',
+        'files' => 'setFiles',
         'inboundFileSetId' => 'setInboundFileSetId',
         'state' => 'setState'
     ];
@@ -244,13 +244,13 @@ class OutboundFileSet implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static $getters = [
         'id' => 'getId',
-        'files' => 'getFiles',
         'createdOn' => 'getCreatedOn',
         'expiresAfter' => 'getExpiresAfter',
         'modifiedOn' => 'getModifiedOn',
         'type' => 'getType',
         'revision' => 'getRevision',
         'period' => 'getPeriod',
+        'files' => 'getFiles',
         'inboundFileSetId' => 'getInboundFileSetId',
         'state' => 'getState'
     ];
@@ -313,13 +313,13 @@ class OutboundFileSet implements ModelInterface, ArrayAccess, \JsonSerializable
     public function __construct(?array $data = null)
     {
         $this->setIfExists('id', $data ?? [], null);
-        $this->setIfExists('files', $data ?? [], null);
         $this->setIfExists('createdOn', $data ?? [], null);
         $this->setIfExists('expiresAfter', $data ?? [], null);
         $this->setIfExists('modifiedOn', $data ?? [], null);
         $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('revision', $data ?? [], null);
         $this->setIfExists('period', $data ?? [], null);
+        $this->setIfExists('files', $data ?? [], null);
         $this->setIfExists('inboundFileSetId', $data ?? [], null);
         $this->setIfExists('state', $data ?? [], null);
     }
@@ -410,40 +410,6 @@ class OutboundFileSet implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable id cannot be null');
         }
         $this->container['id'] = $id;
-
-        return $this;
-    }
-
-    /**
-     * Gets files
-     *
-     * @return \Calcasa\Api\Model\FileInfo[]|null
-     */
-    public function getFiles()
-    {
-        return $this->container['files'];
-    }
-
-    /**
-     * Sets files
-     *
-     * @param \Calcasa\Api\Model\FileInfo[]|null $files The files associated with the file set.
-     *
-     * @return self
-     */
-    public function setFiles($files)
-    {
-        if (is_null($files)) {
-            array_push($this->openAPINullablesSetToNull, 'files');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('files', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['files'] = $files;
 
         return $this;
     }
@@ -620,6 +586,40 @@ class OutboundFileSet implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['period'] = $period;
+
+        return $this;
+    }
+
+    /**
+     * Gets files
+     *
+     * @return \Calcasa\Api\Model\FileInfo[]|null
+     */
+    public function getFiles()
+    {
+        return $this->container['files'];
+    }
+
+    /**
+     * Sets files
+     *
+     * @param \Calcasa\Api\Model\FileInfo[]|null $files The files associated with the file set.
+     *
+     * @return self
+     */
+    public function setFiles($files)
+    {
+        if (is_null($files)) {
+            array_push($this->openAPINullablesSetToNull, 'files');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('files', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['files'] = $files;
 
         return $this;
     }
