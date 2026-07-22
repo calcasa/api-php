@@ -80,6 +80,7 @@ class Funderingdata implements ModelInterface, ArrayAccess, \JsonSerializable
         'bioInfectieRisico' => '\Calcasa\Api\Model\FunderingRisico',
         'herstelkosten' => 'float',
         'bron' => '\Calcasa\Api\Model\FunderingDataBron',
+        'risicobron' => '\Calcasa\Api\Model\FunderingSoortBron',
         'risicolabel' => '\Calcasa\Api\Model\Funderingsrisico'
     ];
 
@@ -99,6 +100,7 @@ class Funderingdata implements ModelInterface, ArrayAccess, \JsonSerializable
         'bioInfectieRisico' => null,
         'herstelkosten' => 'double',
         'bron' => null,
+        'risicobron' => null,
         'risicolabel' => null
     ];
 
@@ -116,6 +118,7 @@ class Funderingdata implements ModelInterface, ArrayAccess, \JsonSerializable
         'bioInfectieRisico' => false,
         'herstelkosten' => true,
         'bron' => false,
+        'risicobron' => false,
         'risicolabel' => false
     ];
 
@@ -213,6 +216,7 @@ class Funderingdata implements ModelInterface, ArrayAccess, \JsonSerializable
         'bioInfectieRisico' => 'bioInfectieRisico',
         'herstelkosten' => 'herstelkosten',
         'bron' => 'bron',
+        'risicobron' => 'risicobron',
         'risicolabel' => 'risicolabel'
     ];
 
@@ -230,6 +234,7 @@ class Funderingdata implements ModelInterface, ArrayAccess, \JsonSerializable
         'bioInfectieRisico' => 'setBioInfectieRisico',
         'herstelkosten' => 'setHerstelkosten',
         'bron' => 'setBron',
+        'risicobron' => 'setRisicobron',
         'risicolabel' => 'setRisicolabel'
     ];
 
@@ -247,6 +252,7 @@ class Funderingdata implements ModelInterface, ArrayAccess, \JsonSerializable
         'bioInfectieRisico' => 'getBioInfectieRisico',
         'herstelkosten' => 'getHerstelkosten',
         'bron' => 'getBron',
+        'risicobron' => 'getRisicobron',
         'risicolabel' => 'getRisicolabel'
     ];
 
@@ -315,6 +321,7 @@ class Funderingdata implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('bioInfectieRisico', $data ?? [], null);
         $this->setIfExists('herstelkosten', $data ?? [], null);
         $this->setIfExists('bron', $data ?? [], null);
+        $this->setIfExists('risicobron', $data ?? [], null);
         $this->setIfExists('risicolabel', $data ?? [], null);
     }
 
@@ -571,7 +578,7 @@ class Funderingdata implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets bron
      *
-     * @param \Calcasa\Api\Model\FunderingDataBron|null $bron bron
+     * @param \Calcasa\Api\Model\FunderingDataBron|null $bron De bron van de funderingsdata, dit is eigenlijk altijd `fundermaps` voor nieuwe aanvragen.
      *
      * @return self
      */
@@ -581,6 +588,33 @@ class Funderingdata implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable bron cannot be null');
         }
         $this->container['bron'] = $bron;
+
+        return $this;
+    }
+
+    /**
+     * Gets risicobron
+     *
+     * @return \Calcasa\Api\Model\FunderingSoortBron|null
+     */
+    public function getRisicobron()
+    {
+        return $this->container['risicobron'];
+    }
+
+    /**
+     * Sets risicobron
+     *
+     * @param \Calcasa\Api\Model\FunderingSoortBron|null $risicobron Een afgeleide waarde van de losse risico bronnen.
+     *
+     * @return self
+     */
+    public function setRisicobron($risicobron)
+    {
+        if (is_null($risicobron)) {
+            throw new \InvalidArgumentException('non-nullable risicobron cannot be null');
+        }
+        $this->container['risicobron'] = $risicobron;
 
         return $this;
     }

@@ -322,6 +322,18 @@ class FileInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
         }
+        if ((mb_strlen($this->container['name']) > 128)) {
+            $invalidProperties[] = "invalid value for 'name', the character length must be smaller than or equal to 128.";
+        }
+
+        if ((mb_strlen($this->container['name']) < 1)) {
+            $invalidProperties[] = "invalid value for 'name', the character length must be bigger than or equal to 1.";
+        }
+
+        if (!preg_match("/^[A-Za-z0-9-_\\.\\[\\]\\{\\}\\(\\)\/ ]+$/", $this->container['name'])) {
+            $invalidProperties[] = "invalid value for 'name', must be conform to the pattern /^[A-Za-z0-9-_\\.\\[\\]\\{\\}\\(\\)\/ ]+$/.";
+        }
+
         if ($this->container['contentHash'] === null) {
             $invalidProperties[] = "'contentHash' can't be null";
         }
@@ -390,7 +402,7 @@ class FileInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets name
      *
-     * @param string $name The name of the file, including its extension. This needs to be unique within the file set.
+     * @param string $name The name of the file, including its extension. This needs to be unique within the file set.  This can contain '/' as the directory separator, but the file name cannot start or end with a '/' and cannot contain consecutive '/' characters. Can contain A-Z, a-z, 0-9, a space and '-./{}[]()' characters. The maximum length is 128 characters.
      *
      * @return self
      */
@@ -399,6 +411,16 @@ class FileInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($name)) {
             throw new \InvalidArgumentException('non-nullable name cannot be null');
         }
+        if ((mb_strlen($name) > 128)) {
+            throw new \InvalidArgumentException('invalid length for $name when calling FileInfo., must be smaller than or equal to 128.');
+        }
+        if ((mb_strlen($name) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $name when calling FileInfo., must be bigger than or equal to 1.');
+        }
+        if ((!preg_match("/^[A-Za-z0-9-_\\.\\[\\]\\{\\}\\(\\)\/ ]+$/", ObjectSerializer::toString($name)))) {
+            throw new \InvalidArgumentException("invalid value for \$name when calling FileInfo., must conform to the pattern /^[A-Za-z0-9-_\\.\\[\\]\\{\\}\\(\\)\/ ]+$/.");
+        }
+
         $this->container['name'] = $name;
 
         return $this;

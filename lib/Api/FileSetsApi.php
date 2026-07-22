@@ -1954,7 +1954,7 @@ class FileSetsApi
      *
      * @throws \Calcasa\Api\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return \SplFileObject|\Calcasa\Api\Model\UnauthorizedProblemDetails|\Calcasa\Api\Model\NotFoundProblemDetails|\Calcasa\Api\Model\OutboundFileSetInvalidStateProblemDetails|\Calcasa\Api\Model\ProblemDetails
+     * @return \SplFileObject|\SplFileObject|\Calcasa\Api\Model\UnauthorizedProblemDetails|\Calcasa\Api\Model\NotFoundProblemDetails|\Calcasa\Api\Model\OutboundFileSetInvalidStateProblemDetails|\Calcasa\Api\Model\ProblemDetails
      */
     public function getOutboundFileByIndex($outboundFileSetId, $fileIndex, $range = null, $acceptEncoding = null, string $contentType = self::contentTypes['getOutboundFileByIndex'][0])
     {
@@ -1975,7 +1975,7 @@ class FileSetsApi
      *
      * @throws \Calcasa\Api\ApiException on non-2xx response or if the response body is not in the expected format
      * @throws \InvalidArgumentException
-     * @return array of \SplFileObject|\Calcasa\Api\Model\UnauthorizedProblemDetails|\Calcasa\Api\Model\NotFoundProblemDetails|\Calcasa\Api\Model\OutboundFileSetInvalidStateProblemDetails|\Calcasa\Api\Model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \SplFileObject|\SplFileObject|\Calcasa\Api\Model\UnauthorizedProblemDetails|\Calcasa\Api\Model\NotFoundProblemDetails|\Calcasa\Api\Model\OutboundFileSetInvalidStateProblemDetails|\Calcasa\Api\Model\ProblemDetails, HTTP status code, HTTP response headers (array of strings)
      */
     public function getOutboundFileByIndexWithHttpInfo($outboundFileSetId, $fileIndex, $range = null, $acceptEncoding = null, string $contentType = self::contentTypes['getOutboundFileByIndex'][0])
     {
@@ -2006,6 +2006,12 @@ class FileSetsApi
 
             switch($statusCode) {
                 case 200:
+                    return $this->handleResponseWithDataType(
+                        '\SplFileObject',
+                        $request,
+                        $response,
+                    );
+                case 206:
                     return $this->handleResponseWithDataType(
                         '\SplFileObject',
                         $request,
@@ -2060,6 +2066,14 @@ class FileSetsApi
         } catch (ApiException $e) {
             switch ($e->getCode()) {
                 case 200:
+                    $data = ObjectSerializer::deserialize(
+                        $e->getResponseBody(),
+                        '\SplFileObject',
+                        $e->getResponseHeaders()
+                    );
+                    $e->setResponseObject($data);
+                    throw $e;
+                case 206:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
                         '\SplFileObject',
