@@ -345,6 +345,10 @@ class FileSet implements ModelInterface, ArrayAccess, \JsonSerializable
         if ($this->container['revision'] === null) {
             $invalidProperties[] = "'revision' can't be null";
         }
+        if (($this->container['revision'] < 1)) {
+            $invalidProperties[] = "invalid value for 'revision', must be bigger than or equal to 1.";
+        }
+
         return $invalidProperties;
     }
 
@@ -515,7 +519,7 @@ class FileSet implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets revision
      *
-     * @param int $revision A revision number for the file set that is incremented for every retry or redelivery. The tuple type, revision and period should always be unique.
+     * @param int $revision A revision number for the file set that is incremented for every retry or redelivery. The tuple type, revision and period should always be unique. Starts at 1.
      *
      * @return self
      */
@@ -524,6 +528,11 @@ class FileSet implements ModelInterface, ArrayAccess, \JsonSerializable
         if (is_null($revision)) {
             throw new \InvalidArgumentException('non-nullable revision cannot be null');
         }
+
+        if (($revision < 1)) {
+            throw new \InvalidArgumentException('invalid value for $revision when calling FileSet., must be bigger than or equal to 1.');
+        }
+
         $this->container['revision'] = $revision;
 
         return $this;
