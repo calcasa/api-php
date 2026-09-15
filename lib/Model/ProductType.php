@@ -47,7 +47,7 @@ use \Calcasa\Api\ObjectSerializer;
  * ProductType Class Doc Comment
  *
  * @category Class
- * @description Het producttype voor een waardering. Deze moeten handmatig aangezet worden voor de gebruikte credentials. | Waarde | Omschrijving | | --- | --- | | &#x60;onbekend&#x60; | Geen geldige invoer. Onbekend product type. | | &#x60;modelwaardeCalcasa&#x60; | Niet beschikbaar op dit moment.&lt;br&gt;            Modelwaarde aanvraag met Calcasa Waardebepalingrapport. | | &#x60;modelwaardeOnePage&#x60; | Modelwaarde aanvraag met Calcasa One Page rapport. | | &#x60;modelwaardeRisico&#x60; | Modelwaarde aanvraag met risicorapport. | | &#x60;modelwaardeDesktopTaxatie&#x60; | Modelwaarde aanvraag met Desktop Taxatie Beknoptwaarderapport. | | &#x60;desktopTaxatie&#x60; | Desktop taxatie aanvraag met Desktop Taxatie rapport. | | &#x60;desktopTaxatieHerwaardering&#x60; | Desktop taxatie aanvraag met Desktop Taxatie rapport voor herwaarderingen. | | &#x60;desktopTaxatiePlus&#x60; | Desktop taxatie plus aanvraag met Desktop Taxatie Plus rapport. |
+ * @description Het producttype voor een waardering. Deze moeten handmatig aangezet worden voor de gebruikte credentials. | Waarde | Omschrijving | | --- | --- | | &#x60;onbekend&#x60; | Geen geldige invoer. Onbekend product type. | | &#x60;modelwaardeCalcasa&#x60; | Niet beschikbaar op dit moment.&lt;br&gt;            Modelwaarde aanvraag met Calcasa Waardebepalingrapport. | | &#x60;modelwaardeOnePage&#x60; | Modelwaarde aanvraag met Calcasa One Page rapport. | | &#x60;modelwaardeRisico&#x60; | Modelwaarde aanvraag met risicorapport. | | &#x60;modelwaardeDesktopTaxatie&#x60; | Modelwaarde aanvraag met Desktop Taxatie Beknoptwaarderapport. | | &#x60;desktopTaxatie&#x60; | Desktop taxatie aanvraag met Desktop Taxatie rapport. | | &#x60;desktopTaxatieHerwaardering&#x60; | Desktop taxatie aanvraag met Desktop Taxatie rapport voor herwaarderingen. | | &#x60;desktopTaxatiePlus&#x60; | Desktop taxatie plus aanvraag met Desktop Taxatie Plus rapport. | | &#x60;driveBy&#x60; | Calcasa Drive-by taxatie aanvraag met Drive-by rapport. |
  * @package  Calcasa\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -73,6 +73,8 @@ class ProductType
 
     public const DESKTOP_TAXATIE_PLUS = 'desktopTaxatiePlus';
 
+    public const DRIVE_BY = 'driveBy';
+
     /**
      * Gets allowable values of the enum
      * @return string[]
@@ -87,7 +89,8 @@ class ProductType
             self::MODELWAARDE_DESKTOP_TAXATIE,
             self::DESKTOP_TAXATIE,
             self::DESKTOP_TAXATIE_HERWAARDERING,
-            self::DESKTOP_TAXATIE_PLUS
+            self::DESKTOP_TAXATIE_PLUS,
+            self::DRIVE_BY
         ];
     }
 }

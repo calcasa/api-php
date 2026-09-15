@@ -77,6 +77,7 @@ class Opname implements ModelInterface, ArrayAccess, \JsonSerializable
         'deadline' => '\DateTime',
         'batchCode' => 'string',
         'product' => '\Calcasa\Api\Model\ProductType',
+        'woningType' => '\Calcasa\Api\Model\WoningType',
         'planning' => '\Calcasa\Api\Model\PlanningInfo'
     ];
 
@@ -94,6 +95,7 @@ class Opname implements ModelInterface, ArrayAccess, \JsonSerializable
         'deadline' => 'date-time',
         'batchCode' => null,
         'product' => null,
+        'woningType' => null,
         'planning' => null
     ];
 
@@ -109,6 +111,7 @@ class Opname implements ModelInterface, ArrayAccess, \JsonSerializable
         'deadline' => false,
         'batchCode' => false,
         'product' => false,
+        'woningType' => false,
         'planning' => true
     ];
 
@@ -204,6 +207,7 @@ class Opname implements ModelInterface, ArrayAccess, \JsonSerializable
         'deadline' => 'deadline',
         'batchCode' => 'batchCode',
         'product' => 'product',
+        'woningType' => 'woningType',
         'planning' => 'planning'
     ];
 
@@ -219,6 +223,7 @@ class Opname implements ModelInterface, ArrayAccess, \JsonSerializable
         'deadline' => 'setDeadline',
         'batchCode' => 'setBatchCode',
         'product' => 'setProduct',
+        'woningType' => 'setWoningType',
         'planning' => 'setPlanning'
     ];
 
@@ -234,6 +239,7 @@ class Opname implements ModelInterface, ArrayAccess, \JsonSerializable
         'deadline' => 'getDeadline',
         'batchCode' => 'getBatchCode',
         'product' => 'getProduct',
+        'woningType' => 'getWoningType',
         'planning' => 'getPlanning'
     ];
 
@@ -300,6 +306,7 @@ class Opname implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('deadline', $data ?? [], null);
         $this->setIfExists('batchCode', $data ?? [], null);
         $this->setIfExists('product', $data ?? [], null);
+        $this->setIfExists('woningType', $data ?? [], null);
         $this->setIfExists('planning', $data ?? [], null);
     }
 
@@ -347,6 +354,9 @@ class Opname implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if ($this->container['product'] === null) {
             $invalidProperties[] = "'product' can't be null";
+        }
+        if ($this->container['woningType'] === null) {
+            $invalidProperties[] = "'woningType' can't be null";
         }
         return $invalidProperties;
     }
@@ -521,6 +531,33 @@ class Opname implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable product cannot be null');
         }
         $this->container['product'] = $product;
+
+        return $this;
+    }
+
+    /**
+     * Gets woningType
+     *
+     * @return \Calcasa\Api\Model\WoningType
+     */
+    public function getWoningType()
+    {
+        return $this->container['woningType'];
+    }
+
+    /**
+     * Sets woningType
+     *
+     * @param \Calcasa\Api\Model\WoningType $woningType woningType
+     *
+     * @return self
+     */
+    public function setWoningType($woningType)
+    {
+        if (is_null($woningType)) {
+            throw new \InvalidArgumentException('non-nullable woningType cannot be null');
+        }
+        $this->container['woningType'] = $woningType;
 
         return $this;
     }
