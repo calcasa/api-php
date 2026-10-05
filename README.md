@@ -77,47 +77,47 @@ All URIs are relative to *https://api.calcasa.nl/api/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AdressenApi* | [**getAdres**](docs/Api/AdressenApi.md#getadres) | **GET** /adressen/{bagNummeraanduidingId} | Adres info op basis van BAG Nummeraanduiding Id.
-*AdressenApi* | [**searchAdres**](docs/Api/AdressenApi.md#searchadres) | **POST** /adressen/zoeken | Zoek adresinformatie op basis van het opgegeven adres.
-*BestemmingsplannenApi* | [**getBestemmingById**](docs/Api/BestemmingsplannenApi.md#getbestemmingbyid) | **GET** /bestemmingsplannen/{bagNummeraanduidingId} | Gegevens over de bestemmingsplannen op de locatie van een adres (BAG Nummeraanduiding ID).
-*BodemApi* | [**getBodemById**](docs/Api/BodemApi.md#getbodembyid) | **GET** /bodem/{bagNummeraanduidingId} | Gegevens over de bodemkwaliteit op de locatie van een adres (BAG Nummeraanduiding ID).
-*BuurtApi* | [**getBuurt**](docs/Api/BuurtApi.md#getbuurt) | **GET** /buurt/{buurtCode} | Gegevens over een buurt en de wijk, gemeente en land waarin deze buurt gesitueerd is.
-*CallbacksApi* | [**addOrUpdateCallbackSubscription**](docs/Api/CallbacksApi.md#addorupdatecallbacksubscription) | **POST** /callbacks/inschrijvingen | Voeg een callback inschrijving toe (of werk bij) voor de huidige client voor een adres.
-*CallbacksApi* | [**deleteNotificationSubscription**](docs/Api/CallbacksApi.md#deletenotificationsubscription) | **DELETE** /callbacks/inschrijvingen/{bagNummeraanduidingId} | Verwijder de callback inschrijving voor deze client, dit adres en optioneel een geldverstrekker.
-*CallbacksApi* | [**getNotificationSubscription**](docs/Api/CallbacksApi.md#getnotificationsubscription) | **GET** /callbacks/inschrijvingen/{bagNummeraanduidingId} | Haal de callback inschrijving op voor deze client, dit adres en eventueel opgegeven geldverstrekker.
-*CallbacksApi* | [**getNotificationSubscriptions**](docs/Api/CallbacksApi.md#getnotificationsubscriptions) | **GET** /callbacks/inschrijvingen | Haal de callback inschrijvingen binnen voor deze client.
-*ConfiguratieApi* | [**getCallbackAuthentication**](docs/Api/ConfiguratieApi.md#getcallbackauthentication) | **GET** /configuratie/callbacks/authentication | Haal de geconfigureerde callback authenticatie op voor de huidige client.
-*ConfiguratieApi* | [**getCallbacks**](docs/Api/ConfiguratieApi.md#getcallbacks) | **GET** /configuratie/callbacks | Haal de geconfigureerde callback URL&#39;s op voor de huidige client.
-*ConfiguratieApi* | [**getMtlsCertificate**](docs/Api/ConfiguratieApi.md#getmtlscertificate) | **GET** /configuratie/callbacks/mtls-certificate | Get the self-signed mTLS certificate.
-*ConfiguratieApi* | [**getSignatureKeys**](docs/Api/ConfiguratieApi.md#getsignaturekeys) | **GET** /configuratie/callbacks/signature-keys | Get the JWKS keys, deze kunnen worden gebruikt om de echtheid van webhooks te verifiëren.
-*ConfiguratieApi* | [**postCallbackAuthentication**](docs/Api/ConfiguratieApi.md#postcallbackauthentication) | **POST** /configuratie/callbacks/authentication | Update de geconfigureerde callback authenticatie voor de huidige client.
-*ConfiguratieApi* | [**updateCallbacks**](docs/Api/ConfiguratieApi.md#updatecallbacks) | **POST** /configuratie/callbacks | Configureer callback URL voor een specifieke API versie voor de huidige client.
-*FacturenApi* | [**getFactuur**](docs/Api/FacturenApi.md#getfactuur) | **GET** /facturen/{id} | Factuur op basis van een waardering Id.
-*FileSetsApi* | [**confirmInboundFileSetById**](docs/Api/FileSetsApi.md#confirminboundfilesetbyid) | **POST** /file-sets/inbound/{inboundFileSetId} | Confirm an inbound file set after it has been fully uploaded.
-*FileSetsApi* | [**createInboundFileSet**](docs/Api/FileSetsApi.md#createinboundfileset) | **POST** /file-sets/inbound | Create a new inbound file set.
-*FileSetsApi* | [**deleteOutboundFileSetById**](docs/Api/FileSetsApi.md#deleteoutboundfilesetbyid) | **DELETE** /file-sets/outbound/{outboundFileSetId} | Delete an outbound file set after it has been correctly received. If an outbound file set is not downloaded and deleted within 48 hours, it will expire and all its contents will be deleted automatically.
+*AdressenApi* | [**getAdres**](docs/Api/AdressenApi.md#getadres) | **GET** /adressen/{bagNummeraanduidingId} | Haal adresinformatie op.
+*AdressenApi* | [**searchAdres**](docs/Api/AdressenApi.md#searchadres) | **POST** /adressen/zoeken | Zoek adresinformatie.
+*BestemmingsplannenApi* | [**getBestemmingById**](docs/Api/BestemmingsplannenApi.md#getbestemmingbyid) | **GET** /bestemmingsplannen/{bagNummeraanduidingId} | Haal bestemmingsplannen op.
+*BodemApi* | [**getBodemById**](docs/Api/BodemApi.md#getbodembyid) | **GET** /bodem/{bagNummeraanduidingId} | Haal bodemkwaliteitsgegevens op.
+*BuurtApi* | [**getBuurt**](docs/Api/BuurtApi.md#getbuurt) | **GET** /buurt/{buurtCode} | Haal buurtgegevens op.
+*CallbacksApi* | [**addOrUpdateCallbackSubscription**](docs/Api/CallbacksApi.md#addorupdatecallbacksubscription) | **POST** /callbacks/inschrijvingen | Maak of werk een callbackinschrijving bij.
+*CallbacksApi* | [**deleteNotificationSubscription**](docs/Api/CallbacksApi.md#deletenotificationsubscription) | **DELETE** /callbacks/inschrijvingen/{bagNummeraanduidingId} | Verwijder een callbackinschrijving.
+*CallbacksApi* | [**getNotificationSubscription**](docs/Api/CallbacksApi.md#getnotificationsubscription) | **GET** /callbacks/inschrijvingen/{bagNummeraanduidingId} | Haal een callbackinschrijving op.
+*CallbacksApi* | [**getNotificationSubscriptions**](docs/Api/CallbacksApi.md#getnotificationsubscriptions) | **GET** /callbacks/inschrijvingen | Haal callbackinschrijvingen op.
+*ConfiguratieApi* | [**getCallbackAuthentication**](docs/Api/ConfiguratieApi.md#getcallbackauthentication) | **GET** /configuratie/callbacks/authentication | Haal callbackauthenticatie op.
+*ConfiguratieApi* | [**getCallbacks**](docs/Api/ConfiguratieApi.md#getcallbacks) | **GET** /configuratie/callbacks | Haal callback-URL&#39;s op.
+*ConfiguratieApi* | [**getMtlsCertificate**](docs/Api/ConfiguratieApi.md#getmtlscertificate) | **GET** /configuratie/callbacks/mtls-certificate | Haal het mTLS-certificaat op.
+*ConfiguratieApi* | [**getSignatureKeys**](docs/Api/ConfiguratieApi.md#getsignaturekeys) | **GET** /configuratie/callbacks/signature-keys | Haal JWKS-sleutels op.
+*ConfiguratieApi* | [**postCallbackAuthentication**](docs/Api/ConfiguratieApi.md#postcallbackauthentication) | **POST** /configuratie/callbacks/authentication | Werk callbackauthenticatie bij.
+*ConfiguratieApi* | [**updateCallbacks**](docs/Api/ConfiguratieApi.md#updatecallbacks) | **POST** /configuratie/callbacks | Configureer een callback-URL.
+*FacturenApi* | [**getFactuur**](docs/Api/FacturenApi.md#getfactuur) | **GET** /facturen/{id} | Haal een factuur op.
+*FileSetsApi* | [**confirmInboundFileSetById**](docs/Api/FileSetsApi.md#confirminboundfilesetbyid) | **POST** /file-sets/inbound/{inboundFileSetId} | Confirm an inbound file set.
+*FileSetsApi* | [**createInboundFileSet**](docs/Api/FileSetsApi.md#createinboundfileset) | **POST** /file-sets/inbound | Create an inbound file set.
+*FileSetsApi* | [**deleteOutboundFileSetById**](docs/Api/FileSetsApi.md#deleteoutboundfilesetbyid) | **DELETE** /file-sets/outbound/{outboundFileSetId} | Delete an outbound file set.
 *FileSetsApi* | [**getFileSetLimits**](docs/Api/FileSetsApi.md#getfilesetlimits) | **GET** /file-sets/limits | Get file set limits.
-*FileSetsApi* | [**getInboundFileSetById**](docs/Api/FileSetsApi.md#getinboundfilesetbyid) | **GET** /file-sets/inbound/{inboundFileSetId} | Get a specific inbound file set by its ID.
-*FileSetsApi* | [**getInboundFileSets**](docs/Api/FileSetsApi.md#getinboundfilesets) | **GET** /file-sets/inbound | Get all inbound file sets.
-*FileSetsApi* | [**getOutboundFileByIndex**](docs/Api/FileSetsApi.md#getoutboundfilebyindex) | **GET** /file-sets/outbound/{outboundFileSetId}/{fileIndex} | Get a specific outbound file content by its index within a file set.
-*FileSetsApi* | [**getOutboundFileSetById**](docs/Api/FileSetsApi.md#getoutboundfilesetbyid) | **GET** /file-sets/outbound/{outboundFileSetId} | Get a specific outbound file set by its ID.
-*FileSetsApi* | [**getOutboundFileSets**](docs/Api/FileSetsApi.md#getoutboundfilesets) | **GET** /file-sets/outbound | Get all outbound file sets.
-*FileSetsApi* | [**putFileChunk**](docs/Api/FileSetsApi.md#putfilechunk) | **PUT** /file-sets/inbound/{inboundFileSetId}/{fileIndex}/{chunkIndex} | Upload a specific file chunk for an inbound file set.
-*FotosApi* | [**getFoto**](docs/Api/FotosApi.md#getfoto) | **GET** /fotos/{id} | Foto op basis van een foto Id.
-*FunderingenApi* | [**getFunderingById**](docs/Api/FunderingenApi.md#getfunderingbyid) | **GET** /funderingen/{bagNummeraanduidingId} | Gegevens over de fundering op de locatie van een adres (BAG Nummeraanduiding ID).
-*GeldverstrekkersApi* | [**getGeldverstrekkers**](docs/Api/GeldverstrekkersApi.md#getgeldverstrekkers) | **GET** /geldverstrekkers/{productType} | Alle geldverstrekkers die te gebruiken zijn voor aanvragen.
-*PlanningApi* | [**assignOpnemer**](docs/Api/PlanningApi.md#assignopnemer) | **POST** /planning/opnames/{opnameId} | Assign opnemer to opname.
-*PlanningApi* | [**deletePlanningForOpname**](docs/Api/PlanningApi.md#deleteplanningforopname) | **DELETE** /planning/opnames/{opnameId} | Delete the planning for an opname.
-*PlanningApi* | [**getOpnames**](docs/Api/PlanningApi.md#getopnames) | **GET** /planning/opnames | Get the list of opnames.
-*PlanningApi* | [**getOpnemers**](docs/Api/PlanningApi.md#getopnemers) | **GET** /planning/opnemers | Get the list of opnemers.
-*RapportenApi* | [**getRapport**](docs/Api/RapportenApi.md#getrapport) | **GET** /rapporten/{id} | Rapport op basis van waardering Id.
-*WaarderingenApi* | [**checkProducten**](docs/Api/WaarderingenApi.md#checkproducten) | **POST** /waarderingen/check | Controleert mogelijke producten.
-*WaarderingenApi* | [**createWaardering**](docs/Api/WaarderingenApi.md#createwaardering) | **POST** /waarderingen | Maak een waardering aan.
-*WaarderingenApi* | [**getWaardering**](docs/Api/WaarderingenApi.md#getwaardering) | **GET** /waarderingen/{id} | Waardering op basis van Id.
-*WaarderingenApi* | [**getWaarderingByReportHash**](docs/Api/WaarderingenApi.md#getwaarderingbyreporthash) | **GET** /waarderingen/by-hash/{hash} | Waardering op basis van upper-case hex SHA-256 hash van een PDF rapport. Als er een collision is wordt de nieuwste waardering teruggegeven.
-*WaarderingenApi* | [**getWaarderingOntwikkeling**](docs/Api/WaarderingenApi.md#getwaarderingontwikkeling) | **GET** /waarderingen/{id}/ontwikkeling | Waardering ontwikkeling op basis van waardering Id.
-*WaarderingenApi* | [**patchWaarderingen**](docs/Api/WaarderingenApi.md#patchwaarderingen) | **PATCH** /waarderingen/{id} | Patcht een waardering.
-*WaarderingenApi* | [**searchWaarderingen**](docs/Api/WaarderingenApi.md#searchwaarderingen) | **POST** /waarderingen/zoeken | Zoek waardering op basis van input parameters.
+*FileSetsApi* | [**getInboundFileSetById**](docs/Api/FileSetsApi.md#getinboundfilesetbyid) | **GET** /file-sets/inbound/{inboundFileSetId} | Get an inbound file set.
+*FileSetsApi* | [**getInboundFileSets**](docs/Api/FileSetsApi.md#getinboundfilesets) | **GET** /file-sets/inbound | List inbound file sets.
+*FileSetsApi* | [**getOutboundFileByIndex**](docs/Api/FileSetsApi.md#getoutboundfilebyindex) | **GET** /file-sets/outbound/{outboundFileSetId}/{fileIndex} | Download outbound file content.
+*FileSetsApi* | [**getOutboundFileSetById**](docs/Api/FileSetsApi.md#getoutboundfilesetbyid) | **GET** /file-sets/outbound/{outboundFileSetId} | Get an outbound file set.
+*FileSetsApi* | [**getOutboundFileSets**](docs/Api/FileSetsApi.md#getoutboundfilesets) | **GET** /file-sets/outbound | List outbound file sets.
+*FileSetsApi* | [**putFileChunk**](docs/Api/FileSetsApi.md#putfilechunk) | **PUT** /file-sets/inbound/{inboundFileSetId}/{fileIndex}/{chunkIndex} | Upload an inbound file chunk.
+*FotosApi* | [**getFoto**](docs/Api/FotosApi.md#getfoto) | **GET** /fotos/{id} | Haal een foto op.
+*FunderingenApi* | [**getFunderingById**](docs/Api/FunderingenApi.md#getfunderingbyid) | **GET** /funderingen/{bagNummeraanduidingId} | Haal funderingsgegevens op.
+*GeldverstrekkersApi* | [**getGeldverstrekkers**](docs/Api/GeldverstrekkersApi.md#getgeldverstrekkers) | **GET** /geldverstrekkers/{productType} | Haal geldverstrekkers op.
+*PlanningApi* | [**assignOpnemer**](docs/Api/PlanningApi.md#assignopnemer) | **POST** /planning/opnames/{opnameId} | Assign an opnemer.
+*PlanningApi* | [**deletePlanningForOpname**](docs/Api/PlanningApi.md#deleteplanningforopname) | **DELETE** /planning/opnames/{opnameId} | Delete an opname planning.
+*PlanningApi* | [**getOpnames**](docs/Api/PlanningApi.md#getopnames) | **GET** /planning/opnames | List opnames.
+*PlanningApi* | [**getOpnemers**](docs/Api/PlanningApi.md#getopnemers) | **GET** /planning/opnemers | List opnemers.
+*RapportenApi* | [**getRapport**](docs/Api/RapportenApi.md#getrapport) | **GET** /rapporten/{id} | Haal een rapport op.
+*WaarderingenApi* | [**checkProducten**](docs/Api/WaarderingenApi.md#checkproducten) | **POST** /waarderingen/check | Controleer mogelijke producten.
+*WaarderingenApi* | [**createWaardering**](docs/Api/WaarderingenApi.md#createwaardering) | **POST** /waarderingen | Maak een waardering.
+*WaarderingenApi* | [**getWaardering**](docs/Api/WaarderingenApi.md#getwaardering) | **GET** /waarderingen/{id} | Haal een waardering op.
+*WaarderingenApi* | [**getWaarderingByReportHash**](docs/Api/WaarderingenApi.md#getwaarderingbyreporthash) | **GET** /waarderingen/by-hash/{hash} | Zoek op rapport-hash.
+*WaarderingenApi* | [**getWaarderingOntwikkeling**](docs/Api/WaarderingenApi.md#getwaarderingontwikkeling) | **GET** /waarderingen/{id}/ontwikkeling | Haal waarderingsontwikkeling op.
+*WaarderingenApi* | [**patchWaarderingen**](docs/Api/WaarderingenApi.md#patchwaarderingen) | **PATCH** /waarderingen/{id} | Werk een waardering bij.
+*WaarderingenApi* | [**searchWaarderingen**](docs/Api/WaarderingenApi.md#searchwaarderingen) | **POST** /waarderingen/zoeken | Zoek waarderingen.
 
 ## Models
 
@@ -266,7 +266,7 @@ info@calcasa.nl
 
 This PHP package is automatically generated by the [OpenAPI Generator](https://openapi-generator.tech) project:
 
-- API version: `1.7.0-beta02`
-    - Package version: `1.7.0-beta02`
+- API version: `1.7.0-beta03`
+    - Package version: `1.7.0-beta03`
     - Generator version: `7.23.0`
 - Build package: `org.openapitools.codegen.languages.PhpClientCodegen`

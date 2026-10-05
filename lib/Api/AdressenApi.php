@@ -145,7 +145,7 @@ class AdressenApi
     /**
      * Operation getAdres
      *
-     * Adres info op basis van BAG Nummeraanduiding Id.
+     * Haal adresinformatie op.
      *
      * @param  int $bagNummeraanduidingId Een BAG Nummeraanduiding ID om een adres te specificeren. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdres'] to see the possible values for this operation
@@ -163,7 +163,7 @@ class AdressenApi
     /**
      * Operation getAdresWithHttpInfo
      *
-     * Adres info op basis van BAG Nummeraanduiding Id.
+     * Haal adresinformatie op.
      *
      * @param  int $bagNummeraanduidingId Een BAG Nummeraanduiding ID om een adres te specificeren. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdres'] to see the possible values for this operation
@@ -304,7 +304,7 @@ class AdressenApi
     /**
      * Operation getAdresAsync
      *
-     * Adres info op basis van BAG Nummeraanduiding Id.
+     * Haal adresinformatie op.
      *
      * @param  int $bagNummeraanduidingId Een BAG Nummeraanduiding ID om een adres te specificeren. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdres'] to see the possible values for this operation
@@ -325,7 +325,7 @@ class AdressenApi
     /**
      * Operation getAdresAsyncWithHttpInfo
      *
-     * Adres info op basis van BAG Nummeraanduiding Id.
+     * Haal adresinformatie op.
      *
      * @param  int $bagNummeraanduidingId Een BAG Nummeraanduiding ID om een adres te specificeren. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getAdres'] to see the possible values for this operation
@@ -473,7 +473,7 @@ class AdressenApi
     /**
      * Operation searchAdres
      *
-     * Zoek adresinformatie op basis van het opgegeven adres.
+     * Zoek adresinformatie.
      *
      * @param  \Calcasa\Api\Model\Adres $adres Het adresobject dat gebruikt wordt om naar adresinformatie te zoeken. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchAdres'] to see the possible values for this operation
@@ -491,7 +491,7 @@ class AdressenApi
     /**
      * Operation searchAdresWithHttpInfo
      *
-     * Zoek adresinformatie op basis van het opgegeven adres.
+     * Zoek adresinformatie.
      *
      * @param  \Calcasa\Api\Model\Adres $adres Het adresobject dat gebruikt wordt om naar adresinformatie te zoeken. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchAdres'] to see the possible values for this operation
@@ -632,7 +632,7 @@ class AdressenApi
     /**
      * Operation searchAdresAsync
      *
-     * Zoek adresinformatie op basis van het opgegeven adres.
+     * Zoek adresinformatie.
      *
      * @param  \Calcasa\Api\Model\Adres $adres Het adresobject dat gebruikt wordt om naar adresinformatie te zoeken. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchAdres'] to see the possible values for this operation
@@ -653,7 +653,7 @@ class AdressenApi
     /**
      * Operation searchAdresAsyncWithHttpInfo
      *
-     * Zoek adresinformatie op basis van het opgegeven adres.
+     * Zoek adresinformatie.
      *
      * @param  \Calcasa\Api\Model\Adres $adres Het adresobject dat gebruikt wordt om naar adresinformatie te zoeken. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchAdres'] to see the possible values for this operation

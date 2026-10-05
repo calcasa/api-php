@@ -142,7 +142,7 @@ class FunderingenApi
     /**
      * Operation getFunderingById
      *
-     * Gegevens over de fundering op de locatie van een adres (BAG Nummeraanduiding ID).
+     * Haal funderingsgegevens op.
      *
      * @param  int $bagNummeraanduidingId Een BAG Nummeraanduiding ID om een adres te specificeren. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFunderingById'] to see the possible values for this operation
@@ -161,7 +161,7 @@ class FunderingenApi
     /**
      * Operation getFunderingByIdWithHttpInfo
      *
-     * Gegevens over de fundering op de locatie van een adres (BAG Nummeraanduiding ID).
+     * Haal funderingsgegevens op.
      *
      * @param  int $bagNummeraanduidingId Een BAG Nummeraanduiding ID om een adres te specificeren. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFunderingById'] to see the possible values for this operation
@@ -303,7 +303,7 @@ class FunderingenApi
     /**
      * Operation getFunderingByIdAsync
      *
-     * Gegevens over de fundering op de locatie van een adres (BAG Nummeraanduiding ID).
+     * Haal funderingsgegevens op.
      *
      * @param  int $bagNummeraanduidingId Een BAG Nummeraanduiding ID om een adres te specificeren. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFunderingById'] to see the possible values for this operation
@@ -325,7 +325,7 @@ class FunderingenApi
     /**
      * Operation getFunderingByIdAsyncWithHttpInfo
      *
-     * Gegevens over de fundering op de locatie van een adres (BAG Nummeraanduiding ID).
+     * Haal funderingsgegevens op.
      *
      * @param  int $bagNummeraanduidingId Een BAG Nummeraanduiding ID om een adres te specificeren. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFunderingById'] to see the possible values for this operation

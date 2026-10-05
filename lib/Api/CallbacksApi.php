@@ -151,7 +151,7 @@ class CallbacksApi
     /**
      * Operation addOrUpdateCallbackSubscription
      *
-     * Voeg een callback inschrijving toe (of werk bij) voor de huidige client voor een adres.
+     * Maak of werk een callbackinschrijving bij.
      *
      * @param  \Calcasa\Api\Model\CallbackInschrijving $callbackInschrijving De te configureren callback inschrijving. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addOrUpdateCallbackSubscription'] to see the possible values for this operation
@@ -169,7 +169,7 @@ class CallbacksApi
     /**
      * Operation addOrUpdateCallbackSubscriptionWithHttpInfo
      *
-     * Voeg een callback inschrijving toe (of werk bij) voor de huidige client voor een adres.
+     * Maak of werk een callbackinschrijving bij.
      *
      * @param  \Calcasa\Api\Model\CallbackInschrijving $callbackInschrijving De te configureren callback inschrijving. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addOrUpdateCallbackSubscription'] to see the possible values for this operation
@@ -310,7 +310,7 @@ class CallbacksApi
     /**
      * Operation addOrUpdateCallbackSubscriptionAsync
      *
-     * Voeg een callback inschrijving toe (of werk bij) voor de huidige client voor een adres.
+     * Maak of werk een callbackinschrijving bij.
      *
      * @param  \Calcasa\Api\Model\CallbackInschrijving $callbackInschrijving De te configureren callback inschrijving. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addOrUpdateCallbackSubscription'] to see the possible values for this operation
@@ -331,7 +331,7 @@ class CallbacksApi
     /**
      * Operation addOrUpdateCallbackSubscriptionAsyncWithHttpInfo
      *
-     * Voeg een callback inschrijving toe (of werk bij) voor de huidige client voor een adres.
+     * Maak of werk een callbackinschrijving bij.
      *
      * @param  \Calcasa\Api\Model\CallbackInschrijving $callbackInschrijving De te configureren callback inschrijving. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['addOrUpdateCallbackSubscription'] to see the possible values for this operation
@@ -478,7 +478,7 @@ class CallbacksApi
     /**
      * Operation deleteNotificationSubscription
      *
-     * Verwijder de callback inschrijving voor deze client, dit adres en optioneel een geldverstrekker.
+     * Verwijder een callbackinschrijving.
      *
      * @param  int $bagNummeraanduidingId Het BAG Nummeraanduiding ID waar de callback inschrijving voor geldt. (required)
      * @param  string|null $geldverstrekker De naam van de geldverstrekker waar de callback inschrijving voor geldt. (optional)
@@ -496,7 +496,7 @@ class CallbacksApi
     /**
      * Operation deleteNotificationSubscriptionWithHttpInfo
      *
-     * Verwijder de callback inschrijving voor deze client, dit adres en optioneel een geldverstrekker.
+     * Verwijder een callbackinschrijving.
      *
      * @param  int $bagNummeraanduidingId Het BAG Nummeraanduiding ID waar de callback inschrijving voor geldt. (required)
      * @param  string|null $geldverstrekker De naam van de geldverstrekker waar de callback inschrijving voor geldt. (optional)
@@ -578,7 +578,7 @@ class CallbacksApi
     /**
      * Operation deleteNotificationSubscriptionAsync
      *
-     * Verwijder de callback inschrijving voor deze client, dit adres en optioneel een geldverstrekker.
+     * Verwijder een callbackinschrijving.
      *
      * @param  int $bagNummeraanduidingId Het BAG Nummeraanduiding ID waar de callback inschrijving voor geldt. (required)
      * @param  string|null $geldverstrekker De naam van de geldverstrekker waar de callback inschrijving voor geldt. (optional)
@@ -600,7 +600,7 @@ class CallbacksApi
     /**
      * Operation deleteNotificationSubscriptionAsyncWithHttpInfo
      *
-     * Verwijder de callback inschrijving voor deze client, dit adres en optioneel een geldverstrekker.
+     * Verwijder een callbackinschrijving.
      *
      * @param  int $bagNummeraanduidingId Het BAG Nummeraanduiding ID waar de callback inschrijving voor geldt. (required)
      * @param  string|null $geldverstrekker De naam van de geldverstrekker waar de callback inschrijving voor geldt. (optional)
@@ -747,7 +747,7 @@ class CallbacksApi
     /**
      * Operation getNotificationSubscription
      *
-     * Haal de callback inschrijving op voor deze client, dit adres en eventueel opgegeven geldverstrekker.
+     * Haal een callbackinschrijving op.
      *
      * @param  int $bagNummeraanduidingId Het BAG Nummeraanduiding ID waar de callback inschrijving voor geldt. (required)
      * @param  string|null $geldverstrekker De naam van de geldverstrekker waar de callback inschrijving voor geldt. (optional)
@@ -766,7 +766,7 @@ class CallbacksApi
     /**
      * Operation getNotificationSubscriptionWithHttpInfo
      *
-     * Haal de callback inschrijving op voor deze client, dit adres en eventueel opgegeven geldverstrekker.
+     * Haal een callbackinschrijving op.
      *
      * @param  int $bagNummeraanduidingId Het BAG Nummeraanduiding ID waar de callback inschrijving voor geldt. (required)
      * @param  string|null $geldverstrekker De naam van de geldverstrekker waar de callback inschrijving voor geldt. (optional)
@@ -908,7 +908,7 @@ class CallbacksApi
     /**
      * Operation getNotificationSubscriptionAsync
      *
-     * Haal de callback inschrijving op voor deze client, dit adres en eventueel opgegeven geldverstrekker.
+     * Haal een callbackinschrijving op.
      *
      * @param  int $bagNummeraanduidingId Het BAG Nummeraanduiding ID waar de callback inschrijving voor geldt. (required)
      * @param  string|null $geldverstrekker De naam van de geldverstrekker waar de callback inschrijving voor geldt. (optional)
@@ -930,7 +930,7 @@ class CallbacksApi
     /**
      * Operation getNotificationSubscriptionAsyncWithHttpInfo
      *
-     * Haal de callback inschrijving op voor deze client, dit adres en eventueel opgegeven geldverstrekker.
+     * Haal een callbackinschrijving op.
      *
      * @param  int $bagNummeraanduidingId Het BAG Nummeraanduiding ID waar de callback inschrijving voor geldt. (required)
      * @param  string|null $geldverstrekker De naam van de geldverstrekker waar de callback inschrijving voor geldt. (optional)
@@ -1090,7 +1090,7 @@ class CallbacksApi
     /**
      * Operation getNotificationSubscriptions
      *
-     * Haal de callback inschrijvingen binnen voor deze client.
+     * Haal callbackinschrijvingen op.
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNotificationSubscriptions'] to see the possible values for this operation
      *
@@ -1107,7 +1107,7 @@ class CallbacksApi
     /**
      * Operation getNotificationSubscriptionsWithHttpInfo
      *
-     * Haal de callback inschrijvingen binnen voor deze client.
+     * Haal callbackinschrijvingen op.
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNotificationSubscriptions'] to see the possible values for this operation
      *
@@ -1233,7 +1233,7 @@ class CallbacksApi
     /**
      * Operation getNotificationSubscriptionsAsync
      *
-     * Haal de callback inschrijvingen binnen voor deze client.
+     * Haal callbackinschrijvingen op.
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNotificationSubscriptions'] to see the possible values for this operation
      *
@@ -1253,7 +1253,7 @@ class CallbacksApi
     /**
      * Operation getNotificationSubscriptionsAsyncWithHttpInfo
      *
-     * Haal de callback inschrijvingen binnen voor deze client.
+     * Haal callbackinschrijvingen op.
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getNotificationSubscriptions'] to see the possible values for this operation
      *

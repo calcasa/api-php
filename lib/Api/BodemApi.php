@@ -142,7 +142,7 @@ class BodemApi
     /**
      * Operation getBodemById
      *
-     * Gegevens over de bodemkwaliteit op de locatie van een adres (BAG Nummeraanduiding ID).
+     * Haal bodemkwaliteitsgegevens op.
      *
      * @param  int $bagNummeraanduidingId Een BAG Nummeraanduiding ID om een adres te specificeren. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBodemById'] to see the possible values for this operation
@@ -160,7 +160,7 @@ class BodemApi
     /**
      * Operation getBodemByIdWithHttpInfo
      *
-     * Gegevens over de bodemkwaliteit op de locatie van een adres (BAG Nummeraanduiding ID).
+     * Haal bodemkwaliteitsgegevens op.
      *
      * @param  int $bagNummeraanduidingId Een BAG Nummeraanduiding ID om een adres te specificeren. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBodemById'] to see the possible values for this operation
@@ -301,7 +301,7 @@ class BodemApi
     /**
      * Operation getBodemByIdAsync
      *
-     * Gegevens over de bodemkwaliteit op de locatie van een adres (BAG Nummeraanduiding ID).
+     * Haal bodemkwaliteitsgegevens op.
      *
      * @param  int $bagNummeraanduidingId Een BAG Nummeraanduiding ID om een adres te specificeren. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBodemById'] to see the possible values for this operation
@@ -322,7 +322,7 @@ class BodemApi
     /**
      * Operation getBodemByIdAsyncWithHttpInfo
      *
-     * Gegevens over de bodemkwaliteit op de locatie van een adres (BAG Nummeraanduiding ID).
+     * Haal bodemkwaliteitsgegevens op.
      *
      * @param  int $bagNummeraanduidingId Een BAG Nummeraanduiding ID om een adres te specificeren. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBodemById'] to see the possible values for this operation

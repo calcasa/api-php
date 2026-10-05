@@ -142,7 +142,7 @@ class FotosApi
     /**
      * Operation getFoto
      *
-     * Foto op basis van een foto Id.
+     * Haal een foto op.
      *
      * @param  string $id De Id van een foto, welke onder andere bij waarderingen en referenties teruggestuurd worden. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFoto'] to see the possible values for this operation
@@ -160,7 +160,7 @@ class FotosApi
     /**
      * Operation getFotoWithHttpInfo
      *
-     * Foto op basis van een foto Id.
+     * Haal een foto op.
      *
      * @param  string $id De Id van een foto, welke onder andere bij waarderingen en referenties teruggestuurd worden. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFoto'] to see the possible values for this operation
@@ -301,7 +301,7 @@ class FotosApi
     /**
      * Operation getFotoAsync
      *
-     * Foto op basis van een foto Id.
+     * Haal een foto op.
      *
      * @param  string $id De Id van een foto, welke onder andere bij waarderingen en referenties teruggestuurd worden. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFoto'] to see the possible values for this operation
@@ -322,7 +322,7 @@ class FotosApi
     /**
      * Operation getFotoAsyncWithHttpInfo
      *
-     * Foto op basis van een foto Id.
+     * Haal een foto op.
      *
      * @param  string $id De Id van een foto, welke onder andere bij waarderingen en referenties teruggestuurd worden. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFoto'] to see the possible values for this operation

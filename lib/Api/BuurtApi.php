@@ -142,7 +142,7 @@ class BuurtApi
     /**
      * Operation getBuurt
      *
-     * Gegevens over een buurt en de wijk, gemeente en land waarin deze buurt gesitueerd is.
+     * Haal buurtgegevens op.
      *
      * @param  string $buurtCode Een CBS buurt code. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBuurt'] to see the possible values for this operation
@@ -160,7 +160,7 @@ class BuurtApi
     /**
      * Operation getBuurtWithHttpInfo
      *
-     * Gegevens over een buurt en de wijk, gemeente en land waarin deze buurt gesitueerd is.
+     * Haal buurtgegevens op.
      *
      * @param  string $buurtCode Een CBS buurt code. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBuurt'] to see the possible values for this operation
@@ -301,7 +301,7 @@ class BuurtApi
     /**
      * Operation getBuurtAsync
      *
-     * Gegevens over een buurt en de wijk, gemeente en land waarin deze buurt gesitueerd is.
+     * Haal buurtgegevens op.
      *
      * @param  string $buurtCode Een CBS buurt code. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBuurt'] to see the possible values for this operation
@@ -322,7 +322,7 @@ class BuurtApi
     /**
      * Operation getBuurtAsyncWithHttpInfo
      *
-     * Gegevens over een buurt en de wijk, gemeente en land waarin deze buurt gesitueerd is.
+     * Haal buurtgegevens op.
      *
      * @param  string $buurtCode Een CBS buurt code. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBuurt'] to see the possible values for this operation

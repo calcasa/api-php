@@ -142,7 +142,7 @@ class FacturenApi
     /**
      * Operation getFactuur
      *
-     * Factuur op basis van een waardering Id.
+     * Haal een factuur op.
      *
      * @param  string $id De Id van een waardering. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFactuur'] to see the possible values for this operation
@@ -160,7 +160,7 @@ class FacturenApi
     /**
      * Operation getFactuurWithHttpInfo
      *
-     * Factuur op basis van een waardering Id.
+     * Haal een factuur op.
      *
      * @param  string $id De Id van een waardering. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFactuur'] to see the possible values for this operation
@@ -301,7 +301,7 @@ class FacturenApi
     /**
      * Operation getFactuurAsync
      *
-     * Factuur op basis van een waardering Id.
+     * Haal een factuur op.
      *
      * @param  string $id De Id van een waardering. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFactuur'] to see the possible values for this operation
@@ -322,7 +322,7 @@ class FacturenApi
     /**
      * Operation getFactuurAsyncWithHttpInfo
      *
-     * Factuur op basis van een waardering Id.
+     * Haal een factuur op.
      *
      * @param  string $id De Id van een waardering. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getFactuur'] to see the possible values for this operation

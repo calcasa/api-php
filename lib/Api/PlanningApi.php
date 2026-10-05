@@ -151,7 +151,7 @@ class PlanningApi
     /**
      * Operation assignOpnemer
      *
-     * Assign opnemer to opname.
+     * Assign an opnemer.
      *
      * @param  string $opnameId opnameId (required)
      * @param  \Calcasa\Api\Model\PlanningInfo $planningInfo planningInfo (required)
@@ -170,7 +170,7 @@ class PlanningApi
     /**
      * Operation assignOpnemerWithHttpInfo
      *
-     * Assign opnemer to opname.
+     * Assign an opnemer.
      *
      * @param  string $opnameId (required)
      * @param  \Calcasa\Api\Model\PlanningInfo $planningInfo (required)
@@ -298,7 +298,7 @@ class PlanningApi
     /**
      * Operation assignOpnemerAsync
      *
-     * Assign opnemer to opname.
+     * Assign an opnemer.
      *
      * @param  string $opnameId (required)
      * @param  \Calcasa\Api\Model\PlanningInfo $planningInfo (required)
@@ -320,7 +320,7 @@ class PlanningApi
     /**
      * Operation assignOpnemerAsyncWithHttpInfo
      *
-     * Assign opnemer to opname.
+     * Assign an opnemer.
      *
      * @param  string $opnameId (required)
      * @param  \Calcasa\Api\Model\PlanningInfo $planningInfo (required)
@@ -484,7 +484,7 @@ class PlanningApi
     /**
      * Operation deletePlanningForOpname
      *
-     * Delete the planning for an opname.
+     * Delete an opname planning.
      *
      * @param  string $opnameId opnameId (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deletePlanningForOpname'] to see the possible values for this operation
@@ -501,7 +501,7 @@ class PlanningApi
     /**
      * Operation deletePlanningForOpnameWithHttpInfo
      *
-     * Delete the planning for an opname.
+     * Delete an opname planning.
      *
      * @param  string $opnameId (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deletePlanningForOpname'] to see the possible values for this operation
@@ -574,7 +574,7 @@ class PlanningApi
     /**
      * Operation deletePlanningForOpnameAsync
      *
-     * Delete the planning for an opname.
+     * Delete an opname planning.
      *
      * @param  string $opnameId (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deletePlanningForOpname'] to see the possible values for this operation
@@ -595,7 +595,7 @@ class PlanningApi
     /**
      * Operation deletePlanningForOpnameAsyncWithHttpInfo
      *
-     * Delete the planning for an opname.
+     * Delete an opname planning.
      *
      * @param  string $opnameId (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deletePlanningForOpname'] to see the possible values for this operation
@@ -730,7 +730,7 @@ class PlanningApi
     /**
      * Operation getOpnames
      *
-     * Get the list of opnames.
+     * List opnames.
      *
      * @param  bool|null $includePlanned includePlanned (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOpnames'] to see the possible values for this operation
@@ -748,7 +748,7 @@ class PlanningApi
     /**
      * Operation getOpnamesWithHttpInfo
      *
-     * Get the list of opnames.
+     * List opnames.
      *
      * @param  bool|null $includePlanned (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOpnames'] to see the possible values for this operation
@@ -861,7 +861,7 @@ class PlanningApi
     /**
      * Operation getOpnamesAsync
      *
-     * Get the list of opnames.
+     * List opnames.
      *
      * @param  bool|null $includePlanned (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOpnames'] to see the possible values for this operation
@@ -882,7 +882,7 @@ class PlanningApi
     /**
      * Operation getOpnamesAsyncWithHttpInfo
      *
-     * Get the list of opnames.
+     * List opnames.
      *
      * @param  bool|null $includePlanned (optional, default to false)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOpnames'] to see the possible values for this operation
@@ -1025,7 +1025,7 @@ class PlanningApi
     /**
      * Operation getOpnemers
      *
-     * Get the list of opnemers.
+     * List opnemers.
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOpnemers'] to see the possible values for this operation
      *
@@ -1042,7 +1042,7 @@ class PlanningApi
     /**
      * Operation getOpnemersWithHttpInfo
      *
-     * Get the list of opnemers.
+     * List opnemers.
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOpnemers'] to see the possible values for this operation
      *
@@ -1154,7 +1154,7 @@ class PlanningApi
     /**
      * Operation getOpnemersAsync
      *
-     * Get the list of opnemers.
+     * List opnemers.
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOpnemers'] to see the possible values for this operation
      *
@@ -1174,7 +1174,7 @@ class PlanningApi
     /**
      * Operation getOpnemersAsyncWithHttpInfo
      *
-     * Get the list of opnemers.
+     * List opnemers.
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOpnemers'] to see the possible values for this operation
      *

@@ -169,7 +169,7 @@ class FileSetsApi
     /**
      * Operation confirmInboundFileSetById
      *
-     * Confirm an inbound file set after it has been fully uploaded.
+     * Confirm an inbound file set.
      *
      * @param  string $inboundFileSetId inboundFileSetId (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['confirmInboundFileSetById'] to see the possible values for this operation
@@ -187,7 +187,7 @@ class FileSetsApi
     /**
      * Operation confirmInboundFileSetByIdWithHttpInfo
      *
-     * Confirm an inbound file set after it has been fully uploaded.
+     * Confirm an inbound file set.
      *
      * @param  string $inboundFileSetId (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['confirmInboundFileSetById'] to see the possible values for this operation
@@ -328,7 +328,7 @@ class FileSetsApi
     /**
      * Operation confirmInboundFileSetByIdAsync
      *
-     * Confirm an inbound file set after it has been fully uploaded.
+     * Confirm an inbound file set.
      *
      * @param  string $inboundFileSetId (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['confirmInboundFileSetById'] to see the possible values for this operation
@@ -349,7 +349,7 @@ class FileSetsApi
     /**
      * Operation confirmInboundFileSetByIdAsyncWithHttpInfo
      *
-     * Confirm an inbound file set after it has been fully uploaded.
+     * Confirm an inbound file set.
      *
      * @param  string $inboundFileSetId (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['confirmInboundFileSetById'] to see the possible values for this operation
@@ -497,7 +497,7 @@ class FileSetsApi
     /**
      * Operation createInboundFileSet
      *
-     * Create a new inbound file set.
+     * Create an inbound file set.
      *
      * @param  \Calcasa\Api\Model\CreateInboundFileSetRequest $createInboundFileSetRequest createInboundFileSetRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createInboundFileSet'] to see the possible values for this operation
@@ -515,7 +515,7 @@ class FileSetsApi
     /**
      * Operation createInboundFileSetWithHttpInfo
      *
-     * Create a new inbound file set.
+     * Create an inbound file set.
      *
      * @param  \Calcasa\Api\Model\CreateInboundFileSetRequest $createInboundFileSetRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createInboundFileSet'] to see the possible values for this operation
@@ -656,7 +656,7 @@ class FileSetsApi
     /**
      * Operation createInboundFileSetAsync
      *
-     * Create a new inbound file set.
+     * Create an inbound file set.
      *
      * @param  \Calcasa\Api\Model\CreateInboundFileSetRequest $createInboundFileSetRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createInboundFileSet'] to see the possible values for this operation
@@ -677,7 +677,7 @@ class FileSetsApi
     /**
      * Operation createInboundFileSetAsyncWithHttpInfo
      *
-     * Create a new inbound file set.
+     * Create an inbound file set.
      *
      * @param  \Calcasa\Api\Model\CreateInboundFileSetRequest $createInboundFileSetRequest (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createInboundFileSet'] to see the possible values for this operation
@@ -824,7 +824,7 @@ class FileSetsApi
     /**
      * Operation deleteOutboundFileSetById
      *
-     * Delete an outbound file set after it has been correctly received. If an outbound file set is not downloaded and deleted within 48 hours, it will expire and all its contents will be deleted automatically.
+     * Delete an outbound file set.
      *
      * @param  string $outboundFileSetId outboundFileSetId (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteOutboundFileSetById'] to see the possible values for this operation
@@ -841,7 +841,7 @@ class FileSetsApi
     /**
      * Operation deleteOutboundFileSetByIdWithHttpInfo
      *
-     * Delete an outbound file set after it has been correctly received. If an outbound file set is not downloaded and deleted within 48 hours, it will expire and all its contents will be deleted automatically.
+     * Delete an outbound file set.
      *
      * @param  string $outboundFileSetId (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteOutboundFileSetById'] to see the possible values for this operation
@@ -914,7 +914,7 @@ class FileSetsApi
     /**
      * Operation deleteOutboundFileSetByIdAsync
      *
-     * Delete an outbound file set after it has been correctly received. If an outbound file set is not downloaded and deleted within 48 hours, it will expire and all its contents will be deleted automatically.
+     * Delete an outbound file set.
      *
      * @param  string $outboundFileSetId (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteOutboundFileSetById'] to see the possible values for this operation
@@ -935,7 +935,7 @@ class FileSetsApi
     /**
      * Operation deleteOutboundFileSetByIdAsyncWithHttpInfo
      *
-     * Delete an outbound file set after it has been correctly received. If an outbound file set is not downloaded and deleted within 48 hours, it will expire and all its contents will be deleted automatically.
+     * Delete an outbound file set.
      *
      * @param  string $outboundFileSetId (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['deleteOutboundFileSetById'] to see the possible values for this operation
@@ -1350,7 +1350,7 @@ class FileSetsApi
     /**
      * Operation getInboundFileSetById
      *
-     * Get a specific inbound file set by its ID.
+     * Get an inbound file set.
      *
      * @param  string $inboundFileSetId inboundFileSetId (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInboundFileSetById'] to see the possible values for this operation
@@ -1368,7 +1368,7 @@ class FileSetsApi
     /**
      * Operation getInboundFileSetByIdWithHttpInfo
      *
-     * Get a specific inbound file set by its ID.
+     * Get an inbound file set.
      *
      * @param  string $inboundFileSetId (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInboundFileSetById'] to see the possible values for this operation
@@ -1495,7 +1495,7 @@ class FileSetsApi
     /**
      * Operation getInboundFileSetByIdAsync
      *
-     * Get a specific inbound file set by its ID.
+     * Get an inbound file set.
      *
      * @param  string $inboundFileSetId (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInboundFileSetById'] to see the possible values for this operation
@@ -1516,7 +1516,7 @@ class FileSetsApi
     /**
      * Operation getInboundFileSetByIdAsyncWithHttpInfo
      *
-     * Get a specific inbound file set by its ID.
+     * Get an inbound file set.
      *
      * @param  string $inboundFileSetId (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInboundFileSetById'] to see the possible values for this operation
@@ -1664,7 +1664,7 @@ class FileSetsApi
     /**
      * Operation getInboundFileSets
      *
-     * Get all inbound file sets.
+     * List inbound file sets.
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInboundFileSets'] to see the possible values for this operation
      *
@@ -1681,7 +1681,7 @@ class FileSetsApi
     /**
      * Operation getInboundFileSetsWithHttpInfo
      *
-     * Get all inbound file sets.
+     * List inbound file sets.
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInboundFileSets'] to see the possible values for this operation
      *
@@ -1793,7 +1793,7 @@ class FileSetsApi
     /**
      * Operation getInboundFileSetsAsync
      *
-     * Get all inbound file sets.
+     * List inbound file sets.
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInboundFileSets'] to see the possible values for this operation
      *
@@ -1813,7 +1813,7 @@ class FileSetsApi
     /**
      * Operation getInboundFileSetsAsyncWithHttpInfo
      *
-     * Get all inbound file sets.
+     * List inbound file sets.
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getInboundFileSets'] to see the possible values for this operation
      *
@@ -1944,7 +1944,7 @@ class FileSetsApi
     /**
      * Operation getOutboundFileByIndex
      *
-     * Get a specific outbound file content by its index within a file set.
+     * Download outbound file content.
      *
      * @param  string $outboundFileSetId outboundFileSetId (required)
      * @param  int $fileIndex fileIndex (required)
@@ -1965,7 +1965,7 @@ class FileSetsApi
     /**
      * Operation getOutboundFileByIndexWithHttpInfo
      *
-     * Get a specific outbound file content by its index within a file set.
+     * Download outbound file content.
      *
      * @param  string $outboundFileSetId (required)
      * @param  int $fileIndex (required)
@@ -2123,7 +2123,7 @@ class FileSetsApi
     /**
      * Operation getOutboundFileByIndexAsync
      *
-     * Get a specific outbound file content by its index within a file set.
+     * Download outbound file content.
      *
      * @param  string $outboundFileSetId (required)
      * @param  int $fileIndex (required)
@@ -2147,7 +2147,7 @@ class FileSetsApi
     /**
      * Operation getOutboundFileByIndexAsyncWithHttpInfo
      *
-     * Get a specific outbound file content by its index within a file set.
+     * Download outbound file content.
      *
      * @param  string $outboundFileSetId (required)
      * @param  int $fileIndex (required)
@@ -2326,7 +2326,7 @@ class FileSetsApi
     /**
      * Operation getOutboundFileSetById
      *
-     * Get a specific outbound file set by its ID.
+     * Get an outbound file set.
      *
      * @param  string $outboundFileSetId outboundFileSetId (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOutboundFileSetById'] to see the possible values for this operation
@@ -2344,7 +2344,7 @@ class FileSetsApi
     /**
      * Operation getOutboundFileSetByIdWithHttpInfo
      *
-     * Get a specific outbound file set by its ID.
+     * Get an outbound file set.
      *
      * @param  string $outboundFileSetId (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOutboundFileSetById'] to see the possible values for this operation
@@ -2471,7 +2471,7 @@ class FileSetsApi
     /**
      * Operation getOutboundFileSetByIdAsync
      *
-     * Get a specific outbound file set by its ID.
+     * Get an outbound file set.
      *
      * @param  string $outboundFileSetId (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOutboundFileSetById'] to see the possible values for this operation
@@ -2492,7 +2492,7 @@ class FileSetsApi
     /**
      * Operation getOutboundFileSetByIdAsyncWithHttpInfo
      *
-     * Get a specific outbound file set by its ID.
+     * Get an outbound file set.
      *
      * @param  string $outboundFileSetId (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOutboundFileSetById'] to see the possible values for this operation
@@ -2640,7 +2640,7 @@ class FileSetsApi
     /**
      * Operation getOutboundFileSets
      *
-     * Get all outbound file sets.
+     * List outbound file sets.
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOutboundFileSets'] to see the possible values for this operation
      *
@@ -2657,7 +2657,7 @@ class FileSetsApi
     /**
      * Operation getOutboundFileSetsWithHttpInfo
      *
-     * Get all outbound file sets.
+     * List outbound file sets.
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOutboundFileSets'] to see the possible values for this operation
      *
@@ -2769,7 +2769,7 @@ class FileSetsApi
     /**
      * Operation getOutboundFileSetsAsync
      *
-     * Get all outbound file sets.
+     * List outbound file sets.
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOutboundFileSets'] to see the possible values for this operation
      *
@@ -2789,7 +2789,7 @@ class FileSetsApi
     /**
      * Operation getOutboundFileSetsAsyncWithHttpInfo
      *
-     * Get all outbound file sets.
+     * List outbound file sets.
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getOutboundFileSets'] to see the possible values for this operation
      *
@@ -2920,7 +2920,7 @@ class FileSetsApi
     /**
      * Operation putFileChunk
      *
-     * Upload a specific file chunk for an inbound file set.
+     * Upload an inbound file chunk.
      *
      * @param  string $inboundFileSetId inboundFileSetId (required)
      * @param  int $fileIndex fileIndex (required)
@@ -2940,7 +2940,7 @@ class FileSetsApi
     /**
      * Operation putFileChunkWithHttpInfo
      *
-     * Upload a specific file chunk for an inbound file set.
+     * Upload an inbound file chunk.
      *
      * @param  string $inboundFileSetId (required)
      * @param  int $fileIndex (required)
@@ -3040,7 +3040,7 @@ class FileSetsApi
     /**
      * Operation putFileChunkAsync
      *
-     * Upload a specific file chunk for an inbound file set.
+     * Upload an inbound file chunk.
      *
      * @param  string $inboundFileSetId (required)
      * @param  int $fileIndex (required)
@@ -3064,7 +3064,7 @@ class FileSetsApi
     /**
      * Operation putFileChunkAsyncWithHttpInfo
      *
-     * Upload a specific file chunk for an inbound file set.
+     * Upload an inbound file chunk.
      *
      * @param  string $inboundFileSetId (required)
      * @param  int $fileIndex (required)

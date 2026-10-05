@@ -142,7 +142,7 @@ class RapportenApi
     /**
      * Operation getRapport
      *
-     * Rapport op basis van waardering Id.
+     * Haal een rapport op.
      *
      * @param  string $id De Id van een waardering. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRapport'] to see the possible values for this operation
@@ -160,7 +160,7 @@ class RapportenApi
     /**
      * Operation getRapportWithHttpInfo
      *
-     * Rapport op basis van waardering Id.
+     * Haal een rapport op.
      *
      * @param  string $id De Id van een waardering. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRapport'] to see the possible values for this operation
@@ -301,7 +301,7 @@ class RapportenApi
     /**
      * Operation getRapportAsync
      *
-     * Rapport op basis van waardering Id.
+     * Haal een rapport op.
      *
      * @param  string $id De Id van een waardering. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRapport'] to see the possible values for this operation
@@ -322,7 +322,7 @@ class RapportenApi
     /**
      * Operation getRapportAsyncWithHttpInfo
      *
-     * Rapport op basis van waardering Id.
+     * Haal een rapport op.
      *
      * @param  string $id De Id van een waardering. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getRapport'] to see the possible values for this operation

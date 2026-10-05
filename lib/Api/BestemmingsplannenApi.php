@@ -142,7 +142,7 @@ class BestemmingsplannenApi
     /**
      * Operation getBestemmingById
      *
-     * Gegevens over de bestemmingsplannen op de locatie van een adres (BAG Nummeraanduiding ID).
+     * Haal bestemmingsplannen op.
      *
      * @param  int $bagNummeraanduidingId Een BAG Nummeraanduiding ID om een adres te specificeren. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBestemmingById'] to see the possible values for this operation
@@ -160,7 +160,7 @@ class BestemmingsplannenApi
     /**
      * Operation getBestemmingByIdWithHttpInfo
      *
-     * Gegevens over de bestemmingsplannen op de locatie van een adres (BAG Nummeraanduiding ID).
+     * Haal bestemmingsplannen op.
      *
      * @param  int $bagNummeraanduidingId Een BAG Nummeraanduiding ID om een adres te specificeren. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBestemmingById'] to see the possible values for this operation
@@ -301,7 +301,7 @@ class BestemmingsplannenApi
     /**
      * Operation getBestemmingByIdAsync
      *
-     * Gegevens over de bestemmingsplannen op de locatie van een adres (BAG Nummeraanduiding ID).
+     * Haal bestemmingsplannen op.
      *
      * @param  int $bagNummeraanduidingId Een BAG Nummeraanduiding ID om een adres te specificeren. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBestemmingById'] to see the possible values for this operation
@@ -322,7 +322,7 @@ class BestemmingsplannenApi
     /**
      * Operation getBestemmingByIdAsyncWithHttpInfo
      *
-     * Gegevens over de bestemmingsplannen op de locatie van een adres (BAG Nummeraanduiding ID).
+     * Haal bestemmingsplannen op.
      *
      * @param  int $bagNummeraanduidingId Een BAG Nummeraanduiding ID om een adres te specificeren. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getBestemmingById'] to see the possible values for this operation

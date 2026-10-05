@@ -142,7 +142,7 @@ class GeldverstrekkersApi
     /**
      * Operation getGeldverstrekkers
      *
-     * Alle geldverstrekkers die te gebruiken zijn voor aanvragen.
+     * Haal geldverstrekkers op.
      *
      * @param  \Calcasa\Api\Model\ProductType $productType Een parameter om de lijst te filteren op ondersteunde producttypen. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGeldverstrekkers'] to see the possible values for this operation
@@ -160,7 +160,7 @@ class GeldverstrekkersApi
     /**
      * Operation getGeldverstrekkersWithHttpInfo
      *
-     * Alle geldverstrekkers die te gebruiken zijn voor aanvragen.
+     * Haal geldverstrekkers op.
      *
      * @param  \Calcasa\Api\Model\ProductType $productType Een parameter om de lijst te filteren op ondersteunde producttypen. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGeldverstrekkers'] to see the possible values for this operation
@@ -287,7 +287,7 @@ class GeldverstrekkersApi
     /**
      * Operation getGeldverstrekkersAsync
      *
-     * Alle geldverstrekkers die te gebruiken zijn voor aanvragen.
+     * Haal geldverstrekkers op.
      *
      * @param  \Calcasa\Api\Model\ProductType $productType Een parameter om de lijst te filteren op ondersteunde producttypen. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGeldverstrekkers'] to see the possible values for this operation
@@ -308,7 +308,7 @@ class GeldverstrekkersApi
     /**
      * Operation getGeldverstrekkersAsyncWithHttpInfo
      *
-     * Alle geldverstrekkers die te gebruiken zijn voor aanvragen.
+     * Haal geldverstrekkers op.
      *
      * @param  \Calcasa\Api\Model\ProductType $productType Een parameter om de lijst te filteren op ondersteunde producttypen. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getGeldverstrekkers'] to see the possible values for this operation

@@ -157,7 +157,7 @@ class ConfiguratieApi
     /**
      * Operation getCallbackAuthentication
      *
-     * Haal de geconfigureerde callback authenticatie op voor de huidige client.
+     * Haal callbackauthenticatie op.
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCallbackAuthentication'] to see the possible values for this operation
      *
@@ -174,7 +174,7 @@ class ConfiguratieApi
     /**
      * Operation getCallbackAuthenticationWithHttpInfo
      *
-     * Haal de geconfigureerde callback authenticatie op voor de huidige client.
+     * Haal callbackauthenticatie op.
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCallbackAuthentication'] to see the possible values for this operation
      *
@@ -300,7 +300,7 @@ class ConfiguratieApi
     /**
      * Operation getCallbackAuthenticationAsync
      *
-     * Haal de geconfigureerde callback authenticatie op voor de huidige client.
+     * Haal callbackauthenticatie op.
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCallbackAuthentication'] to see the possible values for this operation
      *
@@ -320,7 +320,7 @@ class ConfiguratieApi
     /**
      * Operation getCallbackAuthenticationAsyncWithHttpInfo
      *
-     * Haal de geconfigureerde callback authenticatie op voor de huidige client.
+     * Haal callbackauthenticatie op.
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCallbackAuthentication'] to see the possible values for this operation
      *
@@ -451,7 +451,7 @@ class ConfiguratieApi
     /**
      * Operation getCallbacks
      *
-     * Haal de geconfigureerde callback URL&#39;s op voor de huidige client.
+     * Haal callback-URL&#39;s op.
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCallbacks'] to see the possible values for this operation
      *
@@ -468,7 +468,7 @@ class ConfiguratieApi
     /**
      * Operation getCallbacksWithHttpInfo
      *
-     * Haal de geconfigureerde callback URL&#39;s op voor de huidige client.
+     * Haal callback-URL&#39;s op.
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCallbacks'] to see the possible values for this operation
      *
@@ -594,7 +594,7 @@ class ConfiguratieApi
     /**
      * Operation getCallbacksAsync
      *
-     * Haal de geconfigureerde callback URL&#39;s op voor de huidige client.
+     * Haal callback-URL&#39;s op.
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCallbacks'] to see the possible values for this operation
      *
@@ -614,7 +614,7 @@ class ConfiguratieApi
     /**
      * Operation getCallbacksAsyncWithHttpInfo
      *
-     * Haal de geconfigureerde callback URL&#39;s op voor de huidige client.
+     * Haal callback-URL&#39;s op.
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getCallbacks'] to see the possible values for this operation
      *
@@ -745,7 +745,7 @@ class ConfiguratieApi
     /**
      * Operation getMtlsCertificate
      *
-     * Get the self-signed mTLS certificate.
+     * Haal het mTLS-certificaat op.
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMtlsCertificate'] to see the possible values for this operation
      *
@@ -762,7 +762,7 @@ class ConfiguratieApi
     /**
      * Operation getMtlsCertificateWithHttpInfo
      *
-     * Get the self-signed mTLS certificate.
+     * Haal het mTLS-certificaat op.
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMtlsCertificate'] to see the possible values for this operation
      *
@@ -888,7 +888,7 @@ class ConfiguratieApi
     /**
      * Operation getMtlsCertificateAsync
      *
-     * Get the self-signed mTLS certificate.
+     * Haal het mTLS-certificaat op.
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMtlsCertificate'] to see the possible values for this operation
      *
@@ -908,7 +908,7 @@ class ConfiguratieApi
     /**
      * Operation getMtlsCertificateAsyncWithHttpInfo
      *
-     * Get the self-signed mTLS certificate.
+     * Haal het mTLS-certificaat op.
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getMtlsCertificate'] to see the possible values for this operation
      *
@@ -1039,7 +1039,7 @@ class ConfiguratieApi
     /**
      * Operation getSignatureKeys
      *
-     * Get the JWKS keys, deze kunnen worden gebruikt om de echtheid van webhooks te verifiëren.
+     * Haal JWKS-sleutels op.
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSignatureKeys'] to see the possible values for this operation
      *
@@ -1056,7 +1056,7 @@ class ConfiguratieApi
     /**
      * Operation getSignatureKeysWithHttpInfo
      *
-     * Get the JWKS keys, deze kunnen worden gebruikt om de echtheid van webhooks te verifiëren.
+     * Haal JWKS-sleutels op.
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSignatureKeys'] to see the possible values for this operation
      *
@@ -1182,7 +1182,7 @@ class ConfiguratieApi
     /**
      * Operation getSignatureKeysAsync
      *
-     * Get the JWKS keys, deze kunnen worden gebruikt om de echtheid van webhooks te verifiëren.
+     * Haal JWKS-sleutels op.
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSignatureKeys'] to see the possible values for this operation
      *
@@ -1202,7 +1202,7 @@ class ConfiguratieApi
     /**
      * Operation getSignatureKeysAsyncWithHttpInfo
      *
-     * Get the JWKS keys, deze kunnen worden gebruikt om de echtheid van webhooks te verifiëren.
+     * Haal JWKS-sleutels op.
      *
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getSignatureKeys'] to see the possible values for this operation
      *
@@ -1333,7 +1333,7 @@ class ConfiguratieApi
     /**
      * Operation postCallbackAuthentication
      *
-     * Update de geconfigureerde callback authenticatie voor de huidige client.
+     * Werk callbackauthenticatie bij.
      *
      * @param  \Calcasa\Api\Model\CallbackAuthentication $callbackAuthentication callbackAuthentication (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postCallbackAuthentication'] to see the possible values for this operation
@@ -1351,7 +1351,7 @@ class ConfiguratieApi
     /**
      * Operation postCallbackAuthenticationWithHttpInfo
      *
-     * Update de geconfigureerde callback authenticatie voor de huidige client.
+     * Werk callbackauthenticatie bij.
      *
      * @param  \Calcasa\Api\Model\CallbackAuthentication $callbackAuthentication (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postCallbackAuthentication'] to see the possible values for this operation
@@ -1492,7 +1492,7 @@ class ConfiguratieApi
     /**
      * Operation postCallbackAuthenticationAsync
      *
-     * Update de geconfigureerde callback authenticatie voor de huidige client.
+     * Werk callbackauthenticatie bij.
      *
      * @param  \Calcasa\Api\Model\CallbackAuthentication $callbackAuthentication (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postCallbackAuthentication'] to see the possible values for this operation
@@ -1513,7 +1513,7 @@ class ConfiguratieApi
     /**
      * Operation postCallbackAuthenticationAsyncWithHttpInfo
      *
-     * Update de geconfigureerde callback authenticatie voor de huidige client.
+     * Werk callbackauthenticatie bij.
      *
      * @param  \Calcasa\Api\Model\CallbackAuthentication $callbackAuthentication (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['postCallbackAuthentication'] to see the possible values for this operation
@@ -1660,7 +1660,7 @@ class ConfiguratieApi
     /**
      * Operation updateCallbacks
      *
-     * Configureer callback URL voor een specifieke API versie voor de huidige client.
+     * Configureer een callback-URL.
      *
      * @param  \Calcasa\Api\Model\Callback $callback callback (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCallbacks'] to see the possible values for this operation
@@ -1678,7 +1678,7 @@ class ConfiguratieApi
     /**
      * Operation updateCallbacksWithHttpInfo
      *
-     * Configureer callback URL voor een specifieke API versie voor de huidige client.
+     * Configureer een callback-URL.
      *
      * @param  \Calcasa\Api\Model\Callback $callback (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCallbacks'] to see the possible values for this operation
@@ -1819,7 +1819,7 @@ class ConfiguratieApi
     /**
      * Operation updateCallbacksAsync
      *
-     * Configureer callback URL voor een specifieke API versie voor de huidige client.
+     * Configureer een callback-URL.
      *
      * @param  \Calcasa\Api\Model\Callback $callback (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCallbacks'] to see the possible values for this operation
@@ -1840,7 +1840,7 @@ class ConfiguratieApi
     /**
      * Operation updateCallbacksAsyncWithHttpInfo
      *
-     * Configureer callback URL voor een specifieke API versie voor de huidige client.
+     * Configureer een callback-URL.
      *
      * @param  \Calcasa\Api\Model\Callback $callback (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['updateCallbacks'] to see the possible values for this operation

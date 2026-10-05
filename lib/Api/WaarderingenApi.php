@@ -160,7 +160,7 @@ class WaarderingenApi
     /**
      * Operation checkProducten
      *
-     * Controleert mogelijke producten.
+     * Controleer mogelijke producten.
      *
      * @param  \Calcasa\Api\Model\ProductCheckParameters $productCheckParameters productCheckParameters (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['checkProducten'] to see the possible values for this operation
@@ -178,7 +178,7 @@ class WaarderingenApi
     /**
      * Operation checkProductenWithHttpInfo
      *
-     * Controleert mogelijke producten.
+     * Controleer mogelijke producten.
      *
      * @param  \Calcasa\Api\Model\ProductCheckParameters $productCheckParameters (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['checkProducten'] to see the possible values for this operation
@@ -333,7 +333,7 @@ class WaarderingenApi
     /**
      * Operation checkProductenAsync
      *
-     * Controleert mogelijke producten.
+     * Controleer mogelijke producten.
      *
      * @param  \Calcasa\Api\Model\ProductCheckParameters $productCheckParameters (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['checkProducten'] to see the possible values for this operation
@@ -354,7 +354,7 @@ class WaarderingenApi
     /**
      * Operation checkProductenAsyncWithHttpInfo
      *
-     * Controleert mogelijke producten.
+     * Controleer mogelijke producten.
      *
      * @param  \Calcasa\Api\Model\ProductCheckParameters $productCheckParameters (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['checkProducten'] to see the possible values for this operation
@@ -501,7 +501,7 @@ class WaarderingenApi
     /**
      * Operation createWaardering
      *
-     * Maak een waardering aan.
+     * Maak een waardering.
      *
      * @param  \Calcasa\Api\Model\WaarderingInputParameters $waarderingInputParameters waarderingInputParameters (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWaardering'] to see the possible values for this operation
@@ -519,7 +519,7 @@ class WaarderingenApi
     /**
      * Operation createWaarderingWithHttpInfo
      *
-     * Maak een waardering aan.
+     * Maak een waardering.
      *
      * @param  \Calcasa\Api\Model\WaarderingInputParameters $waarderingInputParameters (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWaardering'] to see the possible values for this operation
@@ -688,7 +688,7 @@ class WaarderingenApi
     /**
      * Operation createWaarderingAsync
      *
-     * Maak een waardering aan.
+     * Maak een waardering.
      *
      * @param  \Calcasa\Api\Model\WaarderingInputParameters $waarderingInputParameters (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWaardering'] to see the possible values for this operation
@@ -709,7 +709,7 @@ class WaarderingenApi
     /**
      * Operation createWaarderingAsyncWithHttpInfo
      *
-     * Maak een waardering aan.
+     * Maak een waardering.
      *
      * @param  \Calcasa\Api\Model\WaarderingInputParameters $waarderingInputParameters (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['createWaardering'] to see the possible values for this operation
@@ -856,7 +856,7 @@ class WaarderingenApi
     /**
      * Operation getWaardering
      *
-     * Waardering op basis van Id.
+     * Haal een waardering op.
      *
      * @param  string $id De waardering Id in de vorm van een UUID. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWaardering'] to see the possible values for this operation
@@ -874,7 +874,7 @@ class WaarderingenApi
     /**
      * Operation getWaarderingWithHttpInfo
      *
-     * Waardering op basis van Id.
+     * Haal een waardering op.
      *
      * @param  string $id De waardering Id in de vorm van een UUID. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWaardering'] to see the possible values for this operation
@@ -1043,7 +1043,7 @@ class WaarderingenApi
     /**
      * Operation getWaarderingAsync
      *
-     * Waardering op basis van Id.
+     * Haal een waardering op.
      *
      * @param  string $id De waardering Id in de vorm van een UUID. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWaardering'] to see the possible values for this operation
@@ -1064,7 +1064,7 @@ class WaarderingenApi
     /**
      * Operation getWaarderingAsyncWithHttpInfo
      *
-     * Waardering op basis van Id.
+     * Haal een waardering op.
      *
      * @param  string $id De waardering Id in de vorm van een UUID. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWaardering'] to see the possible values for this operation
@@ -1212,7 +1212,7 @@ class WaarderingenApi
     /**
      * Operation getWaarderingByReportHash
      *
-     * Waardering op basis van upper-case hex SHA-256 hash van een PDF rapport. Als er een collision is wordt de nieuwste waardering teruggegeven.
+     * Zoek op rapport-hash.
      *
      * @param  string $hash De SHA-256 hash van het bestand, in upper-case hex. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWaarderingByReportHash'] to see the possible values for this operation
@@ -1230,7 +1230,7 @@ class WaarderingenApi
     /**
      * Operation getWaarderingByReportHashWithHttpInfo
      *
-     * Waardering op basis van upper-case hex SHA-256 hash van een PDF rapport. Als er een collision is wordt de nieuwste waardering teruggegeven.
+     * Zoek op rapport-hash.
      *
      * @param  string $hash De SHA-256 hash van het bestand, in upper-case hex. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWaarderingByReportHash'] to see the possible values for this operation
@@ -1399,7 +1399,7 @@ class WaarderingenApi
     /**
      * Operation getWaarderingByReportHashAsync
      *
-     * Waardering op basis van upper-case hex SHA-256 hash van een PDF rapport. Als er een collision is wordt de nieuwste waardering teruggegeven.
+     * Zoek op rapport-hash.
      *
      * @param  string $hash De SHA-256 hash van het bestand, in upper-case hex. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWaarderingByReportHash'] to see the possible values for this operation
@@ -1420,7 +1420,7 @@ class WaarderingenApi
     /**
      * Operation getWaarderingByReportHashAsyncWithHttpInfo
      *
-     * Waardering op basis van upper-case hex SHA-256 hash van een PDF rapport. Als er een collision is wordt de nieuwste waardering teruggegeven.
+     * Zoek op rapport-hash.
      *
      * @param  string $hash De SHA-256 hash van het bestand, in upper-case hex. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWaarderingByReportHash'] to see the possible values for this operation
@@ -1571,7 +1571,7 @@ class WaarderingenApi
     /**
      * Operation getWaarderingOntwikkeling
      *
-     * Waardering ontwikkeling op basis van waardering Id.
+     * Haal waarderingsontwikkeling op.
      *
      * @param  string $id De waardering Id in de vorm van een UUID. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWaarderingOntwikkeling'] to see the possible values for this operation
@@ -1589,7 +1589,7 @@ class WaarderingenApi
     /**
      * Operation getWaarderingOntwikkelingWithHttpInfo
      *
-     * Waardering ontwikkeling op basis van waardering Id.
+     * Haal waarderingsontwikkeling op.
      *
      * @param  string $id De waardering Id in de vorm van een UUID. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWaarderingOntwikkeling'] to see the possible values for this operation
@@ -1744,7 +1744,7 @@ class WaarderingenApi
     /**
      * Operation getWaarderingOntwikkelingAsync
      *
-     * Waardering ontwikkeling op basis van waardering Id.
+     * Haal waarderingsontwikkeling op.
      *
      * @param  string $id De waardering Id in de vorm van een UUID. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWaarderingOntwikkeling'] to see the possible values for this operation
@@ -1765,7 +1765,7 @@ class WaarderingenApi
     /**
      * Operation getWaarderingOntwikkelingAsyncWithHttpInfo
      *
-     * Waardering ontwikkeling op basis van waardering Id.
+     * Haal waarderingsontwikkeling op.
      *
      * @param  string $id De waardering Id in de vorm van een UUID. (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['getWaarderingOntwikkeling'] to see the possible values for this operation
@@ -1913,7 +1913,7 @@ class WaarderingenApi
     /**
      * Operation patchWaarderingen
      *
-     * Patcht een waardering.
+     * Werk een waardering bij.
      *
      * @param  string $id De waardering Id in de vorm van een UUID. (required)
      * @param  \Calcasa\Api\Model\JsonPatchDocument $jsonPatchDocument jsonPatchDocument (required)
@@ -1932,7 +1932,7 @@ class WaarderingenApi
     /**
      * Operation patchWaarderingenWithHttpInfo
      *
-     * Patcht een waardering.
+     * Werk een waardering bij.
      *
      * @param  string $id De waardering Id in de vorm van een UUID. (required)
      * @param  \Calcasa\Api\Model\JsonPatchDocument $jsonPatchDocument (required)
@@ -2116,7 +2116,7 @@ class WaarderingenApi
     /**
      * Operation patchWaarderingenAsync
      *
-     * Patcht een waardering.
+     * Werk een waardering bij.
      *
      * @param  string $id De waardering Id in de vorm van een UUID. (required)
      * @param  \Calcasa\Api\Model\JsonPatchDocument $jsonPatchDocument (required)
@@ -2138,7 +2138,7 @@ class WaarderingenApi
     /**
      * Operation patchWaarderingenAsyncWithHttpInfo
      *
-     * Patcht een waardering.
+     * Werk een waardering bij.
      *
      * @param  string $id De waardering Id in de vorm van een UUID. (required)
      * @param  \Calcasa\Api\Model\JsonPatchDocument $jsonPatchDocument (required)
@@ -2302,7 +2302,7 @@ class WaarderingenApi
     /**
      * Operation searchWaarderingen
      *
-     * Zoek waardering op basis van input parameters.
+     * Zoek waarderingen.
      *
      * @param  \Calcasa\Api\Model\WaarderingZoekParameters $waarderingZoekParameters waarderingZoekParameters (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchWaarderingen'] to see the possible values for this operation
@@ -2320,7 +2320,7 @@ class WaarderingenApi
     /**
      * Operation searchWaarderingenWithHttpInfo
      *
-     * Zoek waardering op basis van input parameters.
+     * Zoek waarderingen.
      *
      * @param  \Calcasa\Api\Model\WaarderingZoekParameters $waarderingZoekParameters (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchWaarderingen'] to see the possible values for this operation
@@ -2475,7 +2475,7 @@ class WaarderingenApi
     /**
      * Operation searchWaarderingenAsync
      *
-     * Zoek waardering op basis van input parameters.
+     * Zoek waarderingen.
      *
      * @param  \Calcasa\Api\Model\WaarderingZoekParameters $waarderingZoekParameters (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchWaarderingen'] to see the possible values for this operation
@@ -2496,7 +2496,7 @@ class WaarderingenApi
     /**
      * Operation searchWaarderingenAsyncWithHttpInfo
      *
-     * Zoek waardering op basis van input parameters.
+     * Zoek waarderingen.
      *
      * @param  \Calcasa\Api\Model\WaarderingZoekParameters $waarderingZoekParameters (required)
      * @param  string $contentType The value for the Content-Type header. Check self::contentTypes['searchWaarderingen'] to see the possible values for this operation
